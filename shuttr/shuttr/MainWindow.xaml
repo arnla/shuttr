@@ -22,10 +22,11 @@
         <Button Content="Messages" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Margin="1778,76,0,0" Click="button_Click" FontFamily="Microsoft YaHei" FontWeight="Bold" BorderThickness="0,1,1,1" RenderTransformOrigin="0.5,0.5" Background="#F63090C7" Foreground="White" Height="34" FontSize="24"/>
         <Rectangle HorizontalAlignment="Left" Height="34" Margin="671,76,0,0" Stroke="#FFC9C9C9" StrokeThickness="4" VerticalAlignment="Top" Width="615" Opacity="0.1" Fill="Black">
         </Rectangle>
-        <Button Margin="1822,24,10,0" VerticalAlignment="Top" Height="86" RenderTransformOrigin="0.5,0.5">
+        <Button Margin="1627,10,235.333,0" VerticalAlignment="Top" Height="51" Width="51" RenderTransformOrigin="0.5,0.5">
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="profile.jpg" Height="57" Width="83"/>
+                    <Image Source="profile.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
+                    <TextBlock Text="Username" FontSize="24" FontFamily="Microsoft YaHei" FontWeight="Bold" Foreground="White" Background="#F63090C7"/>
                 </StackPanel>
             </Button.Content>
         </Button>
