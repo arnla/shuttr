@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shuttr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="1200" Width="1920">
+    <Grid Background="#F69FCBE4">
+        <Button x:Name="postButton" Content="POST" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="1593,76,0,0" Click="button_Click" FontFamily="Microsoft YaHei" FontWeight="Bold" BorderThickness="0,1,1,1" RenderTransformOrigin="0.5,0.5" Background="#F63090C7" Foreground="White" Height="34" FontSize="24">
+            <Button.Effect>
+                <DropShadowEffect Direction="270" ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+        <ScrollViewer HorizontalAlignment="Center" Height="100" Margin="960,223,960,0" VerticalAlignment="Top" Width="1000"/>
+        <Line
+            X1="0" Y1="125"
+            X2="1920" Y2="125"
+            Stroke="Black"
+            StrokeThickness="4" />
+        <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Margin="1748,76,0,0" Click="button_Click" FontFamily="Microsoft YaHei" FontWeight="Bold" BorderThickness="0,1,1,1" RenderTransformOrigin="0.5,0.5" Background="#F63090C7" Foreground="White" Height="34" FontSize="24"/>
+        <Button Content="Messages" HorizontalAlignment="Left" VerticalAlignment="Top" Width="34" Margin="1818,76,0,0" Click="button_Click" FontFamily="Microsoft YaHei" FontWeight="Bold" BorderThickness="0,1,1,1" RenderTransformOrigin="0.5,0.5" Background="#F63090C7" Foreground="White" Height="34" FontSize="24"/>
+        <Rectangle HorizontalAlignment="Left" Height="34" Margin="671,76,0,0" Stroke="#FFC9C9C9" StrokeThickness="4" VerticalAlignment="Top" Width="615" Opacity="0.1" Fill="Black">
+        </Rectangle>
+
     </Grid>
 </Window>
