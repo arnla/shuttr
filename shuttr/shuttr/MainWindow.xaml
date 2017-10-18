@@ -9,14 +9,16 @@
 
     <Grid Background="#F69FCBE4">
         <Button x:Name="AccountButton"
-                Margin="1718,10,10.333,0"
+                Margin="1847,10,10,0"
                 VerticalAlignment="Top"
                 RenderTransformOrigin="0.5,0.5"
                 Background="#F63090C7">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Images/profile.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
-                <Label Padding="0" FontFamily="Microsoft YaHei" FontSize="24" FontWeight="Bold" Foreground="White" Background="#F63090C7" VerticalAlignment="Center" HorizontalAlignment="Center">Username</Label>
             </StackPanel>
+            <Button.Effect>
+                <DropShadowEffect Direction="270" ShadowDepth="1"/>
+            </Button.Effect>
         </Button>
 
         <Button x:Name="PostButton"
@@ -24,12 +26,12 @@
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="85" 
-                Margin="1604,76,0,0" 
+                Margin="1604,19,0,0" 
                 Click="button_Click" 
                 FontFamily="Microsoft YaHei" 
                 FontWeight="Bold" 
                 BorderThickness="0,1,1,1" 
-                RenderTransformOrigin="0.5,0.5" 
+                RenderTransformOrigin="-0.106,0.853" 
                 Background="#F63090C7" 
                 Foreground="White" 
                 Height="34" 
@@ -40,51 +42,62 @@
         </Button>
 
         <Button x:Name="NotificationsButton"
-                Content="Notifications" 
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="34" 
-                Margin="1760,76,0,0" 
+                Margin="1714,19,0,0" 
                 Click="button_Click" 
                 FontFamily="Microsoft YaHei" 
                 FontWeight="Bold" 
-                BorderThickness="0,1,1,1" 
-                RenderTransformOrigin="0.5,0.5"
-                Background="#F63090C7"
+                BorderThickness="0,0,0,0" 
+                RenderTransformOrigin="3,0.618"
+                Background="#F69FCBE4"
                 Foreground="White"
                 Height="34"
-                FontSize="24"/>
+                FontSize="24">
+            <StackPanel>
+                <Image Source="/Images/notification.png" Opacity="0.8"/>
+            </StackPanel>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
         <Button x:Name="MessagesButton"
                 Content="Messages"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Width="34" Margin="1829,76,0,0"
+                Width="34" Margin="1770,19,0,0"
                 Click="button_Click"
                 FontFamily="Microsoft YaHei"
                 FontWeight="Bold"
                 BorderThickness="0,1,1,1"
-                RenderTransformOrigin="0.5,0.5"
+                RenderTransformOrigin="4.265,0.588"
                 Background="#F63090C7"
                 Foreground="White"
                 Height="34"
                 FontSize="24"/>
 
-        <Rectangle x:Name="SearchBar"
-                   HorizontalAlignment="Left"
-                   Height="34"
-                   Margin="671,76,0,0"
-                   Stroke="#FFC9C9C9"
-                   StrokeThickness="4"
-                   VerticalAlignment="Top"
-                   Width="615"
-                   Opacity="0.1"
-                   Fill="Black"/>
-
         <Line X1="0" Y1="125"
               X2="1920" Y2="125"
               Stroke="Black"
-              StrokeThickness="4" />
+              StrokeThickness="4" Margin="0,-50,0,50" />
 
         <ScrollViewer HorizontalAlignment="Center" 
                       Height="1007" 
@@ -101,5 +114,75 @@
                 <Image Source="/Images/mountain2.jpg"/>
             </StackPanel>
         </ScrollViewer>
+        <Button x:Name="SavedTab"
+            Content="Saved"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="445,19,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="0.5,0.5" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <Button x:Name="DiscussionsTab"
+            Content="Discussions"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="289,19,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="0.5,0.5" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <Button x:Name="PhotosTab"
+            Content="Photos"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="135,19,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="-0.328,0.441" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <TextBox HorizontalAlignment="Left" 
+                 Height="34"
+                 Margin="622,19,0,0" 
+                 TextWrapping="Wrap"
+                 Text="Search..."
+                 VerticalAlignment="Top" 
+                 Width="647"
+                 Opacity="0.9" FontSize="18" FontFamily="Microsoft YaHei"
+                 />
+        <ToolBar HorizontalAlignment="Left"
+                 Height="30" 
+                 Margin="1210,124,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="219"
+                 Header="Sort by:"
+                 >
+            <Menu Height="25" 
+                  VerticalAlignment="Top" 
+                  Width="100"
+                  
+                  />
+        </ToolBar>
     </Grid>
 </Window>

@@ -95,7 +95,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\messages.png" />
+    <Resource Include="Images\notification.png" />
+    <Resource Include="Images\user.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mountain.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
