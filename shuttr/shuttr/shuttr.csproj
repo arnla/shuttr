@@ -98,7 +98,6 @@
   <ItemGroup>
     <Resource Include="Images\messages.png" />
     <Resource Include="Images\notification.png" />
-    <Resource Include="Images\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\mountain.JPG">
@@ -110,6 +109,12 @@
     <Resource Include="Images\profile.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\userprofile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

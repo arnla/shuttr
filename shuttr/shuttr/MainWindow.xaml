@@ -9,16 +9,38 @@
 
     <Grid Background="#F69FCBE4">
         <Button x:Name="AccountButton"
-                Margin="1847,10,10,0"
-                VerticalAlignment="Top"
-                RenderTransformOrigin="0.5,0.5"
-                Background="#F63090C7">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Images/profile.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
+                Margin="1800,20,0,0"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="34" 
+                Click="button_Click" 
+                BorderThickness="0,0,0,0" 
+                RenderTransformOrigin="3,0.618"
+                Background="#F69FCBE4"
+                Foreground="White"
+                Height="34">
+            <StackPanel>
+                <Image Source="/Images/userprofile.png" Opacity="0.7"/>
             </StackPanel>
-            <Button.Effect>
-                <DropShadowEffect Direction="270" ShadowDepth="1"/>
-            </Button.Effect>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
         </Button>
 
         <Button x:Name="PostButton"
@@ -26,16 +48,13 @@
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="85" 
-                Margin="1604,19,0,0" 
+                Margin="1550,20,0,0" 
                 Click="button_Click" 
-                FontFamily="Microsoft YaHei" 
-                FontWeight="Bold" 
                 BorderThickness="0,1,1,1" 
                 RenderTransformOrigin="-0.106,0.853" 
                 Background="#F63090C7" 
                 Foreground="White" 
-                Height="34" 
-                FontSize="24">
+                Height="34">
             <Button.Effect>
                 <DropShadowEffect Direction="270" ShadowDepth="1"/>
             </Button.Effect>
@@ -45,18 +64,15 @@
                 HorizontalAlignment="Left" 
                 VerticalAlignment="Top" 
                 Width="34" 
-                Margin="1714,19,0,0" 
+                Margin="1680,20,0,0" 
                 Click="button_Click" 
-                FontFamily="Microsoft YaHei" 
-                FontWeight="Bold" 
                 BorderThickness="0,0,0,0" 
                 RenderTransformOrigin="3,0.618"
                 Background="#F69FCBE4"
                 Foreground="White"
-                Height="34"
-                FontSize="24">
+                Height="34">
             <StackPanel>
-                <Image Source="/Images/notification.png" Opacity="0.8"/>
+                <Image Source="/Images/notification.png" Opacity="0.65"/>
             </StackPanel>
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -82,18 +98,16 @@
         <Button x:Name="MessagesButton"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Width="34" Margin="1770,19,0,0"
+                Width="34" 
+                Margin="1740,20,0,0"
                 Click="button_Click"
-                FontFamily="Microsoft YaHei"
-                FontWeight="Bold"
                 BorderThickness="0,0,0,0"
                 RenderTransformOrigin="4.265,0.588"
                 Background="#F69FCBE4"
                 Foreground="White"
-                Height="34"
-                FontSize="24">
+                Height="34">
             <StackPanel>
-                <Image Source="/Images/messages.png" Opacity="0.8"/>
+                <Image Source="/Images/messages.png" Opacity="0.7" RenderTransformOrigin="1.216,0.647"/>
             </StackPanel>
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
@@ -141,7 +155,7 @@
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Width="128" 
-            Margin="445,19,0,0" 
+            Margin="380,20,0,0" 
             Click="button_Click" 
             FontFamily="Microsoft YaHei" 
             FontWeight="Bold" 
@@ -157,7 +171,7 @@
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Width="128" 
-            Margin="289,19,0,0" 
+            Margin="220,20,0,0" 
             Click="button_Click" 
             FontFamily="Microsoft YaHei" 
             FontWeight="Bold" 
@@ -173,7 +187,7 @@
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Width="128" 
-            Margin="135,19,0,0" 
+            Margin="60,20,0,0" 
             Click="button_Click" 
             FontFamily="Microsoft YaHei" 
             FontWeight="Bold" 
@@ -184,14 +198,16 @@
             Height="34" 
             FontSize="24">
         </Button>
-        <TextBox HorizontalAlignment="Left" 
+        <TextBox x:Name="SearchBar"
+                 HorizontalAlignment="Left" 
                  Height="34"
                  Margin="622,19,0,0" 
                  TextWrapping="Wrap"
                  Text="Search..."
                  VerticalAlignment="Top" 
                  Width="647"
-                 Opacity="0.9" FontSize="18" FontFamily="Microsoft YaHei"
+                 Opacity="0.9" FontSize="18" 
+                 FontFamily="Microsoft YaHei"
                  />
         <ToolBar HorizontalAlignment="Left"
                  Height="30" 
