@@ -198,18 +198,8 @@
             Height="34" 
             FontSize="24">
         </Button>
-        <TextBox x:Name="SearchBar"
-                 HorizontalAlignment="Left" 
-                 Height="34"
-                 Margin="622,19,0,0" 
-                 TextWrapping="Wrap"
-                 Text="Search..."
-                 VerticalAlignment="Top" 
-                 Width="647"
-                 Opacity="0.9" FontSize="18" 
-                 FontFamily="Microsoft YaHei"
-                 />
-        <ToolBar HorizontalAlignment="Left"
+        <ToolBar x:Name="SortBy"
+                 HorizontalAlignment="Left"
                  Height="30" 
                  Margin="1210,124,0,0" 
                  VerticalAlignment="Top" 
@@ -222,5 +212,20 @@
                   
                   />
         </ToolBar>
+        <Border BorderBrush="Gray" BorderThickness="2" Background="#FFB8B8B8" HorizontalAlignment="Left" Height="34" Margin="620,20,0,0" VerticalAlignment="Top" Width="647" Opacity="0.5">
+            <TextBlock 
+                x:Name="SearchBar"
+                TextWrapping="Wrap" 
+                Text=" Search..." 
+                VerticalAlignment="Center" 
+                FontFamily="Microsoft YaHei" 
+                FontWeight="Bold" 
+                FontSize="18" 
+                Opacity="0.5">
+                <TextBlock.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Border>
     </Grid>
 </Window>
