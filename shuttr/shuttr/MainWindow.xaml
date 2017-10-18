@@ -80,19 +80,41 @@
         </Button>
 
         <Button x:Name="MessagesButton"
-                Content="Messages"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Width="34" Margin="1770,19,0,0"
                 Click="button_Click"
                 FontFamily="Microsoft YaHei"
                 FontWeight="Bold"
-                BorderThickness="0,1,1,1"
+                BorderThickness="0,0,0,0"
                 RenderTransformOrigin="4.265,0.588"
-                Background="#F63090C7"
+                Background="#F69FCBE4"
                 Foreground="White"
                 Height="34"
-                FontSize="24"/>
+                FontSize="24">
+            <StackPanel>
+                <Image Source="/Images/messages.png" Opacity="0.8"/>
+            </StackPanel>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
         <Line X1="0" Y1="125"
               X2="1920" Y2="125"
