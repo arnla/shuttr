@@ -14,7 +14,7 @@
                 RenderTransformOrigin="0.5,0.5"
                 Background="#F63090C7">
             <StackPanel Orientation="Horizontal">
-                <Image Source="profile.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
+                <Image Source="/Images/profile.jpg" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="50"/>
                 <Label Padding="0" FontFamily="Microsoft YaHei" FontSize="24" FontWeight="Bold" Foreground="White" Background="#F63090C7" VerticalAlignment="Center" HorizontalAlignment="Center">Username</Label>
             </StackPanel>
         </Button>
@@ -97,8 +97,8 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Image Source="mountain.jpg"/>
-                <Image Source="mountain2.jpg"/>
+                <Image Source="/Images/mountain.jpg"/>
+                <Image Source="/Images/mountain2.jpg"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
