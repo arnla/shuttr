@@ -25,7 +25,7 @@ namespace shuttr
             InitializeComponent();
         }
 
-        protected void button_Click(Object sender, EventArgs e)
+        protected void Button_Click(Object sender, EventArgs e)
         {
             // Some stuff happens here.
         }
