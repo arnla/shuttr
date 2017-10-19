@@ -80,17 +80,17 @@
                 Opacity="0.5"
                 Grid.Row="0"
                 Grid.Column="1">
-            <TextBlock x:Name="SearchTextBox"
-                       Text=" Search photos, discussions, people...                    " 
-                       VerticalAlignment="Center" 
-                       FontFamily="Microsoft YaHei" 
-                       FontWeight="Bold" 
-                       FontSize="18" 
-                       Opacity="0.5">
-                <TextBlock.Background>
+            <TextBox x:Name="SearchTextBox"
+                     Text=" Search photos, discussions, people...                    " 
+                     VerticalAlignment="Center" 
+                     FontFamily="Microsoft YaHei" 
+                     FontWeight="Bold" 
+                     FontSize="18" 
+                     Opacity="0.5">
+                <TextBox.Background>
                     <SolidColorBrush Opacity="0"/>
-                </TextBlock.Background>
-            </TextBlock>
+                </TextBox.Background>
+            </TextBox>
         </Border>
 
         <Button x:Name="PostButton"
