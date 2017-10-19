@@ -256,5 +256,85 @@
                 <Image Source="/Images/Coast.jpg"/>
             </StackPanel>
         </ScrollViewer>
+<<<<<<< HEAD
+        <Button x:Name="SavedTab"
+            Content="Saved"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="380,20,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="0.5,0.5" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <Button x:Name="DiscussionsTab"
+            Content="Discussions"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="220,20,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="0.5,0.5" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <Button x:Name="PhotosTab"
+            Content="Photos"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="128" 
+            Margin="60,20,0,0" 
+            Click="button_Click" 
+            FontFamily="Microsoft YaHei" 
+            FontWeight="Bold" 
+            BorderThickness="0,0,0,0" 
+            RenderTransformOrigin="-0.328,0.441" 
+            Background="#F69FCBE4" 
+            Foreground="White" 
+            Height="34" 
+            FontSize="24">
+        </Button>
+        <ToolBar x:Name="SortBy"
+                 HorizontalAlignment="Left"
+                 Height="30" 
+                 Margin="1210,124,0,0" 
+                 VerticalAlignment="Top" 
+                 Width="219"
+                 Header="Sort by:"
+                 >
+            <Menu Height="25" 
+                  VerticalAlignment="Top" 
+                  Width="100"
+                  
+                  />
+        </ToolBar>
+        <Border BorderBrush="Gray" BorderThickness="2" Background="#FFB8B8B8" HorizontalAlignment="Left" Height="34" Margin="620,20,0,0" VerticalAlignment="Top" Width="647" Opacity="0.5">
+            <TextBlock 
+                x:Name="SearchBar"
+                TextWrapping="Wrap" 
+                Text=" Search photos, discussions, people..." 
+                VerticalAlignment="Center" 
+                FontFamily="Microsoft YaHei" 
+                FontWeight="Bold" 
+                FontSize="18" 
+                Opacity="0.5">
+                <TextBlock.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBlock.Background>
+            </TextBlock>
+        </Border>
+=======
+>>>>>>> GridLayoutTest
     </Grid>
 </Window>
