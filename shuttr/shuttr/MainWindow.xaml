@@ -242,7 +242,7 @@
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
                       Width="1000"
-                      Height="1007"
+                      Height="Auto"
                       Grid.Row="2"
                       Grid.Column="0"
                       Grid.ColumnSpan="4">
