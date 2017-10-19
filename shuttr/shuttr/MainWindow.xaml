@@ -216,7 +216,7 @@
             <TextBlock 
                 x:Name="SearchBar"
                 TextWrapping="Wrap" 
-                Text=" Search..." 
+                Text=" Search photos, discussions, people..." 
                 VerticalAlignment="Center" 
                 FontFamily="Microsoft YaHei" 
                 FontWeight="Bold" 
