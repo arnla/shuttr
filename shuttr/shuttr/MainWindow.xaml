@@ -146,8 +146,8 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Image Source="/Images/mountain.jpg"/>
-                <Image Source="/Images/mountain2.jpg"/>
+                <Image Source="/Images/child.jpg"/>
+                <Image Source="/Images/Coast.jpg"/>
             </StackPanel>
         </ScrollViewer>
         <Button x:Name="SavedTab"
