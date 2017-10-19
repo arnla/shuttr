@@ -25,11 +25,20 @@
                     VerticalAlignment="Center"
                     Grid.Row="0"
                     Grid.Column="0">
+            <Button x:Name="LogoButton"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Background="#F69FCBE4">
+                <StackPanel>
+                    <Image Source="/Images/shuttrLogoNoBack.png"
+                           Height="50"/>
+                </StackPanel>
+            </Button>
             
             <Button x:Name="PhotosTab"
                     Content="Photos"
                     HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
+                    VerticalAlignment="Center" 
                     Width="128" 
                     Height="34"
                     FontFamily="Microsoft YaHei" 
@@ -43,7 +52,7 @@
             <Button x:Name="DiscussionsTab"
                     Content="Discussions"
                     HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
+                    VerticalAlignment="Center" 
                     Width="128" 
                     Height="34" 
                     FontFamily="Microsoft YaHei" 
@@ -57,7 +66,7 @@
             <Button x:Name="SavedTab"
                     Content="Saved"
                     HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
+                    VerticalAlignment="Center" 
                     Width="128"
                     Height="34" 
                     FontFamily="Microsoft YaHei" 
