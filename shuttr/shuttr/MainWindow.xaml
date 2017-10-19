@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TopBar" Height="Auto"/>
             <RowDefinition x:Name="Line" Height="Auto"/>
+            <RowDefinition x:Name="Sort" Height="AUto"/>
             <RowDefinition x:Name="Content"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -235,24 +236,29 @@
               Grid.Column="0"
               Grid.ColumnSpan="4"/>
 
-        <ToolBar x:Name="SortBy"
-                 Header="Sort by:"
-                 HorizontalAlignment="Left"
-                 VerticalAlignment="Top" 
-                 Height="30" 
-                 Width="219"
-                 Grid.Row="2"
-                 Grid.Column="3">
-            <Menu Height="25" 
-                  VerticalAlignment="Top" 
-                  Width="100"/>
-        </ToolBar>
+        <Border x:Name="SortByContainer"
+                HorizontalAlignment="Center"
+                Width="800"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="4">
+            <ToolBar x:Name="SortBy"
+                     Header="Sort by:"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" 
+                     Height="30" 
+                     Width="219">
+                <Menu Height="25" 
+                      VerticalAlignment="Top" 
+                      Width="100"/>
+            </ToolBar>
+        </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
-                      Width="1000"
+                      Width="800"
                       Height="Auto"
-                      Grid.Row="2"
+                      Grid.Row="3"
                       Grid.Column="0"
                       Grid.ColumnSpan="4">
             <StackPanel x:Name="PhotoFeed">
