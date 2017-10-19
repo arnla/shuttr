@@ -8,138 +8,244 @@
         Title="MainWindow" Height="1200" Width="1920">
 
     <Grid Background="#F69FCBE4">
-        <Button x:Name="AccountButton"
-                Margin="1800,20,0,0"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Width="34" 
-                Click="button_Click" 
-                BorderThickness="0,0,0,0" 
-                RenderTransformOrigin="3,0.618"
-                Background="#F69FCBE4"
-                Foreground="White"
-                Height="34">
-            <StackPanel>
-                <Image Source="/Images/userprofile.png" Opacity="0.7"/>
-            </StackPanel>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Green"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="DarkGoldenrod"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="TopBar" Height="Auto"/>
+            <RowDefinition x:Name="Line" Height="Auto"/>
+            <RowDefinition x:Name="Content"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="Tabs" 
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0">
+            
+            <Button x:Name="PhotosTab"
+                    Content="Photos"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="128" 
+                    Height="34"
+                    FontFamily="Microsoft YaHei" 
+                    FontWeight="Bold"  
+                    FontSize="24"
+                    BorderThickness="0,0,0,0"
+                    Background="#F69FCBE4" 
+                    Foreground="White"
+                    Click="Button_Click" />
+
+            <Button x:Name="DiscussionsTab"
+                    Content="Discussions"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="128" 
+                    Height="34" 
+                    FontFamily="Microsoft YaHei" 
+                    FontWeight="Bold" 
+                    FontSize="24"
+                    BorderThickness="0,0,0,0"
+                    Background="#F69FCBE4" 
+                    Foreground="White"
+                    Click="Button_Click" />
+
+            <Button x:Name="SavedTab"
+                    Content="Saved"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Width="128"
+                    Height="34" 
+                    FontFamily="Microsoft YaHei" 
+                    FontWeight="Bold" 
+                    FontSize="24"
+                    BorderThickness="0,0,0,0"
+                    Background="#F69FCBE4" 
+                    Foreground="White" 
+                    Click="Button_Click" />
+        </StackPanel>
+
+        <Border x:Name="SearchBar"
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Background="#FFB8B8B8"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" 
+                Width="Auto" 
+                Height="34"
+                Opacity="0.5"
+                Grid.Row="0"
+                Grid.Column="1">
+            <TextBox x:Name="SearchTextBox"
+                     Text=" Search photos, discussions, people...                    " 
+                     VerticalAlignment="Center" 
+                     FontFamily="Microsoft YaHei" 
+                     FontWeight="Bold" 
+                     FontSize="18" 
+                     Opacity="0.5">
+                <TextBox.Background>
+                    <SolidColorBrush Opacity="0"/>
+                </TextBox.Background>
+            </TextBox>
+        </Border>
 
         <Button x:Name="PostButton"
                 Content="POST"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Width="85" 
-                Margin="1550,20,0,0" 
-                Click="button_Click" 
-                BorderThickness="0,1,1,1" 
-                RenderTransformOrigin="-0.106,0.853" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Center"
+                Margin="0,10"
+                Width="85"
+                Height="34"
+                BorderThickness="0,1,1,1"
                 Background="#F63090C7" 
                 Foreground="White" 
-                Height="34">
+                Click="Button_Click" 
+                Grid.Row="0"
+                Grid.Column="2">
             <Button.Effect>
                 <DropShadowEffect Direction="270" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
 
-        <Button x:Name="NotificationsButton"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" 
-                Width="34" 
-                Margin="1680,20,0,0" 
-                Click="button_Click" 
-                BorderThickness="0,0,0,0" 
-                RenderTransformOrigin="3,0.618"
-                Background="#F69FCBE4"
-                Foreground="White"
-                Height="34">
-            <StackPanel>
-                <Image Source="/Images/notification.png" Opacity="0.65"/>
-            </StackPanel>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Green"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="DarkGoldenrod"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+        <StackPanel x:Name="UserControls"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="3">
 
-        <Button x:Name="MessagesButton"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Width="34" 
-                Margin="1740,20,0,0"
-                Click="button_Click"
-                BorderThickness="0,0,0,0"
-                RenderTransformOrigin="4.265,0.588"
-                Background="#F69FCBE4"
-                Foreground="White"
-                Height="34">
-            <StackPanel>
-                <Image Source="/Images/messages.png" Opacity="0.7" RenderTransformOrigin="1.216,0.647"/>
-            </StackPanel>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Green"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="DarkGoldenrod"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-        </Button>
+            <Button x:Name="NotificationsButton"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top"  
+                    Margin="10,0,5,0"
+                    Width="34"
+                    Height="34"
+                    Background="#F69FCBE4"
+                    Foreground="White"
+                    Click="Button_Click" >
+                <StackPanel>
+                    <Image Source="/Images/notification.png" Opacity="0.65"/>
+                </StackPanel>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Green"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGoldenrod"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <Button x:Name="MessagesButton"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    Margin="5,0,5,0"
+                    Width="34" 
+                    Height="34"
+                    Background="#F69FCBE4"
+                    Foreground="White"
+                    Click="Button_Click">
+                <StackPanel>
+                    <Image Source="/Images/messages.png" Opacity="0.7" RenderTransformOrigin="1.216,0.647"/>
+                </StackPanel>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Green"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGoldenrod"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            
+            <Button x:Name="AccountButton"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Margin="10,0,10,0"
+                    Width="34"
+                    Height="34" 
+                    Background="#F69FCBE4"
+                    Foreground="White"
+                    Click="Button_Click">
+                <StackPanel>
+                    <Image Source="/Images/userprofile.png" Opacity="0.7"/>
+                </StackPanel>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Green"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGoldenrod"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
 
-        <Line X1="0" Y1="125"
-              X2="1920" Y2="125"
+        <Line X1="0"
+              X2="1920"
               Stroke="Black"
-              StrokeThickness="4" Margin="0,-50,0,50" />
+              StrokeThickness="1"
+              Grid.Row="1"
+              Grid.Column="0"
+              Grid.ColumnSpan="4"/>
 
-        <ScrollViewer HorizontalAlignment="Center" 
-                      Height="1007" 
-                      Margin="457,154,456.333,0" 
-                      VerticalAlignment="Top" 
-                      Width="1000">
+        <ToolBar x:Name="SortBy"
+                 Header="Sort by:"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top" 
+                 Height="30" 
+                 Width="219"
+                 Grid.Row="2"
+                 Grid.Column="3">
+            <Menu Height="25" 
+                  VerticalAlignment="Top" 
+                  Width="100"/>
+        </ToolBar>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Top"  
+                      Width="1000"
+                      Height="Auto"
+                      Grid.Row="2"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="4">
             <StackPanel x:Name="PhotoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Image}">
