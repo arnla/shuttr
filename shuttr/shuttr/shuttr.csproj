@@ -96,25 +96,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\messages.png" />
-    <Resource Include="Images\notification.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\mountain.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\mountain2.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\profile.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\user.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\userprofile.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\child.jpg" />
@@ -132,7 +119,10 @@
     <Resource Include="Images\trackfield.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\shuttrLogoNoBack.png" />
+    <Resource Include="Images\Icons\messages.png" />
+    <Resource Include="Images\Icons\notification.png" />
+    <Resource Include="Images\Icons\shuttrLogoNoBack.png" />
+    <Resource Include="Images\Icons\userprofile.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

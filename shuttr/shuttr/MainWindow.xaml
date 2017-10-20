@@ -31,7 +31,7 @@
                     VerticalAlignment="Center"
                     Background="#F69FCBE4">
                 <StackPanel>
-                    <Image Source="/Images/shuttrLogoNoBack.png"
+                    <Image Source="/Images/Icons/shuttrLogoNoBack.png"
                            Height="50"/>
                 </StackPanel>
             </Button>
@@ -111,7 +111,7 @@
                 Content="POST"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
-                Margin="0,10"
+                Margin="30,0"
                 Width="85"
                 Height="34"
                 BorderThickness="0,1,1,1"
@@ -142,7 +142,7 @@
                     Foreground="White"
                     Click="Button_Click" >
                 <StackPanel>
-                    <Image Source="/Images/notification.png" Opacity="0.65"/>
+                    <Image Source="/Images/Icons/notification.png" Opacity="0.65"/>
                 </StackPanel>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -175,7 +175,7 @@
                     Foreground="White"
                     Click="Button_Click">
                 <StackPanel>
-                    <Image Source="/Images/messages.png" Opacity="0.7" RenderTransformOrigin="1.216,0.647"/>
+                    <Image Source="/Images/Icons/messages.png" Opacity="0.7"/>
                 </StackPanel>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -208,7 +208,7 @@
                     Foreground="White"
                     Click="Button_Click">
                 <StackPanel>
-                    <Image Source="/Images/userprofile.png" Opacity="0.7"/>
+                    <Image Source="/Images/Icons/userprofile.png" Opacity="0.7"/>
                 </StackPanel>
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
