@@ -5,13 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shuttr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1200" Width="1920">
+        Title="MainWindow"
+        Width="1920"
+        Height="1200"
+        Icon="/Images/Icons/shuttrLogoNoBack.ico">
 
     <Grid Background="#F69FCBE4">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TopBar" Height="Auto"/>
             <RowDefinition x:Name="Line" Height="Auto"/>
-            <RowDefinition x:Name="Sort" Height="AUto"/>
+            <RowDefinition x:Name="Sort" Height="Auto"/>
             <RowDefinition x:Name="Content"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -29,7 +32,8 @@
             <Button x:Name="LogoButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
-                    Background="#F69FCBE4">
+                    Background="Transparent"
+                    BorderThickness="0,0">
                 <StackPanel>
                     <Image Source="/Images/Icons/shuttrLogoNoBack.png"
                            Height="50"/>
@@ -47,7 +51,7 @@
                     FontSize="20"
                     Margin="10,0,10,0"
                     BorderThickness="0,0,0,0"
-                    Background="#F69FCBE4" 
+                    Background="Transparent" 
                     Foreground="White"
                     Click="Button_Click" />
 
@@ -62,7 +66,7 @@
                     FontSize="20"
                     Margin="10,0,10,0"
                     BorderThickness="0,0,0,0"
-                    Background="#F69FCBE4" 
+                    Background="Transparent" 
                     Foreground="White"
                     Click="Button_Click" />
 
@@ -77,7 +81,7 @@
                     FontSize="20"
                     Margin="10,0,10,0"
                     BorderThickness="0,0,0,0"
-                    Background="#F69FCBE4" 
+                    Background="Transparent" 
                     Foreground="White" 
                     Click="Button_Click" />
         </StackPanel>
@@ -138,7 +142,7 @@
                     Margin="10,0,5,0"
                     Width="34"
                     Height="34"
-                    Background="#F69FCBE4"
+                    Background="Transparent"
                     Foreground="White"
                     Click="Button_Click" >
                 <StackPanel>
@@ -171,7 +175,7 @@
                     Margin="5,0,5,0"
                     Width="34" 
                     Height="34"
-                    Background="#F69FCBE4"
+                    Background="Transparent"
                     Foreground="White"
                     Click="Button_Click">
                 <StackPanel>
@@ -204,7 +208,7 @@
                     Margin="10,0,10,0"
                     Width="34"
                     Height="34" 
-                    Background="#F69FCBE4"
+                    Background="Transparent"
                     Foreground="White"
                     Click="Button_Click">
                 <StackPanel>
@@ -238,7 +242,8 @@
               StrokeThickness="1"
               Grid.Row="1"
               Grid.Column="0"
-              Grid.ColumnSpan="4"/>
+              Grid.ColumnSpan="4">
+        </Line>
 
         <Border x:Name="SortByContainer"
                 HorizontalAlignment="Center"
@@ -246,6 +251,18 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="4">
+            <Menu x:Name="sortBy"
+                  Background="Transparent">
+                <MenuItem Header="Sort By: "
+                          Background="White">
+                    <MenuItem Header="Following"/>
+                    <MenuItem Header="Popular"/>
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Most Commeted"/>
+                    <MenuItem Header="Most Upvoted"/>
+                </MenuItem>
+            </Menu>
+            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
             <ToolBar x:Name="SortBy"
                      Header="Sort by:"
                      HorizontalAlignment="Left"
@@ -255,7 +272,7 @@
                 <Menu Height="25" 
                       VerticalAlignment="Top" 
                       Width="100"/>
-            </ToolBar>
+            </ToolBar>-->
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
