@@ -20,7 +20,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
+
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
@@ -111,7 +111,14 @@
             </TextBox>
         </Border>
 
-        <Button x:Name="PostButton"
+        <StackPanel x:Name="UserControls"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="2">
+
+            <Button x:Name="PostButton"
                 Content="POST"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
@@ -121,20 +128,11 @@
                 BorderThickness="0,1,1,1"
                 Background="#F63090C7" 
                 Foreground="White" 
-                Click="Button_Click" 
-                Grid.Row="0"
-                Grid.Column="2">
-            <Button.Effect>
-                <DropShadowEffect Direction="270" ShadowDepth="1"/>
-            </Button.Effect>
-        </Button>
-
-        <StackPanel x:Name="UserControls"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Center"
-                    Grid.Row="0"
-                    Grid.Column="3">
+                Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" ShadowDepth="1"/>
+                </Button.Effect>
+            </Button>
 
             <Button x:Name="NotificationsButton"
                     HorizontalAlignment="Left" 
