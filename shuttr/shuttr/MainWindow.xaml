@@ -14,13 +14,11 @@
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TopBar" Height="Auto"/>
             <RowDefinition x:Name="Line" Height="Auto"/>
-            <RowDefinition x:Name="Sort" Height="Auto"/>
             <RowDefinition x:Name="Content"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
-
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
@@ -243,6 +241,12 @@
               Grid.ColumnSpan="4">
         </Line>
 
+        <ContentControl x:Name="contentControl"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"/>
+
+        <!--
         <Border x:Name="SortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
@@ -260,7 +264,7 @@
                     <MenuItem Header="Most Upvoted"/>
                 </MenuItem>
             </Menu>
-            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
+            The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
             <ToolBar x:Name="SortBy"
                      Header="Sort by:"
                      HorizontalAlignment="Left"
@@ -270,7 +274,7 @@
                 <Menu Height="25" 
                       VerticalAlignment="Top" 
                       Width="100"/>
-            </ToolBar>-->
+            </ToolBar>
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
@@ -289,6 +293,6 @@
                 <Image Source="/Images/child.jpg"/>
                 <Image Source="/Images/Coast.jpg"/>
             </StackPanel>
-        </ScrollViewer>
+        </ScrollViewer>-->
     </Grid>
 </Window>
