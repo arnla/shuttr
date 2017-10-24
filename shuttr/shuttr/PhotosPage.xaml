@@ -51,9 +51,23 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Image Source="/Images/child.jpg"/>
-                <Image Source="/Images/Coast.jpg"/>
+                <Image x:Name="Image1" 
+                       Source="/Images/child.jpg" 
+                       MouseLeftButtonDown="PhotoClick"/>
+                <Image x:Name="Image2" 
+                       Source="/Images/Coast.jpg"
+                       MouseLeftButtonDown="PhotoClick"/>
             </StackPanel>
         </ScrollViewer>
+
+        <!-- Popup when an image is clicked
+        <Popup x:Name="ImageView"
+               StaysOpen="False"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Grid.RowSpan="2">
+            <DockPanel x:Name="ImageViewDock"></DockPanel>
+        </Popup>
+        -->
     </Grid>
 </UserControl>

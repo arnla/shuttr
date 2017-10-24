@@ -24,6 +24,7 @@ namespace shuttr
         {
             InitializeComponent();
             contentControl.Content = new PhotosPage();
+            //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
         }
 
         protected void Button_Click(Object sender, EventArgs e)
