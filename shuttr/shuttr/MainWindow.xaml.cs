@@ -29,6 +29,14 @@ namespace shuttr
         protected void Button_Click(Object sender, EventArgs e)
         {
             // Some stuff happens here.
+            if (sender.Equals(PhotosTab))
+            {
+                contentControl.Content = new PhotosPage();
+            }
+            else if (sender.Equals(DiscussionsTab))
+            {
+                contentControl.Content = new DiscussionPage();
+            }
         }
     }
 }

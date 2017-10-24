@@ -10,7 +10,8 @@
         Height="1200"
         Icon="/Images/Icons/shuttrLogoNoBack.ico">
 
-    <Grid Background="#F69FCBE4">
+    <!-- Old background color: F69FCBE4-->
+    <Grid Background="#F64F5E6C">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="TopBar" Height="Auto"/>
             <RowDefinition x:Name="Line" Height="Auto"/>
@@ -241,58 +242,10 @@
               Grid.ColumnSpan="4">
         </Line>
 
+        <!-- Can easily switch the contont at bottom of window using user controls.-->
         <ContentControl x:Name="contentControl"
                         Grid.Row="2"
                         Grid.Column="0"
                         Grid.ColumnSpan="3"/>
-
-        <!--
-        <Border x:Name="SortByContainer"
-                HorizontalAlignment="Center"
-                Width="800"
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="4">
-            <Menu x:Name="sortBy"
-                  Background="Transparent">
-                <MenuItem Header="Sort By: "
-                          Background="White">
-                    <MenuItem Header="Following"/>
-                    <MenuItem Header="Popular"/>
-                    <MenuItem Header="New"/>
-                    <MenuItem Header="Most Commeted"/>
-                    <MenuItem Header="Most Upvoted"/>
-                </MenuItem>
-            </Menu>
-            The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
-            <ToolBar x:Name="SortBy"
-                     Header="Sort by:"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top" 
-                     Height="30" 
-                     Width="219">
-                <Menu Height="25" 
-                      VerticalAlignment="Top" 
-                      Width="100"/>
-            </ToolBar>
-        </Border>
-
-        <ScrollViewer HorizontalAlignment="Center"
-                      VerticalAlignment="Top"  
-                      Width="800"
-                      Height="Auto"
-                      Grid.Row="3"
-                      Grid.Column="0"
-                      Grid.ColumnSpan="4">
-            <StackPanel x:Name="PhotoFeed">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Image Source="/Images/child.jpg"/>
-                <Image Source="/Images/Coast.jpg"/>
-            </StackPanel>
-        </ScrollViewer>-->
     </Grid>
 </Window>
