@@ -132,6 +132,17 @@
                     <DropShadowEffect Direction="270" ShadowDepth="1"/>
                 </Button.Effect>
             </Button>
+            <Popup x:Name="PostButtonPopup"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=PostButton}"
+                   StaysOpen="False">
+                <StackPanel x:Name="PostButtonOptions">
+                    <Button x:Name="PostPhotoButton"
+                            Content="New Photo"></Button>
+                    <Button x:Name="PostDiscussionButton"
+                            Content="New Discussion"></Button>
+                </StackPanel>
+            </Popup>
 
             <Button x:Name="NotificationsButton"
                     HorizontalAlignment="Left" 

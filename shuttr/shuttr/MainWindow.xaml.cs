@@ -37,6 +37,10 @@ namespace shuttr
             {
                 contentControl.Content = new DiscussionPage();
             }
+            else if (sender.Equals(PostButton))
+            {
+                PostButtonPopup.IsOpen = !PostButtonPopup.IsOpen;
+            }
         }
     }
 }
