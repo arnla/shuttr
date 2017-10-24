@@ -132,7 +132,7 @@
                     <DropShadowEffect Direction="270" ShadowDepth="1"/>
                 </Button.Effect>
             </Button>
-            <Popup x:Name="PostButtonPopup"
+            <Popup x:Name="PostButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=PostButton}"
                    StaysOpen="False">
@@ -176,6 +176,17 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <Popup x:Name="NotificationsButtonDropdown"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=NotificationsButton}"
+                   StaysOpen="False">
+                <StackPanel x:Name="NotificationList">
+                    <Button x:Name="Notification1"
+                            Content="Notification 1"></Button>
+                    <Button x:Name="Notification2"
+                            Content="Notification 2"></Button>
+                </StackPanel>
+            </Popup>
             
             <Button x:Name="MessagesButton"
                     HorizontalAlignment="Center"
@@ -209,6 +220,17 @@
                     </Style>
                 </Button.Style>
             </Button>
+            <Popup x:Name="MessagesButtonDropdown"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=MessagesButton}"
+                   StaysOpen="False">
+                <StackPanel x:Name="MessagesList">
+                    <Button x:Name="Message1"
+                            Content="Message 1"></Button>
+                    <Button x:Name="Message2"
+                            Content="Message 2"></Button>
+                </StackPanel>
+            </Popup>
             
             <Button x:Name="AccountButton"
                     HorizontalAlignment="Right" 

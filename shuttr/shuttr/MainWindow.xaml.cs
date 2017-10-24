@@ -39,7 +39,15 @@ namespace shuttr
             }
             else if (sender.Equals(PostButton))
             {
-                PostButtonPopup.IsOpen = !PostButtonPopup.IsOpen;
+                PostButtonDropdown.IsOpen = !PostButtonDropdown.IsOpen;
+            }
+            else if (sender.Equals(NotificationsButton))
+            {
+                NotificationsButtonDropdown.IsOpen = !NotificationsButtonDropdown.IsOpen;
+            }
+            else if (sender.Equals(MessagesButton))
+            {
+                MessagesButtonDropdown.IsOpen = !MessagesButtonDropdown.IsOpen;
             }
         }
     }
