@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace shuttr
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PhotosPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PhotosPage : UserControl
     {
-        public MainWindow()
+        public PhotosPage()
         {
             InitializeComponent();
-            contentControl.Content = new PhotosPage();
-        }
-
-        protected void Button_Click(Object sender, EventArgs e)
-        {
-            // Some stuff happens here.
         }
     }
 }
