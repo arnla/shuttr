@@ -50,6 +50,10 @@ namespace shuttr
             {
                 MessagesButtonDropdown.IsOpen = !MessagesButtonDropdown.IsOpen;
             }
+            else if (sender.Equals(SeeAllMessagesButton))
+            {
+                contentControl.Content = new MessagesPage();
+            }
         }
     }
 }

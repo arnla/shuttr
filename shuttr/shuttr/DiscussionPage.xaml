@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="1920">
+             d:DesignHeight="1200" d:DesignWidth="1920">
     <Grid Background="#F6FBFF">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="SortBy" Height="Auto"/>
@@ -27,17 +27,159 @@
                     <MenuItem Header="Most Upvoted"/>
                 </MenuItem>
             </Menu>
-            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
-            <ToolBar x:Name="SortBy"
-                     Header="Sort by:"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top" 
-                     Height="30" 
-                     Width="219">
-                <Menu Height="25" 
-                      VerticalAlignment="Top" 
-                      Width="100"/>
-            </ToolBar>-->
         </Border>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Top"  
+                      Width="800"
+                      Height="Auto"
+                      Grid.Row="1">
+            <StackPanel x:Name="DiscussionFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel x:Name="DiscussionPost">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Margin" Value="5,10,5,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Border BorderBrush="Black" BorderThickness="2" Height="Auto">
+                        <Grid ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User1</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                                The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                3 replies
+                            </TextBlock>
+                            <!--<Button Opacity="0" 
+                                    Background="Transparent" 
+                                    Foreground="White" 
+                                    Grid.Column="2"
+                            </Button>-->
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User2</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            Looking to shoot film, what do I need to know?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            24 replies
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User2</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            Looking to shoot film, what do I need to know?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            24 replies
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User2</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            Looking to shoot film, what do I need to know?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            24 replies
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User2</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            Looking to shoot film, what do I need to know?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            24 replies
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="2*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                            <TextBlock Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User2</TextBlock>
+                            <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            Looking to shoot film, what do I need to know?
+                            </TextBlock>
+                            <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                            24 replies
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -229,6 +229,9 @@
                             Content="Message 1"></Button>
                     <Button x:Name="Message2"
                             Content="Message 2"></Button>
+                    <Button x:Name="SeeAllMessagesButton"
+                            Content="See all"
+                            Click="Button_Click"></Button>
                 </StackPanel>
             </Popup>
             

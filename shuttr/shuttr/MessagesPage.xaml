@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="shuttr.MessagesPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid Background="#F6FBFF">
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Top"  
+                      Width="800"
+                      Height="Auto"
+                      Grid.Row="1">
+            <StackPanel x:Name="Messages">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel x:Name="MessageThread">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Grid}">
+                            <Setter Property="Margin" Value="5,10,5,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Border BorderBrush="Black" BorderThickness="2" Height="Auto">
+                        <Grid ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="5*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontSize="22" FontWeight="ExtraBold">User 1</TextBlock>
+                                    <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right">3:01 PM</TextBlock>
+                                </Grid>
+                                <TextBlock Grid.Row="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap">
+                                    I saw one of your pictures and was wondering if i could buy a print
+                                </TextBlock>
+                            </Grid>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2" Height="Auto">
+                        <Grid ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="5*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontSize="22">User 2</TextBlock>
+                                    <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right">3:01 PM</TextBlock>
+                                </Grid>
+                                <TextBlock Grid.Row="1" FontSize="16" TextWrapping="Wrap">
+                                    What lens do you use for your night sky photography?
+                                </TextBlock>
+                            </Grid>
+                            <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
