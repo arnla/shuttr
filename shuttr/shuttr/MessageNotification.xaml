@@ -20,6 +20,14 @@
             <Image x:Name="UserPicture"
                    Source="/Images/Icons/userprofile.png"/>
             
+            <TextBlock x:Name="SenderName"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Top"
+                       FontWeight="Bold">
+                User1
+            </TextBlock>
+            
             <TextBlock x:Name="MessageContent"
                        Grid.Row="0"
                        Grid.Column="1"

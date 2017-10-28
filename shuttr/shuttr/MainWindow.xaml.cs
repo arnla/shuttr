@@ -43,9 +43,13 @@ namespace shuttr
             NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
         }
 
+        /// <summary>
+        /// Fills the messages submenud with a hardcoded set of messages.
+        /// Creates new MessageNotification items and adds them to the submenu.
+        /// </summary>
         private void FillMessageNotificationMenu()
         {
-            MessagesStackPanel.Children.Add(new MessageNotification("What lens do you use for your night sky photography?", "3:01 PM"));
+            MessagesStackPanel.Children.Add(new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM"));
         }
 
         protected void Button_Click(Object sender, EventArgs e)

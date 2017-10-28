@@ -271,7 +271,9 @@
             <Popup x:Name="MessagesButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=MessagesButton}"
-                   StaysOpen="False">
+                   StaysOpen="False"
+                   MaxWidth="300"
+                   VerticalOffset="5">
                 <ScrollViewer MaxHeight="300">
                     <Grid>
                         <Grid.RowDefinitions>

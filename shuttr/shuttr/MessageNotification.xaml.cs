@@ -25,9 +25,25 @@ namespace shuttr
             InitializeComponent();
         }
 
-        public MessageNotification(string message, string date)
+        /// <summary>
+        /// Creates a new MessageNotification with the specified parameters.
+        /// </summary>
+        /// <param name="status"> Whether or not the message is read </param>
+        /// <param name="sender"> The name of the sender </param>
+        /// <param name="message"> The message to be displayed in the preview </param>
+        /// <param name="date"> The date or time the message was received </param>
+        public MessageNotification(bool status, string sender, string message, string date)
         {
             InitializeComponent();
+
+            if (!status)
+            {
+                SenderName.FontWeight = FontWeights.Normal;
+                MessageContent.FontWeight = FontWeights.Normal;
+                DateReceived.FontWeight = FontWeights.Normal;
+            }
+
+            SenderName.Text = sender;
 
             MessageContent.Text = message;
 
