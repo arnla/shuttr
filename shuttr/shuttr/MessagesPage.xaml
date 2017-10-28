@@ -29,8 +29,8 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="2*"/>
-                                <RowDefinition Height="5*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
                                 <Grid.ColumnDefinitions>

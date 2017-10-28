@@ -1,0 +1,129 @@
+﻿<UserControl x:Class="shuttr.SavedPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid Background="#F6FBFF">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="SortBy" Height="Auto"/>
+            <RowDefinition x:Name="Content"/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="SortByContainer"
+                HorizontalAlignment="Center"
+                Width="800"
+                Grid.Row="0">
+            <Menu x:Name="sortBy"
+                  Background="Transparent">
+                <MenuItem Header="Sort By: "
+                          Background="White">
+                    <MenuItem Header="Following"/>
+                    <MenuItem Header="Popular"/>
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Most Commeted"/>
+                    <MenuItem Header="Most Upvoted"/>
+                </MenuItem>
+            </Menu>
+            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
+            <ToolBar x:Name="SortBy"
+                     Header="Sort by:"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top" 
+                     Height="30" 
+                     Width="219">
+                <Menu Height="25" 
+                      VerticalAlignment="Top" 
+                      Width="100"/>
+            </ToolBar>-->
+        </Border>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Top"  
+                      Width="800"
+                      Height="Auto"
+                      Grid.Row="1">
+            <StackPanel x:Name="PhotoFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+
+        </ScrollViewer>
+
+
+
+
+
+
+
+
+
+
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="413" Margin="69,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" RenderTransformOrigin="-1.1,-0.48">
+            <Image Margin="9,0,9,30" Grid.Row="1" Source="Images/Icons/userprofile.png" Height="342" VerticalAlignment="Bottom"/>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="74" Margin="69,576,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426">
+            <Label Content="USERNAME" FontFamily="Microsoft YaHei" FontSize="48" Margin="84,1,54,-1"/>
+
+        </Border>
+        <Button Content="FOLLOW" HorizontalAlignment="Left" Margin="69,679,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+        <Button Content="MESSAGE" HorizontalAlignment="Left" Margin="69,732,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+
+        
+        <StackPanel HorizontalAlignment="Left" Height="943" Margin="560,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1243">
+            <Border BorderBrush="Black" BorderThickness="1" Height="100">
+                <Grid ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1119"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,1,0" FontFamily="Microsoft YaHei">
+                            The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                    </TextBlock>
+                    <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="31,38" Width="60">
+                            3 replies
+                    </TextBlock>
+                </Grid>
+
+
+            </Border>
+            <Image Height="745" Source="Images/Mountains.jpg" Stretch="Fill"/>
+            <Border BorderBrush="Black" BorderThickness="1" Height="100">
+                <Grid ShowGridLines="True" Margin="1,1,-1,-1">
+                    <Grid.ColumnDefinitions>
+                 
+                        <ColumnDefinition Width="1119"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,1,0" FontFamily="Microsoft YaHei">
+                            The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                    </TextBlock>
+                    <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="31,38" Width="60">
+                            3 replies
+                    </TextBlock>
+                </Grid>
+                
+                
+            </Border>
+
+
+        </StackPanel>
+
+        <!-- Popup when an image is clicked
+        <Popup x:Name="ImageView"
+               StaysOpen="False"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Grid.RowSpan="2">
+            <DockPanel x:Name="ImageViewDock"></DockPanel>
+        </Popup>
+        -->
+    </Grid>
+</UserControl>
