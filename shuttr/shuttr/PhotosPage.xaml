@@ -27,17 +27,7 @@
                     <MenuItem Header="Most Upvoted"/>
                 </MenuItem>
             </Menu>
-            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
-            <ToolBar x:Name="SortBy"
-                     Header="Sort by:"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top" 
-                     Height="30" 
-                     Width="219">
-                <Menu Height="25" 
-                      VerticalAlignment="Top" 
-                      Width="100"/>
-            </ToolBar>-->
+
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
@@ -57,10 +47,11 @@
                 <Image x:Name="Image2" 
                        Source="/Images/Coast.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
+                <Image x:Name="Image3" 
+                       Source="Images/palmtree.jpg"
+                       MouseLeftButtonDown="PhotoClick"/>
             </StackPanel>
         </ScrollViewer>
-
-        <!-- Popup when an image is clicked
         <Popup x:Name="ImageView"
                StaysOpen="False"
                HorizontalAlignment="Center"
@@ -68,6 +59,6 @@
                Grid.RowSpan="2">
             <DockPanel x:Name="ImageViewDock"></DockPanel>
         </Popup>
-        -->
+        
     </Grid>
 </UserControl>
