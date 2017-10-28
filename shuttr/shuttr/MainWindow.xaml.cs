@@ -38,6 +38,10 @@ namespace shuttr
             {
                 contentControl.Content = new DiscussionPage();
             }
+            else if (sender.Equals(SavedTab))
+            {
+                contentControl.Content = new SavedPage();
+            }
             else if (sender.Equals(PostButton))
             {
                 PostButtonDropdown.IsOpen = !PostButtonDropdown.IsOpen;

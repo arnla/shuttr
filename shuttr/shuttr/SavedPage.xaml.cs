@@ -26,18 +26,6 @@ namespace shuttr
         }
 
         public void PhotoClick(object sender, MouseButtonEventArgs e)
-        {
-            /*
-            if (sender.Equals(Image1))
-            {
-                ImageViewDock.Children.Add(new Image());
-                ImageView.IsOpen = !ImageView.IsOpen;
-            }
-            else if (sender.Equals(Image2))
-            {
-                ImageViewDock.Children.Add(Image2);
-                ImageView.IsOpen = !ImageView.IsOpen;
-            }*/
-        }
+        {}
     }
 }
