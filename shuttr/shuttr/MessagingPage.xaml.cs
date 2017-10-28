@@ -18,11 +18,14 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for DiscussionPage.xaml
     /// </summary>
-    public partial class DiscussionPage : UserControl
+    public partial class MessagingPage : UserControl
     {
-        public DiscussionPage()
+        public MessagingPage()
         {
             InitializeComponent();
         }
+
+        public void Text_Changed(object sender, EventArgs e)
+        { }
     }
 }

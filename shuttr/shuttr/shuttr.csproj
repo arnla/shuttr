@@ -93,7 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserPage.xaml">
+    <Page Include="ProfilePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -116,8 +116,8 @@
     <Compile Include="SavedPage.xaml.cs">
       <DependentUpon>SavedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserPage.xaml.cs">
-      <DependentUpon>UserPage.xaml</DependentUpon>
+    <Compile Include="ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PhotosPage.xaml.cs">
       <DependentUpon>PhotosPage.xaml</DependentUpon>

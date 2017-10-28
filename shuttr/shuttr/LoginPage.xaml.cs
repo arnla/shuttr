@@ -18,26 +18,17 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for PhotosPage.xaml
     /// </summary>
-    public partial class PhotosPage : UserControl
+    public partial class LoginPage : UserControl
     {
-        public PhotosPage()
+        public LoginPage()
         {
             InitializeComponent();
         }
 
-        public void PhotoClick(object sender, MouseButtonEventArgs e)
-        {
-            /*
-            if (sender.Equals(Image1))
-            {
-                ImageViewDock.Children.Add(new Image());
-                ImageView.IsOpen = !ImageView.IsOpen;
-            }
-            else if (sender.Equals(Image2))
-            {
-                ImageViewDock.Children.Add(Image2);
-                ImageView.IsOpen = !ImageView.IsOpen;
-            }*/
-        }
+        public void Button_Click(object sender, EventArgs e)
+        { }
+
+        public void Text_Changed(object sender, EventArgs e)
+        { }
     }
 }

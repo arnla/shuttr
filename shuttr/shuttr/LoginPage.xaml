@@ -16,17 +16,6 @@
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
-            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
-            <ToolBar x:Name="SortBy"
-                     Header="Sort by:"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top" 
-                     Height="30" 
-                     Width="219">
-                <Menu Height="25" 
-                      VerticalAlignment="Top" 
-                      Width="100"/>
-            </ToolBar>-->
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
@@ -45,12 +34,53 @@
         </ScrollViewer>
 
         <Grid Margin="0,10" Grid.Row="1">
-            <Image HorizontalAlignment="Center" Height="636" Margin="615,62,598,0" VerticalAlignment="Top" Width="707" Source="Images/Icons/shuttrLogoNoBack.png"/>
-            <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="81" Margin="683,703,0,0" VerticalAlignment="Top" Width="568">
-                <TextBox HorizontalAlignment="Center" Height="61" Margin="5,5,5,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Width="548" VerticalContentAlignment ="Center" TextAlignment ="Center" TextChanged="TextBox_TextChanged" FontFamily="Microsoft YaHei" FontSize="36" FontStyle="Italic"/>
+            <Image HorizontalAlignment="Center" 
+                   Height="636" 
+                   Margin="615,62,598,0" 
+                   VerticalAlignment="Top" 
+                   Width="707" 
+                   Source="Images/Icons/shuttrLogoNoBack.png"/>
+            <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="683,703,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+                <TextBox HorizontalAlignment="Center" 
+                         Height="61" 
+                         Margin="5,5,5,0" 
+                         TextWrapping="Wrap" 
+                         Text="Username" 
+                         VerticalAlignment="Top" 
+                         Width="548" 
+                         VerticalContentAlignment ="Center" 
+                         TextAlignment ="Center" 
+                         TextChanged="Text_Changed" 
+                         FontFamily="Microsoft YaHei" 
+                         FontSize="36" 
+                         FontStyle="Italic"/>
             </Border>
-            <Border BorderBrush="Black" BorderThickness="5" HorizontalAlignment="Left" Height="81" Margin="683,819,0,0" VerticalAlignment="Top" Width="568">
-                <TextBox HorizontalAlignment="Center" Height="63" Margin="5,5,5,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="548" VerticalContentAlignment ="Center" TextAlignment ="Center" TextChanged="TextBox_TextChanged" FontFamily="Microsoft YaHei" FontSize="36" FontStyle="Italic"/>
+            <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="683,819,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+                <TextBox HorizontalAlignment="Center" 
+                         Height="63" 
+                         Margin="5,5,5,0" 
+                         TextWrapping="Wrap" 
+                         Text="Password" 
+                         VerticalAlignment="Top" 
+                         Width="548" 
+                         VerticalContentAlignment ="Center" 
+                         TextAlignment ="Center" 
+                         TextChanged="Text_Changed" 
+                         FontFamily="Microsoft YaHei" 
+                         FontSize="36" 
+                         FontStyle="Italic"/>
             </Border>
             <Button x:Name="PostButton"
                 Content="LOG IN"

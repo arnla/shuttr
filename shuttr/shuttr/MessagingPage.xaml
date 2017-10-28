@@ -36,14 +36,19 @@
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
                       Width="1330"
-                      Height="1152" Margin="247,10,308,0" Grid.Column="1" Grid.RowSpan="2">
-            <StackPanel x:Name="DiscussionFeed" Margin="10">
+                      Height="1152" 
+                      Margin="247,10,308,0" 
+                      Grid.Column="1" 
+                      Grid.RowSpan="2">
+            <StackPanel x:Name="DiscussionFeed" 
+                        Margin="10">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Border BorderBrush="Black" BorderThickness="2">
+                <Border BorderBrush="Black" 
+                        BorderThickness="2">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="80*"/>
@@ -56,14 +61,38 @@
                                 </TransformGroup>
                             </Separator.RenderTransform>
                         </Separator>
-                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+                        <Separator Height="100" 
+                                   Margin="0,-29,0,29" 
+                                   Grid.Column="1"/>
 
-                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                        <Label Content="User" 
+                               Height="24" 
+                               VerticalAlignment="Bottom" 
+                               Margin="78,-2,1148,78" 
+                               FontFamily="Microsoft YaHei" 
+                               FontWeight="Bold" 
+                               Grid.ColumnSpan="2"/>
 
-                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+                        <Label Content="3:04pm" 
+                               Height="24" 
+                               VerticalAlignment="Bottom" 
+                               Margin="1142,0,2,76" 
+                               FontFamily="Microsoft YaHei" 
+                               FontWeight="Bold" 
+                               Grid.Column="1"/>
 
-                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
-                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Hello! My name is Derrick. I saw your designs and was really interested if we could collobarate together. " FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+                        <Image VerticalAlignment="Center" 
+                               HorizontalAlignment="Right" 
+                               Source="Images/Icons/userprofile.png" 
+                               Margin="0,13,5,15" 
+                               Width="71" 
+                               Height="72"/>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="26" 
+                                   TextWrapping="Wrap" 
+                                   Margin="0,26,-3,0" 
+                                   Text="Hello! My name is Derrick. I saw your designs and was really interested if we could collobarate together. " 
+                                   FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
 
                     </Grid>
                 </Border>
@@ -285,13 +314,22 @@
                             </Separator.RenderTransform>
                         </Separator>
 
-                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
-                        <TextBox TextWrapping="Wrap" Background="#F6FBFF" Foreground ="DarkGray" Text="Type a message..." Grid.Column="1" FontFamily="Microsoft YaHei" FontSize="26" TextChanged="TextBox_TextChanged"/> 
+                        <Image VerticalAlignment="Center" 
+                               HorizontalAlignment="Right" 
+                               Source="Images/Icons/userprofile.png" 
+                               Margin="0,13,5,15" 
+                               Width="71" 
+                               Height="72"/>
+                        <TextBox TextWrapping="Wrap" 
+                                 Background="#F6FBFF" 
+                                 Foreground ="DarkGray" 
+                                 Text="Type a message..." 
+                                 Grid.Column="1" 
+                                 FontFamily="Microsoft YaHei" 
+                                 FontSize="26" 
+                                 TextChanged="Text_Changed"/> 
                     </Grid>
                 </Border>
-
-
-
             </StackPanel>
         </ScrollViewer>
     </Grid>
