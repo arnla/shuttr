@@ -29,6 +29,10 @@ namespace shuttr
             FillNotificationMenu();
         }
 
+        /// <summary>
+        /// Fills the notification submenu with a hardcoded set of notifications.
+        /// Creates new Notification items and adds them to the submenu.
+        /// </summary>
         private void FillNotificationMenu()
         {
             NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "17h"));

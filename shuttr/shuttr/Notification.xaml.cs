@@ -25,7 +25,13 @@ namespace shuttr
             InitializeComponent();
         }
 
-        public Notification(bool read, string notification, string date)
+        /// <summary>
+        /// Creates a new notification with the specified attributes.
+        /// </summary>
+        /// <param name="read"> Whether or not the notification is read </param>
+        /// <param name="message"> The message the notification will contain </param>
+        /// <param name="date"> The age of the notification (e.g. 17h) </param>
+        public Notification(bool read, string message, string date)
         {
             InitializeComponent();
 
@@ -34,7 +40,7 @@ namespace shuttr
                 ReadStatus.Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
             }
 
-            NotificationContent.Text = notification;
+            NotificationContent.Text = message;
 
             DateReceived.Text = date;
         }
