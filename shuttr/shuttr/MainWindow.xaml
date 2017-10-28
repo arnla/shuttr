@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:shuttr"
         mc:Ignorable="d"
         Title="MainWindow"
+        WindowState="Maximized"
         Width="1920"
         Height="1200"
         Icon="/Images/Icons/shuttrLogoNoBack.ico">
@@ -224,13 +225,44 @@
             <Popup x:Name="NotificationsButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=NotificationsButton}"
+                   Width="150"
                    StaysOpen="False">
-                <StackPanel x:Name="NotificationList">
-                    <Button x:Name="Notification1"
-                            Content="Notification 1"></Button>
-                    <Button x:Name="Notification2"
+                <ScrollViewer x:Name="NotificationList"
+                              MaxHeight="300">
+                    <StackPanel>
+                        <Button x:Name="Notification1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Grid.Row="0"
+                                     Grid.Column="0"
+                                     Grid.RowSpan="2"
+                                     Fill="Red"
+                                     Width="10"
+                                     Height="10"/>
+                                <TextBlock Grid.Row="1"
+                                       Grid.Column="1"
+                                       TextWrapping="Wrap">
+                                    User1 commented on your photo
+                                </TextBlock>
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom">
+                                    17h
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Notification2"
                             Content="Notification 2"></Button>
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </Popup>
             
             <Button x:Name="MessagesButton"
