@@ -1,0 +1,298 @@
+﻿<UserControl x:Class="shuttr.DiscussionPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid Background="#F6FBFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="377*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="SortBy" Height="Auto"/>
+            <RowDefinition x:Name="Content"/>
+        </Grid.RowDefinitions>
+
+        <Border x:Name="SortByContainer"
+                HorizontalAlignment="Center"
+                Width="800"
+                Grid.Row="0" Grid.Column="1" Margin="429,0,656,0">
+            <Menu x:Name="sortBy"
+                  Background="Transparent">
+                <MenuItem Header="Sort By: "
+                          Background="White">
+                    <MenuItem Header="Following"/>
+                    <MenuItem Header="Popular"/>
+                    <MenuItem Header="New"/>
+                    <MenuItem Header="Most Commeted"/>
+                    <MenuItem Header="Most Upvoted"/>
+                </MenuItem>
+            </Menu>
+        </Border>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Top"  
+                      Width="1330"
+                      Height="1152" Margin="247,10,308,0" Grid.Column="1" Grid.RowSpan="2">
+            <StackPanel x:Name="DiscussionFeed" Margin="10">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Hello! My name is Derrick. I saw your designs and was really interested if we could collobarate together. " FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="Other User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1094,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Okay, sure." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="I am in the YYC area tomorrow, let's go shoot at the Peace Bridge?" FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+
+                        <Label Content="Other User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1094,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Peace Bridge? I'd rather get on a roof of a building." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="And shoot pictures of our shoes hanging off the ends?" FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+
+                        <Label Content="Other User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1094,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Yeah..." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Alright, I'm down for that." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+
+                        <Label Content="Other User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1094,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="Let's go grab some village ice cream after and shoot a pic with the logo." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+                        <Separator Height="100" Margin="0,-29,0,29" Grid.Column="1"/>
+
+                        <Label Content="User" Height="24" VerticalAlignment="Bottom" Margin="78,-2,1148,78" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.ColumnSpan="2"/>
+
+                        <Label Content="3:04pm" Height="24" VerticalAlignment="Bottom" Margin="1142,0,2,76" FontFamily="Microsoft YaHei" FontWeight="Bold" Grid.Column="1"/>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBlock Grid.Column="1" FontSize="26" TextWrapping="Wrap" Margin="0,26,-3,0" Text="For sure." FontFamily="Microsoft YaHei" HorizontalAlignment="Right" Width="1198"/>
+
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80*"/>
+                            <ColumnDefinition Width="1199*"/>
+                        </Grid.ColumnDefinitions>
+                        <Separator Margin="30,0,1149,0" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                            <Separator.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="90"/>
+                                </TransformGroup>
+                            </Separator.RenderTransform>
+                        </Separator>
+
+                        <Image VerticalAlignment="Center" HorizontalAlignment="Right" Source="Images/Icons/userprofile.png" Margin="0,13,5,15" Width="71" Height="72"/>
+                        <TextBox TextWrapping="Wrap" Background="#F6FBFF" Foreground ="DarkGray" Text="Type a message..." Grid.Column="1" FontFamily="Microsoft YaHei" FontSize="26" TextChanged="TextBox_TextChanged"/> 
+                    </Grid>
+                </Border>
+
+
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

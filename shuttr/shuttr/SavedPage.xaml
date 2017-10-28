@@ -56,62 +56,79 @@
         </ScrollViewer>
 
 
-
-
-
-
-
-
-
-
-
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="413" Margin="69,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" RenderTransformOrigin="-1.1,-0.48">
-            <Image Margin="9,0,9,30" Grid.Row="1" Source="Images/Icons/userprofile.png" Height="342" VerticalAlignment="Bottom"/>
-        </Border>
-
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="74" Margin="69,576,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426">
-            <Label Content="USERNAME" FontFamily="Microsoft YaHei" FontSize="48" Margin="84,1,54,-1"/>
-
-        </Border>
-        <Button Content="FOLLOW" HorizontalAlignment="Left" Margin="69,679,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
-        <Button Content="MESSAGE" HorizontalAlignment="Left" Margin="69,732,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
-
-        
-        <StackPanel HorizontalAlignment="Left" Height="943" Margin="560,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1243">
+        <StackPanel HorizontalAlignment="Left" Height="1046" Margin="65,66,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1762">
             <Border BorderBrush="Black" BorderThickness="1" Height="100">
-                <Grid ShowGridLines="True">
+                <Grid ShowGridLines="False">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1119"/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="102*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="1463*"/>
+                        <ColumnDefinition Width="96*"/>
+
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,1,0" FontFamily="Microsoft YaHei">
+                    <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Height="88" Margin="10,4,18,6" Width="74"></Image>
+                    <TextBlock Grid.Column="1" FontSize="20"  TextWrapping="Wrap" Margin="20,41,17,31" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Microsoft YaHei" Width="62" Height="26">
+                            User 1
+                    </TextBlock>
+                    <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="11,10,0,0" FontFamily="Microsoft YaHei">
                             The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
                     </TextBlock>
-                    <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="31,38" Width="60">
+                    <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="18,38" Width="60">
                             3 replies
                     </TextBlock>
                 </Grid>
-
-
             </Border>
+
+
             <Image Height="745" Source="Images/Mountains.jpg" Stretch="Fill"/>
+
+
             <Border BorderBrush="Black" BorderThickness="1" Height="100">
-                <Grid ShowGridLines="True" Margin="1,1,-1,-1">
+                <Grid ShowGridLines="False">
                     <Grid.ColumnDefinitions>
-                 
-                        <ColumnDefinition Width="1119"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="102*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="1463*"/>
+                        <ColumnDefinition Width="96*"/>
+
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,1,0" FontFamily="Microsoft YaHei">
-                            The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                    <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Height="88" Margin="10,4,18,6" Width="74"></Image>
+                    <TextBlock Grid.Column="1" FontSize="20"  TextWrapping="Wrap" Margin="20,39,17,33" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Microsoft YaHei" Width="62" Height="26">
+                            User 2
                     </TextBlock>
-                    <TextBlock Grid.Column="1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="31,38" Width="60">
-                            3 replies
+                    <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="11,10,0,0" FontFamily="Microsoft YaHei">
+                            Is film dead?
+                    </TextBlock>
+                    <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="18,38" Width="60">
+                            1 replies
                     </TextBlock>
                 </Grid>
-                
-                
+
             </Border>
+
+            <Border BorderBrush="Black" BorderThickness="1" Height="100">
+                <Grid ShowGridLines="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="102*"/>
+                        <ColumnDefinition Width="99*"/>
+                        <ColumnDefinition Width="1463*"/>
+                        <ColumnDefinition Width="96*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Height="88" Margin="10,4,18,6" Width="74"></Image>
+                    <TextBlock Grid.Column="1" FontSize="20"  TextWrapping="Wrap" Margin="20,41,17,31" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Microsoft YaHei" Width="62" Height="26">
+                            User 3
+                    </TextBlock>
+                    <TextBlock Grid.Column="2" FontSize="26" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="11,10,0,0" FontFamily="Microsoft YaHei">
+                            2 + 2 is 4 minus 1 that's 3, quick maths
+                    </TextBlock>
+                    <TextBlock Grid.Column="3" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Margin="10,38" Width="76">
+                            420 replies
+                    </TextBlock>
+                </Grid>
+            </Border>
+
+
 
 
         </StackPanel>
