@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:shuttr"
+        xmlns:control="clr-namespace:shuttr"
         mc:Ignorable="d"
         Title="MainWindow"
         WindowState="Maximized"
@@ -228,44 +229,11 @@
                    MaxWidth="200"
                    VerticalOffset="5"
                    StaysOpen="False">
-                <ScrollViewer x:Name="NotificationList"
-                              MaxHeight="300">
-                    <StackPanel>
-                        <Button x:Name="Notification1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="110"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Ellipse Grid.Row="0"
-                                         Grid.Column="0"
-                                         Grid.RowSpan="2"
-                                         Fill="Black"
-                                         Width="10"
-                                         Height="10"
-                                         Margin="5,0,5,0"/>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="1"
-                                           TextWrapping="Wrap"
-                                           FontWeight="Bold"
-                                           VerticalAlignment="Center">
-                                    User1 commented on your photo
-                                </TextBlock>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="2"
-                                           VerticalAlignment="Bottom"
-                                           HorizontalAlignment="Right"
-                                           FontWeight="Bold"
-                                           Margin="0,0,5,0">
-                                    17h
-                                </TextBlock>
-                            </Grid>
-                        </Button>
-                        <Button x:Name="Notification2">
+                <ScrollViewer MaxHeight="300">
+                    <StackPanel x:Name="NotificationStackPanel">
+                        <!-- Example of adding a notification in xaml-->
+                        <control:Notification/>
+                        <!--<Button x:Name="Notification2">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="50"/>
@@ -392,7 +360,7 @@
                                     4d
                                 </TextBlock>
                             </Grid>
-                        </Button>
+                        </Button>-->
                     </StackPanel>
                 </ScrollViewer>
             </Popup>
