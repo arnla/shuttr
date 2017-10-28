@@ -7,97 +7,69 @@
       mc:Ignorable="d" 
       d:DesignHeight="1200" d:DesignWidth="1920">
     <Grid Background="#F64F5E6C">
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="TopBar" Height="Auto"/>
-            <RowDefinition x:Name="Line" Height="Auto"/>
-            <RowDefinition x:Name="Content"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <Line X1="0"
-              X2="1920"
-              Stroke="Black"
-              StrokeThickness="1"
-              Grid.Row="1"
-              Grid.Column="0"
-              Grid.ColumnSpan="4">
-        </Line>
-
         <Rectangle Name="PhotosPageFill" Fill="Transparent" Opacity="50"></Rectangle>
 
-        <Popup
-            Name="PhotoPopUpWindow"
-            Placement="Center"
-            IsOpen="False">
-            <Border BorderBrush="Black" 
-                    BorderThickness="1" 
-                    HorizontalAlignment="Left" 
-                    Height="1048" 
-                    Margin="180,50,0,0" 
-                    Grid.Row="2" 
-                    VerticalAlignment="Top" 
-                    Width="1560" 
-                    Grid.ColumnSpan="3">
-                <ScrollViewer HorizontalAlignment="Center"
+        <Popup x:Name="PhotoPopUpWindow"
+               PlacementTarget="{Binding ElementName=PhotosPageFill}"
+                Placement="Center"
+               VerticalOffset="-600"
+               HorizontalOffset="-960"
+                IsOpen="False">
+            <ScrollViewer HorizontalAlignment="Center"
                           VerticalAlignment="Top"
                           Background="#F6FBFF"
-                          Width="1560"
-                          Height="1047"
-                          Grid.Row="1" Margin="-945,-572,943,0">
-                    <StackPanel Margin = "9,-9,9,9" >
-                        <Image x:Name="image" 
+                          MaxWidth="1560"
+                          MaxHeight="1047">
+                <StackPanel>
+                    <Image x:Name="image" 
                                Height="640" 
                                Source="Images/Coast.jpg" 
                                Width="961"/>
-                        <Border BorderBrush = "Gray" 
+                    <Border BorderBrush = "Gray" 
                                 BorderThickness="1" 
                                 Height="150" 
                                 Margin="150,20,150,0">
-                            <Grid Width="1221" Margin="0,-1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="163*"/>
-                                    <ColumnDefinition Width="171*"/>
-                                    <ColumnDefinition Width="702*"/>
-                                    <ColumnDefinition Width="185*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="34*"/>
-                                    <RowDefinition Height="41*"/>
-                                </Grid.RowDefinitions>
-                                <Line X1="334"
+                        <Grid Width="1221" Margin="0,-1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="163*"/>
+                                <ColumnDefinition Width="171*"/>
+                                <ColumnDefinition Width="702*"/>
+                                <ColumnDefinition Width="185*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="34*"/>
+                                <RowDefinition Height="41*"/>
+                            </Grid.RowDefinitions>
+                            <Line X1="334"
                                     X2="1300"
                                     Stroke="Black"
                                     StrokeThickness="1"
                                     Grid.Row="1"
                                     Grid.Column="0"
                                     Grid.ColumnSpan="4">
-                                </Line>
-                                <Rectangle VerticalAlignment="Stretch" 
+                            </Line>
+                            <Rectangle VerticalAlignment="Stretch" 
                                            Margin="697,2,0,0" 
                                            Stroke="Black" 
                                            Grid.RowSpan="2" 
                                            Grid.Column="2" 
                                            Width="1">
-                                    <Rectangle.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform ScaleX="-1"/>
-                                            <SkewTransform/>
-                                            <RotateTransform/>
-                                            <TranslateTransform/>
-                                        </TransformGroup>
-                                    </Rectangle.RenderTransform>
-                                </Rectangle>
-                                <Image x:Name="image1" 
+                                <Rectangle.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="-1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Rectangle.RenderTransform>
+                            </Rectangle>
+                            <Image x:Name="image1" 
                                        Grid.Row="0" 
                                        Grid.Column="0" 
                                        Source="Images/Icons/userprofile.png" 
                                        Margin="10,10,0,10" 
                                        Grid.RowSpan="2"/>
-                                <TextBlock FontSize="36" 
+                            <TextBlock FontSize="36" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Height="68" 
@@ -107,7 +79,7 @@
                                            Grid.Column="1" 
                                            Grid.RowSpan="2" 
                                            Opacity="0.5">User1</TextBlock>
-                                <Button x:Name="messagesButton" 
+                            <Button x:Name="messagesButton" 
                                         Content="Message" 
                                         Grid.Column="1" 
                                         VerticalAlignment="Center" 
@@ -120,7 +92,7 @@
                                         Height="64" 
                                         Opacity="0.5" 
                                         Click="MessageButton"/>
-                                <TextBlock FontSize="36" 
+                            <TextBlock FontSize="36" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Center" 
                                            Height="68" 
@@ -129,7 +101,7 @@
                                            FontFamily="Microsoft YaHei" 
                                            Grid.Column="2" 
                                            Grid.RowSpan="2">From my last vacation in Iceland.</TextBlock>
-                                <TextBlock FontSize="30" 
+                            <TextBlock FontSize="30" 
                                            VerticalAlignment="Center" 
                                            HorizontalAlignment="Right" 
                                            Height="68" 
@@ -139,7 +111,7 @@
                                            Grid.Column="3" 
                                            Grid.RowSpan="2" 
                                            Opacity="0.5">52 Saves</TextBlock>
-                                <Button x:Name="saveButton" 
+                            <Button x:Name="saveButton" 
                                         Content="Save Photo" 
                                         Grid.Column="3" 
                                         VerticalAlignment="Center"
@@ -152,32 +124,31 @@
                                         Height="78" 
                                         Opacity="0.5" 
                                         Click="SaveButton"/>
-                            </Grid>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="2" Height="116" Margin="0,20,0,0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="80"/>
-                                    <ColumnDefinition Width="1199"/>
-                                </Grid.ColumnDefinitions>
-                                <Image VerticalAlignment="Center" 
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="2" Height="116" Margin="0,20,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="1199"/>
+                            </Grid.ColumnDefinitions>
+                            <Image VerticalAlignment="Center" 
                                        HorizontalAlignment="Right" 
                                        Source="Images/Icons/userprofile.png" 
                                        Margin="0,13,5,15" 
                                        Width="71" 
                                        Height="72"/>
-                                <TextBox TextWrapping="Wrap" 
+                            <TextBox TextWrapping="Wrap" 
                                          Background="#F6FBFF" 
                                          Foreground ="Black" 
                                          Text="Type a message..." 
                                          Grid.Column="1" 
                                          FontFamily="Microsoft YaHei" 
                                          FontSize="26" />
-                            </Grid>
-                        </Border>
-                    </StackPanel>
-                </ScrollViewer>
-            </Border>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
         </Popup>
     </Grid>
 </UserControl>
