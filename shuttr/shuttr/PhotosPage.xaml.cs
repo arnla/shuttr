@@ -18,7 +18,7 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for PhotosPage.xaml
     /// </summary>
-    public partial class PhotosPage
+    public partial class PhotosPage : UserControl
     {
         public PhotosPage()
         {
