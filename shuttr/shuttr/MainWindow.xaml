@@ -397,7 +397,7 @@
                 </ScrollViewer>
             </Popup>
             
-            <Button x:Name="MessagesButton"
+            <Button x:Name="MessageButton"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top" 
                     Margin="5,0,5,0"
@@ -433,15 +433,64 @@
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=MessagesButton}"
                    StaysOpen="False">
-                <StackPanel x:Name="MessagesList">
-                    <Button x:Name="Message1"
-                            Content="Message 1"></Button>
-                    <Button x:Name="Message2"
-                            Content="Message 2"></Button>
-                    <Button x:Name="SeeAllMessagesButton"
+                <ScrollViewer x:Name="MessageList"
+                              MaxHeight="300">
+                    <StackPanel x:Name="MessagesList">
+                        <Button x:Name="Message1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Images/Icons/userprofile.png"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center">
+                                    I saw one of your pictures and was wondering if i could buy a print
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    3:01 PM
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Message2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Images/Icons/userprofile.png"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center">
+                                    What lens do you use for your night sky photography?
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    4d
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="SeeAllMessagesButton"
                             Content="See all"
                             Click="Button_Click"></Button>
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </Popup>
             
             <Button x:Name="AccountButton"

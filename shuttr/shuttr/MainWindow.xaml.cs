@@ -46,7 +46,7 @@ namespace shuttr
             {
                 NotificationsButtonDropdown.IsOpen = !NotificationsButtonDropdown.IsOpen;
             }
-            else if (sender.Equals(MessagesButton))
+            else if (sender.Equals(MessageButton))
             {
                 MessagesButtonDropdown.IsOpen = !MessagesButtonDropdown.IsOpen;
             }
