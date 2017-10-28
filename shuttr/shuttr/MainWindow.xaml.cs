@@ -54,6 +54,13 @@ namespace shuttr
             {
                 contentControl.Content = new MessagesPage();
             }
+            else if (sender.Equals(PostPhotoButton))
+            {
+                MessagesPage test = new MessagesPage();
+                test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
+                contentControl.Content = test;
+                test.NewPhotoFromMessages.IsOpen = true;
+            }
         }
     }
 }

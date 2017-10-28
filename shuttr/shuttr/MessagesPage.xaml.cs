@@ -24,5 +24,15 @@ namespace shuttr
         {
             InitializeComponent();
         }
+
+        protected void Button_Click(Object sender, EventArgs e)
+        {
+            // Some stuff happens here.
+            if (sender.Equals(CancelPostPhotoButton))
+            {
+                MessagesPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                NewPhotoFromMessages.IsOpen = false;
+            }
+        }
     }
 }

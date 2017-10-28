@@ -142,7 +142,8 @@
                             Background="AliceBlue">
                     <Button x:Name="PostPhotoButton"
                             Content="New Photo"
-                            Height="20">
+                            Height="20"
+                            Click="Button_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
                                 <Setter Property="Background" Value="#FFCFD6D8"/>
