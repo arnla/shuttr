@@ -25,6 +25,31 @@ namespace shuttr
             InitializeComponent();
             contentControl.Content = new PhotosPage();
             //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
+
+            FillNotificationMenu();
+            FillMessageNotificationMenu();
+        }
+
+        /// <summary>
+        /// Fills the notification submenu with a hardcoded set of notifications.
+        /// Creates new Notification items and adds them to the submenu.
+        /// </summary>
+        private void FillNotificationMenu()
+        {
+            NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "17h"));
+            NotificationStackPanel.Children.Add(new Notification(false, "User2 replied to your comment", "18h"));
+            NotificationStackPanel.Children.Add(new Notification(false, "User3 commented on your photo", "3d"));
+            NotificationStackPanel.Children.Add(new Notification(false, "User4 replied to your comment", "4d"));
+            NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
+        }
+
+        /// <summary>
+        /// Fills the messages submenud with a hardcoded set of messages.
+        /// Creates new MessageNotification items and adds them to the submenu.
+        /// </summary>
+        private void FillMessageNotificationMenu()
+        {
+            MessagesStackPanel.Children.Add(new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM"));
         }
 
         protected void Button_Click(Object sender, EventArgs e)

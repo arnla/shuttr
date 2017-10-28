@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="shuttr.MessageNotification"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="300">
+    <Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Image x:Name="UserPicture"
+                   Source="/Images/Icons/userprofile.png"/>
+            
+            <TextBlock x:Name="SenderName"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Top"
+                       FontWeight="Bold">
+                User1
+            </TextBlock>
+            
+            <TextBlock x:Name="MessageContent"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontWeight="Bold">
+                I saw one of your pictures and was wondering if i could buy a print
+            </TextBlock>
+            
+            <TextBlock x:Name="DateReceived"
+                       Grid.Row="0"
+                       Grid.Column="2"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Right"
+                       FontWeight="Bold"
+                       Margin="0,0,5,0">
+                3:01 PM
+            </TextBlock>
+        </Grid>
+    </Button>
+</UserControl>
