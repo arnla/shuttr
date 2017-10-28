@@ -27,6 +27,7 @@ namespace shuttr
             //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
 
             FillNotificationMenu();
+            FillMessageNotificationMenu();
         }
 
         /// <summary>
@@ -40,6 +41,11 @@ namespace shuttr
             NotificationStackPanel.Children.Add(new Notification(false, "User3 commented on your photo", "3d"));
             NotificationStackPanel.Children.Add(new Notification(false, "User4 replied to your comment", "4d"));
             NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
+        }
+
+        private void FillMessageNotificationMenu()
+        {
+            MessagesStackPanel.Children.Add(new MessageNotification("What lens do you use for your night sky photography?", "3:01 PM"));
         }
 
         protected void Button_Click(Object sender, EventArgs e)

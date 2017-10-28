@@ -231,7 +231,6 @@
                    StaysOpen="False">
                 <ScrollViewer MaxHeight="300">
                     <StackPanel x:Name="NotificationStackPanel">
-                        <!-- Example of adding a notification in xaml-->
                         <control:Notification/>
                     </StackPanel>
                 </ScrollViewer>
@@ -273,65 +272,23 @@
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=MessagesButton}"
                    StaysOpen="False">
-                <ScrollViewer x:Name="MessageList"
-                              MaxHeight="300">
-                    <StackPanel x:Name="MessagesList">
-                        <Button x:Name="Message1">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="110"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="/Images/Icons/userprofile.png"/>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center"
-                                           FontWeight="Bold">
-                                    I saw one of your pictures and was wondering if i could buy a print
-                                </TextBlock>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="2"
-                                           VerticalAlignment="Top"
-                                           HorizontalAlignment="Right"
-                                           FontWeight="Bold"
-                                           Margin="0,0,5,0">
-                                    3:01 PM
-                                </TextBlock>
-                            </Grid>
-                        </Button>
-                        <Button x:Name="Message2">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition Width="110"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="/Images/Icons/userprofile.png"/>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="1"
-                                           VerticalAlignment="Center">
-                                    What lens do you use for your night sky photography?
-                                </TextBlock>
-                                <TextBlock Grid.Row="0"
-                                           Grid.Column="2"
-                                           VerticalAlignment="Top"
-                                           HorizontalAlignment="Right"
-                                           Margin="0,0,5,0">
-                                    3:01 PM
-                                </TextBlock>
-                            </Grid>
-                        </Button>
+                <ScrollViewer MaxHeight="300">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel x:Name="MessagesStackPanel"
+                                    Grid.Row="0" >
+                            <control:MessageNotification/>
+                        </StackPanel>
+
                         <Button x:Name="SeeAllMessagesButton"
-                            Content="See all"
-                            Click="Button_Click"></Button>
-                    </StackPanel>
+                                Grid.Row="1" 
+                                Content="See all"
+                                Click="Button_Click"/>
+                    </Grid>
                 </ScrollViewer>
             </Popup>
             
