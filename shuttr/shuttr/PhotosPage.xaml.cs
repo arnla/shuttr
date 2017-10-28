@@ -30,10 +30,10 @@ namespace shuttr
         {
             if (sender.Equals(Image1))
             {
-                //popUpPicture popUp = new popUpPicture();
-                //popUp.PhotosPageFill.Fill = new SolidColorBrush(Colors.Black);
-                //imageContentControl.Content = popUp;
-                //popUp.PhotoPopUpWindow.IsOpen = true;
+                popUpPicture popUp = new popUpPicture();
+                popUp.PhotosPageFill.Fill = new SolidColorBrush(Colors.Black);
+                imageContentControl.Content = popUp;
+                popUp.PhotoPopUpWindow.IsOpen = true;
             }
         }
     }

@@ -18,7 +18,7 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for popUpPicture.xaml
     /// </summary>
-    public partial class popUpPicture : Page
+    public partial class popUpPicture : UserControl
     {
         public popUpPicture()
         {

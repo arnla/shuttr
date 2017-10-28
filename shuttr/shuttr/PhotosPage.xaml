@@ -6,59 +6,61 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
-    <Grid Background="#F6FBFF">
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="SortBy" Height="Auto"/>
-            <RowDefinition x:Name="Content"/>
-        </Grid.RowDefinitions>
-        
-        <Border x:Name="SortByContainer"
+    <ContentControl x:Name="imageContentControl">
+        <Grid Background="#F6FBFF">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="SortBy" Height="Auto"/>
+                <RowDefinition x:Name="Content"/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="SortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
-            <Menu x:Name="sortBy"
+                <Menu x:Name="sortBy"
                   Background="Transparent">
-                <MenuItem Header="Sort By: "
+                    <MenuItem Header="Sort By: "
                           Background="White">
-                    <MenuItem Header="Following"/>
-                    <MenuItem Header="Popular"/>
-                    <MenuItem Header="New"/>
-                    <MenuItem Header="Most Commeted"/>
-                    <MenuItem Header="Most Upvoted"/>
-                </MenuItem>
-            </Menu>
+                        <MenuItem Header="Following"/>
+                        <MenuItem Header="Popular"/>
+                        <MenuItem Header="New"/>
+                        <MenuItem Header="Most Commeted"/>
+                        <MenuItem Header="Most Upvoted"/>
+                    </MenuItem>
+                </Menu>
 
-        </Border>
+            </Border>
 
-        <ScrollViewer HorizontalAlignment="Center"
+            <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
                       Width="800"
                       Height="Auto"
                       Grid.Row="1">
-            <StackPanel x:Name="PhotoFeed">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Image x:Name="Image1" 
+                <StackPanel x:Name="PhotoFeed">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Margin" Value="5,10,5,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Image x:Name="Image1" 
                        Source="/Images/child.jpg" 
                        MouseLeftButtonDown="PhotoClick"/>
-                <Image x:Name="Image2" 
+                    <Image x:Name="Image2" 
                        Source="/Images/Coast.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
-                <Image x:Name="Image3" 
+                    <Image x:Name="Image3" 
                        Source="Images/palmtree.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
-            </StackPanel>
-        </ScrollViewer>
-        <Popup x:Name="ImageView"
+                </StackPanel>
+            </ScrollViewer>
+            <Popup x:Name="ImageView"
                StaysOpen="False"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"
                Grid.RowSpan="2">
-            <DockPanel x:Name="ImageViewDock"></DockPanel>
-        </Popup>
-        
-    </Grid>
+                <DockPanel x:Name="ImageViewDock"></DockPanel>
+            </Popup>
+
+        </Grid>
+    </ContentControl>
 </UserControl>
