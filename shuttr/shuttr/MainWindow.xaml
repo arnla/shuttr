@@ -135,12 +135,57 @@
             <Popup x:Name="PostButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=PostButton}"
+                   VerticalOffset="5"
                    StaysOpen="False">
-                <StackPanel x:Name="PostButtonOptions">
+                <StackPanel x:Name="PostButtonOptions"
+                            Background="AliceBlue">
                     <Button x:Name="PostPhotoButton"
-                            Content="New Photo"></Button>
+                            Content="New Photo"
+                            Height="20">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FFCFD6D8"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                     <Button x:Name="PostDiscussionButton"
-                            Content="New Discussion"></Button>
+                            Content="New Discussion"
+                            HorizontalContentAlignment="Left"
+                            Height="20">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FFCFD6D8"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
                 </StackPanel>
             </Popup>
 
