@@ -6,14 +6,10 @@
       xmlns:local="clr-namespace:shuttr"
       mc:Ignorable="d" 
       d:DesignHeight="1200" d:DesignWidth="1920">
-    <Grid Background="#F64F5E6C">
-        <Rectangle Name="PhotosPageFill" Fill="Transparent" Opacity="50"></Rectangle>
-
+    <Grid x:Name="MainGrid" Background="#F64F5E6C">
         <Popup x:Name="PhotoPopUpWindow"
-               PlacementTarget="{Binding ElementName=PhotosPageFill}"
+               PlacementTarget="{Binding ElementName=MainGrid}"
                 Placement="Center"
-               VerticalOffset="-600"
-               HorizontalOffset="-960"
                 IsOpen="False">
             <ScrollViewer HorizontalAlignment="Center"
                           VerticalAlignment="Top"
