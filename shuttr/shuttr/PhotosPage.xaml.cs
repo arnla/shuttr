@@ -26,6 +26,11 @@ namespace shuttr
             //imageContentControl.Content = new PhotosPage();
         }
 
+        /// <summary>
+        /// Handles a clicked photo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
             if (sender.Equals(Image1))
