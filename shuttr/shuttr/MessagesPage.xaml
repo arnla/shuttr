@@ -18,7 +18,7 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Border BorderBrush="Black" BorderThickness="2" Height="Auto">
+                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
                     <Grid ShowGridLines="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -37,17 +37,17 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" FontSize="22" FontWeight="ExtraBold">User 1</TextBlock>
-                                <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right">3:01 PM</TextBlock>
+                                <TextBlock Grid.Column="0" FontSize="22" FontWeight="ExtraBold" Margin="5,10,5,0">User 1</TextBlock>
+                                <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right" Margin="10,10,10,10">3:01 PM</TextBlock>
                             </Grid>
-                            <TextBlock Grid.Row="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap">
+                            <TextBlock Grid.Row="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,10,10">
                                 I saw one of your pictures and was wondering if i could buy a print
                             </TextBlock>
                         </Grid>
-                        <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                        <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
                     </Grid>
                 </Border>
-                <Border BorderBrush="Black" BorderThickness="2" Height="Auto">
+                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
                     <Grid ShowGridLines="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -66,14 +66,14 @@
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0" FontSize="22">User 2</TextBlock>
-                                <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right">3:01 PM</TextBlock>
+                                <TextBlock Grid.Column="0" FontSize="22" Margin="5,10,5,0">User 2</TextBlock>
+                                <TextBlock Grid.Column="1" FontSize="16" FontWeight="Light" HorizontalAlignment="Right" Margin="10,10,10,10">3:01 PM</TextBlock>
                             </Grid>
-                            <TextBlock Grid.Row="1" FontSize="16" TextWrapping="Wrap">
+                            <TextBlock Grid.Row="1" FontSize="16" TextWrapping="Wrap" Margin="10,10,10,10">
                                     What lens do you use for your night sky photography?
                             </TextBlock>
                         </Grid>
-                        <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png"></Image>
+                        <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
                     </Grid>
                 </Border>
             </StackPanel>
