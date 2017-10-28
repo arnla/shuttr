@@ -449,13 +449,15 @@
                                 <Image Source="/Images/Icons/userprofile.png"/>
                                 <TextBlock Grid.Row="0"
                                            Grid.Column="1"
-                                           VerticalAlignment="Center">
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold">
                                     I saw one of your pictures and was wondering if i could buy a print
                                 </TextBlock>
                                 <TextBlock Grid.Row="0"
                                            Grid.Column="2"
                                            VerticalAlignment="Top"
                                            HorizontalAlignment="Right"
+                                           FontWeight="Bold"
                                            Margin="0,0,5,0">
                                     3:01 PM
                                 </TextBlock>
@@ -479,10 +481,10 @@
                                 </TextBlock>
                                 <TextBlock Grid.Row="0"
                                            Grid.Column="2"
-                                           VerticalAlignment="Bottom"
+                                           VerticalAlignment="Top"
                                            HorizontalAlignment="Right"
                                            Margin="0,0,5,0">
-                                    4d
+                                    3:01 PM
                                 </TextBlock>
                             </Grid>
                         </Button>
@@ -526,6 +528,62 @@
                 </Button.Style>
             </Button>
         </StackPanel>
+        <Popup x:Name="AccountButtonDropdown"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=AccountButton}"
+                   VerticalOffset="5"
+                   StaysOpen="False">
+            <StackPanel x:Name="AccountButtonOptions"
+                            Background="AliceBlue">
+                <Button x:Name="ProfileButton"
+                            Content="Your Profile Page"
+                            Height="20">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="LogoutButton"
+                            Content="Logout"
+                            HorizontalContentAlignment="Left"
+                            Height="20">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Popup>
 
         <Line X1="0"
               X2="1920"
