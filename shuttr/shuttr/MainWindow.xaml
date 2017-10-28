@@ -225,7 +225,8 @@
             <Popup x:Name="NotificationsButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=NotificationsButton}"
-                   Width="150"
+                   MaxWidth="200"
+                   VerticalOffset="5"
                    StaysOpen="False">
                 <ScrollViewer x:Name="NotificationList"
                               MaxHeight="300">
@@ -233,39 +234,170 @@
                         <Button x:Name="Notification1">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="50"/>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="110"/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Ellipse Grid.Row="0"
-                                     Grid.Column="0"
-                                     Grid.RowSpan="2"
-                                     Fill="Red"
-                                     Width="10"
-                                     Height="10"/>
-                                <TextBlock Grid.Row="1"
-                                       Grid.Column="1"
-                                       TextWrapping="Wrap">
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         Fill="Black"
+                                         Width="10"
+                                         Height="10"
+                                         Margin="5,0,5,0"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextWrapping="Wrap"
+                                           FontWeight="Bold"
+                                           VerticalAlignment="Center">
                                     User1 commented on your photo
                                 </TextBlock>
-                                <TextBlock Grid.Row="1"
+                                <TextBlock Grid.Row="0"
                                            Grid.Column="2"
-                                           VerticalAlignment="Bottom">
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           FontWeight="Bold"
+                                           Margin="0,0,5,0">
                                     17h
                                 </TextBlock>
                             </Grid>
                         </Button>
-                        <Button x:Name="Notification2"
-                            Content="Notification 2"></Button>
+                        <Button x:Name="Notification2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         Fill="Transparent"
+                                         Width="10"
+                                         Height="10"
+                                         Margin="5,0,5,0" Stroke="Black"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center">
+                                    User2 commented on your photo
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    17h
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Notification3">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         Fill="Transparent"
+                                         Width="10"
+                                         Height="10"
+                                         Margin="5,0,5,0" Stroke="Black"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center">
+                                    User2 replied to your comment
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    18h
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Notification4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         Fill="Transparent"
+                                         Width="10"
+                                         Height="10"
+                                         Margin="5,0,5,0" Stroke="Black"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center">
+                                    User3 commented on your photo
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    3d
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Notification5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.RowSpan="2"
+                                         Fill="Transparent"
+                                         Width="10"
+                                         Height="10"
+                                         Margin="5,0,5,0" Stroke="Black"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           TextWrapping="Wrap"
+                                           VerticalAlignment="Center">
+                                    User4 replied to your comment
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Bottom"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    4d
+                                </TextBlock>
+                            </Grid>
+                        </Button>
                     </StackPanel>
                 </ScrollViewer>
             </Popup>
             
-            <Button x:Name="MessagesButton"
+            <Button x:Name="MessageButton"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top" 
                     Margin="5,0,5,0"
@@ -301,15 +433,66 @@
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=MessagesButton}"
                    StaysOpen="False">
-                <StackPanel x:Name="MessagesList">
-                    <Button x:Name="Message1"
-                            Content="Message 1"></Button>
-                    <Button x:Name="Message2"
-                            Content="Message 2"></Button>
-                    <Button x:Name="SeeAllMessagesButton"
+                <ScrollViewer x:Name="MessageList"
+                              MaxHeight="300">
+                    <StackPanel x:Name="MessagesList">
+                        <Button x:Name="Message1">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Images/Icons/userprofile.png"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center"
+                                           FontWeight="Bold">
+                                    I saw one of your pictures and was wondering if i could buy a print
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Right"
+                                           FontWeight="Bold"
+                                           Margin="0,0,5,0">
+                                    3:01 PM
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="Message2">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="/Images/Icons/userprofile.png"/>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Center">
+                                    What lens do you use for your night sky photography?
+                                </TextBlock>
+                                <TextBlock Grid.Row="0"
+                                           Grid.Column="2"
+                                           VerticalAlignment="Top"
+                                           HorizontalAlignment="Right"
+                                           Margin="0,0,5,0">
+                                    3:01 PM
+                                </TextBlock>
+                            </Grid>
+                        </Button>
+                        <Button x:Name="SeeAllMessagesButton"
                             Content="See all"
                             Click="Button_Click"></Button>
-                </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </Popup>
             
             <Button x:Name="AccountButton"
@@ -345,6 +528,62 @@
                 </Button.Style>
             </Button>
         </StackPanel>
+        <Popup x:Name="AccountButtonDropdown"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=AccountButton}"
+                   VerticalOffset="5"
+                   StaysOpen="False">
+            <StackPanel x:Name="AccountButtonOptions"
+                            Background="AliceBlue">
+                <Button x:Name="ProfileButton"
+                            Content="Your Profile Page"
+                            Height="20">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="LogoutButton"
+                            Content="Logout"
+                            HorizontalContentAlignment="Left"
+                            Height="20">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Popup>
 
         <Line X1="0"
               X2="1920"
