@@ -87,7 +87,7 @@
                     Click="Button_Click" />
         </StackPanel>
 
-        <Border x:Name="SearchBar"
+        <!--<Border x:Name="SearchBar"
                 BorderBrush="Gray"
                 BorderThickness="2"
                 Background="#FFB8B8B8"
@@ -110,7 +110,53 @@
                     <SolidColorBrush Opacity="0"/>
                 </TextBox.Background>
             </TextBox>
-        </Border>
+        </Border>-->
+        <Rectangle Fill="#FFB8B8B8"
+                   Opacity="0.5"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   Height="25"
+                   Width="270"/>
+        <TextBox x:Name="SearchBox"
+                 Background="#FFB8B8B8"
+                 Width="265"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3"
+                 FontFamily="Microsoft YaHei" 
+                 FontWeight="Bold" 
+                 FontSize="14" >
+        </TextBox>
+        <TextBlock x:Name="SearchBoxDefault"
+                   IsHitTestVisible="False"
+                   Text="Search photos, discussions, people..."
+                   Width="260"
+                   Opacity="0.5"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="3"
+                   FontFamily="Microsoft YaHei" 
+                   FontWeight="Bold" 
+                   FontSize="14" >
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility"
+                            Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}"
+                                     Value="">
+                            <Setter Property="Visibility"
+                                    Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
 
         <StackPanel x:Name="UserControls"
                     Orientation="Horizontal"
