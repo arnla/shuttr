@@ -79,7 +79,7 @@
             </StackPanel>
         </ScrollViewer>
 
-        <Rectangle Name="MessagesPageFill" Fill="Transparent" Opacity="50"></Rectangle>
+        <Rectangle Name="MessagesPageFill" Fill="Transparent" Opacity="0.85"></Rectangle>
 
         <Popup
             Name="NewPhotoFromMessages" 
