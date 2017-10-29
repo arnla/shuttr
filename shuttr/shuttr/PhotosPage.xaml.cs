@@ -33,10 +33,9 @@ namespace shuttr
         /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender.Equals(Image1))
+            if (sender.Equals(Image2))
             {
                 PopUpPicture popUp = new PopUpPicture();
-                //popUp.PhotosPageFill.Fill = new SolidColorBrush(Colors.Black);
                 imageContentControl.Content = popUp;
                 popUp.PhotoPopUpWindow.IsOpen = true;
             }
