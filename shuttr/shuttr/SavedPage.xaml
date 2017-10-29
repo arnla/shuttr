@@ -25,15 +25,16 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                
-                <Border BorderBrush="Black" 
-                        BorderThickness="1" 
-                        Height="100">
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -41,15 +42,17 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" 
-                                   VerticalAlignment="Top" 
+                                   VerticalAlignment="Center" 
                                    HorizontalAlignment="Center"
-                                   Source="Images/Icons/userprofile.png"/>
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
                             <TextBlock Grid.Row="1" 
                                        FontSize="20"  
                                        TextWrapping="Wrap"
                                        VerticalAlignment="Bottom"
                                        HorizontalAlignment="Center" 
-                                       FontFamily="Microsoft YaHei">
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
                                 User 1
                             </TextBlock>
                         </Grid>
@@ -73,14 +76,15 @@
                     <Image Source="Images/Mountains.jpg"/>
                 </Border>
 
-                <Border BorderBrush="Black" 
-                        BorderThickness="1" 
-                        Height="100">
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -88,15 +92,17 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" 
-                                   VerticalAlignment="Top" 
+                                   VerticalAlignment="Center" 
                                    HorizontalAlignment="Center"
-                                   Source="Images/Icons/userprofile.png"/>
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
                             <TextBlock Grid.Row="1" 
                                        FontSize="20"  
                                        TextWrapping="Wrap"
                                        VerticalAlignment="Bottom"
                                        HorizontalAlignment="Center" 
-                                       FontFamily="Microsoft YaHei">
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
                                 User 2
                             </TextBlock>
                         </Grid>
@@ -116,14 +122,15 @@
                     </Grid>
                 </Border>
 
-                <Border BorderBrush="Black" 
-                        BorderThickness="1" 
-                        Height="100">
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -131,15 +138,17 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Grid.Row="0" 
-                                   VerticalAlignment="Top" 
+                                   VerticalAlignment="Center" 
                                    HorizontalAlignment="Center"
-                                   Source="Images/Icons/userprofile.png"/>
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
                             <TextBlock Grid.Row="1" 
                                        FontSize="20"  
                                        TextWrapping="Wrap"
                                        VerticalAlignment="Bottom"
                                        HorizontalAlignment="Center" 
-                                       FontFamily="Microsoft YaHei">
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
                                 User 2
                             </TextBlock>
                         </Grid>
