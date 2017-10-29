@@ -23,6 +23,22 @@ namespace shuttr
         public MessagingPage()
         {
             InitializeComponent();
+
+            FillMessages();
+        }
+
+        private void FillMessages()
+        {
+            string user2 = "Other User";
+            string user1 = "User 1";
+            MessageThread.Children.Add(new Message(false, user1, "Hello! My name is Derrick. I saw your designs and was really interested if we could collaborate together.", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user2, "Okay, sure.", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user1, "I am in the YYC area tomorrow, let's go shoot at the Peace Bridge?", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user2, "Peace Bridge? I'd rather get on a roof of a building.", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user1, "And shoot pictures of our shoes hanging off the ends?", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user2, "Yeah...", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user1, "Alright, I'm down for that.", "3:04pm"));
+            MessageThread.Children.Add(new Message(false, user2, "Let's go grab some village ice cream after and shoot a pic with the logo.", "3:04pm"));
         }
 
         public void Text_Changed(object sender, EventArgs e)

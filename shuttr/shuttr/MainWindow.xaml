@@ -226,7 +226,8 @@
                    StaysOpen="False">
                 <StackPanel x:Name="MessagesList">
                     <Button x:Name="Message1"
-                            Content="Message 1"></Button>
+                            Content="Message 1"
+                            Click="Button_Click"></Button>
                     <Button x:Name="Message2"
                             Content="Message 2"></Button>
                     <Button x:Name="SeeAllMessagesButton"
