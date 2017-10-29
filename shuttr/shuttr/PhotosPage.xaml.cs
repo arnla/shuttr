@@ -35,10 +35,21 @@ namespace shuttr
         {
             if (sender.Equals(Image2))
             {
-                PopUpPicture popUp = new PopUpPicture();
+                PhotosPage popUp = new PhotosPage();
+                popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 imageContentControl.Content = popUp;
                 popUp.PhotoPopUpWindow.IsOpen = true;
             }
+        }
+
+        private void MessageButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
