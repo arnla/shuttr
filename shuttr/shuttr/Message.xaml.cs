@@ -31,12 +31,14 @@ namespace shuttr
 
             if (user)
             {
+                /*
                 C0.Width = new GridLength(13, GridUnitType.Star);
                 C1.Width = new GridLength(1, GridUnitType.Star);
                 Grid.SetColumn(UserName, 0);
                 Grid.SetColumn(DateReceived, 0);
                 Grid.SetColumn(MessageContent, 0);
-                Grid.SetColumn(UserProfilePicture, 1);
+                Grid.SetColumn(UserProfilePicture, 1);*/
+                MessageBorder.Background = new SolidColorBrush(Colors.PaleTurquoise);
             }
 
             MessageContent.Text = message;

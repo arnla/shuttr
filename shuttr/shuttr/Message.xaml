@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
-    <Border BorderBrush="Gray" 
+    <Border x:Name="MessageBorder"
+            BorderBrush="Gray" 
             Opacity="50"
             BorderThickness="2" 
             Height="Auto">

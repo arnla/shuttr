@@ -8,9 +8,8 @@
              d:DesignHeight="1200" d:DesignWidth="1920">
     <Grid Background="#F6FBFF">
         <ScrollViewer HorizontalAlignment="Center"
-                      VerticalAlignment="Top"  
-                      Width="800"
-                      Height="Auto">
+                      VerticalAlignment="Stretch"  
+                      Width="800">
             <!--"<StackPanel x:Name="PhotoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Image}">

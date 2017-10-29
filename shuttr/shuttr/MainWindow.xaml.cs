@@ -54,6 +54,10 @@ namespace shuttr
             {
                 MessagesButtonDropdown.IsOpen = !MessagesButtonDropdown.IsOpen;
             }
+            else if (sender.Equals(AccountButton))
+            {
+                contentControl.Content = new LoginPage();
+            }
             else if (sender.Equals(Message1))
             {
                 contentControl.Content = new MessagingPage();
