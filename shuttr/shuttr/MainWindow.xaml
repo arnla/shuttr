@@ -103,8 +103,7 @@
                  Grid.Row="0"
                  Grid.Column="0"
                  Grid.ColumnSpan="3"
-                 FontFamily="Microsoft YaHei" 
-                 FontWeight="Bold" 
+                 FontFamily="Microsoft YaHei"
                  FontSize="14" >
         </TextBox>
         <TextBlock x:Name="SearchBoxDefault"
@@ -117,8 +116,7 @@
                    Grid.Row="0"
                    Grid.Column="0"
                    Grid.ColumnSpan="3"
-                   FontFamily="Microsoft YaHei" 
-                   FontWeight="Bold" 
+                   FontFamily="Microsoft YaHei"
                    FontSize="14" >
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
@@ -134,7 +132,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Popup x:Name="SearchResults"
+        <Popup x:Name="SearchResultsPopup"
                Placement="Bottom"
                PlacementTarget="{Binding ElementName=SearchContainer}"
                StaysOpen="False">
@@ -151,15 +149,56 @@
                     </Style.Triggers>
                 </Style>
             </Popup.Style>
-            <StackPanel>
-                <TextBlock Width="270"
-                           Background="AliceBlue">
-                    Mountain
-                </TextBlock>
-                <TextBlock Width="270"
-                           Background="AliceBlue">
-                    Mountain Dew
-                </TextBlock>
+            <StackPanel x:Name="SearchResults">
+                <Button x:Name="Result1"
+                        Width="270"
+                        Content="Mount Royal University"
+                        FontFamily="Microsoft YaHei"
+                        FontSize="13">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,3"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Width="270"
+                        Content="Mountain"
+                        FontFamily="Microsoft YaHei"
+                        FontSize="13">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,3"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
         </Popup>
 
@@ -172,7 +211,7 @@
 
             <Button x:Name="PostButton"
                 Content="POST"
-                HorizontalAlignment="Center" 
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Margin="30,0"
                 Width="85"
