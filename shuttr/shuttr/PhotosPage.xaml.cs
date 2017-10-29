@@ -38,8 +38,6 @@ namespace shuttr
                 PhotosPage popUp = new PhotosPage();
                 popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 popUp.popUpPageFill.Visibility = Visibility.Visible;
-                popUp.PhotoPopUpWindow.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-                popUp.PhotoPopUpWindow.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
                 imageContentControl.Content = popUp;
                 popUp.PhotoPopUpWindow.IsOpen = true;
             }
