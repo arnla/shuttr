@@ -57,7 +57,6 @@
             <Rectangle Name="popUpPageFill" 
                        Fill="Transparent" 
                        Opacity="0.85"
-                       Grid.RowSpan="2"
                        />
             <Popup x:Name="PhotoPopUpWindow"
                 Placement="Center"
@@ -181,7 +180,7 @@
                             Margin="0,30,0,0">
                             <StackPanel>
                                 <Grid x:Name="Thread1" 
-                                  Height="290">
+                                      Height="290">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="100*"/>
                                         <RowDefinition Height="100*"/>

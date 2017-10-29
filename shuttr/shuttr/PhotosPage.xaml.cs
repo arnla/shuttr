@@ -36,7 +36,7 @@ namespace shuttr
             if (sender.Equals(Image2))
             {
                 PhotosPage popUp = new PhotosPage();
-                popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                //popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 imageContentControl.Content = popUp;
                 popUp.PhotoPopUpWindow.IsOpen = true;
             }

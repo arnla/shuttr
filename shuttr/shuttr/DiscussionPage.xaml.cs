@@ -24,5 +24,21 @@ namespace shuttr
         {
             InitializeComponent();
         }
+
+        private void DiscussionClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender.Equals(Discussion1))
+            {
+                DiscussionPage popUp = new DiscussionPage();
+                //popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                DiscussionContentControl.Content = popUp;
+                popUp.DiscussionPopUpWindow.IsOpen = true;
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
