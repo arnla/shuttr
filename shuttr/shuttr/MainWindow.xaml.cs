@@ -87,6 +87,8 @@ namespace shuttr
             {
                 MessagesPage test = new MessagesPage();
                 test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
+                test.NewPhotoFromMessages.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+                test.NewPhotoFromMessages.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
                 contentControl.Content = test;
                 test.NewPhotoFromMessages.IsOpen = true;
             }
@@ -94,6 +96,8 @@ namespace shuttr
             {
                 MessagesPage test = new MessagesPage();
                 test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
+                test.NewDiscussionFromMessages.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+                test.NewDiscussionFromMessages.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
                 contentControl.Content = test;
                 test.NewDiscussionFromMessages.IsOpen = true;
             }

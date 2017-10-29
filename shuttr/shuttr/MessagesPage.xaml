@@ -126,8 +126,6 @@
         <Popup
             Name="NewDiscussionFromMessages" 
             Placement="Center"
-            Width="1000" 
-            Height="700"
             IsOpen="False">
             <Border BorderBrush="Black" BorderThickness="5" Background="#F6FBFF">
                 <Grid>
