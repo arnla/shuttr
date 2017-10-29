@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
     <ContentControl x:Name="imageContentControl">
+        
         <Grid Background="#F6FBFF">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="SortBy" Height="Auto"/>
@@ -54,10 +55,11 @@
             </ScrollViewer>
 
             <!-- Grid.RowSpan="2" This would go in Rectangle below-->
-            <Rectangle Name="popUpPageFill" 
+            <Rectangle Grid.RowSpan="2" Name="popUpPageFill" 
                        Fill="Transparent" 
                        Opacity="0.85"
-                       />
+                       Visibility="Hidden"></Rectangle>
+
             <Popup x:Name="PhotoPopUpWindow"
                 Placement="Center"
                 IsOpen="False">

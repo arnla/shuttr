@@ -30,7 +30,8 @@ namespace shuttr
             if (sender.Equals(Discussion1))
             {
                 DiscussionPage popUp = new DiscussionPage();
-                //popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                popUp.popUpPageFill.Visibility = Visibility.Visible;
                 DiscussionContentControl.Content = popUp;
                 popUp.DiscussionPopUpWindow.IsOpen = true;
             }
