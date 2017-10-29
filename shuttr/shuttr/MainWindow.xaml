@@ -136,7 +136,8 @@
         </TextBlock>
         <Popup x:Name="SearchResults"
                Placement="Bottom"
-               PlacementTarget="{Binding ElementName=SearchContainer}">
+               PlacementTarget="{Binding ElementName=SearchContainer}"
+               StaysOpen="False">
             <Popup.Style>
                 <Style TargetType="{x:Type Popup}">
                     <Setter Property="IsOpen"
