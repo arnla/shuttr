@@ -211,16 +211,16 @@
                             <RowDefinition Height="3*"/>
                             <RowDefinition Height="17*"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="PostTitleGrid">
+                        <Grid x:Name="PostTitleGrid" Margin="0,0,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="125*"/>
-                                <ColumnDefinition Width="160*"/>
-                                <ColumnDefinition Width="1118*"/>
-                                <ColumnDefinition Width="157*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="1123"/>
+                                <ColumnDefinition Width="152"/>
                             </Grid.ColumnDefinitions>
                             <Image Source="Images/Icons/userprofile.png" 
                                    Margin="20,20,0,20"
@@ -261,11 +261,11 @@
                                         Grid.Row="0" 
                                         FontFamily="Microsoft YaHei" 
                                         FontSize="30" 
-                                        Margin="21,26,1,0" 
+                                        Margin="23,26,4,0" 
                                         Width="1096" Height="46"/>
                             <Rectangle Grid.Column="2"
                                        Stroke="Gray"
-                                       Margin="5,0,1112,0"
+                                       Margin="5,0,1117,0"
                                        Grid.RowSpan="2"/>
                             <Rectangle Grid.Column="3"
                                        Stroke="Gray" 
@@ -290,7 +290,7 @@
                                        FontSize="26" 
                                        Opacity="0.5"
                                        Height="144" 
-                                       Width="157"/>
+                                       Width="152"/>
                         </Grid>
                         <Border x:Name="DiscussionComments"
                                 Grid.Row="1" 
@@ -298,7 +298,9 @@
                             <ScrollViewer HorizontalAlignment="Center"
                                           MaxWidth="1428" 
                                           MaxHeight="682" 
-                                          Margin="5,0,5,-316" Height="1000" VerticalAlignment="Top">
+                                          Margin="5,0,5,-316" 
+                                          Height="1000" 
+                                          VerticalAlignment="Top">
                                 <StackPanel>
                                     <Grid x:Name="Thread1"
                                           Height="675">
@@ -309,10 +311,10 @@
                                             <RowDefinition Height="120"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="140*"/>
-                                            <ColumnDefinition Width="106*"/>
-                                            <ColumnDefinition Width="106*"/>
-                                            <ColumnDefinition Width="919*"/>
+                                            <ColumnDefinition Width="140"/>
+                                            <ColumnDefinition Width="106"/>
+                                            <ColumnDefinition Width="106"/>
+                                            <ColumnDefinition Width="919"/>
                                             <ColumnDefinition Width="140"/>
                                         </Grid.ColumnDefinitions>
                                         <Image Source="Images/Icons/userprofile.png"
@@ -412,7 +414,8 @@
                                                 Content="Reply" 
                                                 FontFamily="Microsoft YaHei" 
                                                 FontSize="20" 
-                                                Opacity="0.5" Margin="0,20,0,0"
+                                                Opacity="0.5" 
+                                                Margin="0,20,0,0"
                                                 />
                                         <Button x:Name="ReplyButton2"
                                                 Grid.Column="4"
@@ -429,7 +432,8 @@
                                                 Content="Reply" 
                                                 FontFamily="Microsoft YaHei" 
                                                 FontSize="20" 
-                                                Opacity="0.5" Margin="0,10,0,0"
+                                                Opacity="0.5" 
+                                                Margin="0,10,0,0"
                                                 />
                                         <Button x:Name="ReplyButton4"
                                                 Grid.Column="4"
@@ -437,23 +441,59 @@
                                                 Content="Reply" 
                                                 FontFamily="Microsoft YaHei" 
                                                 FontSize="20" 
-                                                Opacity="0.5" Margin="0,10,0,0"
+                                                Opacity="0.5" 
+                                                Margin="0,10,0,0"
                                                 />
                                     </Grid>
-                                    <Grid x:Name="Thread2">
+                                    <Grid x:Name="Thread2" 
+                                          Height="327">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="70*"/>
-                                            <ColumnDefinition Width="561*"/>
-                                            <ColumnDefinition Width="70*"/>
+                                            <ColumnDefinition Width="140"/>
+                                            <ColumnDefinition Width="1131"/>
+                                            <ColumnDefinition Width="140"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Grid.Column="0" Source="Images/Icons/userprofile.png"></Image>
+                                        <Image Source="Images/Icons/userprofile.png" 
+                                               Margin="50,20,10,221"/>
+                                        <TextBox TextWrapping="Wrap"
+                                                 Grid.Column="1"
+                                                 Grid.Row="0"
+                                                 Grid.ColumnSpan="1"
+                                                 Text="Downtown Tokyo." 
+                                                 FontFamily="Microsoft YaHei" 
+                                                 FontSize="24" 
+                                                 Margin="0,20,0,0" 
+                                                 TextChanged="TextBox_TextChanged"/>
+                                        <Image Source="Images/tokyo.jpg" 
+                                               Margin="0,56,732,0" 
+                                               Grid.Column="1"/>
+                                        <TextBox TextWrapping="Wrap"
+                                                 Grid.Column="0"
+                                                 Grid.Row="0"
+                                                 Text="User7" 
+                                                 Margin="60,105,20,0" 
+                                                 FontFamily="Microsoft YaHei" 
+                                                 FontSize="20" 
+                                                 Height="29" 
+                                                 VerticalAlignment="Top" 
+                                                 Opacity="0.5"
+                                                 BorderThickness="0"/>
+                                        <Button x:Name="ReplyButton5"
+                                                Grid.Column="2"
+                                                Content="Reply" 
+                                                FontFamily="Microsoft YaHei" 
+                                                FontSize="20" 
+                                                Opacity="0.5" 
+                                                Margin="0,20,0,0"/>
                                     </Grid>
                                 </StackPanel>
                             </ScrollViewer>
                         </Border>
                         <Border BorderBrush="Gray" 
-                            BorderThickness="1" 
-                            VerticalAlignment="Bottom" Height="132" Grid.Row="1" Margin="0,0,157,0">
+                                BorderThickness="1" 
+                                VerticalAlignment="Bottom" 
+                                Height="127" 
+                                Grid.Row="1" 
+                                Margin="0,0,157,0">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="128"/>
@@ -469,7 +509,7 @@
                                 <Image VerticalAlignment="Center" 
                                        HorizontalAlignment="Right" 
                                        Source="Images/Icons/userprofile.png" 
-                                       Margin="0,24,19,24" 
+                                       Margin="0,22,19,21" 
                                        Width="90" 
                                        Height="82"/>
                                 <TextBox TextWrapping="Wrap"
@@ -488,7 +528,8 @@
                                        Opacity="0.5"
                                        Width="1"
                                        Grid.Column="1" 
-                                       HorizontalAlignment="Right" Margin="0,0,1265,0" RenderTransformOrigin="0.5,0.5" >
+                                       HorizontalAlignment="Right" 
+                                       Margin="0,0,1265,0">
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>
                                             <ScaleTransform ScaleX="-1"/>
