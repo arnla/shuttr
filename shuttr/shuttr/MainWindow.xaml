@@ -94,10 +94,10 @@
                    Grid.Column="0"
                    Grid.ColumnSpan="3"
                    Height="25"
-                   Width="270"/>
+                   Width="350"/>
         <TextBox x:Name="SearchBox"
                  Background="#FFB8B8B8"
-                 Width="265"
+                 Width="345"
                  VerticalAlignment="Center"
                  HorizontalAlignment="Center"
                  Grid.Row="0"
@@ -109,7 +109,7 @@
         <TextBlock x:Name="SearchBoxDefault"
                    IsHitTestVisible="False"
                    Text="Search photos, discussions, people..."
-                   Width="260"
+                   Width="340"
                    Opacity="0.5"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
@@ -151,7 +151,7 @@
             </Popup.Style>
             <StackPanel x:Name="SearchResults">
                 <Button x:Name="Result1"
-                        Width="270"
+                        Width="350"
                         Content="Mount Royal University"
                         FontFamily="Microsoft YaHei"
                         FontSize="13">
@@ -175,7 +175,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Width="270"
+                <Button Width="350"
                         Content="Mountain"
                         FontFamily="Microsoft YaHei"
                         FontSize="13">
