@@ -87,31 +87,8 @@
                     Click="Button_Click" />
         </StackPanel>
 
-        <!--<Border x:Name="SearchBar"
-                BorderBrush="Gray"
-                BorderThickness="2"
-                Background="#FFB8B8B8"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" 
-                Width="Auto" 
-                Height="34"
-                Opacity="0.5"
-                Grid.Row="0"
-                Grid.Column="0"
-                Grid.ColumnSpan="4">
-            <TextBox x:Name="SearchTextBox"
-                     Text=" Search photos, discussions, people...                    " 
-                     VerticalAlignment="Center" 
-                     FontFamily="Microsoft YaHei" 
-                     FontWeight="Bold" 
-                     FontSize="18" 
-                     Opacity="0.5">
-                <TextBox.Background>
-                    <SolidColorBrush Opacity="0"/>
-                </TextBox.Background>
-            </TextBox>
-        </Border>-->
-        <Rectangle Fill="#FFB8B8B8"
+        <Rectangle x:Name="SearchContainer"
+                   Fill="#FFB8B8B8"
                    Opacity="0.5"
                    Grid.Row="0"
                    Grid.Column="0"
@@ -157,6 +134,33 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
+        <Popup x:Name="SearchResults"
+               Placement="Bottom"
+               PlacementTarget="{Binding ElementName=SearchContainer}">
+            <Popup.Style>
+                <Style TargetType="{x:Type Popup}">
+                    <Setter Property="IsOpen"
+                            Value="True"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}"
+                                     Value="">
+                            <Setter Property="IsOpen"
+                                    Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Popup.Style>
+            <StackPanel>
+                <TextBlock Width="270"
+                           Background="AliceBlue">
+                    Mountain
+                </TextBlock>
+                <TextBlock Width="270"
+                           Background="AliceBlue">
+                    Mountain Dew
+                </TextBlock>
+            </StackPanel>
+        </Popup>
 
         <StackPanel x:Name="UserControls"
                     Orientation="Horizontal"
