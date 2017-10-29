@@ -56,7 +56,7 @@ namespace shuttr
             }
             else if (sender.Equals(AccountButton))
             {
-                contentControl.Content = new LoginPage();
+                contentControl.Content = new ProfilePage();
             }
             else if (sender.Equals(Message1))
             {

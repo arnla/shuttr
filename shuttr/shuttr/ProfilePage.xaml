@@ -41,16 +41,112 @@
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"
-                      VerticalAlignment="Top"  
+                      VerticalAlignment="Stretch"  
                       Width="800"
-                      Height="Auto"
                       Grid.Row="1">
-            <StackPanel x:Name="PhotoFeed">
+            
+            <StackPanel x:Name="UserProfileFeed">
                 <StackPanel.Resources>
-                    <Style TargetType="{x:Type Image}">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
+                            <TextBlock Grid.Row="1" 
+                                       FontSize="20"  
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
+                                User 1
+                            </TextBlock>
+                        </Grid>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="16" 
+                                   FontWeight="ExtraBold" 
+                                   TextWrapping="Wrap" 
+                                   Margin="10">
+                            The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                        </TextBlock>
+                        <TextBlock Grid.Column="2"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                            3 replies
+                        </TextBlock>
+                    </Grid>
+                </Border>
+                <Border>
+                    <Image Source="Images/Mountains.jpg"/>
+                </Border>
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
+                            <TextBlock Grid.Row="1" 
+                                       FontSize="20"  
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
+                                User 1
+                            </TextBlock>
+                        </Grid>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="16" 
+                                   FontWeight="ExtraBold" 
+                                   TextWrapping="Wrap" 
+                                   Margin="10">
+                            Is film dead?
+                        </TextBlock>
+                        <TextBlock Grid.Column="2"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                            1 reply
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
             </StackPanel>
 
         </ScrollViewer>
@@ -70,12 +166,12 @@
         </Border>
 
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="74" Margin="69,576,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426">
-            <Label Content="USERNAME" FontFamily="Microsoft YaHei" FontSize="48" Margin="84,1,54,-1"/>
+            <Label Content="User 1" FontFamily="Microsoft YaHei" FontSize="48" Margin="84,1,54,-1" HorizontalContentAlignment="Center"/>
 
         </Border>
         <Button Content="FOLLOW" HorizontalAlignment="Left" Margin="69,679,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
         <Button Content="MESSAGE" HorizontalAlignment="Left" Margin="69,732,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
-
+<!--
         
         <StackPanel HorizontalAlignment="Left" Height="943" Margin="560,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1243">
             <Border BorderBrush="Black" BorderThickness="1" Height="100">
@@ -116,7 +212,7 @@
 
         </StackPanel>
 
-        <!-- Popup when an image is clicked
+   Popup when an image is clicked
         <Popup x:Name="ImageView"
                StaysOpen="False"
                HorizontalAlignment="Center"
