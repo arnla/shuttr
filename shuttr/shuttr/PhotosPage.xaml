@@ -53,6 +53,12 @@
                 </StackPanel>
             </ScrollViewer>
 
+            <!-- Grid.RowSpan="2" This would go in Rectangle below-->
+            <Rectangle Name="popUpPageFill" 
+                       Fill="Transparent" 
+                       Opacity="0.85"
+                       Grid.RowSpan="2"
+                       />
             <Popup x:Name="PhotoPopUpWindow"
                 Placement="Center"
                 IsOpen="False">
@@ -330,10 +336,6 @@
                                        HorizontalAlignment="Right" />
                             </Grid>
                         </Border>
-                        <Rectangle Name="popUpPageFill" 
-                       Fill="Transparent" 
-                       Opacity="0.85" 
-                       Grid.RowSpan="2" />
                     </StackPanel>
                 </ScrollViewer>
             </Popup>
