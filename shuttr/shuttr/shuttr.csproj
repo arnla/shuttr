@@ -89,7 +89,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="popUpPicture.xaml">
+    <Page Include="PopUpPicture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,8 +98,8 @@
     <Compile Include="PhotosPage.xaml.cs">
       <DependentUpon>PhotosPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="popUpPicture.xaml.cs">
-      <DependentUpon>popUpPicture.xaml</DependentUpon>
+    <Compile Include="PopUpPicture.xaml.cs">
+      <DependentUpon>PopUpPicture.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

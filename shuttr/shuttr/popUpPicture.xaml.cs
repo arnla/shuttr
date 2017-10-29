@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace shuttr
 {
     /// <summary>
-    /// Interaction logic for popUpPicture.xaml
+    /// Interaction logic for PopUpPicture.xaml
     /// </summary>
-    public partial class popUpPicture : UserControl
+    public partial class PopUpPicture : UserControl
     {
-        public popUpPicture()
+        public PopUpPicture()
         {
             InitializeComponent();
         }
