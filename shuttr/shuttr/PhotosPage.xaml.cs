@@ -23,21 +23,34 @@ namespace shuttr
         public PhotosPage()
         {
             InitializeComponent();
+            //imageContentControl.Content = new PhotosPage();
         }
 
+        /// <summary>
+        /// Handles a clicked photo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
-            /*
-            if (sender.Equals(Image1))
+            if (sender.Equals(Image2))
             {
-                ImageViewDock.Children.Add(new Image());
-                ImageView.IsOpen = !ImageView.IsOpen;
+                PhotosPage popUp = new PhotosPage();
+                popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                popUp.popUpPageFill.Visibility = Visibility.Visible;
+                imageContentControl.Content = popUp;
+                popUp.PhotoPopUpWindow.IsOpen = true;
             }
-            else if (sender.Equals(Image2))
-            {
-                ImageViewDock.Children.Add(Image2);
-                ImageView.IsOpen = !ImageView.IsOpen;
-            }*/
+        }
+
+        private void MessageButton(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveButton(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

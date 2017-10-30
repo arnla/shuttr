@@ -6,68 +6,305 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
-    <Grid Background="#F6FBFF">
-        <Grid.RowDefinitions>
-            <RowDefinition x:Name="SortBy" Height="Auto"/>
-            <RowDefinition x:Name="Content"/>
-        </Grid.RowDefinitions>
+    <ContentControl x:Name="imageContentControl">
         
-        <Border x:Name="SortByContainer"
+        <Grid Background="#F6FBFF">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="SortBy" Height="Auto"/>
+                <RowDefinition x:Name="Content"/>
+            </Grid.RowDefinitions>
+
+            <Border x:Name="SortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
-            <Menu x:Name="sortBy"
+                <Menu x:Name="sortBy"
                   Background="Transparent">
-                <MenuItem Header="Sort By: "
+                    <MenuItem Header="Sort By: "
                           Background="White">
-                    <MenuItem Header="Following"/>
-                    <MenuItem Header="Popular"/>
-                    <MenuItem Header="New"/>
-                    <MenuItem Header="Most Commeted"/>
-                    <MenuItem Header="Most Upvoted"/>
-                </MenuItem>
-            </Menu>
-            <!--The menu looks pretty bad. Could maybe use tabs instead? The toolbar here (from before) could also work.
-            <ToolBar x:Name="SortBy"
-                     Header="Sort by:"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top" 
-                     Height="30" 
-                     Width="219">
-                <Menu Height="25" 
-                      VerticalAlignment="Top" 
-                      Width="100"/>
-            </ToolBar>-->
-        </Border>
+                        <MenuItem Header="Following"/>
+                        <MenuItem Header="Popular"/>
+                        <MenuItem Header="New"/>
+                        <MenuItem Header="Most Commeted"/>
+                        <MenuItem Header="Most Upvoted"/>
+                    </MenuItem>
+                </Menu>
+            </Border>
 
-        <ScrollViewer HorizontalAlignment="Center"
+            <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
                       Width="800"
                       Height="Auto"
                       Grid.Row="1">
-            <StackPanel x:Name="PhotoFeed">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Image x:Name="Image1" 
+                <StackPanel x:Name="PhotoFeed">
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <Setter Property="Margin" Value="5,10,5,0"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <Image x:Name="Image1" 
                        Source="/Images/child.jpg" 
                        MouseLeftButtonDown="PhotoClick"/>
-                <Image x:Name="Image2" 
+                    <Image x:Name="Image2" 
                        Source="/Images/Coast.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
-            </StackPanel>
-        </ScrollViewer>
+                    <Image x:Name="Image3" 
+                       Source="Images/palmtree.jpg"
+                       MouseLeftButtonDown="PhotoClick"/>
+                </StackPanel>
+            </ScrollViewer>
 
-        <!-- Popup when an image is clicked
-        <Popup x:Name="ImageView"
-               StaysOpen="False"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Grid.RowSpan="2">
-            <DockPanel x:Name="ImageViewDock"></DockPanel>
-        </Popup>
-        -->
-    </Grid>
+            <!-- Grid.RowSpan="2" This would go in Rectangle below-->
+            <Rectangle Grid.RowSpan="2" Name="popUpPageFill" 
+                       Fill="Transparent" 
+                       Opacity="0.85"
+                       Visibility="Hidden"></Rectangle>
+
+            <Popup x:Name="PhotoPopUpWindow"
+                Placement="Center"
+                IsOpen="False">
+                <ScrollViewer HorizontalAlignment="Center"
+                          VerticalAlignment="Bottom"
+                          Background="#F6FBFF"
+                          MaxWidth="1560"
+                          MaxHeight="960">
+                    <StackPanel>
+                        <Image x:Name="image" 
+                               Height="640" 
+                               Source="Images/Coast.jpg" 
+                               Width="961"
+                               Margin=" 5"/>
+                        <Border BorderBrush = "Gray" 
+                                BorderThickness="1" 
+                                
+                                Margin="150,20,150,0" 
+                                >
+                            <Grid
+                              Margin="0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="image1" 
+                                       Grid.Row="0" 
+                                       Grid.Column="0" 
+                                       Source="Images/Icons/userprofile.png" 
+                                       Grid.RowSpan="2"/>
+                                <TextBlock FontSize="18" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left"
+                                           FontFamily="Microsoft YaHei" 
+                                           Opacity="0.5" 
+                                           Grid.Column="1"
+                                           Text="User1"></TextBlock>
+                                <Button x:Name="messagesButton" 
+                                        Content="Message" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Left" 
+                                        Width="84" 
+                                        FontSize="18" 
+                                        FontFamily="Microsoft YaHei" 
+                                        Height="28" 
+                                        Opacity="0.5" 
+                                        Click="MessageButton" 
+                                        Grid.Row="1" 
+                                        Grid.Column="1"/>
+                                <TextBlock FontSize="18" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Left"
+                                           FontFamily="Microsoft YaHei" 
+                                           Grid.Column="2"
+                                           Text="From my last vacation in Iceland."/>
+                                <TextBlock FontSize="18" 
+                                           VerticalAlignment="Center" 
+                                           HorizontalAlignment="Stretch"
+                                           FontFamily="Microsoft YaHei" 
+                                           Grid.Column="3" 
+                                           Opacity="0.5">
+                                           <Run Text="52 Saves"/></TextBlock>
+                                <Button x:Name="saveButton" 
+                                        Content="Save Photo" 
+                                        Grid.Column="3" 
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center" 
+                                        FontSize="22" 
+                                        FontFamily="Microsoft YaHei" 
+                                        Opacity="0.5" 
+                                        Click="SaveButton" 
+                                        Grid.Row="1"/>
+                            </Grid>
+                        </Border>
+                        <Border x:Name="Comments" 
+                            BorderBrush="Gray" 
+                            BorderThickness="0" 
+                            Height="300" 
+                            Margin="0,30,0,0">
+                            <StackPanel>
+                                <Grid x:Name="Thread1" 
+                                      Height="290">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100*"/>
+                                        <RowDefinition Height="100*"/>
+                                        <RowDefinition Height="100*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="134*"/>
+                                        <ColumnDefinition Width="85*"/>
+                                        <ColumnDefinition Width="882*"/>
+                                        <ColumnDefinition Width="200"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Images/Icons/userprofile.png" 
+                                       Margin="74,0,10,20"
+                                       Grid.Column="0"
+                                       HorizontalAlignment="Center" 
+                                       Width="68"/>
+                                    <Image Source="Images/Icons/userprofile.png" 
+                                       Margin="26,2,10,23" 
+                                       Grid.Column="1" 
+                                       Grid.Row="1"/>
+                                    <Image Source="Images/Icons/userprofile.png" 
+                                       Margin="81,3,14,29" 
+                                       Grid.Column="0" 
+                                       Grid.Row="2"/>
+                                    <TextBox TextWrapping="Wrap"
+                                         Grid.Column="1"
+                                         Grid.Row="0"
+                                         Grid.ColumnSpan="2"
+                                         Text=" Absolutely captivating picture, was any post-processing done?" 
+                                         FontSize="24" 
+                                         FontFamily="Microsoft YaHei" 
+                                         Margin="0,0,0,10"
+                                         />
+                                    <TextBox TextWrapping="Wrap"
+                                         Grid.Column="2"
+                                         Grid.Row="1"
+                                         Text=" I would also like to know about your editing process, if any!" 
+                                         FontSize="24" 
+                                         FontFamily="Microsoft YaHei" 
+                                         Margin="0,4,0,8"
+                                         />
+                                    <TextBox TextWrapping="Wrap"
+                                         Grid.Column="1"
+                                         Grid.Row="2"
+                                         Grid.ColumnSpan="2"
+                                         Text=" Perfect exposure, great shot User1" 
+                                         FontFamily="Microsoft YaHei" 
+                                         FontSize="24"
+                                         Margin="0,4,0,8"
+                                         />
+                                    <TextBox TextWrapping="Wrap"
+                                         Grid.Column="0"
+                                         Grid.Row="0"
+                                         Text="User2" 
+                                         Margin="93,75,28,11"
+                                         Background="Transparent"
+                                         BorderThickness="0" 
+                                         FontSize="10" 
+                                         FontFamily="Microsoft YaHei" 
+                                         Opacity="0.5"
+                                         />
+                                    <TextBox TextWrapping="Wrap"
+                                         Grid.Column="1"
+                                         Grid.Row="1"
+                                         Text="User6" 
+                                         Background="Transparent"
+                                         BorderThickness="0" 
+                                         FontSize="10" 
+                                         FontFamily="Microsoft YaHei" 
+                                         Opacity="0.5" 
+                                         Margin="44,76,27,8"
+                                         />
+                                    <TextBox TextWrapping="Wrap"
+                                           Grid.Column="0"
+                                           Grid.Row="2"
+                                           Text="User4"
+                                           Background="Transparent"
+                                           BorderThickness="0" 
+                                           Margin="97,69,29,12" 
+                                           FontFamily="Microsoft YaHei" 
+                                           FontSize="10" 
+                                           Opacity="0.5"
+                                           />
+                                    <Button x:Name="ReplyButton"
+                                        Grid.Column="3"
+                                        Grid.Row="0"
+                                        Content="Reply"
+                                        Background="#FFDDDDDD" 
+                                        Opacity="0.5" 
+                                        Margin="0,0,100,10" 
+                                        FontFamily="Microsoft YaHei" 
+                                        FontSize="18" />
+                                    <Button x:Name="ReplyButton1"
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        Content="Reply"
+                                        Background="#FFDDDDDD" 
+                                        Opacity="0.5" 
+                                        Margin="0,4,100,8" 
+                                        FontFamily="Microsoft YaHei" 
+                                        FontSize="18" />
+                                    <Button x:Name="ReplyButton2"
+                                        Grid.Column="3"
+                                        Grid.Row="2"
+                                        Content="Reply"
+                                        Background="#FFDDDDDD" 
+                                        Opacity="0.5" 
+                                        Margin="0,4,100,8" 
+                                        FontFamily="Microsoft YaHei" 
+                                        FontSize="18" />
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="Gray" 
+                            BorderThickness="1" 
+                            Height="116" 
+                            Margin="0,20,0,0" 
+                            VerticalAlignment="Bottom">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="1050"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="sendButton"
+                                        Grid.Column="2" 
+                                        Opacity="0.5" 
+                                        Margin="0,0,-48,0" 
+                                        Content="Send" 
+                                        FontSize="22" />
+                                <Image VerticalAlignment="Center" 
+                                       HorizontalAlignment="Right" 
+                                       Source="Images/Icons/userprofile.png" 
+                                       Margin="0,20,5,22" 
+                                       Width="71" 
+                                       Height="72"/>
+                                <TextBox TextWrapping="Wrap"
+                                         Opacity="0.5"
+                                         Background="#F6FBFF"
+                                         BorderThickness="0"
+                                         Foreground ="Black" 
+                                         Text="Type a message..." 
+                                         Grid.Column="1" 
+                                         FontFamily="Microsoft YaHei" 
+                                         FontSize="24" 
+                                         HorizontalAlignment="Right" 
+                                         Width="1041" />
+                                <Rectangle Stroke="Gray"
+                                       Opacity="0.5"
+                                       Width="1"
+                                       Grid.Column="0" 
+                                       HorizontalAlignment="Right" />
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Popup>
+        </Grid>
+    </ContentControl>
 </UserControl>
