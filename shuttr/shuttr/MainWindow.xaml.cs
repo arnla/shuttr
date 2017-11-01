@@ -83,15 +83,14 @@ namespace shuttr
             {
                 AccountButtonDropdown.IsOpen = !AccountButtonDropdown.IsOpen;
             }
-            /*
-            else if (sender.Equals(AccountButton))
+            else if (sender.Equals(ProfileButton))
             {
                 contentControl.Content = new ProfilePage();
             }
             else if (sender.Equals(Message1))
             {
                 contentControl.Content = new MessagingPage();
-            }*/
+            }
             else if (sender.Equals(SeeAllMessagesButton))
             {
                 contentControl.Content = new MessagesPage();

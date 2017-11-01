@@ -375,7 +375,7 @@
                         
                         <StackPanel x:Name="MessagesStackPanel"
                                     Grid.Row="0" >
-                            <control:MessageNotification/>
+                            <control:MessageNotification x:Name="Message1"/>
                         </StackPanel>
 
                         <Button x:Name="SeeAllMessagesButton"
@@ -428,7 +428,8 @@
                             Background="AliceBlue">
                 <Button x:Name="ProfileButton"
                             Content="Your Profile Page"
-                            Height="20">
+                            Height="20"
+                        Click="Button_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#FFCFD6D8"/>
