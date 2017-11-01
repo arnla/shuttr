@@ -63,6 +63,10 @@ namespace shuttr
             {
                 contentControl.Content = new DiscussionPage();
             }
+            else if (sender.Equals(SavedTab))
+            {
+                contentControl.Content = new SavedPage();
+            }
             else if (sender.Equals(PostButton))
             {
                 PostButtonDropdown.IsOpen = !PostButtonDropdown.IsOpen;
@@ -79,6 +83,15 @@ namespace shuttr
             {
                 AccountButtonDropdown.IsOpen = !AccountButtonDropdown.IsOpen;
             }
+            /*
+            else if (sender.Equals(AccountButton))
+            {
+                contentControl.Content = new ProfilePage();
+            }
+            else if (sender.Equals(Message1))
+            {
+                contentControl.Content = new MessagingPage();
+            }*/
             else if (sender.Equals(SeeAllMessagesButton))
             {
                 contentControl.Content = new MessagesPage();

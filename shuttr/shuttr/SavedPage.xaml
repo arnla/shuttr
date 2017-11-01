@@ -1,0 +1,172 @@
+﻿<UserControl x:Class="shuttr.SavedPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid Background="#F6FBFF">
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch"  
+                      Width="800">
+            <!--"<StackPanel x:Name="PhotoFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>-->
+            <StackPanel HorizontalAlignment="Left" 
+                        Height="Auto">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
+                            <TextBlock Grid.Row="1" 
+                                       FontSize="20"  
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
+                                User 1
+                            </TextBlock>
+                        </Grid>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="16" 
+                                   FontWeight="ExtraBold" 
+                                   TextWrapping="Wrap" 
+                                   Margin="10">
+                            The quick brown fox jumps over the lazy dog. Why did he jump over the lazy dog? Couldn't he go around the dog?
+                        </TextBlock>
+                        <TextBlock Grid.Column="2"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                            3 replies
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+                <Border>
+                    <Image Source="Images/Mountains.jpg"/>
+                </Border>
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
+                            <TextBlock Grid.Row="1" 
+                                       FontSize="20"  
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
+                                User 2
+                            </TextBlock>
+                        </Grid>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="16" 
+                                   FontWeight="ExtraBold" 
+                                   TextWrapping="Wrap" 
+                                   Margin="10">
+                            Is film dead?
+                        </TextBlock>
+                        <TextBlock Grid.Column="2"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                            1 reply
+                        </TextBlock>
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="Gray" 
+                        Opacity="50"
+                        BorderThickness="2" 
+                        Height="Auto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="2*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"
+                                   Source="Images/Icons/userprofile.png"
+                                   Margin="10"/>
+                            <TextBlock Grid.Row="1" 
+                                       FontSize="20"  
+                                       TextWrapping="Wrap"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Center" 
+                                       FontFamily="Microsoft YaHei"
+                                       FontWeight="ExtraBold">
+                                User 2
+                            </TextBlock>
+                        </Grid>
+                        <TextBlock Grid.Column="1" 
+                                   FontSize="16" 
+                                   FontWeight="ExtraBold" 
+                                   TextWrapping="Wrap" 
+                                   Margin="10">
+                            2 + 2 is 4 minus 1 that's 3, quick maths
+                        </TextBlock>
+                        <TextBlock Grid.Column="2"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center">
+                            420 replies
+                        </TextBlock>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

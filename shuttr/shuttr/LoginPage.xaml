@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="shuttr.LoginPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+
+
+    <Grid Background="#F6FBFF" Height="Auto">
+
+
+        <Image HorizontalAlignment="Center" 
+                   Height="636" 
+                   Margin="615,0,598,0" 
+                   VerticalAlignment="Top" 
+                   Width="707" 
+                   Source="Images/Icons/shuttrLogoNoBack.png"/>
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="687,648,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+            <TextBox HorizontalAlignment="Center" 
+                         Height="61" 
+                         Margin="5,5,5,0" 
+                         TextWrapping="Wrap" 
+                         Text="Username" 
+                         VerticalAlignment="Top" 
+                         Width="548" 
+                         VerticalContentAlignment ="Center" 
+                         TextAlignment ="Center" 
+                         TextChanged="Text_Changed" 
+                         FontFamily="Microsoft YaHei" 
+                         FontSize="36" 
+                         FontStyle="Italic"/>
+        </Border>
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="686,754,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+            <TextBox HorizontalAlignment="Center" 
+                         Height="63" 
+                         Margin="5,5,5,0" 
+                         TextWrapping="Wrap" 
+                         Text="Password" 
+                         VerticalAlignment="Top" 
+                         Width="548" 
+                         VerticalContentAlignment ="Center" 
+                         TextAlignment ="Center" 
+                         TextChanged="Text_Changed" 
+                         FontFamily="Microsoft YaHei" 
+                         FontSize="36" 
+                         FontStyle="Italic"/>
+        </Border>
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="686,754,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+            <Button x:Name="PostButton"
+                Content="LOG IN"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                VerticalContentAlignment ="Center"
+                Margin="-7,107,-3,-108"
+                Width="568"
+                Height="72"
+                BorderThickness="0,1,1,1"
+                Background="#F63090C7" 
+                Foreground="White" 
+                Click="Button_Click" FontFamily="Microsoft YaHei" FontSize="36" FontWeight="Bold">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" ShadowDepth="1"/>
+                </Button.Effect>
+
+            </Button>
+        </Border>
+    </Grid>
+</UserControl>
