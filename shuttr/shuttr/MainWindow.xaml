@@ -40,7 +40,23 @@
                            Height="50"/>
                 </StackPanel>
             </Button>
-            
+
+            <Button x:Name="FollowingTab"
+                    Content="Following"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="Auto" 
+                    Height="Auto"
+                    FontFamily="Microsoft YaHei" 
+                    FontWeight="Bold"  
+                    FontSize="18"
+                    Margin="10,0,10,0"
+                    BorderThickness="0,0,0,0"
+                    Background="Transparent" 
+                    Foreground="White"
+                    Click="Button_Click" 
+                    Visibility="Visible"/>
+
             <Button x:Name="PhotosTab"
                     Content="Photos"
                     HorizontalAlignment="Left" 
