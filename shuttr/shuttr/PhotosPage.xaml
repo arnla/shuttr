@@ -22,7 +22,6 @@
                   Background="Transparent">
                     <MenuItem Header="Sort By: "
                           Background="White">
-                        <MenuItem Header="Following"/>
                         <MenuItem Header="Popular"/>
                         <MenuItem Header="New"/>
                         <MenuItem Header="Most Commeted"/>
