@@ -54,7 +54,10 @@ namespace shuttr
 
         protected void Button_Click(Object sender, EventArgs e)
         {
-            // Some stuff happens here.
+            if (sender.Equals(FollowingTab))
+            {
+                contentControl.Content = new FollowingPage();
+            }
             if (sender.Equals(PhotosTab))
             {
                 contentControl.Content = new PhotosPage();

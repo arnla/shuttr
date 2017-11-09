@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="shuttr.Discussion"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid ShowGridLines="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
+            <TextBlock Grid.Row="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User1</TextBlock>
+        </Grid>
+        <TextBlock x:Name="Discussion1" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,10,10">
+                                Let's see your best nightlife photos!
+        </TextBlock>
+        <TextBlock Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                3 replies
+        </TextBlock>
+    </Grid>
+</UserControl>

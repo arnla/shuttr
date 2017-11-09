@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="shuttr.FollowingPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             xmlns:control="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1200" d:DesignWidth="1920">
+    <Grid Background="#F6FBFF">
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch"  
+                      Width="800">
+            <StackPanel x:Name="FollowingFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
+                    <control:Discussion/>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
