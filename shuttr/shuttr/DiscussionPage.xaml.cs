@@ -23,6 +23,18 @@ namespace shuttr
         public DiscussionPage()
         {
             InitializeComponent();
+
+            AddDiscussionPostsTest();
+        }
+
+        private void AddDiscussionPostsTest()
+        {
+            Discussion clickableDiscussion= new Discussion("User1", "Let's see your best nightlife photos!", 3);
+            clickableDiscussion.MouseLeftButtonDown += new MouseButtonEventHandler(this.DiscussionClickTest);
+
+            discussionFeed.Children.Add(clickableDiscussion);
+
+            discussionFeed.Children.Add(new Discussion("User2", "Looking to shoot film, what do I need to know?", 24));
         }
 
         private void DiscussionClick(object sender, MouseButtonEventArgs e)
@@ -35,6 +47,15 @@ namespace shuttr
                 discussionContentControl.Content = popUp;
                 popUp.discussionPopUpWindow.IsOpen = true;
             }
+        }
+
+        private void DiscussionClickTest(object sender, MouseButtonEventArgs e)
+        {
+            DiscussionPage popUp = new DiscussionPage();
+            popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+            popUp.popUpPageFill.Visibility = Visibility.Visible;
+            discussionContentControl.Content = popUp;
+            popUp.discussionPopUpWindow.IsOpen = true;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

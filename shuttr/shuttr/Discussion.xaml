@@ -6,29 +6,30 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="1.5*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
-        <Grid ShowGridLines="False">
+    <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            
-            <Image x:Name="userPicture" 
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Image x:Name="userPicture" 
                    Source="Images/Icons/userprofile.png" 
                    Grid.Row="0"
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Center" 
                    Margin="10,10,10,10"/>
-            
-            <TextBlock x:Name="userName" 
+
+                <TextBlock x:Name="userName" 
                        Grid.Row="1" 
                        FontSize="20" 
                        FontWeight="Bold" 
@@ -36,10 +37,10 @@
                        VerticalAlignment="Center" 
                        HorizontalAlignment="Center">
                 User1
-            </TextBlock>
-        </Grid>
+                </TextBlock>
+            </Grid>
 
-        <TextBlock x:Name="discussionTitle" 
+            <TextBlock x:Name="discussionTitle" 
                    Grid.Column="1" 
                    FontSize="16" 
                    FontWeight="ExtraBold" 
@@ -47,15 +48,16 @@
                    TextWrapping="Wrap" 
                    Margin="10,10,10,10">
             Let's see your best nightlife photos!
-        </TextBlock>
+            </TextBlock>
 
-        <TextBlock x:Name="replyCount" 
+            <TextBlock x:Name="replyCount" 
                    Grid.Column="2" 
                    FontSize="16" 
                    FontFamily="Microsoft YaHei"
                    VerticalAlignment="Center" 
                    HorizontalAlignment="Center">
             3 replies
-        </TextBlock>
-    </Grid>
+            </TextBlock>
+        </Grid>
+    </Border>
 </UserControl>
