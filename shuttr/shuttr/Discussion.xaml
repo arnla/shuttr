@@ -20,14 +20,42 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
-            <TextBlock Grid.Row="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User1</TextBlock>
+            
+            <Image x:Name="userPicture" 
+                   Source="Images/Icons/userprofile.png" 
+                   Grid.Row="0"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center" 
+                   Margin="10,10,10,10"/>
+            
+            <TextBlock x:Name="userName" 
+                       Grid.Row="1" 
+                       FontSize="20" 
+                       FontWeight="Bold" 
+                       FontFamily="Microsoft YaHei"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center">
+                User1
+            </TextBlock>
         </Grid>
-        <TextBlock x:Name="Discussion1" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,10,10">
-                                Let's see your best nightlife photos!
+
+        <TextBlock x:Name="discussionTitle" 
+                   Grid.Column="1" 
+                   FontSize="16" 
+                   FontWeight="ExtraBold" 
+                   FontFamily="Microsoft YaHei"
+                   TextWrapping="Wrap" 
+                   Margin="10,10,10,10">
+            Let's see your best nightlife photos!
         </TextBlock>
-        <TextBlock Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                3 replies
+
+        <TextBlock x:Name="replyCount" 
+                   Grid.Column="2" 
+                   FontSize="16" 
+                   FontFamily="Microsoft YaHei"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Center">
+            3 replies
         </TextBlock>
     </Grid>
 </UserControl>

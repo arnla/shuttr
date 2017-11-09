@@ -23,6 +23,13 @@ namespace shuttr
         public FollowingPage()
         {
             InitializeComponent();
+            AddDiscussionPostsTest();
+        }
+
+        private void AddDiscussionPostsTest()
+        {
+            FollowingFeed.Children.Add(new Discussion("Anonymoose", "A nice title", 500));
+            FollowingFeed.Children.Add(new Discussion("Admin", "Not a nice title", 1));
         }
     }
 }
