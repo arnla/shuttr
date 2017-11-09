@@ -38,12 +38,12 @@ namespace shuttr
                 Grid.SetColumn(DateReceived, 0);
                 Grid.SetColumn(MessageContent, 0);
                 Grid.SetColumn(UserProfilePicture, 1);*/
-                MessageBorder.Background = new SolidColorBrush(Colors.PaleTurquoise);
+                messageBorder.Background = new SolidColorBrush(Colors.PaleTurquoise);
             }
 
-            MessageContent.Text = message;
-            DateReceived.Content = date;
-            UserName.Content = username;
+            messageContent.Text = message;
+            dateReceived.Content = date;
+            userName.Content = username;
         }
     }
 }

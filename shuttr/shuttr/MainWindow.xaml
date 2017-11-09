@@ -15,9 +15,9 @@
     <!-- Old background color: F69FCBE4-->
     <Grid Background="#F64F5E6C">
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="TopBar" Height="Auto"/>
-            <RowDefinition x:Name="Line" Height="Auto"/>
-            <RowDefinition x:Name="Content"/>
+            <RowDefinition x:Name="topBar" Height="Auto"/>
+            <RowDefinition x:Name="line" Height="Auto"/>
+            <RowDefinition x:Name="content"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -25,12 +25,12 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="Tabs" 
+        <StackPanel x:Name="tabs" 
                     Orientation="Horizontal"
                     VerticalAlignment="Center"
                     Grid.Row="0"
                     Grid.Column="0">
-            <Button x:Name="LogoButton"
+            <Button x:Name="logoButton"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Background="Transparent"
@@ -41,7 +41,7 @@
                 </StackPanel>
             </Button>
 
-            <Button x:Name="FollowingTab"
+            <Button x:Name="followingTab"
                     Content="Following"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -57,7 +57,7 @@
                     Click="Button_Click" 
                     Visibility="Visible"/>
 
-            <Button x:Name="PhotosTab"
+            <Button x:Name="photosTab"
                     Content="Photos"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -72,7 +72,7 @@
                     Foreground="White"
                     Click="Button_Click" />
 
-            <Button x:Name="DiscussionsTab"
+            <Button x:Name="discussionsTab"
                     Content="Discussions"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -87,7 +87,7 @@
                     Foreground="White"
                     Click="Button_Click"/>
 
-            <Button x:Name="SavedTab"
+            <Button x:Name="savedTab"
                     Content="Saved"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -103,7 +103,7 @@
                     Click="Button_Click" />
         </StackPanel>
 
-        <Rectangle x:Name="SearchContainer"
+        <Rectangle x:Name="searchContainer"
                    Fill="#FFB8B8B8"
                    Opacity="0.5"
                    Grid.Row="0"
@@ -111,7 +111,7 @@
                    Grid.ColumnSpan="3"
                    Height="25"
                    Width="350"/>
-        <TextBox x:Name="SearchBox"
+        <TextBox x:Name="searchBox"
                  Background="#FFB8B8B8"
                  Width="345"
                  VerticalAlignment="Center"
@@ -122,7 +122,7 @@
                  FontFamily="Microsoft YaHei"
                  FontSize="14" >
         </TextBox>
-        <TextBlock x:Name="SearchBoxDefault"
+        <TextBlock x:Name="searchBoxDefault"
                    IsHitTestVisible="False"
                    Text="Search photos, discussions, people..."
                    Width="340"
@@ -148,7 +148,7 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <Popup x:Name="SearchResultsPopup"
+        <Popup x:Name="searchResultsPopup"
                Placement="Bottom"
                PlacementTarget="{Binding ElementName=SearchContainer}"
                StaysOpen="False">
@@ -165,8 +165,8 @@
                     </Style.Triggers>
                 </Style>
             </Popup.Style>
-            <StackPanel x:Name="SearchResults">
-                <Button x:Name="Result1"
+            <StackPanel x:Name="searchResults">
+                <Button x:Name="result1"
                         Width="350"
                         Content="Mount Royal University"
                         FontFamily="Microsoft YaHei"
@@ -218,14 +218,14 @@
             </StackPanel>
         </Popup>
 
-        <StackPanel x:Name="UserControls"
+        <StackPanel x:Name="userControls"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Grid.Row="0"
                     Grid.Column="2">
 
-            <Button x:Name="PostButton"
+            <Button x:Name="postButton"
                 Content="POST"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -240,14 +240,14 @@
                     <DropShadowEffect Direction="270" ShadowDepth="1"/>
                 </Button.Effect>
             </Button>
-            <Popup x:Name="PostButtonDropdown"
+            <Popup x:Name="postButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=PostButton}"
                    VerticalOffset="5"
                    StaysOpen="False">
-                <StackPanel x:Name="PostButtonOptions"
+                <StackPanel x:Name="postButtonOptions"
                             Background="AliceBlue">
-                    <Button x:Name="PostPhotoButton"
+                    <Button x:Name="postPhotoButton"
                             Content="New Photo"
                             Height="20"
                             Click="Button_Click">
@@ -271,7 +271,7 @@
                             </Style>
                         </Button.Style>
                     </Button>
-                    <Button x:Name="PostDiscussionButton"
+                    <Button x:Name="postDiscussionButton"
                             Content="New Discussion"
                             HorizontalContentAlignment="Left"
                             Height="20"
@@ -299,7 +299,7 @@
                 </StackPanel>
             </Popup>
 
-            <Button x:Name="NotificationsButton"
+            <Button x:Name="notificationsButton"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top"  
                     Margin="10,0,5,0"
@@ -331,20 +331,20 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Popup x:Name="NotificationsButtonDropdown"
+            <Popup x:Name="notificationsButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=NotificationsButton}"
                    MaxWidth="200"
                    VerticalOffset="5"
                    StaysOpen="False">
                 <ScrollViewer MaxHeight="300">
-                    <StackPanel x:Name="NotificationStackPanel">
+                    <StackPanel x:Name="notificationStackPanel">
                         <control:Notification/>
                     </StackPanel>
                 </ScrollViewer>
             </Popup>
             
-            <Button x:Name="MessageButton"
+            <Button x:Name="messageButton"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top" 
                     Margin="5,0,5,0"
@@ -376,7 +376,7 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Popup x:Name="MessagesButtonDropdown"
+            <Popup x:Name="messagesButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=MessagesButton}"
                    StaysOpen="False"
@@ -389,12 +389,12 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         
-                        <StackPanel x:Name="MessagesStackPanel"
+                        <StackPanel x:Name="messagesStackPanel"
                                     Grid.Row="0" >
-                            <control:MessageNotification x:Name="Message1"/>
+                            <control:MessageNotification x:Name="message1"/>
                         </StackPanel>
 
-                        <Button x:Name="SeeAllMessagesButton"
+                        <Button x:Name="seeAllMessagesButton"
                                 Grid.Row="1" 
                                 Content="See all"
                                 Click="Button_Click"/>
@@ -402,7 +402,7 @@
                 </ScrollViewer>
             </Popup>
             
-            <Button x:Name="AccountButton"
+            <Button x:Name="accountButton"
                     HorizontalAlignment="Right" 
                     VerticalAlignment="Top" 
                     Margin="10,0,10,0"
@@ -435,14 +435,14 @@
                 </Button.Style>
             </Button>
         </StackPanel>
-        <Popup x:Name="AccountButtonDropdown"
+        <Popup x:Name="accountButtonDropdown"
                    Placement="Bottom"
                    PlacementTarget="{Binding ElementName=AccountButton}"
                    VerticalOffset="5"
                    StaysOpen="False">
-            <StackPanel x:Name="AccountButtonOptions"
+            <StackPanel x:Name="accountButtonOptions"
                             Background="AliceBlue">
-                <Button x:Name="ProfileButton"
+                <Button x:Name="profileButton"
                             Content="Your Profile Page"
                             Height="20"
                         Click="Button_Click">
@@ -466,7 +466,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button x:Name="LogoutButton"
+                <Button x:Name="logoutButton"
                             Content="Logout"
                             HorizontalContentAlignment="Left"
                             Height="20">

@@ -33,13 +33,13 @@ namespace shuttr
         /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender.Equals(Image2))
+            if (sender.Equals(image2))
             {
                 PhotosPage popUp = new PhotosPage();
                 popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 popUp.popUpPageFill.Visibility = Visibility.Visible;
                 imageContentControl.Content = popUp;
-                popUp.PhotoPopUpWindow.IsOpen = true;
+                popUp.photoPopUpWindow.IsOpen = true;
             }
         }
 

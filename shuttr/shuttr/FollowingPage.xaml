@@ -11,7 +11,7 @@
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Stretch"  
                       Width="800">
-            <StackPanel x:Name="FollowingFeed">
+            <StackPanel x:Name="followingFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="Margin" Value="5,10,5,0"/>

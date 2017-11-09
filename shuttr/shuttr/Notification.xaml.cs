@@ -37,12 +37,12 @@ namespace shuttr
 
             if (!read)
             {
-                ReadStatus.Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
+                readStatus.Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
             }
 
-            NotificationContent.Text = message;
+            notificationContent.Text = message;
 
-            DateReceived.Text = date;
+            dateReceived.Text = date;
         }
     }
 }

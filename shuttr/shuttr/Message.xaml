@@ -6,22 +6,22 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
-    <Border x:Name="MessageBorder"
+    <Border x:Name="messageBorder"
             BorderBrush="Gray" 
             Opacity="50"
             BorderThickness="2" 
             Height="Auto">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="C0" Width="1*"/>
-                <ColumnDefinition x:Name="C1" Width="13*"/>
+                <ColumnDefinition x:Name="c0" Width="1*"/>
+                <ColumnDefinition x:Name="c1" Width="13*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name="UserName"
+            <Label x:Name="userName"
                Content="User 1"
                VerticalAlignment="Center"
                HorizontalAlignment="Left"
@@ -30,7 +30,7 @@
                Grid.Row="0"
                Grid.Column="1"/>
 
-            <Label x:Name="DateReceived"
+            <Label x:Name="dateReceived"
                Content="3:04pm"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
@@ -39,14 +39,14 @@
                Grid.Column="1"
                Grid.Row="0"/>
 
-            <Image x:Name="UserProfilePicture"
+            <Image x:Name="userProfilePicture"
                VerticalAlignment="Center" 
                HorizontalAlignment="Center" 
                Margin="5"
                Source="Images/Icons/userprofile.png"
                Grid.RowSpan="2"/>
 
-            <TextBlock x:Name="MessageContent"
+            <TextBlock x:Name="messageContent"
                    Grid.Column="1" 
                    Grid.Row="2"
                    FontSize="26" 

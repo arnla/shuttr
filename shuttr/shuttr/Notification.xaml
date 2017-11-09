@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Ellipse x:Name="ReadStatus"
+            <Ellipse x:Name="readStatus"
                      Grid.Row="0"
                      Grid.Column="0"
                      Grid.RowSpan="2"
@@ -27,7 +27,7 @@
                      Height="10"
                      Margin="5,0,5,0"/>
             
-            <TextBlock x:Name="NotificationContent"
+            <TextBlock x:Name="notificationContent"
                        Grid.Row="0"
                        Grid.Column="1"
                        TextWrapping="Wrap"
@@ -36,7 +36,7 @@
                 User1 commented on your photo
             </TextBlock>
             
-            <TextBlock x:Name="DateReceived"
+            <TextBlock x:Name="dateReceived"
                        Grid.Row="0"
                        Grid.Column="2"
                        VerticalAlignment="Bottom"

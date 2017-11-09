@@ -10,11 +10,11 @@
         
         <Grid Background="#F6FBFF">
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="SortBy" Height="Auto"/>
-                <RowDefinition x:Name="Content"/>
+                <RowDefinition x:Name="sortByRow" Height="Auto"/>
+                <RowDefinition x:Name="contentRow"/>
             </Grid.RowDefinitions>
 
-            <Border x:Name="SortByContainer"
+            <Border x:Name="sortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
@@ -35,7 +35,7 @@
                       Width="800"
                       Height="Auto"
                       Grid.Row="1">
-                <StackPanel x:Name="PhotoFeed">
+                <StackPanel x:Name="photoFeed">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Image}">
                             <Setter Property="Margin" Value="5,10,5,0"/>
@@ -44,10 +44,10 @@
                     <Image x:Name="Image1" 
                        Source="/Images/child.jpg" 
                        MouseLeftButtonDown="PhotoClick"/>
-                    <Image x:Name="Image2" 
+                    <Image x:Name="image2" 
                        Source="/Images/Coast.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
-                    <Image x:Name="Image3" 
+                    <Image x:Name="image3" 
                        Source="Images/palmtree.jpg"
                        MouseLeftButtonDown="PhotoClick"/>
                 </StackPanel>
@@ -59,7 +59,7 @@
                        Opacity="0.85"
                        Visibility="Hidden"></Rectangle>
 
-            <Popup x:Name="PhotoPopUpWindow"
+            <Popup x:Name="photoPopUpWindow"
                 Placement="Center"
                 IsOpen="False">
                 <ScrollViewer HorizontalAlignment="Center"
@@ -139,13 +139,13 @@
                                         Grid.Row="1"/>
                             </Grid>
                         </Border>
-                        <Border x:Name="Comments" 
+                        <Border x:Name="comments" 
                             BorderBrush="Gray" 
                             BorderThickness="0" 
                             Height="300" 
                             Margin="0,30,0,0">
                             <StackPanel>
-                                <Grid x:Name="Thread1" 
+                                <Grid x:Name="thread1" 
                                       Height="290">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="100*"/>
@@ -230,7 +230,7 @@
                                            FontSize="10" 
                                            Opacity="0.5"
                                            />
-                                    <Button x:Name="ReplyButton"
+                                    <Button x:Name="replyButton"
                                         Grid.Column="3"
                                         Grid.Row="0"
                                         Content="Reply"
@@ -239,7 +239,7 @@
                                         Margin="0,0,100,10" 
                                         FontFamily="Microsoft YaHei" 
                                         FontSize="18" />
-                                    <Button x:Name="ReplyButton1"
+                                    <Button x:Name="replyButton1"
                                         Grid.Column="3"
                                         Grid.Row="1"
                                         Content="Reply"
@@ -248,7 +248,7 @@
                                         Margin="0,4,100,8" 
                                         FontFamily="Microsoft YaHei" 
                                         FontSize="18" />
-                                    <Button x:Name="ReplyButton2"
+                                    <Button x:Name="replyButton2"
                                         Grid.Column="3"
                                         Grid.Row="2"
                                         Content="Reply"

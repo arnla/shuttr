@@ -6,14 +6,14 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
-    <ContentControl x:Name="DiscussionContentControl">
+    <ContentControl x:Name="discussionContentControl">
         <Grid Background="#F6FBFF">
             <Grid.RowDefinitions>
-                <RowDefinition x:Name="SortBy" Height="Auto"/>
-                <RowDefinition x:Name="Content"/>
+                <RowDefinition x:Name="sortByRow" Height="Auto"/>
+                <RowDefinition x:Name="contentRow"/>
             </Grid.RowDefinitions>
 
-            <Border x:Name="SortByContainer"
+            <Border x:Name="sortByContainer"
                     HorizontalAlignment="Center"
                     Width="800"
                     Grid.Row="0">
@@ -34,7 +34,7 @@
                           Width="800"
                           Height="Auto"
                           Grid.Row="1">
-                <StackPanel x:Name="DiscussionFeed" Margin="10">
+                <StackPanel x:Name="discussionFeed" Margin="10">
                     <StackPanel.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="Margin" Value="5,10,5,0"/>
@@ -58,7 +58,7 @@
                                 <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
                                 <TextBlock Grid.Row="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">User1</TextBlock>
                             </Grid>
-                            <TextBlock x:Name="Discussion1" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,10,10" MouseLeftButtonDown="DiscussionClick">
+                            <TextBlock x:Name="discussion1" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" TextWrapping="Wrap" Margin="10,10,10,10" MouseLeftButtonDown="DiscussionClick">
                                 Let's see your best nightlife photos!
                             </TextBlock>
                             <TextBlock Grid.Column="2" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -204,18 +204,18 @@
                        Opacity="0.85"
                        Visibility="Hidden"></Rectangle>
 
-            <Popup x:Name="DiscussionPopUpWindow"
+            <Popup x:Name="discussionPopUpWindow"
                    Placement="Center"
                    IsOpen="False">
                 <Border Width="1560" 
                         Height="960"
                         Background="#F6FBFF">
-                    <Grid x:Name="MainGrid">
+                    <Grid x:Name="mainGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="3*"/>
                             <RowDefinition Height="17*"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="PostTitleGrid" Margin="0,0,10,0">
+                        <Grid x:Name="postTitleGrid" Margin="0,0,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -244,7 +244,7 @@
                                      Margin="9,26,69,13"
                                      BorderThickness="0"
                                      />
-                            <Button x:Name="MessageButton"
+                            <Button x:Name="messageButton"
                                     Content="Message"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center"
@@ -284,7 +284,7 @@
                                     </TransformGroup>
                                 </Rectangle.RenderTransform>
                             </Rectangle>
-                            <Button x:Name="ReplyButton0"
+                            <Button x:Name="replyButton0"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
                                        Grid.Column="3"
@@ -296,7 +296,7 @@
                                        Height="144" 
                                        Width="152"/>
                         </Grid>
-                        <Border x:Name="DiscussionComments"
+                        <Border x:Name="discussionComments"
                                 Grid.Row="1" 
                                 Margin="132,0,0,132">
                             <ScrollViewer HorizontalAlignment="Center"
@@ -306,7 +306,7 @@
                                           Height="1000" 
                                           VerticalAlignment="Top">
                                 <StackPanel>
-                                    <Grid x:Name="Thread1"
+                                    <Grid x:Name="thread1"
                                           Height="675">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="315"/>
@@ -412,7 +412,7 @@
                                                  FontFamily="Microsoft YaHei" 
                                                  FontSize="24" 
                                                  Margin="10,10,0,0"/>
-                                        <Button x:Name="ReplyButton1"
+                                        <Button x:Name="replyButton1"
                                                 Grid.Column="4"
                                                 Grid.Row="0"
                                                 Content="Reply" 
@@ -421,7 +421,7 @@
                                                 Opacity="0.5" 
                                                 Margin="0,20,0,0"
                                                 />
-                                        <Button x:Name="ReplyButton2"
+                                        <Button x:Name="replyButton2"
                                                 Grid.Column="4"
                                                 Grid.Row="1"
                                                 Content="Reply" 
@@ -430,7 +430,7 @@
                                                 Opacity="0.5" 
                                                 Margin="0,10,0,0"
                                                 />
-                                        <Button x:Name="ReplyButton3"
+                                        <Button x:Name="replyButton3"
                                                 Grid.Column="4"
                                                 Grid.Row="2"
                                                 Content="Reply" 
@@ -439,7 +439,7 @@
                                                 Opacity="0.5" 
                                                 Margin="0,10,0,0"
                                                 />
-                                        <Button x:Name="ReplyButton4"
+                                        <Button x:Name="replyButton4"
                                                 Grid.Column="4"
                                                 Grid.Row="3"
                                                 Content="Reply" 
@@ -449,7 +449,7 @@
                                                 Margin="0,10,0,0"
                                                 />
                                     </Grid>
-                                    <Grid x:Name="Thread2" 
+                                    <Grid x:Name="thread2" 
                                           Height="327">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="140"/>
@@ -481,7 +481,7 @@
                                                  VerticalAlignment="Top" 
                                                  Opacity="0.5"
                                                  BorderThickness="0"/>
-                                        <Button x:Name="ReplyButton5"
+                                        <Button x:Name="replyButton5"
                                                 Grid.Column="2"
                                                 Content="Reply" 
                                                 FontFamily="Microsoft YaHei" 

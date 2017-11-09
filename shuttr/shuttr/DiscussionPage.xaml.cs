@@ -27,13 +27,13 @@ namespace shuttr
 
         private void DiscussionClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender.Equals(Discussion1))
+            if (sender.Equals(discussion1))
             {
                 DiscussionPage popUp = new DiscussionPage();
                 popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 popUp.popUpPageFill.Visibility = Visibility.Visible;
-                DiscussionContentControl.Content = popUp;
-                popUp.DiscussionPopUpWindow.IsOpen = true;
+                discussionContentControl.Content = popUp;
+                popUp.discussionPopUpWindow.IsOpen = true;
             }
         }
 

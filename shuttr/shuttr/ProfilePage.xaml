@@ -8,11 +8,11 @@
              d:DesignHeight="1200" d:DesignWidth="1920">
     <Grid Background="#F6FBFF">
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="SortBy" Height="Auto"/>
-            <RowDefinition x:Name="Content"/>
+            <RowDefinition x:Name="sortByRow" Height="Auto"/>
+            <RowDefinition x:Name="contentRow"/>
         </Grid.RowDefinitions>
 
-        <Border x:Name="SortByContainer"
+        <Border x:Name="sortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
@@ -44,7 +44,7 @@
                       Width="800"
                       Grid.Row="1">
             
-            <StackPanel x:Name="UserProfileFeed">
+            <StackPanel x:Name="userProfileFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="Margin" Value="5,10,5,0"/>

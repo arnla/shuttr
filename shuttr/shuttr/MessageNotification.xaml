@@ -17,10 +17,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
-            <Image x:Name="UserPicture"
+            <Image x:Name="userPicture"
                    Source="/Images/Icons/userprofile.png"/>
             
-            <TextBlock x:Name="SenderName"
+            <TextBlock x:Name="senderName"
                        Grid.Row="0"
                        Grid.Column="1"
                        VerticalAlignment="Top"
@@ -28,7 +28,7 @@
                 User1
             </TextBlock>
             
-            <TextBlock x:Name="MessageContent"
+            <TextBlock x:Name="messageContent"
                        Grid.Row="0"
                        Grid.Column="1"
                        VerticalAlignment="Center"
@@ -36,7 +36,7 @@
                 I saw one of your pictures and was wondering if i could buy a print
             </TextBlock>
             
-            <TextBlock x:Name="DateReceived"
+            <TextBlock x:Name="dateReceived"
                        Grid.Row="0"
                        Grid.Column="2"
                        VerticalAlignment="Top"

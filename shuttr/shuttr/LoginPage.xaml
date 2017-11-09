@@ -69,7 +69,7 @@
                     Margin="686,754,0,0" 
                     VerticalAlignment="Top" 
                     Width="568">
-            <Button x:Name="PostButton"
+            <Button x:Name="postButton"
                 Content="LOG IN"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"

@@ -38,16 +38,16 @@ namespace shuttr
 
             if (!status)
             {
-                SenderName.FontWeight = FontWeights.Normal;
-                MessageContent.FontWeight = FontWeights.Normal;
-                DateReceived.FontWeight = FontWeights.Normal;
+                senderName.FontWeight = FontWeights.Normal;
+                messageContent.FontWeight = FontWeights.Normal;
+                dateReceived.FontWeight = FontWeights.Normal;
             }
 
-            SenderName.Text = sender;
+            senderName.Text = sender;
 
-            MessageContent.Text = message;
+            messageContent.Text = message;
 
-            DateReceived.Text = date;
+            dateReceived.Text = date;
         }
     }
 }

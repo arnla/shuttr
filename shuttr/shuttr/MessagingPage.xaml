@@ -16,7 +16,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <StackPanel x:Name="MessageThread" 
+                <StackPanel x:Name="messageThread" 
                             Margin="10"
                             Grid.Row="0">
                     <StackPanel.Resources>

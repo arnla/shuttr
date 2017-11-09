@@ -36,11 +36,11 @@ namespace shuttr
         /// </summary>
         private void FillNotificationMenu()
         {
-            NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "17h"));
-            NotificationStackPanel.Children.Add(new Notification(false, "User2 replied to your comment", "18h"));
-            NotificationStackPanel.Children.Add(new Notification(false, "User3 commented on your photo", "3d"));
-            NotificationStackPanel.Children.Add(new Notification(false, "User4 replied to your comment", "4d"));
-            NotificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
+            notificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "17h"));
+            notificationStackPanel.Children.Add(new Notification(false, "User2 replied to your comment", "18h"));
+            notificationStackPanel.Children.Add(new Notification(false, "User3 commented on your photo", "3d"));
+            notificationStackPanel.Children.Add(new Notification(false, "User4 replied to your comment", "4d"));
+            notificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
         }
 
         /// <summary>
@@ -49,56 +49,56 @@ namespace shuttr
         /// </summary>
         private void FillMessageNotificationMenu()
         {
-            MessagesStackPanel.Children.Add(new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM"));
+            messagesStackPanel.Children.Add(new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM"));
         }
 
         protected void Button_Click(Object sender, EventArgs e)
         {
-            if (sender.Equals(FollowingTab))
+            if (sender.Equals(followingTab))
             {
                 contentControl.Content = new FollowingPage();
             }
-            if (sender.Equals(PhotosTab))
+            else if (sender.Equals(photosTab))
             {
                 contentControl.Content = new PhotosPage();
             }
-            else if (sender.Equals(DiscussionsTab))
+            else if (sender.Equals(discussionsTab))
             {
                 contentControl.Content = new DiscussionPage();
             }
-            else if (sender.Equals(SavedTab))
+            else if (sender.Equals(savedTab))
             {
                 contentControl.Content = new SavedPage();
             }
-            else if (sender.Equals(PostButton))
+            else if (sender.Equals(postButton))
             {
-                PostButtonDropdown.IsOpen = !PostButtonDropdown.IsOpen;
+                postButtonDropdown.IsOpen = !postButtonDropdown.IsOpen;
             }
-            else if (sender.Equals(NotificationsButton))
+            else if (sender.Equals(notificationsButton))
             {
-                NotificationsButtonDropdown.IsOpen = !NotificationsButtonDropdown.IsOpen;
+                notificationsButtonDropdown.IsOpen = !notificationsButtonDropdown.IsOpen;
             }
-            else if (sender.Equals(MessageButton))
+            else if (sender.Equals(messageButton))
             {
-                MessagesButtonDropdown.IsOpen = !MessagesButtonDropdown.IsOpen;
+                messagesButtonDropdown.IsOpen = !messagesButtonDropdown.IsOpen;
             }
-            else if (sender.Equals(AccountButton))
+            else if (sender.Equals(accountButton))
             {
-                AccountButtonDropdown.IsOpen = !AccountButtonDropdown.IsOpen;
+                accountButtonDropdown.IsOpen = !accountButtonDropdown.IsOpen;
             }
-            else if (sender.Equals(ProfileButton))
+            else if (sender.Equals(profileButton))
             {
                 contentControl.Content = new ProfilePage();
             }
-            else if (sender.Equals(Message1))
+            else if (sender.Equals(message1))
             {
                 contentControl.Content = new MessagingPage();
             }
-            else if (sender.Equals(SeeAllMessagesButton))
+            else if (sender.Equals(seeAllMessagesButton))
             {
                 contentControl.Content = new MessagesPage();
             }
-            else if (sender.Equals(PostPhotoButton))
+            else if (sender.Equals(postPhotoButton))
             {
                 MessagesPage test = new MessagesPage();
                 test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
@@ -107,7 +107,7 @@ namespace shuttr
                 contentControl.Content = test;
                 test.NewPhotoFromMessages.IsOpen = true;
             }
-            else if (sender.Equals(PostDiscussionButton))
+            else if (sender.Equals(postDiscussionButton))
             {
                 MessagesPage test = new MessagesPage();
                 test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
