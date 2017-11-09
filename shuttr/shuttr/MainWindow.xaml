@@ -139,7 +139,7 @@
                     <Setter Property="Visibility"
                             Value="Collapsed"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}"
+                        <DataTrigger Binding="{Binding Text, ElementName=searchBox}"
                                      Value="">
                             <Setter Property="Visibility"
                                     Value="Visible"/>
@@ -150,14 +150,14 @@
         </TextBlock>
         <Popup x:Name="searchResultsPopup"
                Placement="Bottom"
-               PlacementTarget="{Binding ElementName=SearchContainer}"
+               PlacementTarget="{Binding ElementName=searchContainer}"
                StaysOpen="False">
             <Popup.Style>
                 <Style TargetType="{x:Type Popup}">
                     <Setter Property="IsOpen"
                             Value="True"/>
                     <Style.Triggers>
-                        <DataTrigger Binding="{Binding Text, ElementName=SearchBox}"
+                        <DataTrigger Binding="{Binding Text, ElementName=searchBox}"
                                      Value="">
                             <Setter Property="IsOpen"
                                     Value="False"/>
@@ -242,7 +242,7 @@
             </Button>
             <Popup x:Name="postButtonDropdown"
                    Placement="Bottom"
-                   PlacementTarget="{Binding ElementName=PostButton}"
+                   PlacementTarget="{Binding ElementName=postButton}"
                    VerticalOffset="5"
                    StaysOpen="False">
                 <StackPanel x:Name="postButtonOptions"
@@ -333,7 +333,7 @@
             </Button>
             <Popup x:Name="notificationsButtonDropdown"
                    Placement="Bottom"
-                   PlacementTarget="{Binding ElementName=NotificationsButton}"
+                   PlacementTarget="{Binding ElementName=notificationsButton}"
                    MaxWidth="200"
                    VerticalOffset="5"
                    StaysOpen="False">
@@ -378,7 +378,7 @@
             </Button>
             <Popup x:Name="messagesButtonDropdown"
                    Placement="Bottom"
-                   PlacementTarget="{Binding ElementName=MessagesButton}"
+                   PlacementTarget="{Binding ElementName=messagesButton}"
                    StaysOpen="False"
                    MaxWidth="300"
                    VerticalOffset="5">
@@ -437,7 +437,7 @@
         </StackPanel>
         <Popup x:Name="accountButtonDropdown"
                    Placement="Bottom"
-                   PlacementTarget="{Binding ElementName=AccountButton}"
+                   PlacementTarget="{Binding ElementName=accountButton}"
                    VerticalOffset="5"
                    StaysOpen="False">
             <StackPanel x:Name="accountButtonOptions"
