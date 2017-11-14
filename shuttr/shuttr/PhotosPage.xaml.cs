@@ -20,12 +20,40 @@ namespace shuttr
     /// </summary>
     public partial class PhotosPage : UserControl
     {
+        private List<Photo> photosList;
+
         public PhotosPage()
         {
             InitializeComponent();
+            photosList = new List<Photo>();
+            photosList.Add(new Photo());
+            photosList.Add(new Photo("/Images/Coast.jpg"));
+            photosList.Add(new Photo("/Images/tokyo.jpg"));
+            DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
         }
 
+        public PhotosPage(List<Photo> photos)
+        {
+            InitializeComponent();
+            photosList = photos;
+            DisplayPhotos();
+        }
+
+        public List<Photo> GetPhotosList()
+        {
+            return photosList;
+        }
+
+        public void DisplayPhotos()
+        {
+            foreach (Photo photo in photosList)
+            {
+                var parent = VisualTreeHelper.GetParent(photo);
+                if (parent == null)
+                    photoFeed.Children.Add(photo);
+            }
+        }
         /// <summary>
         /// Handles a clicked photo.
         /// </summary>
@@ -33,14 +61,14 @@ namespace shuttr
         /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
-            if (sender.Equals(image2))
+            /**if (sender.Equals(image2))
             {
                 PhotosPage popUp = new PhotosPage();
                 popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
                 popUp.popUpPageFill.Visibility = Visibility.Visible;
                 imageContentControl.Content = popUp;
                 popUp.photoPopUpWindow.IsOpen = true;
-            }
+            }**/
         }
 
         private void MessageButton(object sender, RoutedEventArgs e)

@@ -121,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Photo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SavedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,6 +153,9 @@
     </Compile>
     <Compile Include="MessagingPage.xaml.cs">
       <DependentUpon>MessagingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Photo.xaml.cs">
+      <DependentUpon>Photo.xaml</DependentUpon>
     </Compile>
     <Compile Include="SavedPage.xaml.cs">
       <DependentUpon>SavedPage.xaml</DependentUpon>

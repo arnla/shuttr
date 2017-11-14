@@ -23,5 +23,6 @@
                 </Border>
             </StackPanel>
         </ScrollViewer>
+        <Rectangle Name="popUpPageFill" Fill="Transparent" Opacity="0.85"></Rectangle>
     </Grid>
 </UserControl>

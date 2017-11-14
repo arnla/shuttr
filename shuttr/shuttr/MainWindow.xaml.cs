@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace shuttr
 {
@@ -20,10 +21,13 @@ namespace shuttr
     /// </summary>
     public partial class MainWindow : Window
     {
+        private PhotosPage currPhotosPage;
+
         public MainWindow()
         {
             InitializeComponent();
             contentControl.Content = new PhotosPage();
+            currPhotosPage = (PhotosPage) contentControl.Content;
             //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
 
             FillNotificationMenu();
@@ -100,21 +104,161 @@ namespace shuttr
             }
             else if (sender.Equals(postPhotoButton))
             {
-                MessagesPage test = new MessagesPage();
-                test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
-                test.NewPhotoFromMessages.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-                test.NewPhotoFromMessages.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
-                contentControl.Content = test;
-                test.NewPhotoFromMessages.IsOpen = true;
+                ChangeFill();
+                NewPhotoPopup.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+                NewPhotoPopup.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+                NewPhotoPopup.IsOpen = true;
             }
             else if (sender.Equals(postDiscussionButton))
             {
-                MessagesPage test = new MessagesPage();
+                /**MessagesPage test = new MessagesPage();
                 test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
                 test.NewDiscussionFromMessages.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
                 test.NewDiscussionFromMessages.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
                 contentControl.Content = test;
-                test.NewDiscussionFromMessages.IsOpen = true;
+                test.NewDiscussionFromMessages.IsOpen = true;**/
+            }
+            else if (sender.Equals(CancelPostPhotoButton))
+            {
+                ChangeFill();
+                NewPhotoPopup.IsOpen = false;
+                AddedImage.Source = null;
+                AddedImage.Visibility = Visibility.Hidden;
+                ImageBox.Visibility = Visibility.Visible;
+                BrowseButton.Foreground = new SolidColorBrush(Colors.Black);
+                AddPhotoTitleBox.Foreground = new SolidColorBrush(Colors.Black);
+                AddPhotoCaptionBox.Foreground = new SolidColorBrush(Colors.Black);
+                ClosePopup();
+            }
+            else if (sender.Equals(CancelPostDiscussionButton))
+            {
+                ChangeFill();
+                NewDiscussionPopup.IsOpen = false;
+            }
+            else if (sender.Equals(BrowseButton))
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                var result = dialog.ShowDialog();
+                if (result == false)
+                    return;
+                ImageBox.Visibility = Visibility.Hidden;
+                AddedImage.Source = new BitmapImage(new Uri(dialog.FileName));
+                AddedImage.Visibility = Visibility.Visible;
+            }
+            else if (sender.Equals(ConfirmPostPhotoButton))
+            {
+                bool isComplete = true;
+                // check if all fields are filled in
+                if (AddedImage.Source == null)
+                {
+                    BrowseButton.Foreground = new SolidColorBrush(Colors.Red);
+                    isComplete = false;
+                }
+                if (AddPhotoTitleBox.Text.Equals("Add a title"))
+                {
+                    AddPhotoTitleBox.Foreground = new SolidColorBrush(Colors.Red);
+                    isComplete = false;
+                }
+                if (AddPhotoCaptionBox.Text.Equals("Add a caption"))
+                {
+                    AddPhotoCaptionBox.Foreground = new SolidColorBrush(Colors.Red);
+                    isComplete = false;
+                }
+                // form is complete
+                if (isComplete)
+                {
+                    currPhotosPage.GetPhotosList().Add(new Photo(AddedImage.Source));
+                    ChangeFill();
+                    NewPhotoPopup.IsOpen = false;
+                    currPhotosPage.DisplayPhotos();
+                    ClosePopup();
+                }
+            }
+        }
+
+        public void ChangeFill()
+        {
+            if (contentControl.Content.GetType() == typeof(PhotosPage))
+            {
+                PhotosPage photosPage = contentControl.Content as PhotosPage;
+                if (ColorsEqual((SolidColorBrush)photosPage.popUpPageFill.Fill, new SolidColorBrush(Colors.Black)))
+                    photosPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                else
+                    photosPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                photosPage.popUpPageFill.Visibility = Visibility.Visible;
+            }
+            else if (contentControl.Content.GetType() == typeof(MessagesPage))
+            {
+                MessagesPage messagesPage = contentControl.Content as MessagesPage;
+                if (ColorsEqual((SolidColorBrush)messagesPage.popUpPageFill.Fill, new SolidColorBrush(Colors.Black)))
+                    messagesPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                else
+                    messagesPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                messagesPage.popUpPageFill.Visibility = Visibility.Visible;
+            }
+            else if (contentControl.Content.GetType() == typeof(DiscussionPage))
+            {
+                DiscussionPage discussionPage = contentControl.Content as DiscussionPage;
+                if (ColorsEqual((SolidColorBrush)discussionPage.popUpPageFill.Fill, new SolidColorBrush(Colors.Black)))
+                    discussionPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                else
+                    discussionPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                discussionPage.popUpPageFill.Visibility = Visibility.Visible;
+            }
+            else if (contentControl.Content.GetType() == typeof(SavedPage))
+            {
+                SavedPage savedPage = contentControl.Content as SavedPage;
+                if (ColorsEqual((SolidColorBrush)savedPage.popUpPageFill.Fill, new SolidColorBrush(Colors.Black)))
+                    savedPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                else
+                    savedPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                savedPage.popUpPageFill.Visibility = Visibility.Visible;
+            }
+            else if (contentControl.Content.GetType() == typeof(FollowingPage))
+            {
+                FollowingPage followingPage = contentControl.Content as FollowingPage;
+                if (ColorsEqual((SolidColorBrush)followingPage.popUpPageFill.Fill, new SolidColorBrush(Colors.Black)))
+                    followingPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                else
+                    followingPage.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+                followingPage.popUpPageFill.Visibility = Visibility.Visible;
+            }
+        }
+
+        public bool ColorsEqual(SolidColorBrush x, SolidColorBrush y)
+        {
+            if (x.Color == y.Color)
+                return true;
+            else
+                return false;
+        }
+
+        public void ClosePopup()
+        {
+            if (contentControl.Content.GetType() == typeof(PhotosPage))
+            {
+                PhotosPage photosPage = contentControl.Content as PhotosPage;
+                photosPage.popUpPageFill.Visibility = Visibility.Hidden;
+            }
+            else if (contentControl.Content.GetType() == typeof(MessagesPage))
+            {
+                MessagesPage messagesPage = contentControl.Content as MessagesPage;
+                messagesPage.popUpPageFill.Visibility = Visibility.Hidden;
+            }
+            else if (contentControl.Content.GetType() == typeof(DiscussionPage))
+            {
+                DiscussionPage discussionPage = contentControl.Content as DiscussionPage;
+                discussionPage.popUpPageFill.Visibility = Visibility.Hidden;
+            }
+            else if (contentControl.Content.GetType() == typeof(SavedPage))
+            {
+                SavedPage savedPage = contentControl.Content as SavedPage;
+                savedPage.popUpPageFill.Visibility = Visibility.Hidden;
+            }
+            else if (contentControl.Content.GetType() == typeof(FollowingPage))
+            {
+                FollowingPage followingPage = contentControl.Content as FollowingPage;
+                followingPage.popUpPageFill.Visibility = Visibility.Hidden;
             }
         }
     }
