@@ -64,7 +64,7 @@ namespace shuttr
             }
             else if (sender.Equals(photosTab))
             {
-                contentControl.Content = new PhotosPage();
+                contentControl.Content = currPhotosPage;
             }
             else if (sender.Equals(discussionsTab))
             {
