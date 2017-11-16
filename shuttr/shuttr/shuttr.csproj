@@ -65,6 +65,9 @@
     <Compile Include="FollowingPage.xaml.cs">
       <DependentUpon>FollowingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SignupPage.xaml.cs">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageNotification.xaml.cs">
       <DependentUpon>MessageNotification.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,7 @@
     <Compile Include="MessagesPage.xaml.cs">
       <DependentUpon>MessagesPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Switcher.cs" />
     <Page Include="Discussion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -85,6 +89,10 @@
     <Page Include="FollowingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignupPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

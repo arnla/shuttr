@@ -94,6 +94,10 @@ namespace shuttr
             {
                 contentControl.Content = new ProfilePage();
             }
+            else if (sender.Equals(logoutButton))
+            {
+                contentControl.Content = new LoginPage();
+            }
             else if (sender.Equals(message1))
             {
                 contentControl.Content = new MessagingPage();

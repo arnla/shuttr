@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="shuttr.LoginPage"
+﻿<UserControl x:Class="shuttr.SignupPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,14 +20,14 @@
                     BorderThickness="5" 
                     HorizontalAlignment="Left" 
                     Height="81" 
-                    Margin="687,516,0,0" 
+                    Margin="687,512,0,0" 
                     VerticalAlignment="Top" 
                     Width="568">
             <TextBox HorizontalAlignment="Center" 
                          Height="61" 
                          Margin="5,5,5,0" 
                          TextWrapping="Wrap" 
-                         Text="Username or Email" 
+                         Text="Email" 
                          VerticalAlignment="Top" 
                          Width="548" 
                          VerticalContentAlignment ="Center" 
@@ -42,7 +42,29 @@
                     BorderThickness="5" 
                     HorizontalAlignment="Left" 
                     Height="81" 
-                    Margin="686,622,0,0" 
+                    Margin="687,625,0,0" 
+                    VerticalAlignment="Top" 
+                    Width="568">
+            <TextBox HorizontalAlignment="Center" 
+                         Height="61" 
+                         Margin="5,5,5,0" 
+                         TextWrapping="Wrap" 
+                         Text="Username" 
+                         VerticalAlignment="Top" 
+                         Width="548" 
+                         VerticalContentAlignment ="Center" 
+                         TextAlignment ="Center" 
+                         TextChanged="Text_Changed" 
+                         FontFamily="Microsoft YaHei" 
+                         FontSize="36" 
+                         FontStyle="Italic"/>
+        </Border>
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="5" 
+                    HorizontalAlignment="Left" 
+                    Height="81" 
+                    Margin="686,731,0,0" 
                     VerticalAlignment="Top" 
                     Width="568">
             <TextBox HorizontalAlignment="Center" 
@@ -64,11 +86,11 @@
                     BorderThickness="5" 
                     HorizontalAlignment="Left" 
                     Height="81" 
-                    Margin="686,622,0,0" 
+                    Margin="686,731,0,0" 
                     VerticalAlignment="Top" 
                     Width="568">
-            <Button x:Name="loginButton"
-                Content="LOG IN"
+            <Button x:Name="signupButton"
+                Content="SIGN UP"
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center"
                 VerticalContentAlignment ="Center"
@@ -78,35 +100,14 @@
                 BorderThickness="0,1,1,1"
                 Background="#F63090C7" 
                 Foreground="White" 
-                Click="Button_Click" FontFamily="Microsoft YaHei" FontSize="36" FontWeight="Bold">
+                Click="Button_Click" 
+                FontFamily="Microsoft YaHei" 
+                FontSize="36" 
+                FontWeight="Bold">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" ShadowDepth="1"/>
                 </Button.Effect>
-
             </Button>
         </Border>
-        <TextBlock x:Name="textBlock" 
-                   HorizontalAlignment="Left" 
-                   Margin="790,829,0,0" 
-                   TextWrapping="Wrap" 
-                   VerticalAlignment="Top" 
-                   Width="187" 
-                   Height="39" 
-                   FontSize="16" 
-                   FontFamily="Microsoft YaHei" 
-                   TextAlignment="Right" Text="Don't have an account?"/>
-        <Button x:Name="signupButton" 
-                Content="Click here to sign up" 
-                HorizontalAlignment="Left"
-                Background="Transparent"
-                BorderThickness="0"
-                Height="23" 
-                Margin="977,829,0,0" 
-                VerticalAlignment="Top" 
-                Width="162" 
-                Opacity="0.5" 
-                FontFamily="Microsoft YaHei" 
-                Click="Button_Click" FontStyle="Italic" FontSize="16"/>
-
     </Grid>
 </UserControl>
