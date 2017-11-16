@@ -154,7 +154,7 @@
                    FontStyle="Italic" 
                    Grid.Row="1"
                    Height="48" 
-                   Width="Auto" MouseLeftButtonDown="passwordBoxDefault_MouseLeftButtonDown">
+                   Width="Auto">
                 </TextBlock>
             </Grid>
         </Border>

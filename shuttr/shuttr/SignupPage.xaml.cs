@@ -35,15 +35,5 @@ namespace shuttr
                 SignupSwitcher.Switch(new FollowingPage());
             }
         }
-
-        private void passwordBoxDefault_GotFocus(object sender, RoutedEventArgs e)
-        {
-            passwordBoxDefault.Text = "";
-        }
-
-        private void passwordBoxDefault_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            passwordBoxDefault.Text = "";
-        }
     }
 }
