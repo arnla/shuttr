@@ -8,102 +8,178 @@
              d:DesignHeight="1200" d:DesignWidth="1920">
 
 
-    <Grid Background="#F6FBFF" Height="Auto">
+    <Grid Background="#F6FBFF" 
+          Height="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="720"/>
+            <ColumnDefinition Width="600"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="280"/>
+        </Grid.RowDefinitions>
         <Image HorizontalAlignment="Center" 
-                   Height="500" 
-                   Margin="615,0,598,0" 
-                   VerticalAlignment="Top" 
-                   Width="707" 
-                   Source="Images/Icons/shuttrLogoNoBack.png"/>
+                    Height="450"  
+                    VerticalAlignment="Center" 
+                    Width="510" 
+                    Source="Images/Icons/shuttrLogoNoBack.png"
+                    Grid.Row="0" 
+                    Grid.Column="1"/>
 
         <Border BorderBrush="Black" 
                     BorderThickness="5" 
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Center" 
                     Height="81" 
-                    Margin="687,512,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="568">
-            <TextBox HorizontalAlignment="Center" 
-                         Height="61" 
-                         Margin="5,5,5,0" 
-                         TextWrapping="Wrap" 
-                         Text="Email" 
-                         VerticalAlignment="Top" 
-                         Width="548" 
-                         VerticalContentAlignment ="Center" 
-                         TextAlignment ="Center" 
-                         TextChanged="Text_Changed" 
-                         FontFamily="Microsoft YaHei" 
-                         FontSize="36" 
-                         FontStyle="Italic"/>
+                    VerticalAlignment="Center" 
+                    Width="568" 
+                    Grid.Row="1" 
+                    Grid.Column="1">
+            <Grid>
+                <TextBox x:Name="emailBox"
+                        HorizontalAlignment="Center"
+                        Height="61" 
+                        Margin="5,5,5,0" 
+                        TextWrapping="Wrap"  
+                        VerticalAlignment="Center" 
+                        Width="548"
+                        FontSize="36"
+                        FontFamily="Microsoft YaHei">
+                </TextBox>
+                <TextBlock x:Name="emailBoxDefault"
+                   IsHitTestVisible="False"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Email"
+                   Opacity="0.5"
+                   FontFamily="Microsoft YaHei"
+                   FontSize="36"
+                   FontStyle="Italic" 
+                   Grid.Row="1"
+                   Height="48" 
+                   Width="Auto">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility"
+                            Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=emailBox}"
+                                     Value="">
+                                    <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
         </Border>
 
         <Border BorderBrush="Black" 
                     BorderThickness="5" 
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Center" 
                     Height="81" 
-                    Margin="687,625,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="568">
-            <TextBox HorizontalAlignment="Center" 
-                         Height="61" 
-                         Margin="5,5,5,0" 
-                         TextWrapping="Wrap" 
-                         Text="Username" 
-                         VerticalAlignment="Top" 
-                         Width="548" 
-                         VerticalContentAlignment ="Center" 
-                         TextAlignment ="Center" 
-                         TextChanged="Text_Changed" 
-                         FontFamily="Microsoft YaHei" 
-                         FontSize="36" 
-                         FontStyle="Italic"/>
+                    VerticalAlignment="Center" 
+                    Width="568" 
+                    Grid.Row="2" 
+                    Grid.Column="1">
+            <Grid>
+                <TextBox x:Name="usernameBox"
+                        HorizontalAlignment="Center"
+                        Height="61" 
+                        Margin="5,5,5,0" 
+                        TextWrapping="Wrap"  
+                        VerticalAlignment="Center" 
+                        Width="548"
+                        FontSize="36"
+                        FontFamily="Microsoft YaHei">
+                </TextBox>
+                <TextBlock x:Name="usernameBoxDefault"
+                   IsHitTestVisible="False"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Username"
+                   Opacity="0.5"
+                   FontFamily="Microsoft YaHei"
+                   FontSize="36"
+                   FontStyle="Italic" 
+                   Grid.Row="1"
+                   Height="48" 
+                   Width="Auto">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility"
+                            Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=usernameBox}"
+                                     Value="">
+                                    <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
         </Border>
 
         <Border BorderBrush="Black" 
                     BorderThickness="5" 
-                    HorizontalAlignment="Left" 
+                    HorizontalAlignment="Center" 
                     Height="81" 
-                    Margin="686,731,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="568">
-            <TextBox HorizontalAlignment="Center" 
-                         Height="63" 
-                         Margin="5,5,5,0" 
-                         TextWrapping="Wrap" 
-                         Text="Password" 
-                         VerticalAlignment="Top" 
-                         Width="548" 
-                         VerticalContentAlignment ="Center" 
-                         TextAlignment ="Center" 
-                         TextChanged="Text_Changed" 
-                         FontFamily="Microsoft YaHei" 
-                         FontSize="36" 
-                         FontStyle="Italic"/>
+                    VerticalAlignment="Center" 
+                    Width="568" 
+                    Grid.Row="3" 
+                    Grid.Column="1">
+            <Grid>
+                <PasswordBox x:Name="passBox"
+                             HorizontalAlignment="Center"
+                             Height="61"
+                             Margin="5,5,5,0"
+                             VerticalAlignment="Center"
+                             Width="548"
+                             FontSize="36"/>
+                <TextBlock x:Name="passwordBoxDefault"
+                   IsHitTestVisible="False"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Text="Password"
+                   Opacity="0.5"
+                   FontFamily="Microsoft YaHei"
+                   FontSize="36"
+                   FontStyle="Italic" 
+                   Grid.Row="1"
+                   Height="48" 
+                   Width="Auto" MouseLeftButtonDown="passwordBoxDefault_MouseLeftButtonDown">
+                </TextBlock>
+            </Grid>
         </Border>
 
         <Border BorderBrush="Black" 
-                    BorderThickness="5" 
-                    HorizontalAlignment="Left" 
+                    BorderThickness="0" 
+                    HorizontalAlignment="Center" 
                     Height="81" 
-                    Margin="686,731,0,0" 
-                    VerticalAlignment="Top" 
-                    Width="568">
+                    VerticalAlignment="Center" 
+                    Width="568" 
+                    Grid.Row="4" Grid.Column="1">
             <Button x:Name="signupButton"
-                Content="SIGN UP"
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Center"
-                VerticalContentAlignment ="Center"
-                Margin="-7,107,-3,-108"
-                Width="568"
-                Height="72"
-                BorderThickness="0,1,1,1"
-                Background="#F63090C7" 
-                Foreground="White" 
-                Click="Button_Click" 
-                FontFamily="Microsoft YaHei" 
-                FontSize="36" 
-                FontWeight="Bold">
+                    Content="SIGN UP"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Width="568"
+                    Height="72"
+                    BorderThickness="0,1,1,1"
+                    Background="#F63090C7" 
+                    Foreground="White" 
+                    Click="Button_Click" 
+                    FontFamily="Microsoft YaHei" 
+                    FontSize="36" 
+                    FontWeight="Bold"
+                    Grid.Row="4">
                 <Button.Effect>
                     <DropShadowEffect Direction="270" ShadowDepth="1"/>
                 </Button.Effect>

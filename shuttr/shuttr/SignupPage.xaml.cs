@@ -36,7 +36,14 @@ namespace shuttr
             }
         }
 
-        public void Text_Changed(object sender, EventArgs e)
-        { }
+        private void passwordBoxDefault_GotFocus(object sender, RoutedEventArgs e)
+        {
+            passwordBoxDefault.Text = "";
+        }
+
+        private void passwordBoxDefault_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            passwordBoxDefault.Text = "";
+        }
     }
 }
