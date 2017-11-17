@@ -21,13 +21,16 @@ namespace shuttr
     /// </summary>
     public partial class MainWindow : Window
     {
-        private PhotosPage currPhotosPage;
+        private PhotosPage currPhotosPage = new PhotosPage();
+        private DiscussionPage currDiscussionPage = new DiscussionPage();
+        private FollowingPage currFollowingPage = new FollowingPage();
+        private MessagesPage currMessagesPage = new MessagesPage();
+        private SavedPage currSavedPage = new SavedPage();
 
         public MainWindow()
         {
             InitializeComponent();
-            contentControl.Content = new PhotosPage();
-            currPhotosPage = (PhotosPage) contentControl.Content;
+            contentControl.Content = currPhotosPage;
             //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
 
             FillNotificationMenu();
@@ -60,7 +63,7 @@ namespace shuttr
         {
             if (sender.Equals(followingTab))
             {
-                contentControl.Content = new FollowingPage();
+                contentControl.Content = currFollowingPage;
             }
             else if (sender.Equals(photosTab))
             {
@@ -68,11 +71,11 @@ namespace shuttr
             }
             else if (sender.Equals(discussionsTab))
             {
-                contentControl.Content = new DiscussionPage();
+                contentControl.Content = currDiscussionPage;
             }
             else if (sender.Equals(savedTab))
             {
-                contentControl.Content = new SavedPage();
+                contentControl.Content = currSavedPage;
             }
             else if (sender.Equals(postButton))
             {
@@ -100,7 +103,7 @@ namespace shuttr
             }
             else if (sender.Equals(seeAllMessagesButton))
             {
-                contentControl.Content = new MessagesPage();
+                contentControl.Content = currMessagesPage;
             }
             else if (sender.Equals(postPhotoButton))
             {
