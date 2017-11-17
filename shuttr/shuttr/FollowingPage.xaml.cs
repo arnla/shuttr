@@ -29,8 +29,8 @@ namespace shuttr
 
         private void AddDiscussionPostsTest()
         {
-            followingFeed.Children.Add(new Discussion("Anonymoose", "A nice title", 500));
-            followingFeed.Children.Add(new Discussion("Admin", "Not a nice title", 1));
+            followingFeed.Children.Add(new Discussion(1, "Anonymoose", "A nice title", "A nice description", 500));
+            followingFeed.Children.Add(new Discussion(1, "Admin", "Not a nice title", "A nice description", 1));
         }
     }
 }

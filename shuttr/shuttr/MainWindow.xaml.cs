@@ -114,12 +114,10 @@ namespace shuttr
             }
             else if (sender.Equals(postDiscussionButton))
             {
-                /**MessagesPage test = new MessagesPage();
-                test.MessagesPageFill.Fill = new SolidColorBrush(Colors.Black);
-                test.NewDiscussionFromMessages.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-                test.NewDiscussionFromMessages.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
-                contentControl.Content = test;
-                test.NewDiscussionFromMessages.IsOpen = true;**/
+                ChangeFill();
+                NewDiscussionPopup.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+                NewDiscussionPopup.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+                NewDiscussionPopup.IsOpen = true;
             }
             else if (sender.Equals(CancelPostPhotoButton))
             {
@@ -137,6 +135,29 @@ namespace shuttr
             {
                 ChangeFill();
                 NewDiscussionPopup.IsOpen = false;
+            }
+            else if (sender.Equals(ConfirmPostDiscussionButton))
+            {
+                bool isComplete = true;
+                // check if all fields are filled in
+                if (AddDiscussionTitleBox.Text.Equals("Add a title"))
+                {
+                    AddDiscussionTitleBox.Foreground = new SolidColorBrush(Colors.Red);
+                    isComplete = false;
+                }
+                if (AddDiscussionDescriptionBox.Text.Equals("Add a description"))
+                {
+                    AddDiscussionDescriptionBox.Foreground = new SolidColorBrush(Colors.Red);
+                    isComplete = false;
+                }
+                if (isComplete)
+                {
+                    currDiscussionPage.GetDiscussionDict().Add(currDiscussionPage.GetDiscussionIdCtr() + 1, new Discussion(currDiscussionPage.GetDiscussionIdCtr() + 1, "User1", AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0));
+                    currDiscussionPage.SetDisucssionIdCtr();
+                    currDiscussionPage.DisplayDiscussionPosts();
+                    NewDiscussionPopup.IsOpen = false;
+                    ClosePopup();
+                }
             }
             else if (sender.Equals(BrowseButton))
             {
