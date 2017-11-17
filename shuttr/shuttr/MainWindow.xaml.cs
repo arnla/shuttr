@@ -152,9 +152,7 @@ namespace shuttr
                 }
                 if (isComplete)
                 {
-                    currDiscussionPage.GetDiscussionDict().Add(currDiscussionPage.GetDiscussionIdCtr() + 1, new Discussion(currDiscussionPage.GetDiscussionIdCtr() + 1, "User1", AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0));
-                    currDiscussionPage.SetDisucssionIdCtr();
-                    currDiscussionPage.DisplayDiscussionPosts();
+                    currDiscussionPage.AddDiscussionPost(new Discussion(currDiscussionPage.GetDiscussionIdCtr() + 1, "User1", AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0));
                     NewDiscussionPopup.IsOpen = false;
                     ClosePopup();
                 }

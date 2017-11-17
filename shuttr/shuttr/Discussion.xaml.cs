@@ -76,5 +76,25 @@ namespace shuttr
             // If the reply count is 1, show "1 reply" instead of "1 replies"
             replyCount.Text = numReplies.ToString() + ((numReplies == 1) ? " reply" : " replies");
         }
+
+        public string GetUser()
+        {
+            return user;
+        }
+
+        public string GetTitle()
+        {
+            return title;
+        }
+
+        public string GetDescription()
+        {
+            return description;
+        }
+
+        public int GetNumReplies()
+        {
+            return numReplies;
+        }
     }
 }
