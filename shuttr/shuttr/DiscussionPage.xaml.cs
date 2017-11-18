@@ -109,22 +109,30 @@ namespace shuttr
 
         private void DiscussionClickTest(object sender, MouseButtonEventArgs e)
         {
-            DiscussionPage popUp = new DiscussionPage();
+            /**DiscussionPage popUp = new DiscussionPage();
             popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
             popUp.popUpPageFill.Visibility = Visibility.Visible;
             discussionContentControl.Content = popUp;
-            popUp.discussionPopUpWindow.IsOpen = true;
-            /**this.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
+            popUp.discussionPopUpWindow.IsOpen = true;**/
+            this.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
             this.popUpPageFill.Visibility = Visibility.Visible;
             Discussion senderCast = (Discussion)sender;
             Username.Text = senderCast.GetUser();
             DiscussionTitle.Text = senderCast.GetTitle();
-            this.discussionPopUpWindow.IsOpen = true;**/
+            NumRepliesButton.Content = senderCast.GetNumReplies();
+            discussionPopUpWindow.Height = SystemParameters.PrimaryScreenHeight * 0.6;
+            discussionPopUpWindow.Width = SystemParameters.PrimaryScreenWidth * 0.6;
+            this.discussionPopUpWindow.IsOpen = true;
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        protected void Button_Click(object sender, EventArgs e)
         {
-
+            if (sender.Equals(CloseDiscussionButton))
+            {
+                discussionPopUpWindow.IsOpen = false;
+                this.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
+                this.popUpPageFill.Visibility = Visibility.Hidden;
+            }
         }
     }
 }
