@@ -125,6 +125,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PostDiscussionPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostPhotoPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SavedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,6 +164,12 @@
     </Compile>
     <Compile Include="Photo.xaml.cs">
       <DependentUpon>Photo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostDiscussionPopup.xaml.cs">
+      <DependentUpon>PostDiscussionPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostPhotoPopup.xaml.cs">
+      <DependentUpon>PostPhotoPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="SavedPage.xaml.cs">
       <DependentUpon>SavedPage.xaml</DependentUpon>

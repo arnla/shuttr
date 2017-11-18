@@ -13,7 +13,7 @@
         Icon="/Images/Icons/shuttrLogoNoBack.ico">
 
     <!-- Old background color: F69FCBE4-->
-    <Grid Background="#F64F5E6C">
+    <Grid x:Name="mainGrid" Background="#F64F5E6C">
         <Grid.RowDefinitions>
             <RowDefinition x:Name="topBar" Height="Auto"/>
             <RowDefinition x:Name="line" Height="Auto"/>
@@ -506,7 +506,8 @@
         <ContentControl x:Name="contentControl"
                         Grid.Row="2"
                         Grid.Column="0"
-                        Grid.ColumnSpan="3"/>
+                        Grid.ColumnSpan="3"
+                        Grid.ZIndex="0"/>
 
         <Popup
             Name="NewPhotoPopup" 
@@ -578,5 +579,10 @@
             </Border>
         </Popup>
 
+        <Rectangle Grid.RowSpan="3" Name="popUpPageFill" 
+                   Grid.ColumnSpan="3"
+                       Fill="Black" 
+                       Opacity="0.85"
+                       Visibility="Hidden"></Rectangle>
     </Grid>
 </Window>
