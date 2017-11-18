@@ -101,7 +101,7 @@
                        Opacity="0.85"
                        Visibility="Hidden"></Rectangle>
 
-            <Popup x:Name="discussionPopUpWindow"
+            <!--<Popup x:Name="discussionPopUpWindow"
                    Placement="Center"
                    IsOpen="False">
                 <Border Width="1560" 
@@ -444,43 +444,60 @@
                         </Border>
                     </Grid>
                 </Border>
-            </Popup>
-            <!--<Popup x:Name="discussionPopUpWindow"
+            </Popup>-->
+            <Popup x:Name="discussionPopUpWindow"
                    Placement="Center"
                    IsOpen="False">
-                <Border x:Name="discussionPopUpWindowBorder">
-                    <Grid x:Name="mainGrid">
+                <Border x:Name="discussionPopUpWindowBorder"
+                        Background="#F6FBFF">
+                    <Grid x:Name="mainGrid" ShowGridLines="True">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="0.3*"/>
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="5*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="DiscussionInfo" Grid.Row="0">
+                        <Button x:Name="CloseDiscussionButton" Content="X" FontWeight="Bold" Background="Red" Foreground="White" HorizontalAlignment="Right" Click="Button_Click"></Button>
+                        <Grid x:Name="DiscussionInfo" Grid.Row="1" Margin="5,5,5,5" ShowGridLines="True">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="10*"/>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <Grid x:Name="UserInfo" Grid.Column="0">
+                            <Grid x:Name="UserInfo" Grid.Column="0" Margin="5,5,5,5">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="1*"/>
                                     <ColumnDefinition Width="1.5*"/>
                                 </Grid.ColumnDefinitions>
-                                <Image x:Name="UserProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png"></Image>
-                                <Grid x:Name="UsernameMessage" Grid.Column="1">
+                                <Image x:Name="UserProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
+                                <Grid x:Name="UsernameMessage" Grid.Column="1" Margin="5,5,5,5">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="1*"/>
                                         <RowDefinition Height="1*"/>
                                     </Grid.RowDefinitions>
-                                    <TextBlock x:Name="Username" Grid.Row="0"></TextBlock>
+                                    <TextBlock x:Name="Username" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                                     <Button x:Name="MessageUserButton" Grid.Row="1" Content="MESSAGE"></Button>
                                 </Grid>
                             </Grid>
-                            <TextBlock x:Name="DiscussionTitle" Grid.Column="1"></TextBlock>
+                            <TextBlock x:Name="DiscussionTitle" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <Button x:Name="NumRepliesButton" Grid.Column="2" Margin="5,5,5,5" Height="Auto" Width="Auto"></Button>
+                        </Grid>
+                        <ScrollViewer Grid.Row="2">
+                            <TextBlock x:Name="Comments" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" Text="COMMENTs" Height="Auto" Width="Auto"></TextBlock>
+                        </ScrollViewer>
+                        <Grid x:Name="CommentGrid" Grid.Row="3" Margin="5,5,5,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="8*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="CommentersProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
+                            <TextBox x:Name="CommentBox" Grid.Column="1" Margin="5,5,5,5" Text="Type a message..." Height="Auto" Width="Auto"></TextBox>
+                            <Button x:Name="PostCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto"></Button>
                         </Grid>
                     </Grid>
                 </Border>
-            </Popup>-->
+            </Popup>
         </Grid>
     </ContentControl>
 </UserControl>
