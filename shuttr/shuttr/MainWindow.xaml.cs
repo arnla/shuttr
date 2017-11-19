@@ -35,6 +35,8 @@ namespace shuttr
 
             FillNotificationMenu();
             FillMessageNotificationMenu();
+
+            currDiscussionPage.SetParent(this);
         }
 
         /// <summary>

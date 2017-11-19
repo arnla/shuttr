@@ -62,6 +62,9 @@
     <Compile Include="Discussion.xaml.cs">
       <DependentUpon>Discussion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DiscussionPopup.xaml.cs">
+      <DependentUpon>DiscussionPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="FollowingPage.xaml.cs">
       <DependentUpon>FollowingPage.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DiscussionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DiscussionPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

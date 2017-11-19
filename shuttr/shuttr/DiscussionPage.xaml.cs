@@ -20,6 +20,7 @@ namespace shuttr
     /// </summary>
     public partial class DiscussionPage : UserControl
     {
+        private MainWindow parent;
         private int discussionIdCtr = 0;
         private Dictionary<int, Discussion> discussionDict = new Dictionary<int, Discussion>();
 
@@ -28,6 +29,11 @@ namespace shuttr
             InitializeComponent();
             HardcodedInitialDiscussion();
             DisplayDiscussionPosts();
+        }
+
+        public void SetParent(MainWindow parent)
+        {
+            this.parent = parent;
         }
 
         public Dictionary<int, Discussion> GetDiscussionDict()
@@ -91,7 +97,7 @@ namespace shuttr
             discussionFeed.Children.Add(new Discussion(discussionIdCtr, "User7", "Advice needed on having one of my pictures enlarged to 9ft tall.", "description", 42));
         }**/
 
-        private void DiscussionClick(object sender, MouseButtonEventArgs e)
+        /**private void DiscussionClick(object sender, MouseButtonEventArgs e)
         {
             if (sender.GetType().Equals(typeof(Discussion)))
             {
@@ -105,34 +111,14 @@ namespace shuttr
                     popUp.discussionPopUpWindow.IsOpen = true;
                 }
             } 
-        }
+        }**/
 
         private void DiscussionClickTest(object sender, MouseButtonEventArgs e)
         {
-            /**DiscussionPage popUp = new DiscussionPage();
-            popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
-            popUp.popUpPageFill.Visibility = Visibility.Visible;
-            discussionContentControl.Content = popUp;
-            popUp.discussionPopUpWindow.IsOpen = true;**/
-            this.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
-            this.popUpPageFill.Visibility = Visibility.Visible;
-            Discussion senderCast = (Discussion)sender;
-            Username.Text = senderCast.GetUser();
-            DiscussionTitle.Text = senderCast.GetTitle();
-            NumRepliesButton.Content = senderCast.GetNumReplies();
-            discussionPopUpWindow.Height = SystemParameters.PrimaryScreenHeight * 0.6;
-            discussionPopUpWindow.Width = SystemParameters.PrimaryScreenWidth * 0.6;
-            this.discussionPopUpWindow.IsOpen = true;
-        }
-
-        protected void Button_Click(object sender, EventArgs e)
-        {
-            if (sender.Equals(CloseDiscussionButton))
-            {
-                discussionPopUpWindow.IsOpen = false;
-                this.popUpPageFill.Fill = new SolidColorBrush(Colors.Transparent);
-                this.popUpPageFill.Visibility = Visibility.Hidden;
-            }
+            DiscussionPopup discussionPopup = new DiscussionPopup(parent, (Discussion) sender);
+            discussionPopup.SetValue(Grid.RowProperty, 2);
+            discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
+            parent.mainGrid.Children.Add(discussionPopup);
         }
     }
 }
