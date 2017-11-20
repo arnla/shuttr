@@ -5,31 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
-             d:DesignHeight="1200" d:DesignWidth="1920">
+             d:DesignHeight="1080" d:DesignWidth="1920">
 
 
     <Grid Background="#F6FBFF" 
           Height="Auto">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="720"/>
-            <ColumnDefinition Width="600"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="450"/>
             <RowDefinition Height="110"/>
             <RowDefinition Height="110"/>
             <RowDefinition Height="110"/>
             <RowDefinition Height="110"/>
-            <RowDefinition Height="280"/>
+            <RowDefinition Height="190"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Center" 
                     Height="450"  
                     VerticalAlignment="Center" 
                     Width="510" 
                     Source="Images/Icons/shuttrLogoNoBack.png"
-                    Grid.Row="0" 
-                    Grid.Column="1"/>
+                    Grid.Row="0" />
 
         <Border BorderBrush="Black" 
                     BorderThickness="5" 
@@ -37,8 +31,7 @@
                     Height="81" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="1" 
-                    Grid.Column="1">
+                    Grid.Row="1" >
             <Grid>
                 <TextBox x:Name="emailBox"
                         HorizontalAlignment="Center"
@@ -85,8 +78,7 @@
                     Height="81" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="2" 
-                    Grid.Column="1">
+                    Grid.Row="2" >
             <Grid>
                 <TextBox x:Name="usernameBox"
                         HorizontalAlignment="Center"
@@ -133,8 +125,7 @@
                     Height="81" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="3" 
-                    Grid.Column="1">
+                    Grid.Row="3" >
             <Grid>
                 <PasswordBox x:Name="passBox"
                              HorizontalAlignment="Center"
@@ -165,7 +156,7 @@
                     Height="81" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="4" Grid.Column="1">
+                    Grid.Row="4" >
             <Button x:Name="signupButton"
                     Content="SIGN UP"
                     HorizontalAlignment="Center" 
