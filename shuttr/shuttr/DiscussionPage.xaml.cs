@@ -74,6 +74,11 @@ namespace shuttr
             }
         }
 
+        public void UpdateDiscussionDict(int id, Discussion newDiscussion)
+        {
+            discussionDict[id] = newDiscussion;
+        }
+
         public void AddDiscussionPost(Discussion newDiscussion)
         {
             discussionDict.Add(discussionIdCtr++, newDiscussion);
@@ -115,7 +120,8 @@ namespace shuttr
 
         private void DiscussionClickTest(object sender, MouseButtonEventArgs e)
         {
-            DiscussionPopup discussionPopup = new DiscussionPopup(parent, (Discussion) sender);
+            Discussion tmp = (Discussion)sender;
+            DiscussionPopup discussionPopup = new DiscussionPopup(parent, this, discussionDict[tmp.GetDiscussionId()]);
             discussionPopup.SetValue(Grid.RowProperty, 2);
             discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
             parent.mainGrid.Children.Add(discussionPopup);

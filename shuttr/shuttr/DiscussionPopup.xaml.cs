@@ -20,7 +20,9 @@ namespace shuttr
     /// </summary>
     public partial class DiscussionPopup : UserControl
     {
-        MainWindow parent;
+        MainWindow main;
+        DiscussionPage parent;
+        Discussion discussion;
 
         public DiscussionPopup()
         {
@@ -30,27 +32,47 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
-        public DiscussionPopup(MainWindow main, Discussion sender)
+        public DiscussionPopup(MainWindow main, DiscussionPage parent, Discussion sender)
         {
             InitializeComponent();
 
-            parent = main;
-            parent.ChangeFill();
+            this.main = main;
+            main.ChangeFill();
+
+            this.parent = parent;
+            this.discussion = sender;
 
             Username.Text = sender.GetUser();
             DiscussionTitle.Text = sender.GetTitle();
             NumRepliesButton.Content = sender.GetNumReplies();
+            DisplayComments();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
+        private void DisplayComments()
+        {
+            foreach (Comment c in discussion.GetComments())
+            {
+                commentsFeed.Children.Add(c);
+            }
         }
 
         protected void Button_Click(object sender, EventArgs e)
         {
             if (sender.Equals(CloseDiscussionButton))
             {
-                parent.ChangeFill();
+                main.ChangeFill();
                 this.Visibility = Visibility.Hidden;
+                commentsFeed.Children.Clear();
+            }
+            else if (sender.Equals(PostCommentButton))
+            {
+                Comment newComment = new Comment("current user", CommentBox.Text);
+                commentsFeed.Children.Add(newComment);
+                discussion.GetComments().Add(newComment);
+                parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
             }
         }
     }

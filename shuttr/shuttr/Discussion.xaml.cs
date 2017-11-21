@@ -25,6 +25,7 @@ namespace shuttr
         private string title;
         private string description;
         private int numReplies;
+        private List<Comment> comments;
 
         public Discussion()
         {
@@ -48,6 +49,11 @@ namespace shuttr
             this.numReplies = numReplies;
             userName.Text = name;
             discussionTitle.Text = title;
+
+            // comments test
+            comments = new List<Comment>();
+            comments.Add(new Comment("user", "comment1"));
+            comments.Add(new Comment("user", "comment2"));
 
             // If the reply count is 1, show "1 reply" instead of "1 replies"
             replyCount.Text = numReplies.ToString() + ((numReplies == 1) ? " reply" : " replies");
@@ -82,6 +88,11 @@ namespace shuttr
             return user;
         }
 
+        public int GetDiscussionId()
+        {
+            return discussionId;
+        }
+
         public string GetTitle()
         {
             return title;
@@ -95,6 +106,11 @@ namespace shuttr
         public int GetNumReplies()
         {
             return numReplies;
+        }
+
+        public List<Comment> GetComments()
+        {
+            return comments;
         }
     }
 }
