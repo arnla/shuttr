@@ -15,15 +15,12 @@ using System.Windows.Shapes;
 
 namespace shuttr
 {
-    /// <summary>
-    /// Interaction logic for PhotosPage.xaml
-    /// </summary>
-    public partial class LoginPage : UserControl
+    public partial class SignupPage : UserControl
     {
-        public LoginPage()
+        public SignupPage()
         {
             InitializeComponent();
-            LoginSwitcher.loginSwitcher = this;
+            SignupSwitcher.signupSwitcher = this;
         }
 
         public void Navigate(UserControl nextPage)
@@ -33,17 +30,10 @@ namespace shuttr
 
         public void Button_Click(object sender, EventArgs e)
         {
-            if (sender.Equals(loginButton))
+            if (sender.Equals(signupButton))
             {
-                LoginSwitcher.Switch(new FollowingPage());
-            }
-            else if (sender.Equals(signupButton))
-            {
-                LoginSwitcher.Switch(new SignupPage());
+                SignupSwitcher.Switch(new FollowingPage());
             }
         }
-
-        public void Text_Changed(object sender, EventArgs e)
-        { }
     }
 }

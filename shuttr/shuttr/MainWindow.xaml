@@ -469,7 +469,8 @@
                 <Button x:Name="logoutButton"
                             Content="Logout"
                             HorizontalContentAlignment="Left"
-                            Height="20">
+                            Height="20"
+                        Click="Button_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#FFCFD6D8"/>
