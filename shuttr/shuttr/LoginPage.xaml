@@ -11,12 +11,12 @@
     <Grid Background="#F6FBFF" 
           Height="Auto">
         <Grid.RowDefinitions>
-            <RowDefinition Height="450"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="110"/>
-            <RowDefinition Height="190"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Center" 
                     Height="Auto"  
