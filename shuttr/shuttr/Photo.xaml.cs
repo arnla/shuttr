@@ -23,16 +23,16 @@ namespace shuttr
         /// User object here
         private int score;
         private int commentCount;
-        // Format - hh:mm
         private string time;
-        // Format - MM/DD/YYYY
-        private string date;
+        private DateTime date;
+        private double ageDays;
+        private double ageHours;
 
         public Photo()
         {
             InitializeComponent();
-            time = DateTime.Now.ToShortTimeString();
-            date = DateTime.Now.ToShortDateString();
+            time = DateTime.Now.ToString("hh:mm");
+            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -45,8 +45,8 @@ namespace shuttr
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             imageName.Source = imageBitmap;
 
-            time = DateTime.Now.ToShortTimeString();
-            date = DateTime.Now.ToShortDateString();
+            time = DateTime.Now.ToString("hh:mm");
+            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -56,8 +56,8 @@ namespace shuttr
             InitializeComponent();
             imageName.Source = image;
 
-            time = DateTime.Now.ToShortTimeString();
-            date = DateTime.Now.ToShortDateString();
+            time = DateTime.Now.ToString("hh:mm");
+            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -69,8 +69,29 @@ namespace shuttr
 
         private void HoverPhoto(object sender, MouseEventArgs e)
         {
-            imageStats.Visibility = Visibility.Visible;
-            imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments";
+            // Time has been modified to simulate a longer period
+            string timeNow = DateTime.Now.ToString("hh:mm");
+            TimeSpan ts = TimeSpan.Parse(time);
+            TimeSpan ts0 = TimeSpan.Parse(timeNow);
+            ageDays = (ts0 - ts).TotalMinutes;
+
+            if (ageDays < 2.00)
+            {
+                string timeNow2 = DateTime.Now.ToString("hh:mm");
+                Console.WriteLine(time);
+                TimeSpan ts1 = TimeSpan.Parse(time);
+                TimeSpan ts2 = TimeSpan.Parse(timeNow2);
+
+                ageHours = (ts2 - ts1).TotalSeconds / 12;
+
+                imageStats.Visibility = Visibility.Visible;
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago";
+            }
+            else
+            {
+                imageStats.Visibility = Visibility.Visible;
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago";
+            }
         }
 
         private new void MouseLeave(object sender, MouseEventArgs e)
