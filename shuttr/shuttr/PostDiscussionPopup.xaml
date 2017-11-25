@@ -15,8 +15,80 @@
                 <RowDefinition Height="0.5*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Margin="10,10,10,10" FontSize="16">New discussion</TextBlock>
-            <TextBox x:Name="AddDiscussionTitleBox" Grid.Row="1" Margin="10,10,10,10" Text="Add a title"></TextBox>
-            <TextBox x:Name="AddDiscussionDescriptionBox" Grid.Row="2" Margin="10,10,10,10" Text="Add a description"></TextBox>
+            <Border Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="10,0,10,0">
+                <Grid>
+                    <TextBox Name="AddDiscussionTitleBox" 
+                             TextWrapping="Wrap"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="16"
+                             Text=""
+                             FontFamily="Microsoft YaHei"></TextBox>
+                    <TextBlock x:Name="AddDiscussionTitleDefault"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text=" Add a title *required"
+                               Opacity="0.5"
+                               FontSize="18"
+                               FontStyle="Italic"
+                               >
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility"
+                                Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=AddDiscussionTitleBox}"
+                                     Value="">
+                                        <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <Border Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="10,10,10,0">
+                <Grid>
+                    <TextBox Name="AddDiscussionDescriptionBox" 
+                             TextWrapping="Wrap"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="16"
+                             Text=""
+                             FontFamily="Microsoft YaHei"></TextBox>
+                    <TextBlock x:Name="AddDiscussionDescriptionDefault"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text=" Add a caption *required"
+                               Opacity="0.5"
+                               FontSize="18"
+                               FontStyle="Italic"
+                               >
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility"
+                                Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=AddDiscussionDescriptionBox}"
+                                     Value="">
+                                        <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
