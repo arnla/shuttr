@@ -67,5 +67,16 @@ namespace shuttr
 
         }
 
+        private void HoverPhoto(object sender, MouseEventArgs e)
+        {
+            imageStats.Width = imageName.Width;
+            imageStats.Visibility = Visibility.Visible;
+            imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments";
+        }
+
+        private new void MouseLeave(object sender, MouseEventArgs e)
+        {
+            imageStats.Visibility = Visibility.Hidden;
+        }
     }
 }

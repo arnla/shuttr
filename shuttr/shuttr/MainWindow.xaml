@@ -120,8 +120,7 @@
                  Grid.Column="0"
                  Grid.ColumnSpan="3"
                  FontFamily="Microsoft YaHei"
-                 FontSize="14" >
-        </TextBox>
+                 FontSize="14" />
         <TextBlock x:Name="searchBoxDefault"
                    IsHitTestVisible="False"
                    Text="Search photos, discussions, people..."
