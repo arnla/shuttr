@@ -78,7 +78,6 @@ namespace shuttr
             if (ageDays < 2.00)
             {
                 string timeNow2 = DateTime.Now.ToString("hh:mm");
-                Console.WriteLine(time);
                 TimeSpan ts1 = TimeSpan.Parse(time);
                 TimeSpan ts2 = TimeSpan.Parse(timeNow2);
 
