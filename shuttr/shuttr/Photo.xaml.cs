@@ -20,9 +20,21 @@ namespace shuttr
     /// </summary>
     public partial class Photo : UserControl
     {
+        /// User object here
+        private int score;
+        private int commentCount;
+        // Format - hh:mm
+        private string time;
+        // Format - MM/DD/YYYY
+        private string date;
+
         public Photo()
         {
             InitializeComponent();
+            time = DateTime.Now.ToShortTimeString();
+            date = DateTime.Now.ToShortDateString();
+            score = 0;
+            commentCount = 0;
         }
 
         public Photo(String image)
@@ -32,17 +44,28 @@ namespace shuttr
             Uri imageUri = new Uri(stringPath, UriKind.Relative);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             imageName.Source = imageBitmap;
+
+            time = DateTime.Now.ToShortTimeString();
+            date = DateTime.Now.ToShortDateString();
+            score = 0;
+            commentCount = 0;
         }
 
         public Photo(ImageSource image)
         {
             InitializeComponent();
             imageName.Source = image;
+
+            time = DateTime.Now.ToShortTimeString();
+            date = DateTime.Now.ToShortDateString();
+            score = 0;
+            commentCount = 0;
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
         {
 
         }
+
     }
 }

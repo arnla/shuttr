@@ -10,7 +10,7 @@
     <Grid>
         <Image x:Name="imageName"
                Source="/Images/child.jpg"
-               MouseLeftButtonDown="ClickPhoto">
+               MouseLeftButtonDown="ClickPhoto" >
             
         </Image>
     </Grid>

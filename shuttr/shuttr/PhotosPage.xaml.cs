@@ -45,6 +45,9 @@ namespace shuttr
             return photosList;
         }
 
+        /// <summary>
+        /// Displays photos from newest to oldest.
+        /// </summary>
         public void DisplayPhotos()
         {
             photoFeed.Children.Clear();
