@@ -18,11 +18,22 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for UserSettings.xaml
     /// </summary>
-    public partial class UserSettings : Page
+    public partial class UserSettings : ContentControl
     {
         public UserSettings()
         {
             InitializeComponent();
         }
+
+
+        public void Button_Click(object sender, EventArgs e)
+        {
+            if (sender.Equals(changeButton))
+            {
+
+            }
+        }
+
     }
+
 }

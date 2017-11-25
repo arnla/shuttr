@@ -94,6 +94,10 @@ namespace shuttr
             {
                 contentControl.Content = new ProfilePage();
             }
+            else if (sender.Equals(userSettingButton))
+            {
+                contentControl.Content = new UserSettings();
+            }
             else if (sender.Equals(logoutButton))
             {
                 contentControl.Content = new LoginPage();
