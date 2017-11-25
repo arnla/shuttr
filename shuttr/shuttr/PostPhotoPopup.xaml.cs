@@ -74,12 +74,12 @@ namespace shuttr
                     BrowseButton.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
-                if (AddPhotoTitleDefault.Text.Equals(" Add a title *required"))
+                if (AddPhotoTitleBox.Text.Equals(""))
                 {
                     AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
-                if (AddPhotoCaptionDefault.Text.Equals(" Add a caption *required"))
+                if (AddPhotoCaptionBox.Text.Equals(""))
                 {
                     AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;

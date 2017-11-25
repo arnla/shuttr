@@ -39,6 +39,7 @@
                              VerticalAlignment="Stretch"
                              HorizontalAlignment="Stretch"
                              FontSize="16"
+                             Text=""
                              FontFamily="Microsoft YaHei"></TextBox>
                     <TextBlock x:Name="AddPhotoTitleDefault"
                                IsHitTestVisible="False"
@@ -75,6 +76,7 @@
                              VerticalAlignment="Stretch"
                              HorizontalAlignment="Stretch"
                              FontSize="16"
+                             Text=""
                              FontFamily="Microsoft YaHei"></TextBox>
                     <TextBlock x:Name="AddPhotoCaptionDefault"
                                IsHitTestVisible="False"
