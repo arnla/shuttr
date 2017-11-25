@@ -22,6 +22,7 @@ namespace shuttr
     {
         MainWindow main;
         DiscussionPage parent;
+        ProfilePage alternativeParent;
         Discussion discussion;
 
         public DiscussionPopup()
@@ -40,6 +41,25 @@ namespace shuttr
             main.ChangeFill();
 
             this.parent = parent;
+            this.discussion = sender;
+
+            Username.Text = sender.GetUser();
+            DiscussionTitle.Text = sender.GetTitle();
+            NumRepliesButton.Content = sender.GetNumReplies();
+            DisplayComments();
+
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
+        public DiscussionPopup(MainWindow main, ProfilePage alternativeParent, Discussion sender)
+        {
+            InitializeComponent();
+
+            this.main = main;
+            main.ChangeFill();
+
+            this.alternativeParent = alternativeParent;
             this.discussion = sender;
 
             Username.Text = sender.GetUser();
