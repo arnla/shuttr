@@ -47,7 +47,8 @@ namespace shuttr
 
         public void DisplayPhotos()
         {
-            foreach (Photo photo in photosList)
+            photoFeed.Children.Clear();
+            foreach (Photo photo in photosList.AsEnumerable().Reverse())
             {
                 var parent = VisualTreeHelper.GetParent(photo);
                 if (parent == null)
