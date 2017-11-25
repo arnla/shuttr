@@ -11,11 +11,56 @@
             <RowDefinition x:Name="sortByRow" Height="Auto"/>
             <RowDefinition x:Name="contentRow"/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="userInformation" Width="Auto"/>
+            <ColumnDefinition x:Name="feed"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="200" Height="200" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                <Image x:Name="profilePicture" Source="Images/Icons/userprofile.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+
+            <Grid x:Name="userInfo" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="userName" Grid.Row="0" Grid.ColumnSpan="2" Content="User 1" FontFamily="Microsoft YaHei" FontSize="48" HorizontalContentAlignment="Center"/>
+                <Label Content="Date Joined: " Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="dateJoined" Grid.Row="1" Grid.Column="1" Content="2017/11/24"/>
+                <Button Content="FOLLOW" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+                <Button Content="MESSAGE" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+            </Grid>
+
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Width="300" TextWrapping="Wrap">
+                Jeffrey is a professional photographer who recently went on a photoshoot in Iceland and wants to showcase the photos that he took.
+                He has 5 photos that he wants to share and have displayed in a specific order. 
+                He wants to label his photos with a short sentence. 
+                He wants his photos to be visible to a lot of people, and wants to see what they think about his photography.
+            </TextBlock>
+        </Grid>
 
         <Border x:Name="sortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
-                Grid.Row="0">
+                Grid.Row="0"
+                Grid.Column="1">
             <Menu x:Name="sortBy"
                   Background="Transparent">
                 <MenuItem Header="Sort By: "
@@ -28,24 +73,11 @@
             </Menu>
         </Border>
 
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="413" Margin="69,126,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" RenderTransformOrigin="-1.1,-0.48">
-            <Image x:Name="profilePicture" Margin="9,0,9,30" Grid.Row="1" Source="Images/Icons/userprofile.png" Height="342" VerticalAlignment="Bottom"/>
-        </Border>
-
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="Auto" Margin="69,576,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426">
-            <StackPanel x:Name="userInfo">
-                <Label x:Name="userName" Content="User 1" FontFamily="Microsoft YaHei" FontSize="48" Margin="84,1,54,-1" HorizontalContentAlignment="Center"/>
-                <Label x:Name="dateJoined" Content="2017/11/24"/>
-            </StackPanel>
-        </Border>
-        
-        <Button Content="FOLLOW" HorizontalAlignment="Left" Margin="69,679,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
-        <Button Content="MESSAGE" HorizontalAlignment="Left" Margin="69,732,0,0" Grid.Row="1" VerticalAlignment="Top" Width="426" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
-
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Stretch"  
                       Width="800"
-                      Grid.Row="1">
+                      Grid.Row="1"
+                      Grid.Column="1">
             <StackPanel x:Name="userProfileFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">

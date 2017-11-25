@@ -36,6 +36,8 @@ namespace shuttr
         /// <param name="currentUser"> The user that is currently signed in </param>
         public ProfilePage(MainWindow main, User currentUser)
         {
+            InitializeComponent();
+
             parent = main;
             displayedUser = currentUser;
         }
@@ -62,6 +64,10 @@ namespace shuttr
             }
         }
 
+        /// <summary>
+        /// Assigns an appropriate click handler to a post.
+        /// </summary>
+        /// <param name="post"> A Photo or Discussion post </param>
         private void MakePostClickable(UserControl post)
         {
             if (post.GetType() == typeof(Discussion))
