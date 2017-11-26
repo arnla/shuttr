@@ -20,11 +20,13 @@ namespace shuttr
     /// </summary>
     public partial class Photo : UserControl
     {
-        /// User object here
+        /// User object of original poster here
         private int score;
         private int commentCount;
+        public string title { get; set; }
+        public string caption { get; set; }
         private string time;
-        private DateTime date;
+        //private DateTime date;
         private double ageDays;
         private double ageHours;
 
@@ -32,7 +34,6 @@ namespace shuttr
         {
             InitializeComponent();
             time = DateTime.Now.ToString("hh:mm");
-            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -46,7 +47,6 @@ namespace shuttr
             imageName.Source = imageBitmap;
 
             time = DateTime.Now.ToString("hh:mm");
-            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -57,7 +57,6 @@ namespace shuttr
             imageName.Source = image;
 
             time = DateTime.Now.ToString("hh:mm");
-            date = DateTime.Now;
             score = 0;
             commentCount = 0;
         }
@@ -84,7 +83,7 @@ namespace shuttr
                 ageHours = (ts2 - ts1).TotalSeconds / 12;
 
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago" + "  title: " + title + " caption: " + caption;
             }
             else
             {

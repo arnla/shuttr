@@ -127,8 +127,10 @@ namespace shuttr
             }
         }
 
-        public void AddPhoto(Photo pic)
+        public void AddPhoto(Photo pic, string t, string c)
         {
+            pic.title = t;
+            pic.caption = c;
             currPhotosPage.GetPhotosList().Add(pic);
             currPhotosPage.DisplayPhotos();
         }
