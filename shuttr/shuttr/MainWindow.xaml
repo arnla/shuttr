@@ -465,6 +465,31 @@
                         </Style>
                     </Button.Style>
                 </Button>
+
+                <Button x:Name="userSettingButton"
+                            Content="User Settings"
+                            Height="20"
+                        Click="Button_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
                 <Button x:Name="logoutButton"
                             Content="Logout"
                             HorizontalContentAlignment="Left"
@@ -489,6 +514,9 @@
                             </Style.Triggers>
                         </Style>
                     </Button.Style>
+                    
+                    
+                    
                 </Button>
             </StackPanel>
         </Popup>

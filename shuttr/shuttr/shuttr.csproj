@@ -91,6 +91,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="Switcher.cs" />
+    <Compile Include="UserSettings.xaml.cs">
+      <DependentUpon>UserSettings.xaml</DependentUpon>
+    </Compile>
     <Page Include="Discussion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -206,6 +209,10 @@
       <DependentUpon>PhotosPage.xaml</DependentUpon>
     </Compile>
     <Page Include="User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
