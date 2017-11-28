@@ -82,7 +82,7 @@
                                IsHitTestVisible="False"
                                VerticalAlignment="Top"
                                HorizontalAlignment="Left"
-                               Text=" Add a caption *required"
+                               Text=" Add a caption"
                                Opacity="0.5"
                                FontSize="18"
                                FontStyle="Italic"

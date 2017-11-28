@@ -79,11 +79,6 @@ namespace shuttr
                     AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
-                if (AddPhotoCaptionBox.Text.Equals(""))
-                {
-                    AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Red);
-                    isComplete = false;
-                }
                 // form is complete
                 if (isComplete)
                 {
