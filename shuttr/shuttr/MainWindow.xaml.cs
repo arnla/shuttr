@@ -21,11 +21,11 @@ namespace shuttr
     /// </summary>
     public partial class MainWindow : Window
     {
-        private PhotosPage currPhotosPage = new PhotosPage();
-        private DiscussionPage currDiscussionPage = new DiscussionPage();
-        private FollowingPage currFollowingPage = new FollowingPage();
-        private MessagesPage currMessagesPage = new MessagesPage();
-        private SavedPage currSavedPage = new SavedPage();
+        public PhotosPage currPhotosPage { get; } = new PhotosPage();
+        public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
+        public FollowingPage currFollowingPage { get; } = new FollowingPage();
+        public MessagesPage currMessagesPage { get; } = new MessagesPage();
+        public SavedPage currSavedPage { get; } = new SavedPage();
 
         public MainWindow()
         {
@@ -37,6 +37,7 @@ namespace shuttr
             FillMessageNotificationMenu();
 
             currDiscussionPage.SetParent(this);
+            currPhotosPage.SetParent(this);
         }
 
         /// <summary>
@@ -131,12 +132,11 @@ namespace shuttr
             }
         }
 
-        public void AddPhoto(Photo pic, string t, string c)
+        public void AddPhoto(Photo pic, string title, string description)
         {
-            pic.title = t;
-            pic.caption = c;
-            currPhotosPage.GetPhotosList().Add(pic);
-            currPhotosPage.DisplayPhotos();
+            pic.title = title;
+            pic.caption = description;
+            currPhotosPage.AddPhoto(pic);
         }
 
         public void AddDiscussion(string username, string title, string description, int numReplies)

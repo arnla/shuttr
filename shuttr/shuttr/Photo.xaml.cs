@@ -21,14 +21,17 @@ namespace shuttr
     public partial class Photo : UserControl
     {
         /// User object of original poster here
+        public string username { get; }
+        public int photoId { get; }
         private int score;
-        private int commentCount;
+        public int commentCount { get; }
         public string title { get; set; }
         public string caption { get; set; }
         private string time;
         //private DateTime date;
         private double ageDays;
         private double ageHours;
+        public List<Comment> comments { get; set; } = new List<Comment>();
 
         public Photo()
         {
@@ -38,7 +41,7 @@ namespace shuttr
             commentCount = 0;
         }
 
-        public Photo(String image)
+        public Photo(int id, String image)
         {
             InitializeComponent();
             String stringPath = image;
@@ -49,9 +52,10 @@ namespace shuttr
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
             commentCount = 0;
+            photoId = id;
         }
 
-        public Photo(ImageSource image)
+        public Photo(int id, ImageSource image)
         {
             InitializeComponent();
             imageName.Source = image;
@@ -59,6 +63,7 @@ namespace shuttr
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
             commentCount = 0;
+            photoId = id;
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)

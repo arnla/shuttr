@@ -87,7 +87,7 @@ namespace shuttr
                 // form is complete
                 if (isComplete)
                 {
-                    parent.AddPhoto(new Photo(AddedImage.Source), AddPhotoTitleBox.Text, AddPhotoCaptionBox.Text);
+                    parent.AddPhoto(new Photo(parent.currPhotosPage.photoIdCounter++, AddedImage.Source), AddPhotoTitleBox.Text, AddPhotoCaptionBox.Text);
                     parent.ChangeFill();
                     this.Visibility = Visibility.Hidden;
                 }

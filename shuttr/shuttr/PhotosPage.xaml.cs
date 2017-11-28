@@ -20,41 +20,51 @@ namespace shuttr
     /// </summary>
     public partial class PhotosPage : UserControl
     {
-        private List<Photo> photosList;
+        private MainWindow parent;
+        public Dictionary<int, Photo> photoDict { get; set; } = new Dictionary<int, Photo>();
+        public int photoIdCounter { get; set; } = 0;
 
         public PhotosPage()
         {
             InitializeComponent();
-            photosList = new List<Photo>();
-            photosList.Add(new Photo());
-            photosList.Add(new Photo("/Images/Coast.jpg"));
-            photosList.Add(new Photo("/Images/tokyo.jpg"));
+            photoDict.Add(100, new Photo(100, "/Images/Coast.jpg"));
+            photoDict.Add(101, new Photo(101, "/Images/tokyo.jpg"));
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
         }
 
-        public PhotosPage(List<Photo> photos)
+        public PhotosPage(Dictionary<int, Photo> photos)
         {
             InitializeComponent();
-            photosList = photos;
+            photoDict = photos;
             DisplayPhotos();
-        }
-
-        public List<Photo> GetPhotosList()
-        {
-            return photosList;
         }
 
         public void DisplayPhotos()
         {
             photoFeed.Children.Clear();
-            foreach (Photo photo in photosList.AsEnumerable().Reverse())
+            foreach (KeyValuePair<int, Photo> pair in photoDict.AsEnumerable().Reverse())
             {
-                var parent = VisualTreeHelper.GetParent(photo);
+                var parent = VisualTreeHelper.GetParent(pair.Value);
                 if (parent == null)
-                    photoFeed.Children.Add(photo);
+                {
+                    photoFeed.Children.Add(pair.Value);
+                    MakePhotoClickable(pair.Value);
+                }
             }
         }
+
+        public void MakePhotoClickable(Photo photo)
+        {
+            photo.MouseLeftButtonDown += new MouseButtonEventHandler(this.PhotoClick);
+        }
+
+        public void AddPhoto(Photo photo)
+        {
+            photoDict.Add(photoIdCounter++, photo);
+            DisplayPhotos();
+        }
+
         /// <summary>
         /// Handles a clicked photo.
         /// </summary>
@@ -62,14 +72,16 @@ namespace shuttr
         /// <param name="e"></param>
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
-            /**if (sender.Equals(image2))
-            {
-                PhotosPage popUp = new PhotosPage();
-                popUp.popUpPageFill.Fill = new SolidColorBrush(Colors.Black);
-                popUp.popUpPageFill.Visibility = Visibility.Visible;
-                imageContentControl.Content = popUp;
-                popUp.photoPopUpWindow.IsOpen = true;
-            }**/
+            Photo tmp = (Photo)sender;
+            PhotoPopup photoPopup = new PhotoPopup(parent, this, photoDict[tmp.photoId]);
+            photoPopup.SetValue(Grid.RowProperty, 2);
+            photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
+            parent.mainGrid.Children.Add(photoPopup);
+        }
+
+        public void SetParent(MainWindow main)
+        {
+            parent = main;
         }
 
         private void MessageButton(object sender, RoutedEventArgs e)
