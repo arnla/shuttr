@@ -44,6 +44,7 @@ namespace shuttr
 
             Username.Text = sender.username;
             title.Text = sender.title;
+            description.Text = sender.caption;
             NumRepliesButton.Content = sender.commentCount;
 
             DisplayComments();
