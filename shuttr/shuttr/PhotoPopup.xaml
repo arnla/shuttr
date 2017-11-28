@@ -13,7 +13,7 @@
                 <RowDefinition x:Name="xRow" Height="Auto"/>
                 <RowDefinition x:Name="titleRow"/>
                 <RowDefinition x:Name="photoAndCommentsRow"/>
-                <RowDefinition x:Name="commentBoxRow"/>
+                <RowDefinition x:Name="commentBoxRow" Height="60"/>
             </Grid.RowDefinitions>
 
             <Button x:Name="CloseDiscussionButton" Content="X" FontWeight="Bold" Background="Red" Foreground="White" HorizontalAlignment="Right" Click="Close"/>
@@ -69,7 +69,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Image x:Name="userProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
-                <RichTextBox x:Name="commentBox" Grid.Column="1" Margin="5,5,5,5" Height="Auto" Width="Auto">
+                <RichTextBox x:Name="commentBox" Grid.Column="1" Margin="5,5,5,5" Height="40" Width="Auto" VerticalScrollBarVisibility="Auto">
                     <RichTextBox.Document>
                         <FlowDocument>
                             <FlowDocument.Blocks>
@@ -80,7 +80,7 @@
                         </FlowDocument>
                     </RichTextBox.Document>
                 </RichTextBox>
-                <Button x:Name="postCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto" Click="ButtonClick"></Button>
+                <Button x:Name="postCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="40" Width="Auto" Click="ButtonClick"></Button>
             </Grid>
         </Grid>
     </Border>

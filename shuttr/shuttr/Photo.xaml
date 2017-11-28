@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
-
+    <Border>
     <Grid>
         <Image x:Name="imageName"
                Source="/Images/child.jpg"
@@ -34,4 +34,5 @@
             </TextBlock.Effect>
         </TextBlock>
     </Grid>
+    </Border>
 </UserControl>

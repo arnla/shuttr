@@ -47,6 +47,9 @@ namespace shuttr
             NumRepliesButton.Content = sender.commentCount;
 
             DisplayComments();
+
+            window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.9;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
         private void DisplayComments()
