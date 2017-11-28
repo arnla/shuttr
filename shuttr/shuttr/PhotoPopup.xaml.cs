@@ -38,7 +38,7 @@ namespace shuttr
 
             this.parent = parent;
             this.photo = sender;
-            displayedPhoto = photo;
+            commentFeed.Children.Add(new Photo(sender.photoId, sender.imageName.Source));
 
             Username.Text = sender.username;
             title.Text = sender.title;
