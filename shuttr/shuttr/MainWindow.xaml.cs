@@ -141,7 +141,7 @@ namespace shuttr
 
         public void AddDiscussion(string username, string title, string description, int numReplies)
         {
-            currDiscussionPage.AddDiscussionPost(new Discussion(currDiscussionPage.GetDiscussionIdCtr() + 1, username, title, description, numReplies));
+            currDiscussionPage.AddDiscussionPost(new Discussion(currDiscussionPage.GetDiscussionIdCtr(), username, title, description, numReplies));
         }
 
         public void ChangeFill()
