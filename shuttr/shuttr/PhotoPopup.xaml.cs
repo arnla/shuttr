@@ -38,6 +38,8 @@ namespace shuttr
 
             this.parent = parent;
             this.photo = sender;
+
+            // Need to create a new photo, otherwise it will throw an exception because one object can't be the child of 2 elements
             commentFeed.Children.Add(new Photo(sender.photoId, sender.imageName.Source));
 
             Username.Text = sender.username;
