@@ -6,6 +6,26 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <Style x:Key="sortByOptionStyle" TargetType="Button">
+        <Setter Property="Background" Value="#FFCFD6D8"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    </UserControl.Resources>
 
     <Grid Background="#F6FBFF">
         <Grid.RowDefinitions>
@@ -17,16 +37,20 @@
                 HorizontalAlignment="Center"
                 Width="800"
                 Grid.Row="0">
-            <Menu x:Name="sortBy"
-                  Background="Transparent">
-                <MenuItem Header="Sort By: "
-                          Background="White">
-                    <MenuItem Header="Popular"/>
-                    <MenuItem Header="New"/>
-                    <MenuItem Header="Most Commeted"/>
-                    <MenuItem Header="Most Upvoted"/>
-                </MenuItem>
-            </Menu>
+            <StackPanel Background="Transparent" Orientation="Horizontal">
+                <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentSortOption" Content="Popular"></Label>
+
+                <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="sortByOptions" Background="AliceBlue">
+                        <Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortNew" Content="New" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostCommented" Content="Most Commented" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+                <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
+            </StackPanel>
         </Border>
 
         <ScrollViewer HorizontalAlignment="Center"

@@ -93,5 +93,33 @@ namespace shuttr
         {
 
         }
+
+        public void SortClick(object sender, EventArgs e)
+        {
+            if (sender.Equals(sortByMenu))
+            {
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+            else if (sender.Equals(sortPopular))
+            {
+                currentSortOption.Content = "Popular";
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+            else if (sender.Equals(sortNew))
+            {
+                currentSortOption.Content = "New";
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+            else if (sender.Equals(sortMostCommented))
+            {
+                currentSortOption.Content = "Most Commented";
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+            else if (sender.Equals(sortMostUpvoted))
+            {
+                currentSortOption.Content = "Most Upvoted";
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+        }
     }
 }
