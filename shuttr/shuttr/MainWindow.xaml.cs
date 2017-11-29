@@ -31,6 +31,7 @@ namespace shuttr
         {
             InitializeComponent();
             contentControl.Content = currPhotosPage;
+            HighlightTab();
             //PhotosTab.Foreground = new SolidColorBrush(Color.FromRgb(116, 118, 119));
 
             FillNotificationMenu();
@@ -64,21 +65,25 @@ namespace shuttr
 
         protected void Button_Click(Object sender, EventArgs e)
         {
-            if (sender.Equals(followingTab))
+            if ((sender.Equals(followingTab)) || (sender.Equals(logoButton)))
             {
                 contentControl.Content = currFollowingPage;
+                HighlightTab();
             }
             else if (sender.Equals(photosTab))
             {
                 contentControl.Content = currPhotosPage;
+                HighlightTab();
             }
             else if (sender.Equals(discussionsTab))
             {
                 contentControl.Content = currDiscussionPage;
+                HighlightTab();
             }
             else if (sender.Equals(savedTab))
             {
                 contentControl.Content = currSavedPage;
+                HighlightTab();
             }
             else if (sender.Equals(postButton))
             {
@@ -99,18 +104,22 @@ namespace shuttr
             else if (sender.Equals(profileButton))
             {
                 contentControl.Content = new ProfilePage();
+                HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
             {
                 contentControl.Content = new UserSettings();
+                HighlightTab();
             }
             else if (sender.Equals(logoutButton))
             {
                 contentControl.Content = new LoginPage();
+                HighlightTab();
             }
             else if (sender.Equals(message1))
             {
                 contentControl.Content = new MessagingPage();
+                HighlightTab();
             }
             else if (sender.Equals(seeAllMessagesButton))
             {
@@ -118,6 +127,7 @@ namespace shuttr
             }
             else if (sender.Equals(postPhotoButton))
             {
+                postButtonDropdown.IsOpen = false;
                 PostPhotoPopup photoPopup = new PostPhotoPopup(this);
                 photoPopup.SetValue(Grid.RowProperty, 2);
                 photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
@@ -125,6 +135,7 @@ namespace shuttr
             }
             else if (sender.Equals(postDiscussionButton))
             {
+                postButtonDropdown.IsOpen = false;
                 PostDiscussionPopup discussionPopup = new PostDiscussionPopup(this);
                 discussionPopup.SetValue(Grid.RowProperty, 2);
                 discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
@@ -146,10 +157,53 @@ namespace shuttr
 
         public void ChangeFill()
         {
-            if (popUpPageFill.Visibility == Visibility.Hidden)
+            if ((popUpPageFill.Visibility == Visibility.Hidden) || (popUpPageFill.Visibility == Visibility.Collapsed))
                 popUpPageFill.Visibility = Visibility.Visible;
             else
                 popUpPageFill.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// Highlights the tab that is currently in view.
+        /// If the content is not one of the tabs, sets them all to unhighlighted.
+        /// </summary>
+        public void HighlightTab()
+        {
+            if (contentControl.Content.Equals(currPhotosPage))
+            {
+                photosTab.Foreground = new SolidColorBrush(Colors.White);
+                discussionsTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                followingTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                savedTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+            }
+            else if (contentControl.Content.Equals(currDiscussionPage))
+            {
+                photosTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                discussionsTab.Foreground = new SolidColorBrush(Colors.White);
+                followingTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                savedTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+            }
+            else if (contentControl.Content.Equals(currFollowingPage))
+            {
+                photosTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                discussionsTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                followingTab.Foreground = new SolidColorBrush(Colors.White);
+                savedTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+            }
+            else if (contentControl.Content.Equals(currSavedPage))
+            {
+                photosTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                discussionsTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                followingTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                savedTab.Foreground = new SolidColorBrush(Colors.White);
+            }
+            else
+            {
+                photosTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                discussionsTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                followingTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+                savedTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
+            }
         }
     }
 }
