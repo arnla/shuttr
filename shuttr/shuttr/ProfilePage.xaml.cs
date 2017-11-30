@@ -101,22 +101,22 @@ namespace shuttr
             }
             else if (sender.Equals(sortPopular))
             {
-                currentSortOption.Content = "Popular";
+                currentSortOption.Content = sortPopular.Content;
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
             else if (sender.Equals(sortNew))
             {
-                currentSortOption.Content = "New";
+                currentSortOption.Content = sortNew.Content;
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
             else if (sender.Equals(sortMostCommented))
             {
-                currentSortOption.Content = "Most Commented";
+                currentSortOption.Content = sortMostCommented.Content;
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
             else if (sender.Equals(sortMostUpvoted))
             {
-                currentSortOption.Content = "Most Upvoted";
+                currentSortOption.Content = sortMostUpvoted.Content;
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
         }
