@@ -138,7 +138,7 @@ namespace shuttr
                     commentsFeed.Children.Add(newComment);
                     ScrollViewComments.ScrollToEnd();
                     discussion.GetComments().Add(newComment);
-                    parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                    //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
                 }
                 else if (replyFlag == 1)
                 {
