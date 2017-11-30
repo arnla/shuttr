@@ -213,66 +213,83 @@ namespace shuttr
         /// <param name="e"></param>
         private void SearchSuggestions(object sender, KeyEventArgs e)
         {
-            string text = searchBox.Text;
-
-            if (text.Length == 0)
+            if (e.Key == Key.Enter)
             {
-                searchResults.Children.Clear();
-
-                searchResultsPopup.IsOpen = true;
-
-                AddSearchResult("m");
-                AddSearchResult("moe");
-                AddSearchResult("mouse");
-                AddSearchResult("mickey mouse");
-                AddSearchResult("mountains");
-                AddSearchResult("mountain biking");
+                contentControl.Content = new SearchResultsPage();
+                searchResultsPopup.IsOpen = false;
             }
-            else if (text.Length == 1)
+            else
             {
-                searchResults.Children.Clear();
+                string text = searchBox.Text;
 
-                searchResultsPopup.IsOpen = true;
+                if (text.Length == 0)
+                {
+                    searchResults.Children.Clear();
 
-                AddSearchResult("mo");
-                AddSearchResult("moe");
-                AddSearchResult("mouse");
-                AddSearchResult("mickey mouse");
-                AddSearchResult("mountains");
-                AddSearchResult("mountain biking");
-            }
-            else if (text.Length == 2)
-            {
-                searchResults.Children.Clear();
+                    searchResultsPopup.IsOpen = true;
 
-                searchResultsPopup.IsOpen = true;
+                    AddSearchResult("m");
+                    AddSearchResult("moe");
+                    AddSearchResult("mouse");
+                    AddSearchResult("mickey mouse");
+                    AddSearchResult("mountains");
+                    AddSearchResult("mountain biking");
+                }
+                else if (text.Length == 1)
+                {
+                    searchResults.Children.Clear();
 
-                AddSearchResult("mou");
-                AddSearchResult("mouse");
-                AddSearchResult("mickey mouse");
-                AddSearchResult("mountains");
-                AddSearchResult("mountain biking");
-            }
-            else if (text.Length == 3)
-            {
-                searchResults.Children.Clear();
+                    searchResultsPopup.IsOpen = true;
 
-                searchResultsPopup.IsOpen = true;
+                    AddSearchResult("mo");
+                    AddSearchResult("moe");
+                    AddSearchResult("mouse");
+                    AddSearchResult("mickey mouse");
+                    AddSearchResult("mountains");
+                    AddSearchResult("mountain biking");
+                }
+                else if (text.Length == 2)
+                {
+                    searchResults.Children.Clear();
 
-                AddSearchResult("moun");
-                AddSearchResult("mountains");
-                AddSearchResult("mountain biking");
-                AddSearchResult("mount royal university");
-            }
-            else if (text.Length >= 5)
-            {
-                searchResults.Children.Clear();
+                    searchResultsPopup.IsOpen = true;
 
-                searchResultsPopup.IsOpen = true;
+                    AddSearchResult("mou");
+                    AddSearchResult("mouse");
+                    AddSearchResult("mickey mouse");
+                    AddSearchResult("mountains");
+                    AddSearchResult("mountain biking");
+                }
+                else if (text.Length == 3)
+                {
+                    searchResults.Children.Clear();
 
-                AddSearchResult("mounta");
-                AddSearchResult("mountains");
-                AddSearchResult("mountain biking");
+                    searchResultsPopup.IsOpen = true;
+
+                    AddSearchResult("moun");
+                    AddSearchResult("mountains");
+                    AddSearchResult("mountain biking");
+                    AddSearchResult("mount royal university");
+                }
+                else if ((text.Length >= 5) && (text.Length < 8))
+                {
+                    searchResults.Children.Clear();
+
+                    searchResultsPopup.IsOpen = true;
+
+                    AddSearchResult(text + e.Key.ToString().ToLower());
+                    AddSearchResult("mountains");
+                    AddSearchResult("mountain biking");
+                }
+                else if (text.Length >= 8)
+                {
+                    searchResults.Children.Clear();
+
+                    searchResultsPopup.IsOpen = true;
+
+                    AddSearchResult(text + e.Key.ToString().ToLower());
+                    AddSearchResult("mountain biking");
+                }
             }
         }
 
