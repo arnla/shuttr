@@ -187,13 +187,7 @@
                     </Style.Triggers>
                 </Style>
             </Popup.Style>
-            <StackPanel x:Name="searchResults">
-                <Button x:Name="result1"
-                        Content="Mount Royal University"
-                        Style="{StaticResource searchResultStyle}"/>
-                <Button Content="Mountain"
-                        Style="{StaticResource searchResultStyle}"/>
-            </StackPanel>
+            <StackPanel x:Name="searchResults"/>
         </Popup>
 
         <StackPanel x:Name="userControls"

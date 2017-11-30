@@ -215,10 +215,80 @@ namespace shuttr
         {
             string text = searchBox.Text;
 
-            if (text.Length == 1)
+            if (text.Length == 0)
             {
+                searchResults.Children.Clear();
 
+                searchResultsPopup.IsOpen = true;
+
+                AddSearchResult("m");
+                AddSearchResult("moe");
+                AddSearchResult("mouse");
+                AddSearchResult("mickey mouse");
+                AddSearchResult("mountains");
+                AddSearchResult("mountain biking");
             }
+            else if (text.Length == 1)
+            {
+                searchResults.Children.Clear();
+
+                searchResultsPopup.IsOpen = true;
+
+                AddSearchResult("mo");
+                AddSearchResult("moe");
+                AddSearchResult("mouse");
+                AddSearchResult("mickey mouse");
+                AddSearchResult("mountains");
+                AddSearchResult("mountain biking");
+            }
+            else if (text.Length == 2)
+            {
+                searchResults.Children.Clear();
+
+                searchResultsPopup.IsOpen = true;
+
+                AddSearchResult("mou");
+                AddSearchResult("mouse");
+                AddSearchResult("mickey mouse");
+                AddSearchResult("mountains");
+                AddSearchResult("mountain biking");
+            }
+            else if (text.Length == 3)
+            {
+                searchResults.Children.Clear();
+
+                searchResultsPopup.IsOpen = true;
+
+                AddSearchResult("moun");
+                AddSearchResult("mountains");
+                AddSearchResult("mountain biking");
+                AddSearchResult("mount royal university");
+            }
+            else if (text.Length >= 5)
+            {
+                searchResults.Children.Clear();
+
+                searchResultsPopup.IsOpen = true;
+
+                AddSearchResult("mounta");
+                AddSearchResult("mountains");
+                AddSearchResult("mountain biking");
+            }
+        }
+
+        private void AddSearchResult(string content)
+        {
+            Button result = new Button();
+            result.Style = Resources["searchResultStyle"] as Style;
+            result.Click += SearchResultClick;
+            result.Content = content;
+            searchResults.Children.Add(result);
+        }
+
+        private void SearchResultClick(object sender, RoutedEventArgs e)
+        {
+            contentControl.Content = new SearchResultsPage();
+            searchResultsPopup.IsOpen = false;
         }
     }
 }
