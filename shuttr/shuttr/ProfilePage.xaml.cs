@@ -93,7 +93,7 @@ namespace shuttr
             parent.mainGrid.Children.Add(discussionPopup);
         }
 
-        public void SortClick(object sender, EventArgs e)
+        public void SortClick(object sender, RoutedEventArgs e)
         {
             if (sender.Equals(sortByMenu))
             {
@@ -118,6 +118,14 @@ namespace shuttr
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+        }
+
+        private void FilterClick(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(filterByMenu))
+            {
+                filterByDropdown.IsOpen = !filterByDropdown.IsOpen;
             }
         }
     }

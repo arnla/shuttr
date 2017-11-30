@@ -98,6 +98,22 @@
             </StackPanel>
         </Border>
 
+        <!-- Menu items: All, Photos, Discussions-->
+        <Border x:Name="filterByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0" Grid.Column="1">
+            <StackPanel Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center"/>
+
+                <Popup x:Name="filterByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="filterByOptions" Background="AliceBlue">
+                        <Button x:Name="filterAll" Content="Photos + Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterPhotos" Content="Photos" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterDiscussions" Content="Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+            </StackPanel>
+        </Border>
+
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Stretch"  
                       Width="800"
