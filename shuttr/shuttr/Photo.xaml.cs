@@ -23,11 +23,11 @@ namespace shuttr
         /// User object of original poster here
         public string username { get; set; }
         public int photoId { get; }
-        private int score { get; set; }
-        public int commentCount { get; }
+        public int score { get; set; }
+        public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
-        private string time { get; }
+        public string time { get; }
         //private DateTime date;
         private double ageDays;
         private double ageHours;
