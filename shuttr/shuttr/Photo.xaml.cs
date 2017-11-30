@@ -21,13 +21,13 @@ namespace shuttr
     public partial class Photo : UserControl
     {
         /// User object of original poster here
-        public string username { get; }
+        public string username { get; set; }
         public int photoId { get; }
-        private int score;
+        private int score { get; set; }
         public int commentCount { get; }
         public string title { get; set; }
         public string caption { get; set; }
-        private string time;
+        private string time { get; }
         //private DateTime date;
         private double ageDays;
         private double ageHours;

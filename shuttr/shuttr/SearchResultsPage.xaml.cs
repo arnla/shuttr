@@ -35,6 +35,7 @@ namespace shuttr
         private void InitializePosts()
         {
             photo = new Photo(999, "Images/Mountains.jpg");
+            photo.username = "Lean";
             discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
         }
 
