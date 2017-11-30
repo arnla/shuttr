@@ -52,6 +52,24 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
+        public DiscussionPopup(MainWindow main, Discussion sender)
+        {
+            InitializeComponent();
+
+            this.main = main;
+            main.ChangeFill();
+
+            this.discussion = sender;
+
+            Username.Text = sender.GetUser();
+            DiscussionTitle.Text = sender.GetTitle();
+            NumRepliesButton.Content = sender.GetNumReplies();
+            DisplayComments();
+
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
         /// <summary>
         /// DO NOT USE.
         /// For now, it will break when adding a comment because the click on the 

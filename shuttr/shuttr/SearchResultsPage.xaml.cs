@@ -49,6 +49,7 @@ namespace shuttr
             discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
 
             photo.MouseLeftButtonDown += ClickPost;
+            discussion.MouseLeftButtonDown += ClickPost;
         }
 
         private void FilterPhotosDiscussions()
@@ -128,7 +129,10 @@ namespace shuttr
         {
             if (sender.Equals(discussion))
             {
-                //
+                DiscussionPopup discussionPopup = new DiscussionPopup(parent, discussion);
+                discussionPopup.SetValue(Grid.RowProperty, 2);
+                discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                parent.mainGrid.Children.Add(discussionPopup);
             }
             else
             {
