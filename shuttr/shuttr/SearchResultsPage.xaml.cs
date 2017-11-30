@@ -22,10 +22,13 @@ namespace shuttr
     {
         private Photo photo;
         private Discussion discussion;
+        private MainWindow parent;
 
-        public SearchResultsPage()
+        public SearchResultsPage(MainWindow main)
         {
             InitializeComponent();
+
+            parent = main;
 
             InitializePosts();
 
@@ -39,9 +42,13 @@ namespace shuttr
             photo.title = "Rate my photo";
             photo.score = 5;
             photo.commentCount = 1;
-            photo.comments.Add(new Comment("Emilio", "Cool photo, where was this?"));
+            photo.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
 
             discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
+            discussion.GetComments().Add(new Comment("Lawrence", "Lake Louise looks spectacular during the summer! Just go early to avoid the crowds."));
+            discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
+
+            photo.MouseLeftButtonDown += ClickPost;
         }
 
         private void FilterPhotosDiscussions()
@@ -114,6 +121,18 @@ namespace shuttr
                 currentFilterOption.Content = filterDiscussions.Content;
                 filterByDropdown.IsOpen = false;
                 FilterDiscussions();
+            }
+        }
+
+        private void ClickPost(object sender, MouseEventArgs e)
+        {
+            if (sender.Equals(discussion))
+            {
+                //
+            }
+            else
+            {
+                //
             }
         }
     }

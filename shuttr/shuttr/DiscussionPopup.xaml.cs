@@ -102,7 +102,9 @@ namespace shuttr
                 Comment newComment = new Comment("current user", CommentBox.Text);
                 commentsFeed.Children.Add(newComment);
                 discussion.GetComments().Add(newComment);
-                parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                // This line is not necessary. You are changing the discussion object, not creating a new discussion object.
+                // It will be updated as normal without reassinging it.
+                //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
             }
         }
     }

@@ -216,7 +216,7 @@ namespace shuttr
         {
             if (e.Key == Key.Enter)
             {
-                contentControl.Content = new SearchResultsPage();
+                contentControl.Content = new SearchResultsPage(this);
                 searchResultsPopup.IsOpen = false;
                 HighlightTab();
             }
@@ -306,7 +306,7 @@ namespace shuttr
 
         private void SearchResultClick(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = new SearchResultsPage();
+            contentControl.Content = new SearchResultsPage(this);
             searchResultsPopup.IsOpen = false;
             HighlightTab();
         }
