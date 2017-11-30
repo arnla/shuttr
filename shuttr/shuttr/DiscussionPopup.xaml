@@ -9,12 +9,12 @@
     <Border x:Name="window" BorderBrush="Black" BorderThickness="5" Background="#F6FBFF" HorizontalAlignment="Center">
             <Grid x:Name="mainGrid" ShowGridLines="True">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="5*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
-                <Button x:Name="CloseDiscussionButton" Content="X" FontWeight="Bold" Background="Red" Foreground="White" HorizontalAlignment="Right" Click="Button_Click"></Button>
+                <Button x:Name="CloseDiscussionButton" Width="50" Content="X" FontWeight="Bold" Background="Red" Foreground="White" HorizontalAlignment="Right" Click="Button_Click"></Button>
                 <Grid x:Name="DiscussionInfo" Grid.Row="1" Margin="5,5,5,5" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
@@ -37,9 +37,11 @@
                         </Grid>
                     </Grid>
                     <TextBlock x:Name="DiscussionTitle" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    <Button x:Name="NumRepliesButton" Grid.Column="2" Margin="5,5,5,5" Height="Auto" Width="Auto"></Button>
-                </Grid>
-                <ScrollViewer x:Name="ScrollViewComments"  Grid.Row="2">
+
+                <Label x:Name="NumRepliesButton" Grid.Column="2" Margin="5,5,5,5" Height="Auto" Width="Auto"/>
+            </Grid>
+                <ScrollViewer x:Name="ScrollViewComments" Grid.Row="2">
+
                     <StackPanel x:Name="commentsFeed">
                         <StackPanel.Resources>
                             <Style TargetType="{x:Type Border}">

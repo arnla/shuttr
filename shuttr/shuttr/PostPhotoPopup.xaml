@@ -29,8 +29,80 @@
                 </StackPanel>
             </Border>
             <Image Name="AddedImage" Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10"></Image>
-            <TextBox Name="AddPhotoTitleBox" Grid.Row="2" Margin="10,10,10,10" Text="Add a title"></TextBox>
-            <TextBox Name="AddPhotoCaptionBox" Grid.Row="3" Margin="10,10,10,10" Text="Add a caption"></TextBox>
+            <Border Grid.Row="2"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="10,0,10,0">
+                <Grid>
+                    <TextBox Name="AddPhotoTitleBox" 
+                             TextWrapping="Wrap"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="16"
+                             Text=""
+                             FontFamily="Microsoft YaHei"></TextBox>
+                    <TextBlock x:Name="AddPhotoTitleDefault"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text=" Add a title *required"
+                               Opacity="0.5"
+                               FontSize="18"
+                               FontStyle="Italic"
+                               >
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility"
+                                Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=AddPhotoTitleBox}"
+                                     Value="">
+                                        <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
+            <Border Grid.Row="3"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="10,10,10,0">
+                <Grid>
+                    <TextBox Name="AddPhotoCaptionBox" 
+                             TextWrapping="Wrap"
+                             VerticalAlignment="Stretch"
+                             HorizontalAlignment="Stretch"
+                             FontSize="16"
+                             Text=""
+                             FontFamily="Microsoft YaHei"></TextBox>
+                    <TextBlock x:Name="AddPhotoCaptionDefault"
+                               IsHitTestVisible="False"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Text=" Add a caption"
+                               Opacity="0.5"
+                               FontSize="18"
+                               FontStyle="Italic"
+                               >
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Visibility"
+                                Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=AddPhotoCaptionBox}"
+                                     Value="">
+                                        <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>

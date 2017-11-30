@@ -6,12 +6,33 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
-
+    <Border>
     <Grid>
         <Image x:Name="imageName"
                Source="/Images/child.jpg"
-               MouseLeftButtonDown="ClickPhoto">
-            
-        </Image>
+               MouseLeftButtonDown="ClickPhoto" 
+               MouseEnter="HoverPhoto" 
+               MouseLeave="MouseLeave" >
+            </Image>
+        <TextBlock x:Name="imageStats"
+                   Text=""
+                   Width="Auto"
+                   Grid.Column="1"
+                   FontFamily="Microsoft YaHei"
+                   Margin="20,0,20,5"
+                   HorizontalAlignment="Right"
+                   FontSize="24" 
+                   VerticalAlignment="Bottom" 
+                   Foreground="White"
+                   MouseEnter="HoverPhoto" 
+                   MouseLeave="MouseLeave">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="5"
+                                      Color="#FF2B85B0"
+                                      Opacity="1"
+                                      BlurRadius="5"/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
+    </Border>
 </UserControl>

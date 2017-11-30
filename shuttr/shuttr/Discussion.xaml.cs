@@ -25,6 +25,7 @@ namespace shuttr
         private string title;
         private string description;
         private int numReplies;
+        public int score { get; set; }
         private List<Comment> comments;
 
         public Discussion()
@@ -52,8 +53,8 @@ namespace shuttr
 
             // comments test
             comments = new List<Comment>();
-            comments.Add(new Comment("user", "comment1"));
-            comments.Add(new Comment("user", "comment2"));
+            //comments.Add(new Comment("user", "comment1"));
+            //comments.Add(new Comment("user", "comment2"));
 
             // If the reply count is 1, show "1 reply" instead of "1 replies"
             replyCount.Text = numReplies.ToString() + ((numReplies == 1) ? " reply" : " replies");

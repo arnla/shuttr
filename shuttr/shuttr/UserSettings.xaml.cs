@@ -16,34 +16,24 @@ using System.Windows.Shapes;
 namespace shuttr
 {
     /// <summary>
-    /// Interaction logic for PhotosPage.xaml
+    /// Interaction logic for UserSettings.xaml
     /// </summary>
-    public partial class LoginPage : UserControl
+    public partial class UserSettings : ContentControl
     {
-        public LoginPage()
+        public UserSettings()
         {
             InitializeComponent();
-            LoginSwitcher.loginSwitcher = this;
         }
 
-        public void Navigate(UserControl nextPage)
-        {
-            this.Content = nextPage;
-        }
 
         public void Button_Click(object sender, EventArgs e)
         {
-            if (sender.Equals(loginButton))
+            if (sender.Equals(changeButton))
             {
-                LoginSwitcher.Switch(new FollowingPage());
-            }
-            else if (sender.Equals(signupButton))
-            {
-                LoginSwitcher.Switch(new SignupPage());
+
             }
         }
 
-        public void Text_Changed(object sender, EventArgs e)
-        { }
     }
+
 }

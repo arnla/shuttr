@@ -49,14 +49,14 @@ namespace shuttr
             {
                 bool isComplete = true;
                 // check if all fields are filled in
-                if (AddDiscussionTitleBox.Text.Equals("Add a title"))
+                if (AddDiscussionTitleBox.Text.Equals(""))
                 {
-                    AddDiscussionTitleBox.Foreground = new SolidColorBrush(Colors.Red);
+                    AddDiscussionTitleDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
-                if (AddDiscussionDescriptionBox.Text.Equals("Add a description"))
+                if (AddDiscussionDescriptionBox.Text.Equals(""))
                 {
-                    AddDiscussionDescriptionBox.Foreground = new SolidColorBrush(Colors.Red);
+                    AddDiscussionDescriptionDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
                 if (isComplete)

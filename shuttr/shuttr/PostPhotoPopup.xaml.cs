@@ -61,8 +61,8 @@ namespace shuttr
                 AddedImage.Visibility = Visibility.Hidden;
                 ImageBox.Visibility = Visibility.Visible;
                 BrowseButton.Foreground = new SolidColorBrush(Colors.Black);
-                AddPhotoTitleBox.Foreground = new SolidColorBrush(Colors.Black);
-                AddPhotoCaptionBox.Foreground = new SolidColorBrush(Colors.Black);
+                AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Black);
+                AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Black);
                 this.Visibility = Visibility.Hidden;
             }
             else if (sender.Equals(ConfirmPostPhotoButton))
@@ -74,20 +74,15 @@ namespace shuttr
                     BrowseButton.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
-                if (AddPhotoTitleBox.Text.Equals("Add a title"))
+                if (AddPhotoTitleBox.Text.Equals(""))
                 {
-                    AddPhotoTitleBox.Foreground = new SolidColorBrush(Colors.Red);
-                    isComplete = false;
-                }
-                if (AddPhotoCaptionBox.Text.Equals("Add a caption"))
-                {
-                    AddPhotoCaptionBox.Foreground = new SolidColorBrush(Colors.Red);
+                    AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Red);
                     isComplete = false;
                 }
                 // form is complete
                 if (isComplete)
                 {
-                    parent.AddPhoto(new Photo(AddedImage.Source));
+                    parent.AddPhoto(new Photo(parent.currPhotosPage.photoIdCounter, AddedImage.Source), AddPhotoTitleBox.Text, AddPhotoCaptionBox.Text);
                     parent.ChangeFill();
                     this.Visibility = Visibility.Hidden;
                 }
