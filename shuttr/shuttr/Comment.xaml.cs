@@ -22,7 +22,7 @@ namespace shuttr
     {
         private string username;
         private string comment;
-        private DiscussionPopup parent;
+        public DiscussionPopup parent { get; set; }
 
         public Comment()
         {

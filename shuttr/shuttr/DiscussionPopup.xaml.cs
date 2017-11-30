@@ -117,6 +117,10 @@ namespace shuttr
         {
             foreach (Comment c in discussion.GetComments())
             {
+                if (c.parent == null)
+                {
+                    c.parent = this;
+                }
                 commentsFeed.Children.Add(c);
             }
         }
