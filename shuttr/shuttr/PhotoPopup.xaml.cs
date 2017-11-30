@@ -49,7 +49,30 @@ namespace shuttr
 
             DisplayComments();
 
-            window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.9;
+            window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
+        }
+
+        public PhotoPopup(MainWindow main, Photo sender)
+        {
+            InitializeComponent();
+
+            this.main = main;
+            main.ChangeFill();
+
+            this.photo = sender;
+
+            // Need to create a new photo, otherwise it will throw an exception because one object can't be the child of 2 elements
+            commentFeed.Children.Add(new Photo(sender.photoId, sender.imageName.Source));
+
+            Username.Text = sender.username;
+            title.Text = sender.title;
+            description.Text = sender.caption;
+            NumRepliesButton.Content = sender.comments.Count();
+
+            DisplayComments();
+
+            window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
@@ -75,7 +98,8 @@ namespace shuttr
                 Comment newComment = new Comment("current user", richText);
                 commentFeed.Children.Add(newComment);
                 photo.comments.Add(newComment);
-                parent.photoDict[photo.photoId] = photo;
+                // Unnecessary line. Same as DiscussionPopup.
+                //parent.photoDict[photo.photoId] = photo;
             }
         }
     }

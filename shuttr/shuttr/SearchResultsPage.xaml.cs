@@ -136,7 +136,10 @@ namespace shuttr
             }
             else
             {
-                //
+                PhotoPopup photoPopup = new PhotoPopup(parent, photo);
+                photoPopup.SetValue(Grid.RowProperty, 2);
+                photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                parent.mainGrid.Children.Add(photoPopup);
             }
         }
     }

@@ -11,7 +11,7 @@
         <Grid x:Name="mainGrid" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition x:Name="xRow" Height="Auto"/>
-                <RowDefinition x:Name="titleRow" MaxHeight="130"/>
+                <RowDefinition x:Name="titleRow" MaxHeight="130" Height="Auto"/>
                 <RowDefinition x:Name="photoAndCommentsRow"/>
                 <RowDefinition x:Name="commentBoxRow" Height="60"/>
             </Grid.RowDefinitions>
