@@ -32,6 +32,9 @@ namespace shuttr
 
             InitializePosts();
 
+            currentFilterOption.Content = filterAll.Content;
+            currentSortOption.Content = sortPopular.Content;
+
             FilterPhotosDiscussions();
         }
 
@@ -45,6 +48,7 @@ namespace shuttr
             photo.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
 
             discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
+            discussion.score = 1;
             discussion.GetComments().Add(new Comment("Lawrence", "Lake Louise looks spectacular during the summer! Just go early to avoid the crowds."));
             discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
 
@@ -55,8 +59,18 @@ namespace shuttr
         private void FilterPhotosDiscussions()
         {
             resultsFeed.Children.Clear();
-            resultsFeed.Children.Add(photo);
-            resultsFeed.Children.Add(discussion);
+
+            // Make sure the posts are sorted properly
+            if ((currentSortOption.Content == sortPopular.Content) || (currentSortOption.Content == sortMostUpvoted.Content))
+            {
+                resultsFeed.Children.Add(photo);
+                resultsFeed.Children.Add(discussion);
+            }
+            else
+            {
+                resultsFeed.Children.Add(discussion);
+                resultsFeed.Children.Add(photo);
+            }
         }
         
         private void FilterPhotos()
@@ -79,23 +93,59 @@ namespace shuttr
             }
             else if (sender.Equals(sortPopular))
             {
-                currentSortOption.Content = "Popular";
+                currentSortOption.Content = sortPopular.Content;
                 sortByDropdown.IsOpen = false;
+
+                resultsFeed.Children.Clear();
+
+                // If showing both photos and discussions, make sure posts are sorted
+                if (currentFilterOption.Content == filterAll.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                    resultsFeed.Children.Add(discussion);
+                }
             }
             else if (sender.Equals(sortNew))
             {
-                currentSortOption.Content = "New";
+                currentSortOption.Content = sortNew.Content;
                 sortByDropdown.IsOpen = false;
+
+                resultsFeed.Children.Clear();
+
+                // If showing both photos and discussions, make sure posts are sorted
+                if (currentFilterOption.Content == filterAll.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                    resultsFeed.Children.Add(photo);
+                }
             }
             else if (sender.Equals(sortMostCommented))
             {
-                currentSortOption.Content = "Most Commented";
+                currentSortOption.Content = sortMostCommented.Content;
                 sortByDropdown.IsOpen = false;
+
+                resultsFeed.Children.Clear();
+
+                // If showing both photos and discussions, make sure posts are sorted
+                if (currentFilterOption.Content == filterAll.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                    resultsFeed.Children.Add(photo);
+                }
             }
             else if (sender.Equals(sortMostUpvoted))
             {
-                currentSortOption.Content = "Most Upvoted";
+                currentSortOption.Content = sortMostUpvoted.Content;
                 sortByDropdown.IsOpen = false;
+
+                resultsFeed.Children.Clear();
+
+                // If showing both photos and discussions, make sure posts are sorted
+                if (currentFilterOption.Content == filterAll.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                    resultsFeed.Children.Add(discussion);
+                }
             }
         }
 
