@@ -143,7 +143,7 @@ namespace shuttr
                 else if (replyFlag == 1)
                 {
                     string[] reply = CommentBox.Text.Split('\n');
-                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1]));
+                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1], this));
                     CommentBox.Text = "Type a message...";
                     replyFlag = 0;
                     commentToReplyTo = null;
