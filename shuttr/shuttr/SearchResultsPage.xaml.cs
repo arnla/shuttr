@@ -25,7 +25,7 @@ namespace shuttr
             InitializeComponent();
         }
 
-        public void SortClick(object sender, EventArgs e)
+        public void SortClick(object sender, RoutedEventArgs e)
         {
             if (sender.Equals(sortByMenu))
             {
@@ -34,22 +34,45 @@ namespace shuttr
             else if (sender.Equals(sortPopular))
             {
                 currentSortOption.Content = "Popular";
-                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                sortByDropdown.IsOpen = false;
             }
             else if (sender.Equals(sortNew))
             {
                 currentSortOption.Content = "New";
-                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                sortByDropdown.IsOpen = false;
             }
             else if (sender.Equals(sortMostCommented))
             {
                 currentSortOption.Content = "Most Commented";
-                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                sortByDropdown.IsOpen = false;
             }
             else if (sender.Equals(sortMostUpvoted))
             {
                 currentSortOption.Content = "Most Upvoted";
-                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                sortByDropdown.IsOpen = false;
+            }
+        }
+
+        private void FilterClick(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(filterByMenu))
+            {
+                filterByDropdown.IsOpen = !filterByDropdown.IsOpen;
+            }
+            else if (sender.Equals(filterAll))
+            {
+                currentFilterOption.Content = filterAll.Content;
+                filterByDropdown.IsOpen = false;
+            }
+            else if (sender.Equals(filterPhotos))
+            {
+                currentFilterOption.Content = filterPhotos.Content;
+                filterByDropdown.IsOpen = false;
+            }
+            else if (sender.Equals(filterDiscussions))
+            {
+                currentFilterOption.Content = filterDiscussions.Content;
+                filterByDropdown.IsOpen = false;
             }
         }
     }

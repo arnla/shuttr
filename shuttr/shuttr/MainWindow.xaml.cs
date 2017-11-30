@@ -124,6 +124,7 @@ namespace shuttr
             else if (sender.Equals(seeAllMessagesButton))
             {
                 contentControl.Content = currMessagesPage;
+                HighlightTab();
             }
             else if (sender.Equals(postPhotoButton))
             {
@@ -217,6 +218,7 @@ namespace shuttr
             {
                 contentControl.Content = new SearchResultsPage();
                 searchResultsPopup.IsOpen = false;
+                HighlightTab();
             }
             else
             {
@@ -306,6 +308,7 @@ namespace shuttr
         {
             contentControl.Content = new SearchResultsPage();
             searchResultsPopup.IsOpen = false;
+            HighlightTab();
         }
     }
 }
