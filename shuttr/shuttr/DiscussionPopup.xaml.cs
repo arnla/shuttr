@@ -22,7 +22,6 @@ namespace shuttr
     {
         MainWindow main;
         DiscussionPage parent;
-        ProfilePage alternativeParent;
         Discussion discussion;
         int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
         Comment commentToReplyTo = null;
@@ -81,36 +80,6 @@ namespace shuttr
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
-        }
-
-        /// <summary>
-        /// DO NOT USE.
-        /// For now, it will break when adding a comment because the click on the 
-        /// reply button will try to access the DiscussionPage parent, which would be null.
-        /// 
-        /// Creates a discussion popup for a discussion selected from a ProfilePage
-        /// </summary>
-        /// <param name="main"> The MainWindow of the program </param>
-        /// <param name="alternativeParent"> The ProfilePage the popup belongs to </param>
-        /// <param name="sender"> The discussion object that was clicked </param>
-        public DiscussionPopup(MainWindow main, ProfilePage alternativeParent, Discussion sender)
-        {
-            InitializeComponent();
-
-            this.main = main;
-            main.ChangeFill();
-
-            this.alternativeParent = alternativeParent;
-            this.discussion = sender;
-
-            Username.Text = sender.GetUser();
-            DiscussionTitle.Text = sender.GetTitle();
-            NumRepliesButton.Content = sender.GetNumReplies();
-            DisplayComments();
-
-            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
-
         }
 
         private void DisplayComments()
