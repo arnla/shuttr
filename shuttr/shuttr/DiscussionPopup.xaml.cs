@@ -23,6 +23,8 @@ namespace shuttr
         MainWindow main;
         DiscussionPage parent;
         Discussion discussion;
+        int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
+        Comment commentToReplyTo = null;
 
         public DiscussionPopup()
         {
@@ -51,6 +53,16 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
+        public void SetReplyFlag(int flag)
+        {
+            replyFlag = flag;
+        } 
+
+        public void SetCommentToReplyTo(Comment comment)
+        {
+            commentToReplyTo = comment;
+        }
+
         private void DisplayComments()
         {
             foreach (Comment c in discussion.GetComments())
@@ -69,10 +81,21 @@ namespace shuttr
             }
             else if (sender.Equals(PostCommentButton))
             {
-                Comment newComment = new Comment("current user", CommentBox.Text);
-                commentsFeed.Children.Add(newComment);
-                discussion.GetComments().Add(newComment);
-                parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                if (replyFlag == 0)
+                {
+                    Comment newComment = new Comment("current user", CommentBox.Text, this);
+                    commentsFeed.Children.Add(newComment);
+                    ScrollViewComments.ScrollToEnd();
+                    discussion.GetComments().Add(newComment);
+                    parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                }
+                else if (replyFlag == 1)
+                {
+                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", CommentBox.Text));
+                    CommentBox.Text = "Type a message...";
+                    replyFlag = 0;
+                    commentToReplyTo = null;
+                }
             }
         }
     }
