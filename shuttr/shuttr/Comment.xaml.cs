@@ -22,6 +22,7 @@ namespace shuttr
     {
         private string username;
         private string comment;
+        private DiscussionPopup parent;
 
         public Comment()
         {
@@ -35,6 +36,26 @@ namespace shuttr
             this.comment = comment;
             usernameText.Text = username;
             commentBox.Text = comment;
+        }
+
+        public Comment(string username, string comment, DiscussionPopup parent)
+        {
+            InitializeComponent();
+            this.username = username;
+            this.comment = comment;
+            usernameText.Text = username;
+            commentBox.Text = comment;
+            this.parent = parent;
+        }
+
+        protected void Button_Click(object sender, EventArgs e)
+        {
+            if (sender.Equals(replyButton))
+            {
+                parent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
+                parent.SetReplyFlag(1);
+                parent.SetCommentToReplyTo(this);
+            }
         }
     }
 }

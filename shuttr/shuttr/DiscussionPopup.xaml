@@ -37,9 +37,11 @@
                         </Grid>
                     </Grid>
                     <TextBlock x:Name="DiscussionTitle" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
                 <Label x:Name="NumRepliesButton" Grid.Column="2" Margin="5,5,5,5" Height="Auto" Width="Auto"/>
             </Grid>
-                <ScrollViewer Grid.Row="2">
+                <ScrollViewer x:Name="ScrollViewComments" Grid.Row="2">
+
                     <StackPanel x:Name="commentsFeed">
                         <StackPanel.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -55,7 +57,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="CommentersProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
-                    <TextBox x:Name="CommentBox" Grid.Column="1" Margin="5,5,5,5" Text="Type a message..." Height="Auto" Width="Auto"></TextBox>
+                    <TextBox x:Name="CommentBox" Grid.Column="1" TextWrapping="Wrap" Margin="5,5,5,5" Text="Type a message..." Height="Auto" Width="Auto"></TextBox>
                     <Button x:Name="PostCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto" Click="Button_Click"></Button>
                 </Grid>
             </Grid>

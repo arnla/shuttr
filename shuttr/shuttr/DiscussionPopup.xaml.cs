@@ -24,6 +24,8 @@ namespace shuttr
         DiscussionPage parent;
         ProfilePage alternativeParent;
         Discussion discussion;
+        int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
+        Comment commentToReplyTo = null;
 
         public DiscussionPopup()
         {
@@ -50,6 +52,17 @@ namespace shuttr
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
+
+        public void SetReplyFlag(int flag)
+        {
+            replyFlag = flag;
+        }
+
+        public void SetCommentToReplyTo(Comment comment)
+        {
+            commentToReplyTo = comment;
         }
 
         public DiscussionPopup(MainWindow main, Discussion sender)
@@ -97,6 +110,7 @@ namespace shuttr
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+
         }
 
         private void DisplayComments()
@@ -117,12 +131,31 @@ namespace shuttr
             }
             else if (sender.Equals(PostCommentButton))
             {
-                Comment newComment = new Comment("current user", CommentBox.Text);
+
+                if (replyFlag == 0)
+                {
+                    Comment newComment = new Comment("current user", CommentBox.Text, this);
+                    commentsFeed.Children.Add(newComment);
+                    ScrollViewComments.ScrollToEnd();
+                    discussion.GetComments().Add(newComment);
+                    //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                }
+                else if (replyFlag == 1)
+                {
+                    string[] reply = CommentBox.Text.Split('\n');
+                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1], this));
+                    CommentBox.Text = "Type a message...";
+                    replyFlag = 0;
+                    commentToReplyTo = null;
+                }
+
+                /**Comment newComment = new Comment("current user", CommentBox.Text);
                 commentsFeed.Children.Add(newComment);
-                discussion.GetComments().Add(newComment);
+                discussion.GetComments().Add(newComment);**/
                 // This line is not necessary. You are changing the discussion object, not creating a new discussion object.
                 // It will be updated as normal without reassinging it.
                 //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+
             }
         }
     }
