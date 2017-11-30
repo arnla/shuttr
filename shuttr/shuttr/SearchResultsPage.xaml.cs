@@ -20,9 +20,41 @@ namespace shuttr
     /// </summary>
     public partial class SearchResultsPage : UserControl
     {
+        private Photo photo;
+        private Discussion discussion;
+
         public SearchResultsPage()
         {
             InitializeComponent();
+
+            InitializePosts();
+
+            FilterPhotosDiscussions();
+        }
+
+        private void InitializePosts()
+        {
+            photo = new Photo(999, "Images/Mountains.jpg");
+            discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
+        }
+
+        private void FilterPhotosDiscussions()
+        {
+            resultsFeed.Children.Clear();
+            resultsFeed.Children.Add(photo);
+            resultsFeed.Children.Add(discussion);
+        }
+        
+        private void FilterPhotos()
+        {
+            resultsFeed.Children.Clear();
+            resultsFeed.Children.Add(photo);
+        }
+
+        private void FilterDiscussions()
+        {
+            resultsFeed.Children.Clear();
+            resultsFeed.Children.Add(discussion);
         }
 
         public void SortClick(object sender, RoutedEventArgs e)
@@ -63,16 +95,19 @@ namespace shuttr
             {
                 currentFilterOption.Content = filterAll.Content;
                 filterByDropdown.IsOpen = false;
+                FilterPhotosDiscussions();
             }
             else if (sender.Equals(filterPhotos))
             {
                 currentFilterOption.Content = filterPhotos.Content;
                 filterByDropdown.IsOpen = false;
+                FilterPhotos();
             }
             else if (sender.Equals(filterDiscussions))
             {
                 currentFilterOption.Content = filterDiscussions.Content;
                 filterByDropdown.IsOpen = false;
+                FilterDiscussions();
             }
         }
     }

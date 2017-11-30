@@ -33,6 +33,7 @@
             <RowDefinition x:Name="contentRow"/>
         </Grid.RowDefinitions>
 
+        <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
         <Border x:Name="sortByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
@@ -49,10 +50,10 @@
                         <Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
                     </StackPanel>
                 </Popup>
-                <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
             </StackPanel>
         </Border>
 
+        <!-- Menu items: All, Photos, Discussions-->
         <Border x:Name="filterByContainer"
                 HorizontalAlignment="Center"
                 Width="800"
@@ -68,7 +69,6 @@
                         <Button x:Name="filterDiscussions" Content="Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
                     </StackPanel>
                 </Popup>
-                <!-- Menu items: All, Photos, Discussions-->
             </StackPanel>
         </Border>
 
