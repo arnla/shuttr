@@ -11,6 +11,28 @@
         Width="1920"
         Height="1200"
         Icon="/Images/Icons/shuttrLogoNoBack.ico">
+    <Window.Resources>
+        <Style x:Key="searchResultStyle" TargetType="Button">
+            <Setter Property="Width" Value="350"/>
+            <Setter Property="FontFamily" Value="Microsoft YaHei"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Background" Value="#FFCFD6D8"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,3"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
 
     <!-- Old background color: F69FCBE4-->
     <Grid x:Name="mainGrid" Background="#F64F5E6C">
@@ -121,7 +143,7 @@
                  Grid.Column="0"
                  Grid.ColumnSpan="3"
                  FontFamily="Microsoft YaHei"
-                 FontSize="14" />
+                 FontSize="14" KeyDown="SearchSuggestions" />
         <TextBlock x:Name="searchBoxDefault"
                    IsHitTestVisible="False"
                    Text="Search photos, discussions, people..."
@@ -167,54 +189,10 @@
             </Popup.Style>
             <StackPanel x:Name="searchResults">
                 <Button x:Name="result1"
-                        Width="350"
                         Content="Mount Royal University"
-                        FontFamily="Microsoft YaHei"
-                        FontSize="13">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FFCFD6D8"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,3"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="White"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
-                <Button Width="350"
-                        Content="Mountain"
-                        FontFamily="Microsoft YaHei"
-                        FontSize="13">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FFCFD6D8"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Border Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,3"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="White"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                </Button>
+                        Style="{StaticResource searchResultStyle}"/>
+                <Button Content="Mountain"
+                        Style="{StaticResource searchResultStyle}"/>
             </StackPanel>
         </Popup>
 

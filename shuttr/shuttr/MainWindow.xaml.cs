@@ -205,5 +205,20 @@ namespace shuttr
                 savedTab.Foreground = (SolidColorBrush)(new BrushConverter().ConvertFrom("#FFB7B7B7"));
             }
         }
+
+        /// <summary>
+        /// Hardcoded for the search "mountain"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SearchSuggestions(object sender, KeyEventArgs e)
+        {
+            string text = searchBox.Text;
+
+            if (text.Length == 1)
+            {
+
+            }
+        }
     }
 }
