@@ -29,18 +29,20 @@
     
     <Grid Background="#F6FBFF">
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="sortByRow" Height="Auto"/>
+            <RowDefinition x:Name="header" Height="Auto"/>
             <RowDefinition x:Name="contentRow"/>
         </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="Transparent">
+            <Label Content="Viewing Search Results For: " FontSize="20"/>
+            <Label x:Name="search" Content="mountains" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+
         <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
-        <Border x:Name="sortByContainer"
-                HorizontalAlignment="Center"
-                Width="800"
-                Grid.Row="0">
+        <Border x:Name="sortByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0">
             <StackPanel Background="Transparent" Orientation="Horizontal">
                 <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
-                <Label x:Name="currentSortOption" Content="Popular"></Label>
+                <Label x:Name="currentSortOption" Content="Popular" VerticalAlignment="Center"></Label>
 
                 <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
                     <StackPanel x:Name="sortByOptions" Background="AliceBlue">
@@ -54,13 +56,10 @@
         </Border>
 
         <!-- Menu items: All, Photos, Discussions-->
-        <Border x:Name="filterByContainer"
-                HorizontalAlignment="Center"
-                Width="800"
-                Grid.Row="0">
+        <Border x:Name="filterByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0">
             <StackPanel Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
-                <Label x:Name="currentFilterOption" Content="Photos + Discussions"></Label>
+                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center"/>
 
                 <Popup x:Name="filterByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
                     <StackPanel x:Name="filterByOptions" Background="AliceBlue">
@@ -72,7 +71,7 @@
             </StackPanel>
         </Border>
 
-        <ScrollViewer Width="800" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="1">
+        <ScrollViewer Width="800" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="2">
             <StackPanel x:Name="resultsFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
