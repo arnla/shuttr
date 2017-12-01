@@ -23,10 +23,15 @@ namespace shuttr
         private MainWindow main;
         private PhotosPage parent;
         private Photo photo;
+        int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
+        Comment commentToReplyTo = null;
 
         public PhotoPopup()
         {
             InitializeComponent();
+
+            window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
         public PhotoPopup(MainWindow main, PhotosPage parent, Photo sender)
@@ -51,6 +56,16 @@ namespace shuttr
 
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
+        }
+
+        public void SetReplyFlag(int flag)
+        {
+            replyFlag = flag;
+        }
+
+        public void SetCommentToReplyTo(Comment comment)
+        {
+            commentToReplyTo = comment;
         }
 
         public PhotoPopup(MainWindow main, Photo sender)
@@ -79,7 +94,13 @@ namespace shuttr
         private void DisplayComments()
         {
             foreach (Comment c in photo.comments)
+            {
+                if (c.parent == null)
+                {
+                    c.parent = this;
+                }
                 commentFeed.Children.Add(c);
+            }
         }
 
         private void Close(object sender, EventArgs e)
@@ -93,13 +114,27 @@ namespace shuttr
         {
             if (sender.Equals(postCommentButton))
             {
-                string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
+                if (replyFlag == 0)
+                {
+                    string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
 
-                Comment newComment = new Comment("current user", richText);
-                commentFeed.Children.Add(newComment);
-                photo.comments.Add(newComment);
-                // Unnecessary line. Same as DiscussionPopup.
-                //parent.photoDict[photo.photoId] = photo;
+                    Comment newComment = new Comment("current user", richText, this);
+                    commentFeed.Children.Add(newComment);
+                    photoAndComments.ScrollToEnd();
+                    photo.comments.Add(newComment);
+                    // Unnecessary line. Same as DiscussionPopup.
+                    //parent.photoDict[photo.photoId] = photo;
+                }
+                else if (replyFlag == 1)
+                {
+                    string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
+
+                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", richText, this));
+                    commentBox.Document.Blocks.Clear();
+                    commentBox.Document.Blocks.Add(new Paragraph(new Run("Type a message...")));
+                    replyFlag = 0;
+                    commentToReplyTo = null;
+                }
             }
         }
     }

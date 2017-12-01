@@ -22,7 +22,7 @@ namespace shuttr
     {
         private string username;
         private string comment;
-        public DiscussionPopup parent { get; set; }
+        public UserControl parent { get; set; }
 
         public Comment()
         {
@@ -36,6 +36,16 @@ namespace shuttr
             this.comment = comment;
             usernameText.Text = username;
             commentBox.Text = comment;
+        }
+
+        public Comment(string username, string comment, PhotoPopup parent)
+        {
+            InitializeComponent();
+            this.username = username;
+            this.comment = comment;
+            usernameText.Text = username;
+            commentBox.Text = comment;
+            this.parent = parent;
         }
 
         public Comment(string username, string comment, DiscussionPopup parent)
@@ -52,9 +62,21 @@ namespace shuttr
         {
             if (sender.Equals(replyButton))
             {
-                parent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
-                parent.SetReplyFlag(1);
-                parent.SetCommentToReplyTo(this);
+                if (parent.GetType() == typeof(DiscussionPopup))
+                {
+                    DiscussionPopup castedParent = (DiscussionPopup)parent;
+                    castedParent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
+                    castedParent.SetReplyFlag(1);
+                    castedParent.SetCommentToReplyTo(this);
+                }
+                else if (parent.GetType() == typeof(PhotoPopup))
+                {
+                    PhotoPopup castedParent = (PhotoPopup)parent;
+                    castedParent.commentBox.Document.Blocks.Clear();
+                    castedParent.commentBox.Document.Blocks.Add(new Paragraph(new Run("Replying to " + username + "'s comment: " + comment + "\n")));
+                    castedParent.SetReplyFlag(1);
+                    castedParent.SetCommentToReplyTo(this);
+                }
             }
         }
     }
