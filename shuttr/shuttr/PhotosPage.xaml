@@ -55,13 +55,13 @@
 
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Top"  
-                      Width="800"
+                      Width="Auto"
                       Height="Auto"
                       Grid.Row="1">
             <StackPanel x:Name="photoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Image}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
+                        <Setter Property="Margin" Value="500,10,500,0"/>
                     </Style>
                 </StackPanel.Resources>
                 <!--<Image x:Name="Image1" 

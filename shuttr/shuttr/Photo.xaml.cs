@@ -88,7 +88,7 @@ namespace shuttr
                 ageHours = (ts2 - ts1).TotalSeconds / 12;
 
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago" + "  title: " + title + " caption: " + caption;
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago";
             }
             else
             {
