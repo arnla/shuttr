@@ -9,7 +9,7 @@
     <Grid Background="#F6FBFF">
         <ScrollViewer HorizontalAlignment="Center"
                       VerticalAlignment="Stretch"  
-                      Width="800">
+                      Width="Auto">
             <!--"<StackPanel x:Name="PhotoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -17,11 +17,12 @@
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>-->
-            <StackPanel HorizontalAlignment="Left" 
+            <StackPanel x:Name="savedFeed"
+                        HorizontalAlignment="Left" 
                         Height="Auto">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
+                        <Setter Property="Margin" Value="520,10,520,0"/>
                     </Style>
                 </StackPanel.Resources>
 

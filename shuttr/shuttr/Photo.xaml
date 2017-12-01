@@ -12,7 +12,8 @@
                    Source="/Images/child.jpg"
                    MouseLeftButtonDown="ClickPhoto" 
                    MouseEnter="HoverPhoto" 
-                   MouseLeave="MouseLeave" />
+                   MouseLeave="MouseLeave"
+                   />
             <TextBlock x:Name="imageStats"
                        Text=""
                        Width="Auto"
