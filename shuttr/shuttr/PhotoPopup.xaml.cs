@@ -95,10 +95,7 @@ namespace shuttr
         {
             foreach (Comment c in photo.comments)
             {
-                if (c.parent == null)
-                {
-                    c.parent = this;
-                }
+                c.parent = this;
                 commentFeed.Children.Add(c);
             }
         }
