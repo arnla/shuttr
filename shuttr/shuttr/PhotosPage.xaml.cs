@@ -27,8 +27,15 @@ namespace shuttr
         public PhotosPage()
         {
             InitializeComponent();
-            photoDict.Add(100, new Photo(100, "/Images/Coast.jpg"));
-            photoDict.Add(101, new Photo(101, "/Images/tokyo.jpg"));
+            Photo newPhoto = new Photo(100, "/Images/Coast.jpg");
+            newPhoto.title = "Wavy Days & Sun Rays";
+            newPhoto.caption = "A picture I took on my recent trip to some islands";
+            photoDict.Add(100, newPhoto);
+
+            newPhoto = new Photo(101, "/Images/tokyo.jpg");
+            newPhoto.title = "I miss this place";
+            newPhoto.caption = "Message me if you want to talk about Tokyo (:";
+            photoDict.Add(101, newPhoto);
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
         }

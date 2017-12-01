@@ -7,31 +7,71 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
     <Border>
-    <Grid>
-        <Image x:Name="imageName"
-               Source="/Images/child.jpg"
-               MouseLeftButtonDown="ClickPhoto" 
-               MouseEnter="HoverPhoto" 
-               MouseLeave="MouseLeave" >
-            </Image>
-        <TextBlock x:Name="imageStats"
-                   Text=""
-                   Width="Auto"
-                   FontFamily="Microsoft YaHei"
-                   Margin="520,0,520,5"
-                   HorizontalAlignment="Right"
-                   FontSize="24" 
-                   VerticalAlignment="Bottom" 
-                   Foreground="White"
+        <Grid>
+            <Image x:Name="imageName"
+                   Source="/Images/child.jpg"
+                   MouseLeftButtonDown="ClickPhoto" 
                    MouseEnter="HoverPhoto" 
-                   MouseLeave="MouseLeave">
-            <TextBlock.Effect>
-                <DropShadowEffect ShadowDepth="5"
-                                      Color="#FF2B85B0"
-                                      Opacity="1"
-                                      BlurRadius="5"/>
-            </TextBlock.Effect>
-        </TextBlock>
-    </Grid>
+                   MouseLeave="MouseLeave" />
+            <TextBlock x:Name="imageStats"
+                       Text=""
+                       Width="Auto"
+                       FontFamily="Microsoft YaHei"
+                       Margin="520,0,520,5"
+                       HorizontalAlignment="Right"
+                       FontSize="20" 
+                       VerticalAlignment="Bottom" 
+                       Foreground="Black"
+                       MouseEnter="HoverPhoto" 
+                       MouseLeave="MouseLeave">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="5"
+                                          Color="White"
+                                          Opacity="1"
+                                          BlurRadius="5"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <StackPanel Margin="520,0,520,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                <TextBlock x:Name="imageTitle"
+                       Text=""
+                       Width="Auto"
+                       FontFamily="Microsoft YaHei"
+                       HorizontalAlignment="Center"
+                       FontSize="36" 
+                       TextWrapping="WrapWithOverflow"
+                       VerticalAlignment="Center" 
+                       Foreground="Black"
+                       MouseEnter="HoverPhoto" 
+                       MouseLeave="MouseLeave">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="5"
+                                          Color="White"
+                                          Opacity="1"
+                                          BlurRadius="5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock x:Name="imageCaption"
+                       Text=""
+                       Width="Auto"
+                       FontFamily="Microsoft YaHei"
+                       HorizontalAlignment="Center"
+                       FontSize="20"
+                       TextWrapping="WrapWithOverflow"
+                       VerticalAlignment="Center" 
+                       Foreground="Black"
+                       MouseEnter="HoverPhoto" 
+                       MouseLeave="MouseLeave">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="5"
+                                          Color="White"
+                                          Opacity="1"
+                                          BlurRadius="5"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
     </Border>
 </UserControl>
