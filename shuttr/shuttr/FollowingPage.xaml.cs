@@ -49,9 +49,9 @@ namespace shuttr
 
                 discussion = new Discussion(999, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
                 discussion.score = -1;
-                Comment commentWithReply = new Comment("Angela", "I'll be honest, all I need at this point is a phone camera.");
+                Comment commentWithReply = new Comment("Angela", "I'll be honest, all I need at this point is my Google Pixel.");
                 commentWithReply.repliesFeed.Children.Add(new Comment("Lawrence", "This is exactly what I mean, why should I pay $2000 for a stand alone camer?"));
-                discussion.GetComments().Add(new Comment("Anonymoose", "For any regular user, sure. But think about the professionals who need the features of a DSLR. Manual focus alone is a big deal, let alone the massive boost in quality. They let you be more creative, as opposed to shooting a picture the same way every time."));
+                discussion.GetComments().Add(new Comment("Anonymoose", "Point and shoots barely have a purpose now, but DSLRs and professional gear are still relevant. For any regular user, a phone is fine. But think about the professionals who need the features of a DSLR. Manual focus and switching lenses is a big deal, let alone the massive boost in quality. They let you be more creative, as opposed to shooting a picture the same way every time."));
 
                 // Add to the children of feed.
                 followingFeed.Children.Add(photo);
