@@ -37,6 +37,8 @@ namespace shuttr
         /// <param name="followingFlag"> If set to false, no posts appear. If true, will show 2 hardcoded posts. </param>
         public FollowingPage(MainWindow main, bool followingFlag)
         {
+            InitializeComponent();
+
             if (followingFlag == true)
             {
                 // Create a photo and discussion.
