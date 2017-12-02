@@ -25,7 +25,7 @@ namespace shuttr
         public int photoId { get; }
         public int score { get; set; }
         public bool upvoted;
-        public bool saved;
+        public bool save { get; set; }
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
