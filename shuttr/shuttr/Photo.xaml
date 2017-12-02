@@ -28,11 +28,36 @@
                 <TextBlock x:Name="sideUserName" 
                            FontFamily="Microsoft YaHei" 
                            FontSize="16"
-                           Foreground="#F64F5E6C"
+                           Foreground="#F63090C7"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontWeight="Bold"
                            ></TextBlock>
+                <Button x:Name="upVoteButton"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        MaxWidth="50"
+                        Background="Transparent"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Click="upVote"
+                        Margin="0,120,0,0">
+                    <StackPanel>
+                        <Image x:Name="upvoteImage" Source="Images/Icons/arrow_blank.png">
+                            <Image.Effect>
+                                <DropShadowEffect ShadowDepth="2" BlurRadius="2"/>
+                            </Image.Effect>
+                        </Image>
+                        <TextBlock x:Name="sideScore" 
+                                   FontFamily="Microsoft YaHei" 
+                                   FontWeight="Bold" 
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#F63090C7"
+                                   ></TextBlock>
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <Grid>
                 <Image x:Name="imageName"

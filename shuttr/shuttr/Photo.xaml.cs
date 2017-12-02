@@ -24,6 +24,7 @@ namespace shuttr
         public string username { get; set; }
         public int photoId { get; }
         public int score { get; set; }
+        public bool upvoted;
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
@@ -42,6 +43,8 @@ namespace shuttr
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
             commentCount = 0;
+            upvoted = false;
+            sideScore.Text = score.ToString();
         }
 
         public Photo(int id, String image)
@@ -56,6 +59,8 @@ namespace shuttr
             score = 0;
             commentCount = 0;
             photoId = id;
+            upvoted = false;
+            sideScore.Text = score.ToString();
         }
 
         public Photo(int id, ImageSource image)
@@ -67,16 +72,49 @@ namespace shuttr
             score = 0;
             commentCount = 0;
             photoId = id;
+            upvoted = false;
+            sideScore.Text = score.ToString();
         }
 
         /// <summary>
-        /// Shows the user info in the side of the photo
+        /// Shows the info in the side of the photo
         /// Had to be a separate method to avoid overloading the constructors further
         /// </summary>
         /// <param name="username"></param>
         public void displaySideInfo()
         {
             sideUserName.Text = username;
+            sideScore.Text = score.ToString();
+        }
+
+
+         /// <summary>
+         /// Interaction logic for voting button
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
+        private void upVote(object sender, RoutedEventArgs e)
+        {
+            if (upvoted == false)
+            {
+                upvoted = true;
+                String stringPath = "Images/Icons/arrow.png";
+                Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                upvoteImage.Source = imageBitmap;
+                score++;
+                sideScore.Text = score.ToString();
+            }
+            else
+            {
+                upvoted = false;
+                String stringPath = "Images/Icons/arrow_blank.png";
+                Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                upvoteImage.Source = imageBitmap;
+                score--;
+                sideScore.Text = score.ToString();
+            }
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
