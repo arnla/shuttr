@@ -31,6 +31,7 @@ namespace shuttr
             newPhoto.title = "Wavy Days & Sun Rays";
             newPhoto.caption = "A picture I took on my recent trip to some islands";
             newPhoto.username = "Angela";
+            newPhoto.score = 42;
             newPhoto.displaySideInfo();
             photoDict.Add(100, newPhoto);
 
@@ -38,6 +39,7 @@ namespace shuttr
             newPhoto.title = "I miss this place";
             newPhoto.caption = "Message me if you want to talk about Tokyo (:";
             newPhoto.username = "Emilio";
+            newPhoto.score = 64;
             newPhoto.displaySideInfo();
             photoDict.Add(101, newPhoto);
             DisplayPhotos();
