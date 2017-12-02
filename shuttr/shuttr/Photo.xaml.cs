@@ -20,10 +20,12 @@ namespace shuttr
     /// </summary>
     public partial class Photo : UserControl
     {
-        public User op;
+        public User originalPoster;
         public string username { get; set; }
         public int photoId { get; }
         public int score { get; set; }
+        public bool upvoted;
+        public bool saved;
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
@@ -42,6 +44,8 @@ namespace shuttr
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
             commentCount = 0;
+            upvoted = false;
+            sideScore.Text = score.ToString();
         }
 
         public Photo(int id, String image)
@@ -56,6 +60,8 @@ namespace shuttr
             score = 0;
             commentCount = 0;
             photoId = id;
+            upvoted = false;
+            sideScore.Text = score.ToString();
         }
 
         public Photo(int id, ImageSource image)
@@ -67,6 +73,64 @@ namespace shuttr
             score = 0;
             commentCount = 0;
             photoId = id;
+            upvoted = false;
+            sideScore.Text = score.ToString();
+        }
+
+        /// <summary>
+        /// Shows the info in the side of the photo
+        /// Had to be a separate method to avoid overloading the constructors further
+        /// </summary>
+        /// <param name="username"></param>
+        public void displaySideInfo()
+        {
+            sideUserName.Text = username;
+            sideScore.Text = score.ToString();
+        }
+
+
+         /// <summary>
+         /// Interaction logic for voting button
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
+        private void upVote(object sender, RoutedEventArgs e)
+        {
+            if (upvoted == false)
+            {
+                upvoted = true;
+                String stringPath = "Images/Icons/arrow.png";
+                Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                upvoteImage.Source = imageBitmap;
+                score++;
+                sideScore.Text = score.ToString();
+            }
+            else
+            {
+                upvoted = false;
+                String stringPath = "Images/Icons/arrow_blank.png";
+                Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                BitmapImage imageBitmap = new BitmapImage(imageUri);
+                upvoteImage.Source = imageBitmap;
+                score--;
+                sideScore.Text = score.ToString();
+            }
+        }
+
+        private void savePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            if (saved == false)
+            {
+                savePhoto.Content = "Unsave";
+                saved = true;
+            }
+            else
+            {
+                savePhoto.Content = "Save";
+                saved = false;
+            }
+            
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
@@ -88,6 +152,7 @@ namespace shuttr
             TimeSpan ts0 = TimeSpan.Parse(timeNow);
             ageDays = (ts0 - ts).TotalMinutes;
 
+            // Creates the "blur" when hovering over a photo
             imageName.Opacity = 0.45;
 
             if (ageDays < 2.00)
@@ -100,7 +165,7 @@ namespace shuttr
 
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago ";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;
@@ -112,7 +177,7 @@ namespace shuttr
             {
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago ";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;

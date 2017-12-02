@@ -7,14 +7,86 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
     <Border>
-        <Grid>
-            <Image x:Name="imageName"
+        <StackPanel x:Name="photoWithUser"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="MaxWidth" Value="780"/>
+                </Style>
+                <Style TargetType="{x:Type Image}">
+                    <Setter Property="MaxWidth" Value="700"/>
+                </Style>
+            </StackPanel.Resources>
+            
+            <StackPanel x:Name="sidePhotoInfo"
+                        Orientation="Vertical"
+                        Margin="10,30,10,0"
+                        VerticalAlignment="Top">
+                <Image Source="Images/Icons/userprofile.png"
+                   MaxWidth="60"></Image>
+                <TextBlock x:Name="sideUserName" 
+                           FontFamily="Microsoft YaHei" 
+                           FontSize="16"
+                           Foreground="#F63090C7"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           ></TextBlock>
+                <Button x:Name="upVoteButton"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        MaxWidth="50"
+                        Background="Transparent"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Click="upVote"
+                        Margin="0,120,0,0">
+                    <StackPanel>
+                        <Image x:Name="upvoteImage" Source="Images/Icons/arrow_blank.png">
+                            <Image.Effect>
+                                <DropShadowEffect ShadowDepth="2" BlurRadius="2"/>
+                            </Image.Effect>
+                        </Image>
+                        <TextBlock x:Name="sideScore" 
+                                   FontFamily="Microsoft YaHei" 
+                                   FontWeight="Bold" 
+                                   FontSize="16"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Foreground="#F63090C7"
+                                   ></TextBlock>
+                    </StackPanel>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="savePhoto" Grid.Row="1" Content="Save" Height="20" MaxWidth="50" Margin="0,20,0,0" Click="savePhoto_Click"/>
+            </StackPanel>
+            <Grid>
+                <Image x:Name="imageName"
                    Source="/Images/child.jpg"
                    MouseLeftButtonDown="ClickPhoto" 
                    MouseEnter="HoverPhoto" 
                    MouseLeave="MouseLeave"
                    />
-            <TextBlock x:Name="imageStats"
+                <TextBlock x:Name="imageStats"
                        Text=""
                        Width="Auto"
                        FontFamily="Microsoft YaHei"
@@ -24,17 +96,17 @@
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
                        MouseLeave="MouseLeave">
-                <TextBlock.Effect>
-                    <DropShadowEffect ShadowDepth="5"
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="5"
                                           Color="White"
                                           Opacity="1"
                                           BlurRadius="5"/>
-                </TextBlock.Effect>
-            </TextBlock>
-            <StackPanel HorizontalAlignment="Center"
+                    </TextBlock.Effect>
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Orientation="Vertical">
-                <TextBlock x:Name="imageTitle"
+                    <TextBlock x:Name="imageTitle"
                        Text=""
                        Width="Auto"
                        FontFamily="Microsoft YaHei"
@@ -45,14 +117,14 @@
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
                        MouseLeave="MouseLeave">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="5"
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="5"
                                           Color="White"
                                           Opacity="1"
                                           BlurRadius="5"/>
-                    </TextBlock.Effect>
-                </TextBlock>
-                <TextBlock x:Name="imageCaption"
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBlock x:Name="imageCaption"
                        Text=""
                        Width="Auto"
                        FontFamily="Microsoft YaHei"
@@ -63,14 +135,15 @@
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
                        MouseLeave="MouseLeave">
-                    <TextBlock.Effect>
-                        <DropShadowEffect ShadowDepth="5"
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="5"
                                           Color="White"
                                           Opacity="1"
                                           BlurRadius="5"/>
-                    </TextBlock.Effect>
-                </TextBlock>
-            </StackPanel>
-        </Grid>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
     </Border>
 </UserControl>

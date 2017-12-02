@@ -30,11 +30,17 @@ namespace shuttr
             Photo newPhoto = new Photo(100, "/Images/Coast.jpg");
             newPhoto.title = "Wavy Days & Sun Rays";
             newPhoto.caption = "A picture I took on my recent trip to some islands";
+            newPhoto.username = "Angela";
+            newPhoto.score = 42;
+            newPhoto.displaySideInfo();
             photoDict.Add(100, newPhoto);
 
             newPhoto = new Photo(101, "/Images/tokyo.jpg");
             newPhoto.title = "I miss this place";
             newPhoto.caption = "Message me if you want to talk about Tokyo (:";
+            newPhoto.username = "Emilio";
+            newPhoto.score = 64;
+            newPhoto.displaySideInfo();
             photoDict.Add(101, newPhoto);
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
