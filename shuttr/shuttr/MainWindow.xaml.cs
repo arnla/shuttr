@@ -23,9 +23,10 @@ namespace shuttr
     {
         public PhotosPage currPhotosPage { get; } = new PhotosPage();
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
-        public FollowingPage currFollowingPage { get; } = new FollowingPage();
+        public FollowingPage currFollowingPage { get; set; }
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
         public SavedPage currSavedPage { get; } = new SavedPage();
+        public bool followingSomeone = false;
 
         public MainWindow()
         {
@@ -39,6 +40,8 @@ namespace shuttr
 
             currDiscussionPage.SetParent(this);
             currPhotosPage.SetParent(this);
+
+            currFollowingPage = new FollowingPage(this, followingSomeone);
         }
 
         /// <summary>
@@ -67,6 +70,7 @@ namespace shuttr
         {
             if ((sender.Equals(followingTab)) || (sender.Equals(logoButton)))
             {
+                currFollowingPage = new FollowingPage(this, followingSomeone);
                 contentControl.Content = currFollowingPage;
                 HighlightTab();
             }
@@ -103,7 +107,10 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
-                contentControl.Content = new ProfilePage();
+                ProfilePage newProfilePage = new ProfilePage();
+                newProfilePage.SetParent(this);
+                contentControl.Content = newProfilePage;
+
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
