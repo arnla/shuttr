@@ -20,7 +20,7 @@ namespace shuttr
     /// </summary>
     public partial class Photo : UserControl
     {
-        public User op;
+        public User originalPoster;
         public string username { get; set; }
         public int photoId { get; }
         public int score { get; set; }
@@ -69,6 +69,16 @@ namespace shuttr
             photoId = id;
         }
 
+        /// <summary>
+        /// Shows the user info in the side of the photo
+        /// Had to be a separate method to avoid overloading the constructors further
+        /// </summary>
+        /// <param name="username"></param>
+        public void displaySideInfo()
+        {
+            sideUserName.Text = username;
+        }
+
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
         {
 
@@ -88,6 +98,7 @@ namespace shuttr
             TimeSpan ts0 = TimeSpan.Parse(timeNow);
             ageDays = (ts0 - ts).TotalMinutes;
 
+            // Creates the "blur" when hovering over a photo
             imageName.Opacity = 0.45;
 
             if (ageDays < 2.00)
@@ -100,7 +111,7 @@ namespace shuttr
 
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago ";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;
@@ -112,7 +123,7 @@ namespace shuttr
             {
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago ";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;
