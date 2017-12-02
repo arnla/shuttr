@@ -63,7 +63,29 @@ namespace shuttr
             {
                 // Clear children of the feed.
                 followingFeed.Children.Clear();
+
+                AddEmptyMessage();
             }
+        }
+
+        private void AddEmptyMessage()
+        {
+            Border border = new Border();
+            border.BorderBrush = Brushes.Gray;
+            border.BorderThickness = new Thickness(2);
+            border.Opacity = 50;
+            TextBlock text = new TextBlock();
+            text.Text = "There are no posts here. \nFollow some users, and their posts will appear on this page!";
+            text.FontFamily = new FontFamily("Microsoft YaHei");
+            text.FontSize = 26;
+            text.TextAlignment = TextAlignment.Center;
+            text.HorizontalAlignment = HorizontalAlignment.Center;
+            text.VerticalAlignment = VerticalAlignment.Center;
+            text.TextWrapping = TextWrapping.Wrap;
+
+            border.Child = text;
+
+            followingFeed.Children.Add(border);
         }
 
         private void AddDiscussionPostsTest()
