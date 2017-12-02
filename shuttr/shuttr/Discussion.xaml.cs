@@ -27,6 +27,7 @@ namespace shuttr
         private int numReplies;
         public int score { get; set; }
         private List<Comment> comments;
+        public MainWindow main { get; set; }
 
         public Discussion()
         {

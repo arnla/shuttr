@@ -22,42 +22,27 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <Image x:Name="userPicture" 
-                   Source="Images/Icons/userprofile.png" 
-                   Grid.Row="0"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center" 
-                   Margin="10,10,10,10"/>
+                <Image x:Name="userPicture" Source="Images/Icons/userprofile.png" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10,10,10"/>
 
-                <TextBlock x:Name="userName" 
-                       Grid.Row="1" 
-                       FontSize="20" 
-                       FontWeight="Bold" 
-                       FontFamily="Microsoft YaHei"
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center">
-                User1
+                <TextBlock x:Name="userName" Grid.Row="1" FontSize="20" FontWeight="Bold" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    User1
                 </TextBlock>
             </Grid>
 
-            <TextBlock x:Name="discussionTitle" 
-                   Grid.Column="1" 
-                   FontSize="16" 
-                   FontWeight="ExtraBold" 
-                   FontFamily="Microsoft YaHei"
-                   TextWrapping="Wrap" 
-                   Margin="10,10,10,10">
-            Let's see your best nightlife photos!
+            <TextBlock x:Name="discussionTitle" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" FontFamily="Microsoft YaHei" TextWrapping="Wrap" Margin="10,10,10,10">
+                Let's see your best nightlife photos!
             </TextBlock>
 
-            <TextBlock x:Name="replyCount" 
-                   Grid.Column="2" 
-                   FontSize="16" 
-                   FontFamily="Microsoft YaHei"
-                   VerticalAlignment="Center" 
-                   HorizontalAlignment="Center">
-            3 replies
-            </TextBlock>
+            <Grid Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="replyCount" Grid.Column="2" FontSize="16" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    3 replies
+                </TextBlock>
+                <Button x:Name="saveDiscussion" Grid.Row="1" Content="Save" Height="20" Width="50"/>
+            </Grid>
         </Grid>
     </Border>
 </UserControl>

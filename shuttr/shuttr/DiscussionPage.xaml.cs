@@ -29,6 +29,15 @@ namespace shuttr
             InitializeComponent();
             HardcodedInitialDiscussion();
             DisplayDiscussionPosts();
+            SetParentOfEachDiscussion();
+        }
+
+        private void SetParentOfEachDiscussion()
+        {
+            foreach (KeyValuePair<int, Discussion> pair in discussionDict)
+            {
+                pair.Value.main = parent;
+            }
         }
 
         public void SetParent(MainWindow parent)
