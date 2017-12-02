@@ -25,6 +25,7 @@ namespace shuttr
         public int photoId { get; }
         public int score { get; set; }
         public bool upvoted;
+        public bool saved;
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
@@ -115,6 +116,21 @@ namespace shuttr
                 score--;
                 sideScore.Text = score.ToString();
             }
+        }
+
+        private void savePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            if (saved == false)
+            {
+                savePhoto.Content = "Unsave";
+                saved = true;
+            }
+            else
+            {
+                savePhoto.Content = "Save";
+                saved = false;
+            }
+            
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
