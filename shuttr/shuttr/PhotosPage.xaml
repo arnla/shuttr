@@ -60,8 +60,9 @@
                       Grid.Row="1">
             <StackPanel x:Name="photoFeed">
                 <StackPanel.Resources>
-                    <Style TargetType="{x:Type Image}">
-                        <Setter Property="Margin" Value="500,10,500,0"/>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="MaxWidth" Value="780"/>
+                        <Setter Property="Margin" Value="0, 10, 0, 0"/>
                     </Style>
                 </StackPanel.Resources>
                 <!--<Image x:Name="Image1" 
