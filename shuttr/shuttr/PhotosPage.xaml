@@ -53,11 +53,7 @@
             </StackPanel>
         </Border>
 
-        <ScrollViewer HorizontalAlignment="Center"
-                      VerticalAlignment="Top"  
-                      Width="Auto"
-                      Height="Auto"
-                      Grid.Row="1">
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1">
             <StackPanel x:Name="photoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
