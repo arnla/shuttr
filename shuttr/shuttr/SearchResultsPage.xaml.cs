@@ -104,6 +104,14 @@ namespace shuttr
                     resultsFeed.Children.Add(photo);
                     resultsFeed.Children.Add(discussion);
                 }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                }
             }
             else if (sender.Equals(sortNew))
             {
@@ -117,6 +125,14 @@ namespace shuttr
                 {
                     resultsFeed.Children.Add(discussion);
                     resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
                 }
             }
             else if (sender.Equals(sortMostCommented))
@@ -132,6 +148,14 @@ namespace shuttr
                     resultsFeed.Children.Add(discussion);
                     resultsFeed.Children.Add(photo);
                 }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                }
             }
             else if (sender.Equals(sortMostUpvoted))
             {
@@ -144,6 +168,14 @@ namespace shuttr
                 if (currentFilterOption.Content == filterAll.Content)
                 {
                     resultsFeed.Children.Add(photo);
+                    resultsFeed.Children.Add(discussion);
+                }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
                     resultsFeed.Children.Add(discussion);
                 }
             }
