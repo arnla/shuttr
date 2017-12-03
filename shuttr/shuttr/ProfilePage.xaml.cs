@@ -40,6 +40,9 @@ namespace shuttr
 
             parent = main;
             displayedUser = currentUser;
+            userName.Content = currentUser.UserName;
+            dateJoined.Content = currentUser.DateJoined;
+            userProfileFeed.Children.Add(new Photo());
         }
 
         /// <summary>

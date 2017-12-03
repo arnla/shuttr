@@ -26,6 +26,7 @@ namespace shuttr
         public FollowingPage currFollowingPage { get; } = new FollowingPage();
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
         public SavedPage currSavedPage { get; } = new SavedPage();
+        public User currUser { get; } = new User("photographyman", "password", DateTime.Today);
 
         public MainWindow()
         {
@@ -103,7 +104,7 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
-                contentControl.Content = new ProfilePage();
+                contentControl.Content = new ProfilePage(this, currUser);
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
