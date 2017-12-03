@@ -25,6 +25,7 @@ namespace shuttr
         public int photoId { get; }
         public int score { get; set; }
         public bool upvoted;
+        public bool currentUser { get; set; }
         private bool saved;
         public bool Saved
         {
@@ -69,6 +70,7 @@ namespace shuttr
             upvoted = false;
             sideScore.Text = score.ToString();
             saved = false;
+            currentUser = false;
         }
 
         public Photo(int id, String image)
@@ -86,6 +88,7 @@ namespace shuttr
             upvoted = false;
             sideScore.Text = score.ToString();
             saved = false;
+            currentUser = false;
         }
 
         public Photo(int id, ImageSource image)
@@ -100,6 +103,7 @@ namespace shuttr
             upvoted = false;
             sideScore.Text = score.ToString();
             saved = false;
+            currentUser = false;
         }
 
         /// <summary>

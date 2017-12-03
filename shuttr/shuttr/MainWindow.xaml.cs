@@ -258,6 +258,8 @@ namespace shuttr
         {
             pic.title = title;
             pic.caption = description;
+            // Assumes demo only yields one signed in user, i.e. all newly posted photos are under the one and only user
+            pic.currentUser = true;
             currPhotosPage.AddPhoto(pic);
         }
 

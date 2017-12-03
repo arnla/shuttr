@@ -51,6 +51,7 @@ namespace shuttr
             title.Text = sender.title;
             description.Text = sender.caption;
             NumRepliesButton.Content = sender.commentCount;
+            MessageOrDeleteButton();
 
             DisplayComments();
 
@@ -84,6 +85,7 @@ namespace shuttr
             title.Text = sender.title;
             description.Text = sender.caption;
             NumRepliesButton.Content = sender.comments.Count();
+            MessageOrDeleteButton();
 
             DisplayComments();
 
@@ -97,6 +99,15 @@ namespace shuttr
             {
                 c.parent = this;
                 commentFeed.Children.Add(c);
+            }
+        }
+
+        private void MessageOrDeleteButton()
+        {
+            if (photo.currentUser == true)
+            {
+                MessageUserButton.Content = "DELETE";
+                MessageUserButton.Background = Brushes.Red;
             }
         }
 
