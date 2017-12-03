@@ -25,8 +25,9 @@ namespace shuttr
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
         public FollowingPage currFollowingPage { get; set; }
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
-        public User currUser { get; } = new User("Emilio", "password", DateTime.Today);
+        public User currUser { get; set; } = new User("Emilio", "password", DateTime.Today);
         public SavedPage currSavedPage { get; }
+        public ProfilePage currProfilePage { get; set; }
         public bool followingSomeone = false;
         public bool signedIn = false;
 
@@ -52,6 +53,13 @@ namespace shuttr
         public void SignOut()
         {
             signedIn = false;
+            foreach (KeyValuePair<int, Photo> pair in currPhotosPage.photoDict.AsEnumerable().Reverse())
+            {
+                if (pair.Value.currentUser == true)
+                {
+                    pair.Value.currentUser = false;
+                }
+            }
             // DONE: Make logo go to photos page.
             // DONE: Collapse following and saved page.
             followingTab.Visibility = Visibility.Collapsed;
@@ -82,6 +90,8 @@ namespace shuttr
         public void SignIn()
         {
             signedIn = true;
+            currProfilePage = new ProfilePage(this, currUser);
+            currProfilePage.SetParent(this);
             // DONE: Make logo go to following page.
             // DONE: Make visible the following and saved page.
             followingTab.Visibility = Visibility.Visible;
@@ -180,9 +190,7 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
-                ProfilePage newProfilePage = new ProfilePage(this, currUser);
-                newProfilePage.SetParent(this);
-                contentControl.Content = newProfilePage;
+                contentControl.Content = currProfilePage;
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
@@ -261,6 +269,8 @@ namespace shuttr
             // Assumes demo only yields one signed in user, i.e. all newly posted photos are under the one and only user
             pic.currentUser = true;
             currPhotosPage.AddPhoto(pic);
+            currUser.userPhotos.Add(pic);
+            currProfilePage.DisplayPhotos();
         }
 
         public void AddDiscussion(string username, string title, string description, int numReplies)

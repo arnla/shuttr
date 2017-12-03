@@ -42,7 +42,8 @@ namespace shuttr
             displayedUser = currentUser;
             userName.Content = currentUser.UserName;
             dateJoined.Content = currentUser.DateJoined;
-            HardcodedPhotosAndDiscussions();
+            DisplayPhotos();
+            //HardcodedPhotosAndDiscussions();
         }
 
         /// <summary>
@@ -168,6 +169,23 @@ namespace shuttr
             foreach (UserControl post in userProfileFeed.Children)
             {
                 MakePostClickable(post);
+                // Add to user's photos or discussions
+                if (post is Photo)
+                {
+                    displayedUser.userPhotos.Add((Photo)post);
+                }
+                else if (post is Discussion)
+                {
+                    displayedUser.userDiscussions.Add((Discussion)post);
+                }
+            }
+        }
+
+        public void DisplayPhotos()
+        {
+            foreach (Photo photo in displayedUser.userPhotos)
+            {
+                userProfileFeed.Children.Add(new Photo(photo));
             }
         }
     }

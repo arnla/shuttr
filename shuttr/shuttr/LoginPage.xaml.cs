@@ -38,6 +38,8 @@ namespace shuttr
         {
             if (sender.Equals(loginButton))
             {
+                // Instantiate main window's current user
+                main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
                 main.SignIn();
                 //LoginSwitcher.Switch(new FollowingPage());
             }

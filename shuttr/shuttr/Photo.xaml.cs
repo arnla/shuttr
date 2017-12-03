@@ -107,6 +107,22 @@ namespace shuttr
             currentUser = false;
         }
 
+        public Photo(Photo photo)
+        {
+            InitializeComponent();
+            imageName.Source = imageSource = photo.imageName.Source;
+
+            title = photo.title;
+            caption = photo.caption;
+            time = DateTime.Now.ToString("hh:mm");
+            score = 0;
+            commentCount = 0;
+            upvoted = false;
+            sideScore.Text = score.ToString();
+            saved = false;
+            currentUser = true;
+        }
+
         /// <summary>
         /// Shows the info in the side of the photo
         /// Had to be a separate method to avoid overloading the constructors further
