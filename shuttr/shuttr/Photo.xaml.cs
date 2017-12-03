@@ -25,15 +25,37 @@ namespace shuttr
         public int photoId { get; }
         public int score { get; set; }
         public bool upvoted;
-        public bool saved { get; set; }
+        private bool saved;
+        public bool Saved
+        {
+            get
+            {
+                return saved;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    saved = value;
+                    savePhoto.Content = "Unsave";
+                }
+                else if (value == false)
+                {
+                    saved = value;
+                    savePhoto.Content = "Save";
+                }
+            }
+        }
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
-        public string time { get; }
+        public string time { get; set; }
         //private DateTime date;
-        private double ageDays;
-        private double ageHours;
+        private double ageDays { get; set; }
+        private double ageHours { get; set; }
         public List<Comment> comments { get; set; } = new List<Comment>();
+
+        public MainWindow main { get; set; }
 
         /// <summary>
         /// Initialize photo object with the time (in duration) it was posted
@@ -46,6 +68,7 @@ namespace shuttr
             commentCount = 0;
             upvoted = false;
             sideScore.Text = score.ToString();
+            saved = false;
         }
 
         public Photo(int id, String image)
@@ -62,6 +85,7 @@ namespace shuttr
             photoId = id;
             upvoted = false;
             sideScore.Text = score.ToString();
+            saved = false;
         }
 
         public Photo(int id, ImageSource image)
@@ -75,6 +99,7 @@ namespace shuttr
             photoId = id;
             upvoted = false;
             sideScore.Text = score.ToString();
+            saved = false;
         }
 
         /// <summary>
@@ -120,15 +145,37 @@ namespace shuttr
 
         private void savePhoto_Click(object sender, RoutedEventArgs e)
         {
-            if (saved == false)
+            if (!saved)
             {
-                savePhoto.Content = "Unsave";
-                saved = true;
+                // Create a new instance with the same attributes
+                Photo copyOfPhoto= new Photo(photoId, imageName.Source);
+                copyOfPhoto.title = this.title;
+                copyOfPhoto.caption = this.caption;
+                copyOfPhoto.username = this.username;
+                copyOfPhoto.ageDays = this.ageDays;
+                copyOfPhoto.ageHours = this.ageHours;
+                copyOfPhoto.time = this.time;
+                copyOfPhoto.score = this.score;
+                copyOfPhoto.main = this.main;
+                copyOfPhoto.displaySideInfo();
+                copyOfPhoto.comments = this.comments;
+                copyOfPhoto.commentCount = this.commentCount;
+                copyOfPhoto.upvoted = this.upvoted;
+
+                // Set the saved flag of the new Discussion to true
+                copyOfPhoto.Saved = true;
+                //  Pass it to SavedPage.AddPost()
+                main.currSavedPage.AddPost(copyOfPhoto);
+
+                // Set the Saved button content of this discussion to Unsave
+                // Set the saved flag of this dicussion to true
+                this.Saved = true;
             }
-            else
+            else if (saved)
             {
-                savePhoto.Content = "Save";
-                saved = false;
+                this.Saved = false;
+                main.currSavedPage.RemovePost(this);
+                main.currPhotosPage.SetPhotoUnsaved(this);
             }
             
         }

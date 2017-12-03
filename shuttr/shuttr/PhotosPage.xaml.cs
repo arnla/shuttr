@@ -53,14 +53,13 @@ namespace shuttr
             DisplayPhotos();
         }
 
-        /* For later. Still need to add button to photo.
-        private void SetParentOfEachDiscussion()
+        private void SetParentOfEachPhoto()
         {
             foreach (KeyValuePair<int, Photo> pair in photoDict)
             {
                 pair.Value.main = parent;
             }
-        }*/
+        }
 
         public void DisplayPhotos()
         {
@@ -75,7 +74,7 @@ namespace shuttr
                 }
             }
 
-            //SetParentOfEachPhoto();
+            SetParentOfEachPhoto();
         }
 
         public void MakePhotoClickable(Photo photo)
@@ -106,6 +105,7 @@ namespace shuttr
         public void SetParent(MainWindow main)
         {
             parent = main;
+            SetParentOfEachPhoto();
         }
 
         private void MessageButton(object sender, RoutedEventArgs e)
@@ -143,6 +143,19 @@ namespace shuttr
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+        }
+
+        public void SetPhotoUnsaved(Photo photoToUnsave)
+        {
+            // Look through the children of the discussion page
+            foreach (Photo photoInFeed in photoFeed.Children)
+            {
+                if (photoInFeed.photoId == photoToUnsave.photoId)
+                {
+                    // If the discussion is saved, remove it
+                    photoInFeed.Saved = false;
+                }
             }
         }
     }

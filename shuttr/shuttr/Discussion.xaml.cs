@@ -149,6 +149,7 @@ namespace shuttr
                 Discussion copyOfDiscussion = new Discussion(discussionId, user, title, description, numReplies);
                 copyOfDiscussion.score = this.score;
                 copyOfDiscussion.main = this.main;
+                copyOfDiscussion.comments = this.comments;
 
                 // Set the saved flag of the new Discussion to true
                 copyOfDiscussion.Saved = true;
