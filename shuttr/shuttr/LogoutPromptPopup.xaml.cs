@@ -18,7 +18,7 @@ namespace shuttr
     /// <summary>
     /// Interaction logic for LogoutPromptPopup.xaml
     /// </summary>
-    public partial class LogoutPromptPopup : Page
+    public partial class LogoutPromptPopup : Window
     {
         private MainWindow main;
 
@@ -35,9 +35,10 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Close(object sender, RoutedEventArgs e)
+        private void close(object sender, RoutedEventArgs e)
         {
-
+            main.ChangeFill();
+            this.Close();
         }
 
         /// <summary>
@@ -47,7 +48,9 @@ namespace shuttr
         /// <param name="e"></param>
         private void confirmLogout(object sender, RoutedEventArgs e)
         {
-
+            main.contentControl.Content = new LoginPage();
+            main.ChangeFill();
+            this.Close();
         }
 
         /// <summary>
@@ -57,7 +60,8 @@ namespace shuttr
         /// <param name="e"></param>
         private void confirmCancel(object sender, RoutedEventArgs e)
         {
-
+            main.ChangeFill();
+            this.Close();
         }
     }
 }
