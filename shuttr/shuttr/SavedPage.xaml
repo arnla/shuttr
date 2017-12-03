@@ -10,9 +10,13 @@
         <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel x:Name="savedFeed">
                 <StackPanel.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="MaxWidth" Value="780"/>
+                    <Style TargetType="{x:Type local:Photo}">
                         <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="MaxWidth" Value="1000"/>
+                    </Style>
+                    <Style TargetType="{x:Type local:Discussion}">
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="MaxWidth" Value="780"/>
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>
