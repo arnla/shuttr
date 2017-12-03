@@ -183,9 +183,12 @@ namespace shuttr
 
         public void DisplayPhotos()
         {
+            userProfileFeed.Children.Clear();
             foreach (Photo photo in displayedUser.userPhotos)
             {
-                userProfileFeed.Children.Add(new Photo(photo));
+                Photo newPhoto = new Photo(photo);
+                userProfileFeed.Children.Add(newPhoto);
+                MakePostClickable(newPhoto);
             }
         }
     }
