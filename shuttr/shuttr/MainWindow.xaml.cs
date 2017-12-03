@@ -121,7 +121,9 @@ namespace shuttr
             }
             else if (sender.Equals(logoutButton))
             {
-                contentControl.Content = new LoginPage();
+                LogoutPromptPopup popup = new LogoutPromptPopup(this);
+                popup.ShowDialog();
+                //contentControl.Content = new LoginPage();
                 HighlightTab();
             }
             else if (sender.Equals(message1))

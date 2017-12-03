@@ -143,6 +143,11 @@ namespace shuttr
             }
         }
 
+        /// <summary>
+        /// Interaction logic for save button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savePhoto_Click(object sender, RoutedEventArgs e)
         {
             if (!saved)
