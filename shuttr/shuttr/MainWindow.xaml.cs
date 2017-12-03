@@ -67,6 +67,7 @@ namespace shuttr
             logoutButton.Content = "Login";
             // DONE: Navigate to the photos page.
             contentControl.Content = currPhotosPage;
+            HighlightTab();
             // DONE: When pressing post photo or post discussion, ask to sign in.
 
             // FOR ALL THINGS ASKING TO LOGIN, USE A PROMPT LIKE LAWRENCE's
