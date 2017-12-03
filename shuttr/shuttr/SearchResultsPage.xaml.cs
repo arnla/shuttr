@@ -46,11 +46,14 @@ namespace shuttr
             photo.score = 5;
             photo.commentCount = 1;
             photo.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
+            photo.main = this.parent;
+            photo.displaySideInfo();
 
             discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
             discussion.score = 1;
             discussion.GetComments().Add(new Comment("Lawrence", "Lake Louise looks spectacular during the summer! Just go early to avoid the crowds."));
             discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
+            discussion.main = this.parent;
 
             photo.MouseLeftButtonDown += ClickPost;
             discussion.MouseLeftButtonDown += ClickPost;
@@ -104,6 +107,14 @@ namespace shuttr
                     resultsFeed.Children.Add(photo);
                     resultsFeed.Children.Add(discussion);
                 }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                }
             }
             else if (sender.Equals(sortNew))
             {
@@ -117,6 +128,14 @@ namespace shuttr
                 {
                     resultsFeed.Children.Add(discussion);
                     resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
                 }
             }
             else if (sender.Equals(sortMostCommented))
@@ -132,6 +151,14 @@ namespace shuttr
                     resultsFeed.Children.Add(discussion);
                     resultsFeed.Children.Add(photo);
                 }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
+                    resultsFeed.Children.Add(discussion);
+                }
             }
             else if (sender.Equals(sortMostUpvoted))
             {
@@ -144,6 +171,14 @@ namespace shuttr
                 if (currentFilterOption.Content == filterAll.Content)
                 {
                     resultsFeed.Children.Add(photo);
+                    resultsFeed.Children.Add(discussion);
+                }
+                else if (currentFilterOption.Content == filterPhotos.Content)
+                {
+                    resultsFeed.Children.Add(photo);
+                }
+                else if (currentFilterOption.Content == filterDiscussions.Content)
+                {
                     resultsFeed.Children.Add(discussion);
                 }
             }

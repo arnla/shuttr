@@ -27,8 +27,21 @@ namespace shuttr
         public PhotosPage()
         {
             InitializeComponent();
-            photoDict.Add(100, new Photo(100, "/Images/Coast.jpg"));
-            photoDict.Add(101, new Photo(101, "/Images/tokyo.jpg"));
+            Photo newPhoto = new Photo(100, "/Images/Coast.jpg");
+            newPhoto.title = "Wavy Days & Sun Rays";
+            newPhoto.caption = "A picture I took on my recent trip to some islands";
+            newPhoto.username = "Angela";
+            newPhoto.score = 42;
+            newPhoto.displaySideInfo();
+            photoDict.Add(100, newPhoto);
+
+            newPhoto = new Photo(101, "/Images/tokyo.jpg");
+            newPhoto.title = "I miss this place";
+            newPhoto.caption = "Message me if you want to talk about Tokyo (:";
+            newPhoto.username = "Emilio";
+            newPhoto.score = 64;
+            newPhoto.displaySideInfo();
+            photoDict.Add(101, newPhoto);
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
         }
@@ -38,6 +51,14 @@ namespace shuttr
             InitializeComponent();
             photoDict = photos;
             DisplayPhotos();
+        }
+
+        private void SetParentOfEachPhoto()
+        {
+            foreach (KeyValuePair<int, Photo> pair in photoDict)
+            {
+                pair.Value.main = parent;
+            }
         }
 
         public void DisplayPhotos()
@@ -52,6 +73,8 @@ namespace shuttr
                     MakePhotoClickable(pair.Value);
                 }
             }
+
+            SetParentOfEachPhoto();
         }
 
         public void MakePhotoClickable(Photo photo)
@@ -82,6 +105,7 @@ namespace shuttr
         public void SetParent(MainWindow main)
         {
             parent = main;
+            SetParentOfEachPhoto();
         }
 
         private void MessageButton(object sender, RoutedEventArgs e)
@@ -119,6 +143,19 @@ namespace shuttr
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+        }
+
+        public void SetPhotoUnsaved(Photo photoToUnsave)
+        {
+            // Look through the children of the discussion page
+            foreach (Photo photoInFeed in photoFeed.Children)
+            {
+                if (photoInFeed.photoId == photoToUnsave.photoId)
+                {
+                    // If the discussion is saved, remove it
+                    photoInFeed.Saved = false;
+                }
             }
         }
     }

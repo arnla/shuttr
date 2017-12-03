@@ -71,11 +71,12 @@
             </StackPanel>
         </Border>
 
-        <ScrollViewer Width="800" HorizontalAlignment="Center" VerticalAlignment="Stretch" Grid.Row="2">
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2">
             <StackPanel x:Name="resultsFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="5,10"/>
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="MaxWidth" Value="780"/>
                     </Style>
                 </StackPanel.Resources>
             </StackPanel>

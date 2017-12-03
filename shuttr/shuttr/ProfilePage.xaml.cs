@@ -53,6 +53,14 @@ namespace shuttr
         public void SetParent(MainWindow main)
         {
             parent = main;
+            if (parent.followingSomeone)
+            {
+                followButton.Content = "UNFOLLOW";
+            }
+            else
+            {
+                followButton.Content = "FOLLOW";
+            }
         }
 
         /// <summary>
@@ -129,6 +137,20 @@ namespace shuttr
             if (sender.Equals(filterByMenu))
             {
                 filterByDropdown.IsOpen = !filterByDropdown.IsOpen;
+            }
+        }
+
+        private void FollowClick(object sender, RoutedEventArgs e)
+        {
+            if ((followButton.Content as string) == "FOLLOW")
+            {
+                followButton.Content = "UNFOLLOW";
+                parent.followingSomeone = true;
+            }
+            else if ((followButton.Content as string) == "UNFOLLOW")
+            {
+                followButton.Content = "FOLLOW";
+                parent.followingSomeone = false;
             }
         }
     }

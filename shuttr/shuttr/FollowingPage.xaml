@@ -8,21 +8,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="1200" d:DesignWidth="1920">
     <Grid Background="#F6FBFF">
-        <ScrollViewer HorizontalAlignment="Center"
-                      VerticalAlignment="Stretch"  
-                      Width="800">
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel x:Name="followingFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
-                        <Setter Property="Margin" Value="5,10,5,0"/>
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="MaxWidth" Value="780"/>
                     </Style>
                 </StackPanel.Resources>
-
-                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
-                    <control:Discussion/>
-                </Border>
             </StackPanel>
         </ScrollViewer>
-        <Rectangle Name="popUpPageFill" Fill="Transparent" Opacity="0.85"></Rectangle>
     </Grid>
 </UserControl>
