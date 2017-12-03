@@ -48,6 +48,7 @@ namespace shuttr
                 photo.score = 5;
                 photo.commentCount = 1;
                 photo.comments.Add(new Comment("Emilio", "I see that hotel in so many miami nightlife pictures. Has some cool lighting"));
+                photo.main = main;
 
                 discussion = new Discussion(999, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
                 discussion.score = -1;

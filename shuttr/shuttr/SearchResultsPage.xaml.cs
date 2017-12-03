@@ -46,6 +46,7 @@ namespace shuttr
             photo.score = 5;
             photo.commentCount = 1;
             photo.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
+            photo.main = this.parent;
 
             discussion = new Discussion(999, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
             discussion.score = 1;
