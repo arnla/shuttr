@@ -27,6 +27,7 @@ namespace shuttr
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
         public SavedPage currSavedPage { get; }
         public bool followingSomeone = false;
+        public bool signedIn = false;
 
         public MainWindow()
         {
@@ -43,6 +44,68 @@ namespace shuttr
 
             currFollowingPage = new FollowingPage(this, followingSomeone);
             currSavedPage = new SavedPage(this);
+
+            SignOut();
+        }
+
+        public void SignOut()
+        {
+            signedIn = false;
+            // DONE: Make logo go to photos page.
+            // DONE: Collapse following and saved page.
+            followingTab.Visibility = Visibility.Collapsed;
+            savedTab.Visibility = Visibility.Collapsed;
+            // DONE: Collapse message icon.
+            messageButton.Visibility = Visibility.Collapsed;
+            // DONE: Collapse notifications icon.
+            notificationsButton.Visibility = Visibility.Collapsed;
+            // DONE: Collapse your profile button.
+            profileButton.Visibility = Visibility.Collapsed;
+            // DONE: Collapse user settings button.
+            userSettingButton.Visibility = Visibility.Collapsed;
+            // DONE: logoutButton => loginButton
+            logoutButton.Content = "Login";
+            // DONE: Navigate to the photos page.
+            contentControl.Content = currPhotosPage;
+            // When pressing post photo or post discussion, ask to sign in.
+
+            // FOR ALL THINGS ASKING TO LOGIN, USE A PROMPT LIKE LAWRENCE's
+
+            // In other classes.
+            // In PhotoPopup, any interaction requires login.
+            // In DiscussionPopup, any interaction requires login.
+            // In Photo, liking or saving requires login.
+            // In Discussion, saving requires login.
+        }
+
+        public void SignIn()
+        {
+            signedIn = true;
+            // DONE: Make logo go to following page.
+            // DONE: Make visible the following and saved page.
+            followingTab.Visibility = Visibility.Visible;
+            savedTab.Visibility = Visibility.Visible;
+            // Post photo and post discussion work.
+            // DONE: Show message icon.
+            messageButton.Visibility = Visibility.Visible;
+            // DONE: Show notification icon.
+            notificationsButton.Visibility = Visibility.Visible;
+            // DONE: Show your profile button.
+            profileButton.Visibility = Visibility.Visible;
+            // DONE: Show user settings button.
+            userSettingButton.Visibility = Visibility.Visible;
+            // DONE: logoutButton => logoutButton
+            logoutButton.Content = "Logout";
+            // DONE: Navigate user to FollowingPage:
+            currFollowingPage = new FollowingPage(this, followingSomeone);
+            contentControl.Content = currFollowingPage;
+            HighlightTab();
+
+            // In other classes.
+            // In PhotoPopup, interaction normal.
+            // In DiscussionPopup, interaction normal.
+            // In Photo, interaction normal.
+            // In Discussion, interaction normal.
         }
 
         /// <summary>
@@ -71,9 +134,17 @@ namespace shuttr
         {
             if ((sender.Equals(followingTab)) || (sender.Equals(logoButton)))
             {
-                currFollowingPage = new FollowingPage(this, followingSomeone);
-                contentControl.Content = currFollowingPage;
-                HighlightTab();
+                if (signedIn)
+                {
+                    currFollowingPage = new FollowingPage(this, followingSomeone);
+                    contentControl.Content = currFollowingPage;
+                    HighlightTab();
+                }
+                else
+                {
+                    contentControl.Content = currPhotosPage;
+                    HighlightTab();
+                }
             }
             else if (sender.Equals(photosTab))
             {
@@ -121,7 +192,7 @@ namespace shuttr
             }
             else if (sender.Equals(logoutButton))
             {
-                contentControl.Content = new LoginPage();
+                contentControl.Content = new LoginPage(this);
                 HighlightTab();
             }
             else if (sender.Equals(message1))
