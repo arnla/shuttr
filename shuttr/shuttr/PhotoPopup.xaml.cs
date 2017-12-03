@@ -21,7 +21,7 @@ namespace shuttr
     public partial class PhotoPopup : UserControl
     {
         private MainWindow main;
-        private PhotosPage parent;
+        private UserControl parent;
         private Photo photo;
         int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
         Comment commentToReplyTo = null;
@@ -34,7 +34,7 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
-        public PhotoPopup(MainWindow main, PhotosPage parent, Photo sender)
+        public PhotoPopup(MainWindow main, UserControl parent, Photo sender)
         {
             InitializeComponent();
 
