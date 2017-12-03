@@ -158,6 +158,7 @@ namespace shuttr
             else if (sender.Equals(discussionsTab))
             {
                 contentControl.Content = currDiscussionPage;
+                currDiscussionPage.SortByPopular();
                 HighlightTab();
             }
             else if (sender.Equals(savedTab))

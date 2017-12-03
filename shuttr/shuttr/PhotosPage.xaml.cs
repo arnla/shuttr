@@ -152,6 +152,9 @@ namespace shuttr
 
         public void SortByPopular()
         {
+            // Set the current sort option.
+            currentSortOption.Content = "Popular";
+
             // Get the array of all the children in the page.
             Photo[] photosToSort = new Photo[photoFeed.Children.Count];
             photoFeed.Children.CopyTo(photosToSort, 0);
