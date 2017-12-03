@@ -160,7 +160,7 @@ namespace shuttr
             }
         }
 
-        private void HardcodedPhotosAndDiscussions()
+        /*private void HardcodedPhotosAndDiscussions()
         {
             userProfileFeed.Children.Add(new Photo());
             userProfileFeed.Children.Add(new Discussion());
@@ -179,14 +179,14 @@ namespace shuttr
                     displayedUser.userDiscussions.Add((Discussion)post);
                 }
             }
-        }
+        }*/
 
         public void DisplayPhotos()
         {
             userProfileFeed.Children.Clear();
-            foreach (Photo photo in displayedUser.userPhotos)
+            foreach (KeyValuePair<int, Photo> photo in displayedUser.userPhotos)
             {
-                Photo newPhoto = new Photo(photo);
+                Photo newPhoto = new Photo(photo.Value);
                 userProfileFeed.Children.Add(newPhoto);
                 MakePostClickable(newPhoto);
             }

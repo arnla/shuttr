@@ -20,8 +20,8 @@ namespace shuttr
     /// </summary>
     public partial class User : UserControl
     {
-        public List<Photo> userPhotos { get; set; } = new List<Photo>();
-        public List<Discussion> userDiscussions { get; set; } = new List<Discussion>();
+        public Dictionary<int, Photo> userPhotos { get; set; } = new Dictionary<int, Photo>();
+        public Dictionary<int, Discussion> userDiscussion { get; set; } = new Dictionary<int, Discussion>();
 
         /// <summary>
         /// The user name of this user.

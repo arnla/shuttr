@@ -148,12 +148,11 @@ namespace shuttr
                 }
                 else if (sender.Equals(MessageUserButton))
                 {
-                        PhotosPage parentCopy = parent as PhotosPage;
                         // remove from photos page
                         main.currPhotosPage.photoDict.Remove(photo.photoId);
                         main.currPhotosPage.DisplayPhotos();
                         // remove from user's profile page
-                        main.currUser.userPhotos.Remove(photo);
+                        main.currUser.userPhotos.Remove(photo.photoId);
                         main.currProfilePage.DisplayPhotos();
                         // close popup window
                         this.Visibility = Visibility.Hidden;

@@ -269,7 +269,7 @@ namespace shuttr
             // Assumes demo only yields one signed in user, i.e. all newly posted photos are under the one and only user
             pic.currentUser = true;
             currPhotosPage.AddPhoto(pic);
-            currUser.userPhotos.Add(pic);
+            currUser.userPhotos[pic.photoId] = pic;
             currProfilePage.DisplayPhotos();
         }
 
