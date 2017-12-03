@@ -57,8 +57,33 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="CommentersProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
-                    <TextBox x:Name="CommentBox" Grid.Column="1" TextWrapping="Wrap" Margin="5,5,5,5" Text="Type a message..." Height="Auto" Width="Auto"></TextBox>
-                    <Button x:Name="PostCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto" Click="Button_Click"></Button>
+                    <TextBox x:Name="CommentBox" Grid.Column="1" TextWrapping="Wrap" Margin="5,5,5,5" Height="Auto" Width="Auto"></TextBox>
+                <TextBlock x:Name="CommentBoxDefault"
+                   IsHitTestVisible="False"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Text=" Type a message..."
+                   Opacity="0.5"
+                   FontStyle="Italic" 
+                   Grid.Column="1"
+                   Margin="5"
+                   Height="Auto" 
+                   Width="Auto">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility"
+                            Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=CommentBox}"
+                                     Value="">
+                                    <Setter Property="Visibility"
+                                    Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button x:Name="PostCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto" Click="Button_Click"></Button>
                 </Grid>
             </Grid>
         </Border>
