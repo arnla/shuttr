@@ -25,11 +25,11 @@ namespace shuttr
         public int photoId { get; }
         public int score { get; set; }
         public bool upvoted;
-        public bool save { get; set; }
+        public bool saved { get; set; }
         public int commentCount { get; set; }
         public string title { get; set; }
         public string caption { get; set; }
-        public string time { get; }
+        public string time { get; set; }
         //private DateTime date;
         private double ageDays;
         private double ageHours;
@@ -118,6 +118,11 @@ namespace shuttr
             }
         }
 
+        /// <summary>
+        /// Interaction logic for save button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savePhoto_Click(object sender, RoutedEventArgs e)
         {
             if (saved == false)

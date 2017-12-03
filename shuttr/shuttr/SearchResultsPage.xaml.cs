@@ -44,6 +44,7 @@ namespace shuttr
             photo.username = "Lean";
             photo.title = "Rate my photo";
             photo.score = 5;
+            photo.displaySideInfo();
             photo.commentCount = 1;
             photo.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
 
