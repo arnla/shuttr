@@ -29,7 +29,6 @@ namespace shuttr
             InitializeComponent();
             HardcodedInitialDiscussion();
             DisplayDiscussionPosts();
-            SetParentOfEachDiscussion();
         }
 
         private void SetParentOfEachDiscussion()
@@ -43,6 +42,7 @@ namespace shuttr
         public void SetParent(MainWindow parent)
         {
             this.parent = parent;
+            SetParentOfEachDiscussion();
         }
 
         public Dictionary<int, Discussion> GetDiscussionDict()
@@ -81,6 +81,7 @@ namespace shuttr
                     MakeDiscussionClickable(pair.Value);
                 }
             }
+            SetParentOfEachDiscussion();
         }
 
         public void UpdateDiscussionDict(int id, Discussion newDiscussion)
@@ -161,6 +162,19 @@ namespace shuttr
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+            }
+        }
+
+        public void SetDiscussionUnsaved(Discussion discussionToUnsave)
+        {
+            // Look through the children of the discussion page
+            foreach (Discussion discussionInFeed in discussionFeed.Children)
+            {
+                if (discussionInFeed.GetDiscussionId() == discussionToUnsave.GetDiscussionId())
+                {
+                    // If the discussion is saved, remove it
+                    discussionInFeed.Saved = false;
+                }
             }
         }
     }

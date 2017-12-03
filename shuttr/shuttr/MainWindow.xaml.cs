@@ -25,7 +25,7 @@ namespace shuttr
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
         public FollowingPage currFollowingPage { get; set; }
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
-        public SavedPage currSavedPage { get; } = new SavedPage();
+        public SavedPage currSavedPage { get; }
         public bool followingSomeone = false;
 
         public MainWindow()
@@ -42,6 +42,7 @@ namespace shuttr
             currPhotosPage.SetParent(this);
 
             currFollowingPage = new FollowingPage(this, followingSomeone);
+            currSavedPage = new SavedPage(this);
         }
 
         /// <summary>

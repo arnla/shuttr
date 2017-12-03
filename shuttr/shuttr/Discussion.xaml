@@ -41,7 +41,7 @@
                 <TextBlock x:Name="replyCount" Grid.Column="2" FontSize="16" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
                     3 replies
                 </TextBlock>
-                <Button x:Name="saveDiscussion" Grid.Row="1" Content="Save" Height="20" Width="50"/>
+                <Button x:Name="saveDiscussion" Grid.Row="1" Content="Save" Height="20" Width="50" Click="SaveClick"/>
             </Grid>
         </Grid>
     </Border>
