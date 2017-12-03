@@ -40,6 +40,9 @@ namespace shuttr
 
             parent = main;
             displayedUser = currentUser;
+            userName.Content = currentUser.UserName;
+            dateJoined.Content = currentUser.DateJoined;
+            HardcodedPhotosAndDiscussions();
         }
 
         /// <summary>
@@ -90,6 +93,11 @@ namespace shuttr
 
         public void PhotoClick(object sender, MouseButtonEventArgs e)
         {
+            Photo tmp = (Photo)sender;
+            PhotoPopup photoPopup = new PhotoPopup(parent, this, tmp);
+            photoPopup.SetValue(Grid.RowProperty, 2);
+            photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
+            parent.mainGrid.Children.Add(photoPopup);
         }
 
         public void DiscussionClick(object sender, MouseButtonEventArgs e)
@@ -148,6 +156,18 @@ namespace shuttr
             {
                 followButton.Content = "FOLLOW";
                 parent.followingSomeone = false;
+            }
+        }
+
+        private void HardcodedPhotosAndDiscussions()
+        {
+            userProfileFeed.Children.Add(new Photo());
+            userProfileFeed.Children.Add(new Discussion());
+            userProfileFeed.Children.Add(new Photo(parent.currPhotosPage.photoIdCounter, new BitmapImage(new Uri("Images/Coast.jpg", UriKind.Relative))));
+
+            foreach (UserControl post in userProfileFeed.Children)
+            {
+                MakePostClickable(post);
             }
         }
     }

@@ -25,6 +25,7 @@ namespace shuttr
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
         public FollowingPage currFollowingPage { get; set; }
         public MessagesPage currMessagesPage { get; } = new MessagesPage();
+        public User currUser { get; } = new User("Emilio", "password", DateTime.Today);
         public SavedPage currSavedPage { get; }
         public bool followingSomeone = false;
         public bool signedIn = false;
@@ -179,10 +180,9 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
-                ProfilePage newProfilePage = new ProfilePage();
+                ProfilePage newProfilePage = new ProfilePage(this, currUser);
                 newProfilePage.SetParent(this);
                 contentControl.Content = newProfilePage;
-
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))

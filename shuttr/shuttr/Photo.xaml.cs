@@ -23,6 +23,7 @@ namespace shuttr
         public User originalPoster;
         public string username { get; set; }
         public int photoId { get; }
+        public ImageSource imageSource { get; set; }
         public int score { get; set; }
         public bool upvoted;
         public bool currentUser { get; set; }
@@ -79,7 +80,7 @@ namespace shuttr
             String stringPath = image;
             Uri imageUri = new Uri(stringPath, UriKind.Relative);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
-            imageName.Source = imageBitmap;
+            imageName.Source = imageSource = imageBitmap;
 
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
@@ -94,7 +95,7 @@ namespace shuttr
         public Photo(int id, ImageSource image)
         {
             InitializeComponent();
-            imageName.Source = image;
+            imageName.Source = imageSource = image;
 
             time = DateTime.Now.ToString("hh:mm");
             score = 0;
