@@ -72,7 +72,8 @@ namespace shuttr
 
         private void DisplayDiscussionPosts()
         {
-            foreach (KeyValuePair<int, Discussion> pair in discussionDict)
+            discussionFeed.Children.Clear();
+            foreach (KeyValuePair<int, Discussion> pair in discussionDict.AsEnumerable().Reverse())
             {
                 var parent = VisualTreeHelper.GetParent(pair.Value);
                 if (parent == null)
