@@ -67,15 +67,15 @@ namespace shuttr
             logoutButton.Content = "Login";
             // DONE: Navigate to the photos page.
             contentControl.Content = currPhotosPage;
-            // When pressing post photo or post discussion, ask to sign in.
+            // DONE: When pressing post photo or post discussion, ask to sign in.
 
             // FOR ALL THINGS ASKING TO LOGIN, USE A PROMPT LIKE LAWRENCE's
 
             // In other classes.
-            // In PhotoPopup, any interaction requires login.
-            // In DiscussionPopup, any interaction requires login.
-            // In Photo, liking or saving requires login.
-            // In Discussion, saving requires login.
+            // DONE: In PhotoPopup, any interaction requires login.
+            // DONE: In DiscussionPopup, any interaction requires login.
+            // DONE: In Photo, liking or saving requires login.
+            // DONE: In Discussion, saving requires login.
         }
 
         public void SignIn()
@@ -102,10 +102,10 @@ namespace shuttr
             HighlightTab();
 
             // In other classes.
-            // In PhotoPopup, interaction normal.
-            // In DiscussionPopup, interaction normal.
-            // In Photo, interaction normal.
-            // In Discussion, interaction normal.
+            // DONE: In PhotoPopup, interaction normal.
+            // DONE: In DiscussionPopup, interaction normal.
+            // DONE: In Photo, interaction normal.
+            // DONE: In Discussion, interaction normal.
         }
 
         /// <summary>
@@ -192,8 +192,15 @@ namespace shuttr
             }
             else if (sender.Equals(logoutButton))
             {
-                contentControl.Content = new LoginPage(this);
-                HighlightTab();
+                if (!signedIn)
+                {
+                    contentControl.Content = new LoginPage(this);
+                    HighlightTab();
+                }
+                else if (signedIn)
+                {
+                    SignOut();
+                }
             }
             else if (sender.Equals(message1))
             {
@@ -207,19 +214,39 @@ namespace shuttr
             }
             else if (sender.Equals(postPhotoButton))
             {
-                postButtonDropdown.IsOpen = false;
-                PostPhotoPopup photoPopup = new PostPhotoPopup(this);
-                photoPopup.SetValue(Grid.RowProperty, 2);
-                photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
-                mainGrid.Children.Add(photoPopup);
+                if (signedIn)
+                {
+                    postButtonDropdown.IsOpen = false;
+                    PostPhotoPopup photoPopup = new PostPhotoPopup(this);
+                    photoPopup.SetValue(Grid.RowProperty, 2);
+                    photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                    mainGrid.Children.Add(photoPopup);
+                }
+                else if (!signedIn)
+                {
+                    LoginPrompt prompt = new LoginPrompt(this);
+                    prompt.SetMessage("You must sign in to create posts.");
+                    prompt.ShowDialog();
+                    HighlightTab();
+                }
             }
             else if (sender.Equals(postDiscussionButton))
             {
-                postButtonDropdown.IsOpen = false;
-                PostDiscussionPopup discussionPopup = new PostDiscussionPopup(this);
-                discussionPopup.SetValue(Grid.RowProperty, 2);
-                discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
-                mainGrid.Children.Add(discussionPopup);
+                if (signedIn)
+                {
+                    postButtonDropdown.IsOpen = false;
+                    PostDiscussionPopup discussionPopup = new PostDiscussionPopup(this);
+                    discussionPopup.SetValue(Grid.RowProperty, 2);
+                    discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                    mainGrid.Children.Add(discussionPopup);
+                }
+                else if (!signedIn)
+                {
+                    LoginPrompt prompt = new LoginPrompt(this);
+                    prompt.SetMessage("You must sign in to create posts.");
+                    prompt.ShowDialog();
+                    HighlightTab();
+                }
             }
         }
 

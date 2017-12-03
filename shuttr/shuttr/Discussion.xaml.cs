@@ -143,29 +143,39 @@ namespace shuttr
 
         private void SaveClick(object sender, RoutedEventArgs e)
         {
-            if (!saved)
+            if (main.signedIn)
             {
-                // Create a new instance with the same attributes
-                Discussion copyOfDiscussion = new Discussion(discussionId, user, title, description, numReplies);
-                copyOfDiscussion.score = this.score;
-                copyOfDiscussion.main = this.main;
-                copyOfDiscussion.comments = this.comments;
+                if (!saved)
+                {
+                    // Create a new instance with the same attributes
+                    Discussion copyOfDiscussion = new Discussion(discussionId, user, title, description, numReplies);
+                    copyOfDiscussion.score = this.score;
+                    copyOfDiscussion.main = this.main;
+                    copyOfDiscussion.comments = this.comments;
 
-                // Set the saved flag of the new Discussion to true
-                copyOfDiscussion.Saved = true;
-                //  Pass it to SavedPage.AddPost()
-                main.currSavedPage.AddPost(copyOfDiscussion);
+                    // Set the saved flag of the new Discussion to true
+                    copyOfDiscussion.Saved = true;
+                    //  Pass it to SavedPage.AddPost()
+                    main.currSavedPage.AddPost(copyOfDiscussion);
 
-                // Set the Saved button content of this discussion to Unsave
-                // Set the saved flag of this dicussion to true
-                this.Saved = true;
+                    // Set the Saved button content of this discussion to Unsave
+                    // Set the saved flag of this dicussion to true
+                    this.Saved = true;
+                }
+                else if (saved)
+                {
+                    this.Saved = false;
+
+                    main.currSavedPage.RemovePost(this);
+                    main.currDiscussionPage.SetDiscussionUnsaved(this);
+                }
             }
-            else if (saved)
+            else if (!main.signedIn)
             {
-                this.Saved = false;
-
-                main.currSavedPage.RemovePost(this);
-                main.currDiscussionPage.SetDiscussionUnsaved(this);
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to save discussions.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
         }
     }
