@@ -94,7 +94,20 @@ namespace shuttr
                 postsToShift[i + 1] = postsToShift[i];
             }
 
-            postsToShift[0] = post;
+            if (post.GetType() == typeof(Discussion))
+            {
+                Discussion castedPost = (Discussion)post;
+                castedPost.main = this.parent;
+                castedPost.MouseLeftButtonDown += ClickPost;
+                postsToShift[0] = castedPost;
+            }
+            else if (post.GetType() == typeof(Photo))
+            {
+                Photo castedPost = (Photo)post;
+                castedPost.main = this.parent;
+                castedPost.MouseLeftButtonDown += ClickPost;
+                postsToShift[0] = castedPost;
+            }
 
             for (int i = 0; i < postsToShift.Length; i++)
             {

@@ -39,6 +39,8 @@ namespace shuttr
         {
             InitializeComponent();
 
+            parent = main;
+
             if (followingFlag == true)
             {
                 // Create a photo and discussion.
@@ -49,14 +51,17 @@ namespace shuttr
                 photo.commentCount = 1;
                 photo.comments.Add(new Comment("Emilio", "I see that hotel in so many miami nightlife pictures. Has some cool lighting"));
                 photo.displaySideInfo();
-                photo.main = main;
+                photo.main = this.parent;
+                photo.MouseLeftButtonDown += ClickPost;
 
                 discussion = new Discussion(999, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
                 discussion.score = -1;
                 Comment commentWithReply = new Comment("Angela", "I'll be honest, all I need at this point is my Google Pixel.");
                 commentWithReply.repliesFeed.Children.Add(new Comment("Lawrence", "This is exactly what I mean, why should I pay $2000 for a stand alone camer?"));
+                discussion.GetComments().Add(commentWithReply);
                 discussion.GetComments().Add(new Comment("Anonymoose", "Point and shoots barely have a purpose now, but DSLRs and professional gear are still relevant. For any regular user, a phone is fine. But think about the professionals who need the features of a DSLR. Manual focus and switching lenses is a big deal, let alone the massive boost in quality. They let you be more creative, as opposed to shooting a picture the same way every time."));
-                discussion.main = main;
+                discussion.main = this.parent;
+                discussion.MouseLeftButtonDown += ClickPost;
 
                 // Add to the children of feed.
                 followingFeed.Children.Add(photo);
@@ -89,6 +94,24 @@ namespace shuttr
             border.Child = text;
 
             followingFeed.Children.Add(border);
+        }
+
+        private void ClickPost(object sender, MouseEventArgs e)
+        {
+            if (sender.Equals(discussion))
+            {
+                DiscussionPopup discussionPopup = new DiscussionPopup(parent, discussion);
+                discussionPopup.SetValue(Grid.RowProperty, 2);
+                discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                parent.mainGrid.Children.Add(discussionPopup);
+            }
+            else
+            {
+                PhotoPopup photoPopup = new PhotoPopup(parent, photo);
+                photoPopup.SetValue(Grid.RowProperty, 2);
+                photoPopup.SetValue(Grid.ColumnSpanProperty, 3);
+                parent.mainGrid.Children.Add(photoPopup);
+            }
         }
 
         private void AddDiscussionPostsTest()
