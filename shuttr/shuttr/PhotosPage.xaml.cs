@@ -53,6 +53,15 @@ namespace shuttr
             DisplayPhotos();
         }
 
+        /* For later. Still need to add button to photo.
+        private void SetParentOfEachDiscussion()
+        {
+            foreach (KeyValuePair<int, Photo> pair in photoDict)
+            {
+                pair.Value.main = parent;
+            }
+        }*/
+
         public void DisplayPhotos()
         {
             photoFeed.Children.Clear();
@@ -65,6 +74,8 @@ namespace shuttr
                     MakePhotoClickable(pair.Value);
                 }
             }
+
+            //SetParentOfEachPhoto();
         }
 
         public void MakePhotoClickable(Photo photo)

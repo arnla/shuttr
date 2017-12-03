@@ -28,9 +28,34 @@ namespace shuttr
         public int score { get; set; }
         private List<Comment> comments;
 
+        public MainWindow main { get; set; }
+        private bool saved;
+        public bool Saved
+        {
+            get
+            {
+                return saved;
+            }
+            set
+            {
+                if (value == true)
+                {
+                    saved = value;
+                    saveDiscussion.Content = "Unsave";
+                }
+                else if (value == false)
+                {
+                    saved = value;
+                    saveDiscussion.Content = "Save";
+                }
+            }
+        }
+
         public Discussion()
         {
             InitializeComponent();
+
+            saved = false;
         }
 
         /// <summary>
@@ -50,6 +75,7 @@ namespace shuttr
             this.numReplies = numReplies;
             userName.Text = name;
             discussionTitle.Text = title;
+            saved = false;
 
             // comments test
             comments = new List<Comment>();
@@ -79,6 +105,7 @@ namespace shuttr
             userPicture.Source = picture;
             userName.Text = name;
             discussionTitle.Text = title;
+            saved = false;
 
             // If the reply count is 1, show "1 reply" instead of "1 replies"
             replyCount.Text = numReplies.ToString() + ((numReplies == 1) ? " reply" : " replies");
@@ -112,6 +139,33 @@ namespace shuttr
         public List<Comment> GetComments()
         {
             return comments;
+        }
+
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            if (!saved)
+            {
+                // Create a new instance with the same attributes
+                Discussion copyOfDiscussion = new Discussion(discussionId, user, title, description, numReplies);
+                copyOfDiscussion.score = this.score;
+                copyOfDiscussion.main = this.main;
+
+                // Set the saved flag of the new Discussion to true
+                copyOfDiscussion.Saved = true;
+                //  Pass it to SavedPage.AddPost()
+                main.currSavedPage.AddPost(copyOfDiscussion);
+
+                // Set the Saved button content of this discussion to Unsave
+                // Set the saved flag of this dicussion to true
+                this.Saved = true;
+            }
+            else if (saved)
+            {
+                this.Saved = false;
+
+                main.currSavedPage.RemovePost(this);
+                main.currDiscussionPage.SetDiscussionUnsaved(this);
+            }
         }
     }
 }

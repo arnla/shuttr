@@ -51,6 +51,7 @@ namespace shuttr
             discussion.score = 1;
             discussion.GetComments().Add(new Comment("Lawrence", "Lake Louise looks spectacular during the summer! Just go early to avoid the crowds."));
             discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
+            discussion.main = this.parent;
 
             photo.MouseLeftButtonDown += ClickPost;
             discussion.MouseLeftButtonDown += ClickPost;
