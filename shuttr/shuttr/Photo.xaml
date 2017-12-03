@@ -15,7 +15,7 @@
                     <Setter Property="MaxWidth" Value="780"/>
                 </Style>
                 <Style TargetType="{x:Type Image}">
-                    <Setter Property="MaxWidth" Value="700"/>
+                    <Setter Property="MaxWidth" Value="855"/>
                 </Style>
             </StackPanel.Resources>
             
