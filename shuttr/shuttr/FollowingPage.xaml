@@ -12,8 +12,8 @@
             <StackPanel x:Name="followingFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type local:Photo}">
-                        <Setter Property="Margin" Value="0,10,0,0"/>
-                        <Setter Property="MaxWidth" Value="1000"/>
+                        <Setter Property="Margin" Value="0,10,70,0"/>
+                        <Setter Property="MaxWidth" Value="850"/>
                     </Style>
                     <Style TargetType="{x:Type local:Discussion}">
                         <Setter Property="Margin" Value="0,10,0,0"/>

@@ -57,8 +57,8 @@
             <StackPanel x:Name="photoFeed">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type local:Photo}">
-                        <Setter Property="MaxWidth" Value="1000"/>
-                        <Setter Property="Margin" Value="0, 10, 0, 0"/>
+                        <Setter Property="MaxWidth" Value="850"/>
+                        <Setter Property="Margin" Value="0, 10, 70, 0"/>
                     </Style>
                 </StackPanel.Resources>
                 <!--<Image x:Name="Image1" 
