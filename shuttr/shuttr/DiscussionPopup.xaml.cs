@@ -101,31 +101,32 @@ namespace shuttr
             }
             else if (sender.Equals(PostCommentButton))
             {
-
-                if (replyFlag == 0)
+                if (main.signedIn)
                 {
-                    Comment newComment = new Comment("current user", CommentBox.Text, this);
-                    commentsFeed.Children.Add(newComment);
-                    ScrollViewComments.ScrollToEnd();
-                    discussion.GetComments().Add(newComment);
-                    //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                    if (replyFlag == 0)
+                    {
+                        Comment newComment = new Comment("current user", CommentBox.Text, this);
+                        commentsFeed.Children.Add(newComment);
+                        ScrollViewComments.ScrollToEnd();
+                        discussion.GetComments().Add(newComment);
+                        //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
+                    }
+                    else if (replyFlag == 1)
+                    {
+                        string[] reply = CommentBox.Text.Split('\n');
+                        commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1], this));
+                        CommentBox.Text = "Type a message...";
+                        replyFlag = 0;
+                        commentToReplyTo = null;
+                    }
                 }
-                else if (replyFlag == 1)
+                else if (!main.signedIn)
                 {
-                    string[] reply = CommentBox.Text.Split('\n');
-                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1], this));
-                    CommentBox.Text = "Type a message...";
-                    replyFlag = 0;
-                    commentToReplyTo = null;
+                    LoginPrompt prompt = new LoginPrompt(main);
+                    prompt.SetMessage("You must sign in to discuss with users.");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
                 }
-
-                /**Comment newComment = new Comment("current user", CommentBox.Text);
-                commentsFeed.Children.Add(newComment);
-                discussion.GetComments().Add(newComment);**/
-                // This line is not necessary. You are changing the discussion object, not creating a new discussion object.
-                // It will be updated as normal without reassinging it.
-                //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
-
             }
         }
     }

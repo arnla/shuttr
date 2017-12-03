@@ -109,29 +109,39 @@ namespace shuttr
 
         private void ButtonClick(object sender, EventArgs e)
         {
-            if (sender.Equals(postCommentButton))
+            if (main.signedIn)
             {
-                if (replyFlag == 0)
+                if (sender.Equals(postCommentButton))
                 {
-                    string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
+                    if (replyFlag == 0)
+                    {
+                        string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
 
-                    Comment newComment = new Comment("current user", richText, this);
-                    commentFeed.Children.Add(newComment);
-                    photoAndComments.ScrollToEnd();
-                    photo.comments.Add(newComment);
-                    // Unnecessary line. Same as DiscussionPopup.
-                    //parent.photoDict[photo.photoId] = photo;
-                }
-                else if (replyFlag == 1)
-                {
-                    string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
+                        Comment newComment = new Comment("current user", richText, this);
+                        commentFeed.Children.Add(newComment);
+                        photoAndComments.ScrollToEnd();
+                        photo.comments.Add(newComment);
+                        // Unnecessary line. Same as DiscussionPopup.
+                        //parent.photoDict[photo.photoId] = photo;
+                    }
+                    else if (replyFlag == 1)
+                    {
+                        string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
 
-                    commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", richText, this));
-                    commentBox.Document.Blocks.Clear();
-                    commentBox.Document.Blocks.Add(new Paragraph(new Run("Type a message...")));
-                    replyFlag = 0;
-                    commentToReplyTo = null;
+                        commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", richText, this));
+                        commentBox.Document.Blocks.Clear();
+                        commentBox.Document.Blocks.Add(new Paragraph(new Run("Type a message...")));
+                        replyFlag = 0;
+                        commentToReplyTo = null;
+                    }
                 }
+            }
+            else if (!main.signedIn)
+            {
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to discuss with users.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
         }
     }

@@ -74,6 +74,9 @@
     <Compile Include="LogoutPromptPopup.xaml.cs">
       <DependentUpon>LogoutPromptPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoginPrompt.xaml.cs">
+      <DependentUpon>LoginPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PhotoPopup.xaml.cs">
       <DependentUpon>PhotoPopup.xaml</DependentUpon>
     </Compile>
@@ -120,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LogoutPromptPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -20,10 +20,13 @@ namespace shuttr
     /// </summary>
     public partial class LoginPage : UserControl
     {
-        public LoginPage()
+        private MainWindow main;
+
+        public LoginPage(MainWindow main)
         {
             InitializeComponent();
             LoginSwitcher.loginSwitcher = this;
+            this.main = main;
         }
 
         public void Navigate(UserControl nextPage)
@@ -35,7 +38,8 @@ namespace shuttr
         {
             if (sender.Equals(loginButton))
             {
-                LoginSwitcher.Switch(new FollowingPage());
+                main.SignIn();
+                //LoginSwitcher.Switch(new FollowingPage());
             }
             else if (sender.Equals(signupButton))
             {

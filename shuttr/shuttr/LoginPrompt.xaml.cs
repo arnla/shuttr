@@ -10,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace shuttr
 {
     /// <summary>
-    /// Interaction logic for LogoutPromptPopup.xaml
+    /// Interaction logic for LoginPrompt.xaml
     /// </summary>
-    public partial class LogoutPromptPopup : Window
+    public partial class LoginPrompt : Window
     {
         private MainWindow main;
 
-        public LogoutPromptPopup(MainWindow main)
+        public LoginPrompt(MainWindow main)
         {
             InitializeComponent();
 
@@ -30,12 +29,22 @@ namespace shuttr
             main.ChangeFill();
         }
 
+        public void SetMessage(string messageToDisplay)
+        {
+            message.Text = messageToDisplay;
+        }
+
+        public void SetConfirmText(string confirmText)
+        {
+            confirmButton.Content = confirmText;
+        }
+
         /// <summary>
         /// Interaction logic for closing popup prompt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void close(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
             main.ChangeFill();
             this.Close();
@@ -46,7 +55,7 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void confirmLogout(object sender, RoutedEventArgs e)
+        private void Confirm(object sender, RoutedEventArgs e)
         {
             main.contentControl.Content = new LoginPage(main);
             main.ChangeFill();
@@ -58,7 +67,7 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void confirmCancel(object sender, RoutedEventArgs e)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
             main.ChangeFill();
             this.Close();

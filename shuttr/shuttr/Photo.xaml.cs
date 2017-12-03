@@ -121,25 +121,35 @@ namespace shuttr
          /// <param name="e"></param>
         private void upVote(object sender, RoutedEventArgs e)
         {
-            if (upvoted == false)
+            if (main.signedIn)
             {
-                upvoted = true;
-                String stringPath = "Images/Icons/arrow.png";
-                Uri imageUri = new Uri(stringPath, UriKind.Relative);
-                BitmapImage imageBitmap = new BitmapImage(imageUri);
-                upvoteImage.Source = imageBitmap;
-                score++;
-                sideScore.Text = score.ToString();
+                if (upvoted == false)
+                {
+                    upvoted = true;
+                    String stringPath = "Images/Icons/arrow.png";
+                    Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                    BitmapImage imageBitmap = new BitmapImage(imageUri);
+                    upvoteImage.Source = imageBitmap;
+                    score++;
+                    sideScore.Text = score.ToString();
+                }
+                else
+                {
+                    upvoted = false;
+                    String stringPath = "Images/Icons/arrow_blank.png";
+                    Uri imageUri = new Uri(stringPath, UriKind.Relative);
+                    BitmapImage imageBitmap = new BitmapImage(imageUri);
+                    upvoteImage.Source = imageBitmap;
+                    score--;
+                    sideScore.Text = score.ToString();
+                }
             }
-            else
+            else if (!main.signedIn)
             {
-                upvoted = false;
-                String stringPath = "Images/Icons/arrow_blank.png";
-                Uri imageUri = new Uri(stringPath, UriKind.Relative);
-                BitmapImage imageBitmap = new BitmapImage(imageUri);
-                upvoteImage.Source = imageBitmap;
-                score--;
-                sideScore.Text = score.ToString();
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to upvote photos.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
         }
 
@@ -150,39 +160,48 @@ namespace shuttr
         /// <param name="e"></param>
         private void savePhoto_Click(object sender, RoutedEventArgs e)
         {
-            if (!saved)
+            if (main.signedIn)
             {
-                // Create a new instance with the same attributes
-                Photo copyOfPhoto= new Photo(photoId, imageName.Source);
-                copyOfPhoto.title = this.title;
-                copyOfPhoto.caption = this.caption;
-                copyOfPhoto.username = this.username;
-                copyOfPhoto.ageDays = this.ageDays;
-                copyOfPhoto.ageHours = this.ageHours;
-                copyOfPhoto.time = this.time;
-                copyOfPhoto.score = this.score;
-                copyOfPhoto.main = this.main;
-                copyOfPhoto.displaySideInfo();
-                copyOfPhoto.comments = this.comments;
-                copyOfPhoto.commentCount = this.commentCount;
-                copyOfPhoto.upvoted = this.upvoted;
+                if (!saved)
+                {
+                    // Create a new instance with the same attributes
+                    Photo copyOfPhoto = new Photo(photoId, imageName.Source);
+                    copyOfPhoto.title = this.title;
+                    copyOfPhoto.caption = this.caption;
+                    copyOfPhoto.username = this.username;
+                    copyOfPhoto.ageDays = this.ageDays;
+                    copyOfPhoto.ageHours = this.ageHours;
+                    copyOfPhoto.time = this.time;
+                    copyOfPhoto.score = this.score;
+                    copyOfPhoto.main = this.main;
+                    copyOfPhoto.displaySideInfo();
+                    copyOfPhoto.comments = this.comments;
+                    copyOfPhoto.commentCount = this.commentCount;
+                    copyOfPhoto.upvoted = this.upvoted;
 
-                // Set the saved flag of the new Discussion to true
-                copyOfPhoto.Saved = true;
-                //  Pass it to SavedPage.AddPost()
-                main.currSavedPage.AddPost(copyOfPhoto);
+                    // Set the saved flag of the new Discussion to true
+                    copyOfPhoto.Saved = true;
+                    //  Pass it to SavedPage.AddPost()
+                    main.currSavedPage.AddPost(copyOfPhoto);
 
-                // Set the Saved button content of this discussion to Unsave
-                // Set the saved flag of this dicussion to true
-                this.Saved = true;
+                    // Set the Saved button content of this discussion to Unsave
+                    // Set the saved flag of this dicussion to true
+                    this.Saved = true;
+                }
+                else if (saved)
+                {
+                    this.Saved = false;
+                    main.currSavedPage.RemovePost(this);
+                    main.currPhotosPage.SetPhotoUnsaved(this);
+                }
             }
-            else if (saved)
+            else if (!main.signedIn)
             {
-                this.Saved = false;
-                main.currSavedPage.RemovePost(this);
-                main.currPhotosPage.SetPhotoUnsaved(this);
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to save photos.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
-            
         }
 
         public void ClickPhoto(object sender, MouseButtonEventArgs e)
