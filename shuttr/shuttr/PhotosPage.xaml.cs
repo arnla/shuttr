@@ -128,21 +128,123 @@ namespace shuttr
             {
                 currentSortOption.Content = "Popular";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByPopular();
             }
             else if (sender.Equals(sortNew))
             {
                 currentSortOption.Content = "New";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByNew();
             }
             else if (sender.Equals(sortMostCommented))
             {
                 currentSortOption.Content = "Most Commented";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByMostCommented();
             }
             else if (sender.Equals(sortMostUpvoted))
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByMostUpvoted();
+            }
+        }
+
+        public void SortByPopular()
+        {
+            // Set the current sort option.
+            currentSortOption.Content = "Popular";
+
+            // Get the array of all the children in the page.
+            Photo[] photosToSort = new Photo[photoFeed.Children.Count];
+            photoFeed.Children.CopyTo(photosToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < photosToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && ((photosToSort[j-1].score + photosToSort[j-1].commentCount ) > (photosToSort[j].score + photosToSort[j].commentCount)))
+                {
+                    Photo temp = photosToSort[j];
+                    photosToSort[j] = photosToSort[j - 1];
+                    photosToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+            
+            // Clear the children.
+            photoFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = photosToSort.Length - 1; k >= 0; k--)
+            {
+                photoFeed.Children.Add(photosToSort[k]);
+            }
+        }
+        public void SortByNew()
+        {
+            DisplayPhotos();
+        }
+        public void SortByMostCommented()
+        {
+            // Get the array of all the children in the page.
+            Photo[] photosToSort = new Photo[photoFeed.Children.Count];
+            photoFeed.Children.CopyTo(photosToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < photosToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && (photosToSort[j - 1].commentCount > photosToSort[j].commentCount))
+                {
+                    Photo temp = photosToSort[j];
+                    photosToSort[j] = photosToSort[j - 1];
+                    photosToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+
+            // Clear the children.
+            photoFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = photosToSort.Length - 1; k >= 0; k--)
+            {
+                photoFeed.Children.Add(photosToSort[k]);
+            }
+        }
+        public void SortByMostUpvoted()
+        {
+            // Get the array of all the children in the page.
+            Photo[] photosToSort = new Photo[photoFeed.Children.Count];
+            photoFeed.Children.CopyTo(photosToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < photosToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && (photosToSort[j - 1].score > photosToSort[j].score))
+                {
+                    Photo temp = photosToSort[j];
+                    photosToSort[j] = photosToSort[j - 1];
+                    photosToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+
+            // Clear the children.
+            photoFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = photosToSort.Length - 1; k >= 0; k--)
+            {
+                photoFeed.Children.Add(photosToSort[k]);
             }
         }
 

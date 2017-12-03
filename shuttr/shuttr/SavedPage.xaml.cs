@@ -78,6 +78,8 @@ namespace shuttr
                 // Add the photo to the SavedPage.
                 AddToTop(photoToAdd);
             }
+
+            emptyMessage.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -158,6 +160,11 @@ namespace shuttr
                         }
                     }
                 }
+            }
+
+            if (savedFeed.Children.Count == 0)
+            {
+                emptyMessage.Visibility = Visibility.Visible;
             }
         }
 

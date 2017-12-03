@@ -72,7 +72,8 @@ namespace shuttr
 
         private void DisplayDiscussionPosts()
         {
-            foreach (KeyValuePair<int, Discussion> pair in discussionDict)
+            discussionFeed.Children.Clear();
+            foreach (KeyValuePair<int, Discussion> pair in discussionDict.AsEnumerable().Reverse())
             {
                 var parent = VisualTreeHelper.GetParent(pair.Value);
                 if (parent == null)
@@ -147,21 +148,123 @@ namespace shuttr
             {
                 currentSortOption.Content = "Popular";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByPopular();
             }
             else if (sender.Equals(sortNew))
             {
                 currentSortOption.Content = "New";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByNew();
             }
             else if (sender.Equals(sortMostCommented))
             {
                 currentSortOption.Content = "Most Commented";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByMostCommented();
             }
             else if (sender.Equals(sortMostUpvoted))
             {
                 currentSortOption.Content = "Most Upvoted";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByMostUpvoted();
+            }
+        }
+
+        public void SortByPopular()
+        {
+            // Set the current sort option.
+            currentSortOption.Content = "Popular";
+            
+            // Get the array of all the children in the page.
+            Discussion[] discussionsToSort = new Discussion[discussionFeed.Children.Count];
+            discussionFeed.Children.CopyTo(discussionsToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < discussionsToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && ((discussionsToSort[j - 1].score + discussionsToSort[j - 1].GetNumReplies()) > (discussionsToSort[j].score + discussionsToSort[j].GetNumReplies())))
+                {
+                    Discussion temp = discussionsToSort[j];
+                    discussionsToSort[j] = discussionsToSort[j - 1];
+                    discussionsToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+
+            // Clear the children.
+            discussionFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = discussionsToSort.Length - 1; k >= 0; k--)
+            {
+                discussionFeed.Children.Add(discussionsToSort[k]);
+            }
+        }
+        public void SortByNew()
+        {
+            DisplayDiscussionPosts();
+        }
+        public void SortByMostCommented()
+        {
+            // Get the array of all the children in the page.
+            Discussion[] discussionsToSort = new Discussion[discussionFeed.Children.Count];
+            discussionFeed.Children.CopyTo(discussionsToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < discussionsToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && (discussionsToSort[j - 1].GetNumReplies() > discussionsToSort[j].GetNumReplies()))
+                {
+                    Discussion temp = discussionsToSort[j];
+                    discussionsToSort[j] = discussionsToSort[j - 1];
+                    discussionsToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+
+            // Clear the children.
+            discussionFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = discussionsToSort.Length - 1; k >= 0; k--)
+            {
+                discussionFeed.Children.Add(discussionsToSort[k]);
+            }
+        }
+        public void SortByMostUpvoted()
+        {
+            // Get the array of all the children in the page.
+            Discussion[] discussionsToSort = new Discussion[discussionFeed.Children.Count];
+            discussionFeed.Children.CopyTo(discussionsToSort, 0);
+
+            // Sort the array using linear sort.
+            int i = 1;
+            int j;
+            while (i < discussionsToSort.Length)
+            {
+                j = i;
+                while ((j > 0) && (discussionsToSort[j - 1].score > discussionsToSort[j].score))
+                {
+                    Discussion temp = discussionsToSort[j];
+                    discussionsToSort[j] = discussionsToSort[j - 1];
+                    discussionsToSort[j - 1] = temp;
+                    j--;
+                }
+                i++;
+            }
+
+            // Clear the children.
+            discussionFeed.Children.Clear();
+            // Add the sorted list of children (backwards | highest popularity at top)
+            for (int k = discussionsToSort.Length - 1; k >= 0; k--)
+            {
+                discussionFeed.Children.Add(discussionsToSort[k]);
             }
         }
 

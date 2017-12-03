@@ -43,6 +43,7 @@ namespace shuttr
 
             currDiscussionPage.SetParent(this);
             currPhotosPage.SetParent(this);
+            currPhotosPage.SortByPopular();
 
             currFollowingPage = new FollowingPage(this, followingSomeone);
             currSavedPage = new SavedPage(this);
@@ -76,6 +77,8 @@ namespace shuttr
             logoutButton.Content = "Login";
             // DONE: Navigate to the photos page.
             contentControl.Content = currPhotosPage;
+            currPhotosPage.SortByPopular();
+            HighlightTab();
             // DONE: When pressing post photo or post discussion, ask to sign in.
 
             // FOR ALL THINGS ASKING TO LOGIN, USE A PROMPT LIKE LAWRENCE's
@@ -160,11 +163,13 @@ namespace shuttr
             else if (sender.Equals(photosTab))
             {
                 contentControl.Content = currPhotosPage;
+                currPhotosPage.SortByPopular();
                 HighlightTab();
             }
             else if (sender.Equals(discussionsTab))
             {
                 contentControl.Content = currDiscussionPage;
+                currDiscussionPage.SortByPopular();
                 HighlightTab();
             }
             else if (sender.Equals(savedTab))
