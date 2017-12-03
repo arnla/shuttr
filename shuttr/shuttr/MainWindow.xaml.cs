@@ -256,6 +256,8 @@ namespace shuttr
 
         public void AddPhoto(Photo pic, string title, string description)
         {
+            contentControl.Content = currPhotosPage;
+            HighlightTab();
             pic.title = title;
             pic.caption = description;
             currPhotosPage.AddPhoto(pic);
@@ -263,6 +265,8 @@ namespace shuttr
 
         public void AddDiscussion(string username, string title, string description, int numReplies)
         {
+            contentControl.Content = currDiscussionPage;
+            HighlightTab();
             currDiscussionPage.AddDiscussionPost(new Discussion(currDiscussionPage.GetDiscussionIdCtr(), username, title, description, numReplies));
         }
 
