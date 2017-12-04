@@ -34,6 +34,7 @@ namespace shuttr
         public void SetMessage(string messageToDisplay)
         {
             message.Text = messageToDisplay;
+            message.TextAlignment = TextAlignment.Center;
         }
 
         public void SetConfirmText(string confirmText)
