@@ -83,23 +83,30 @@ namespace shuttr
 
         protected void Button_Click(object sender, EventArgs e)
         {
-            if (sender.Equals(replyButton))
+            try
             {
-                if (parent.GetType() == typeof(DiscussionPopup))
+                if (sender.Equals(replyButton))
                 {
-                    DiscussionPopup castedParent = (DiscussionPopup)parent;
-                    castedParent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
-                    castedParent.SetReplyFlag(1);
-                    castedParent.SetCommentToReplyTo(this);
+                    if (parent.GetType() == typeof(DiscussionPopup))
+                    {
+                        DiscussionPopup castedParent = (DiscussionPopup)parent;
+                        castedParent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
+                        castedParent.SetReplyFlag(1);
+                        castedParent.SetCommentToReplyTo(this);
+                    }
+                    else if (parent.GetType() == typeof(PhotoPopup))
+                    {
+                        PhotoPopup castedParent = (PhotoPopup)parent;
+                        castedParent.commentBox.Document.Blocks.Clear();
+                        castedParent.commentBox.Document.Blocks.Add(new Paragraph(new Run("Replying to " + username + "'s comment: " + comment + "\n")));
+                        castedParent.SetReplyFlag(1);
+                        castedParent.SetCommentToReplyTo(this);
+                    }
                 }
-                else if (parent.GetType() == typeof(PhotoPopup))
-                {
-                    PhotoPopup castedParent = (PhotoPopup)parent;
-                    castedParent.commentBox.Document.Blocks.Clear();
-                    castedParent.commentBox.Document.Blocks.Add(new Paragraph(new Run("Replying to " + username + "'s comment: " + comment + "\n")));
-                    castedParent.SetReplyFlag(1);
-                    castedParent.SetCommentToReplyTo(this);
-                }
+            }
+            catch (NullReferenceException exception)
+            {
+                //This is due to the par
             }
         }
 
