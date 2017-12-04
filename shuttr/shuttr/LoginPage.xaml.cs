@@ -61,7 +61,7 @@ namespace shuttr
             }
             else if (sender.Equals(signupButton))
             {
-                LoginSwitcher.Switch(new SignupPage());
+                LoginSwitcher.Switch(new SignupPage(main));
             }
             else if (sender.Equals(recoverPasswordButton))
             {
