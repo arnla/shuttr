@@ -54,6 +54,25 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
+        public DiscussionPopup(MainWindow main, Discussion sender)
+        {
+            InitializeComponent();
+
+            this.main = main;
+            main.ChangeFill();
+
+            this.discussion = sender;
+
+            Username.Text = sender.GetUser();
+            DiscussionTitle.Text = sender.GetTitle();
+            NumRepliesButton.Content = sender.GetNumReplies();
+            DisplayComments();
+            MessageOrDeleteButton();
+
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
         private void MessageOrDeleteButton()
         {
             if (discussion.currUser == true)
@@ -71,24 +90,6 @@ namespace shuttr
         public void SetCommentToReplyTo(Comment comment)
         {
             commentToReplyTo = comment;
-        }
-
-        public DiscussionPopup(MainWindow main, Discussion sender)
-        {
-            InitializeComponent();
-
-            this.main = main;
-            main.ChangeFill();
-
-            this.discussion = sender;
-
-            Username.Text = sender.GetUser();
-            DiscussionTitle.Text = sender.GetTitle();
-            NumRepliesButton.Content = sender.GetNumReplies();
-            DisplayComments();
-
-            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
         private void DisplayComments()
