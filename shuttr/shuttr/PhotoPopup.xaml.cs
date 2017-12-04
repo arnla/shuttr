@@ -132,9 +132,7 @@ namespace shuttr
                 {
                     if (replyFlag == 0)
                     {
-                        string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
-
-                        Comment newComment = new Comment("current user", richText, this);
+                        Comment newComment = new Comment("current user", commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentFeed.Children.Add(newComment);
                         photoAndComments.ScrollToEnd();
@@ -144,13 +142,11 @@ namespace shuttr
                     }
                     else if (replyFlag == 1)
                     {
-                        string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
-
-                        Comment newComment = new Comment("current user", richText, this);
+                        string[] reply = commentBox.Text.Split('\n');
+                        Comment newComment = new Comment("current user", reply[1], this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
-                        commentBox.Document.Blocks.Clear();
-                        commentBox.Document.Blocks.Add(new Paragraph(new Run("Type a message...")));
+                        commentBox.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
                     }

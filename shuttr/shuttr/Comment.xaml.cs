@@ -97,8 +97,7 @@ namespace shuttr
                     else if (parent.GetType() == typeof(PhotoPopup))
                     {
                         PhotoPopup castedParent = (PhotoPopup)parent;
-                        castedParent.commentBox.Document.Blocks.Clear();
-                        castedParent.commentBox.Document.Blocks.Add(new Paragraph(new Run("Replying to " + username + "'s comment: " + comment + "\n")));
+                        castedParent.commentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
                     }
