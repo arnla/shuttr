@@ -12,11 +12,12 @@
           Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Center" 
                     Height="Auto"  
@@ -86,7 +87,8 @@
                              Margin="5,5,5,0"
                              VerticalAlignment="Center"
                              Width="548"
-                             FontSize="36"/>
+                             FontSize="36"
+                             PasswordChanged="passwordChanged"/>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
@@ -102,18 +104,53 @@
                 </TextBlock>
             </Grid>
         </Border>
-
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Width="568"
+                Height="Auto"
+                Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="forgotPassword" 
+                   HorizontalAlignment="Right" 
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top" 
+                   Width="Auto" 
+                   Height="Auto" 
+                   FontSize="24" 
+                   FontFamily="Microsoft YaHei"
+                   Grid.Column="0"
+                   TextAlignment="Right" Text="Forgot your password?"/>
+                <Button x:Name="recoverPasswordButton" 
+                Content="Click here to recover" 
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                BorderThickness="0"
+                Height="Auto"
+                VerticalAlignment="Top" 
+                Width="Auto" 
+                Opacity="0.5" 
+                FontFamily="Microsoft YaHei" 
+                Click="Button_Click" 
+                FontStyle="Italic"
+                Grid.Column="1"
+                FontSize="24"/>
+            </Grid>
+        </Border>
         <Border BorderBrush="Black" 
                     BorderThickness="0" 
                     HorizontalAlignment="Center" 
                     Height="Auto" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="3" >
+                    Grid.Row="4" >
             <Button x:Name="loginButton"
                     Content="LOG IN"
                     HorizontalAlignment="Center" 
-                    VerticalAlignment="Center"
+                    VerticalAlignment="Bottom"
                     Width="568"
                     Height="Auto"
                     BorderThickness="0,1,1,1"
@@ -130,10 +167,10 @@
         </Border>
 
         <Border HorizontalAlignment="Center"
-                VerticalAlignment="Center"
+                VerticalAlignment="Top"
                 Width="568"
                 Height="Auto"
-                Grid.Row="4">
+                Grid.Row="5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

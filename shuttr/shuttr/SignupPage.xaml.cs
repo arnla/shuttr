@@ -17,6 +17,7 @@ namespace shuttr
 {
     public partial class SignupPage : UserControl
     {
+
         public SignupPage()
         {
             InitializeComponent();
@@ -30,9 +31,43 @@ namespace shuttr
 
         public void Button_Click(object sender, EventArgs e)
         {
+            bool formComplete = true;
             if (sender.Equals(signupButton))
             {
-                SignupSwitcher.Switch(new FollowingPage());
+                if (emailBox.Text == "")
+                {
+                    emailBoxDefault.Foreground = Brushes.Red;
+                    emailBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (passBox.Password == "")
+                {
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (formComplete)
+                {
+                    SignupSwitcher.Switch(new FollowingPage());
+                }
+            }
+        }
+
+        public void passwordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(passBox.Password))
+            {
+                passwordBoxDefault.Text = "";
+            }
+            else
+            {
+                passwordBoxDefault.Text = "Password";
             }
         }
     }
