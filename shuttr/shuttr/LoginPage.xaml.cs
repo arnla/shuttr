@@ -36,16 +36,49 @@ namespace shuttr
 
         public void Button_Click(object sender, EventArgs e)
         {
+            bool formComplete = true;
             if (sender.Equals(loginButton))
             {
-                // Instantiate main window's current user
-                main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
-                main.SignIn();
-                //LoginSwitcher.Switch(new FollowingPage());
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (passBox.Password == "")
+                {
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (formComplete)
+                {
+                    // Instantiate main window's current user
+                    main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
+                    main.SignIn();
+                    //LoginSwitcher.Switch(new FollowingPage());
+                }
             }
             else if (sender.Equals(signupButton))
             {
                 LoginSwitcher.Switch(new SignupPage());
+            }
+            else if (sender.Equals(recoverPasswordButton))
+            {
+                ForgotPasswordPopup popup = new ForgotPasswordPopup(main);
+                popup.ShowDialog();
+            }
+        }
+
+        public void passwordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(passBox.Password))
+            {
+                passwordBoxDefault.Text = "";
+            }
+            else
+            {
+                passwordBoxDefault.Text = "Password";
             }
         }
 

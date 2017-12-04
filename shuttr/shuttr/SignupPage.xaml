@@ -12,11 +12,12 @@
           Height="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Image HorizontalAlignment="Center" 
                     Height="Auto"  
@@ -133,7 +134,8 @@
                              Margin="5,5,5,0"
                              VerticalAlignment="Center"
                              Width="548"
-                             FontSize="36"/>
+                             FontSize="36"
+                             PasswordChanged="passwordChanged"/>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
@@ -149,14 +151,14 @@
                 </TextBlock>
             </Grid>
         </Border>
-
+        
         <Border BorderBrush="Black" 
                     BorderThickness="0" 
                     HorizontalAlignment="Center" 
                     Height="Auto" 
                     VerticalAlignment="Center" 
                     Width="568" 
-                    Grid.Row="4" >
+                    Grid.Row="5" >
             <Button x:Name="signupButton"
                     Content="SIGN UP"
                     HorizontalAlignment="Center" 
