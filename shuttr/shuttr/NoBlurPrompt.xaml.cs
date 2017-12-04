@@ -10,24 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace shuttr
 {
     /// <summary>
-    /// Interaction logic for LogoutPromptPopup.xaml
+    /// Interaction logic for NoBlurPrompt.xaml
     /// </summary>
-    public partial class LogoutPromptPopup : Window
+    public partial class NoBlurPrompt : Window
     {
         private MainWindow main;
 
-        public LogoutPromptPopup(MainWindow main)
+        public NoBlurPrompt(MainWindow main)
         {
             InitializeComponent();
 
             this.main = main;
-            main.ChangeFill(Visibility.Visible);
+        }
+
+        public void SetMessage(string messageToDisplay)
+        {
+            message.Text = messageToDisplay;
+        }
+
+        public void SetConfirmText(string confirmText)
+        {
+            confirmButton.Content = confirmText;
         }
 
         /// <summary>
@@ -35,9 +43,8 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void close(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
-            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
 
@@ -46,10 +53,9 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void confirmLogout(object sender, RoutedEventArgs e)
+        private void Confirm(object sender, RoutedEventArgs e)
         {
             main.contentControl.Content = new LoginPage(main);
-            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
 
@@ -58,9 +64,8 @@ namespace shuttr
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void confirmCancel(object sender, RoutedEventArgs e)
+        private void Cancel(object sender, RoutedEventArgs e)
         {
-            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
     }

@@ -32,7 +32,7 @@ namespace shuttr
             InitializeComponent();
 
             parent = main;
-            parent.ChangeFill();
+            parent.ChangeFill(Visibility.Visible);
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
@@ -42,7 +42,7 @@ namespace shuttr
         {
             if (sender.Equals(CancelPostDiscussionButton))
             {
-                parent.ChangeFill();
+                parent.ChangeFill(Visibility.Hidden);
                 this.Visibility = Visibility.Hidden;
             }
             else if (sender.Equals(ConfirmPostDiscussionButton))
@@ -62,7 +62,7 @@ namespace shuttr
                 if (isComplete)
                 {
                     parent.AddDiscussion(new Discussion(parent.currDiscussionPage.GetDiscussionIdCtr(), parent.currUser.UserName, AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0, true));
-                    parent.ChangeFill();
+                    parent.ChangeFill(Visibility.Hidden);
                     this.Visibility = Visibility.Hidden;
                 }
             }

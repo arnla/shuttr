@@ -26,13 +26,13 @@ namespace shuttr
         {
             InitializeComponent();
             this.main = main;
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Visible);
             submitted = false;
         }
 
         private void close(object sender, RoutedEventArgs e)
         {
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
 
@@ -57,7 +57,7 @@ namespace shuttr
             // Else it is the "Got it" button
             else
             {
-                main.ChangeFill();
+                main.ChangeFill(Visibility.Hidden);
                 this.Close();
             }
 

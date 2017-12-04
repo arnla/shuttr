@@ -286,12 +286,14 @@ namespace shuttr
             currProfilePage.DisplayPosts();
         }
 
-        public void ChangeFill()
+        public void ChangeFill(Visibility visibility)
         {
+            popUpPageFill.Visibility = visibility;
+            /*
             if ((popUpPageFill.Visibility == Visibility.Hidden) || (popUpPageFill.Visibility == Visibility.Collapsed))
                 popUpPageFill.Visibility = Visibility.Visible;
             else
-                popUpPageFill.Visibility = Visibility.Hidden;
+                popUpPageFill.Visibility = Visibility.Hidden;*/
         }
 
         /// <summary>

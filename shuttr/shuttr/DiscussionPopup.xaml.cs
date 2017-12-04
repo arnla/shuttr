@@ -39,7 +39,7 @@ namespace shuttr
             InitializeComponent();
 
             this.main = main;
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Visible);
 
             this.parent = parent;
             this.discussion = sender;
@@ -59,7 +59,7 @@ namespace shuttr
             InitializeComponent();
 
             this.main = main;
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Visible);
 
             this.discussion = sender;
 
@@ -105,7 +105,7 @@ namespace shuttr
         {
             if (sender.Equals(CloseDiscussionButton))
             {
-                main.ChangeFill();
+                main.ChangeFill(Visibility.Hidden);
                 this.Visibility = Visibility.Hidden;
                 commentsFeed.Children.Clear();
             }
@@ -147,12 +147,12 @@ namespace shuttr
                     main.currProfilePage.DisplayPosts();
                     // close popup window
                     this.Visibility = Visibility.Hidden;
-                    main.ChangeFill();
+                    main.ChangeFill(Visibility.Hidden);
                 }
             }
             else if (!main.signedIn)
             {
-                LoginPrompt prompt = new LoginPrompt(main);
+                NoBlurPrompt prompt = new NoBlurPrompt(main);
                 prompt.SetMessage("You must sign in to discuss with users.");
                 prompt.ShowDialog();
                 main.HighlightTab();

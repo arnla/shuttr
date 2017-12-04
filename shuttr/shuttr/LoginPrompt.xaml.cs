@@ -26,7 +26,7 @@ namespace shuttr
             InitializeComponent();
 
             this.main = main;
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Visible);
         }
 
         public void SetMessage(string messageToDisplay)
@@ -46,7 +46,7 @@ namespace shuttr
         /// <param name="e"></param>
         private void Close(object sender, RoutedEventArgs e)
         {
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
 
@@ -58,7 +58,7 @@ namespace shuttr
         private void Confirm(object sender, RoutedEventArgs e)
         {
             main.contentControl.Content = new LoginPage(main);
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
 
@@ -69,7 +69,7 @@ namespace shuttr
         /// <param name="e"></param>
         private void Cancel(object sender, RoutedEventArgs e)
         {
-            main.ChangeFill();
+            main.ChangeFill(Visibility.Hidden);
             this.Close();
         }
     }

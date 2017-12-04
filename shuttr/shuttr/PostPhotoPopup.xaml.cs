@@ -36,7 +36,7 @@ namespace shuttr
             InitializeComponent();
 
             parent = main;
-            parent.ChangeFill();
+            parent.ChangeFill(Visibility.Visible);
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
@@ -56,7 +56,7 @@ namespace shuttr
             }
             else if (sender.Equals(CancelPostPhotoButton))
             {
-                parent.ChangeFill();
+                parent.ChangeFill(Visibility.Hidden);
                 AddedImage.Source = null;
                 AddedImage.Visibility = Visibility.Hidden;
                 ImageBox.Visibility = Visibility.Visible;
@@ -83,7 +83,7 @@ namespace shuttr
                 if (isComplete)
                 {
                     parent.AddPhoto(new Photo(parent.currPhotosPage.photoIdCounter, AddedImage.Source), AddPhotoTitleBox.Text, AddPhotoCaptionBox.Text);
-                    parent.ChangeFill();
+                    parent.ChangeFill(Visibility.Hidden);
                     this.Visibility = Visibility.Hidden;
                 }
             }
