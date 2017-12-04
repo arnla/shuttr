@@ -38,10 +38,20 @@ namespace shuttr
         {
             if (sender.Equals(loginButton))
             {
-                // Instantiate main window's current user
-                main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
-                main.SignIn();
-                //LoginSwitcher.Switch(new FollowingPage());
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    passwordBoxDefault.Opacity = 1;
+                }
+                else
+                {
+                    // Instantiate main window's current user
+                    main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
+                    main.SignIn();
+                    //LoginSwitcher.Switch(new FollowingPage());
+                }
             }
             else if (sender.Equals(signupButton))
             {

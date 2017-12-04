@@ -17,6 +17,8 @@ namespace shuttr
 {
     public partial class SignupPage : UserControl
     {
+        private bool formComplete = true;
+
         public SignupPage()
         {
             InitializeComponent();
@@ -32,7 +34,46 @@ namespace shuttr
         {
             if (sender.Equals(signupButton))
             {
-                SignupSwitcher.Switch(new FollowingPage());
+                if (emailBox.Text == "")
+                {
+                    emailBoxDefault.Foreground = Brushes.Red;
+                    emailBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (passBox.Password == "")
+                {
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (formComplete)
+                {
+                    SignupSwitcher.Switch(new FollowingPage());
+                }
+                else
+                {
+                    // This may not make sense on the surface but it is required to reset the value
+                    // for successive attempts
+                    formComplete = true;
+                }
+            }
+        }
+
+        public void passwordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(passBox.Password))
+            {
+                passwordBoxDefault.Text = "";
+            }
+            else
+            {
+                passwordBoxDefault.Text = "Password";
             }
         }
     }

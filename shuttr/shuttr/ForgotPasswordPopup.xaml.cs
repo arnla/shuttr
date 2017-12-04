@@ -40,11 +40,19 @@ namespace shuttr
         {
             if (submitted == false)
             {
-                headText.Text = "We sent instructions to the email";
-                subText.Text = "associated with that account";
-                usernameOrEmailBox.Visibility = Visibility.Collapsed;
-                submitButton.Content = "Got it!";
-                submitted = true;
+                if (usernameOrEmailBox.Text == "")
+                {
+                    usernameOrEmailBoxDefault.Foreground = Brushes.Red;
+                    usernameOrEmailBoxDefault.Opacity = 1;
+                }
+                else
+                {
+                    headText.Text = "We sent instructions to the email";
+                    subText.Text = "associated with that account";
+                    usernameOrEmailBox.Visibility = Visibility.Collapsed;
+                    submitButton.Content = "Got it!";
+                    submitted = true;
+                }
             }
             // Else it is the "Got it" button
             else
