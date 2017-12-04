@@ -47,6 +47,11 @@ namespace shuttr
             {
                 LoginSwitcher.Switch(new SignupPage());
             }
+            else if (sender.Equals(recoverPasswordButton))
+            {
+                ForgotPasswordPopup popup = new ForgotPasswordPopup(main);
+                popup.ShowDialog();
+            }
         }
 
         public void Text_Changed(object sender, EventArgs e)

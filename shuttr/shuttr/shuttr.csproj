@@ -71,6 +71,9 @@
     <Compile Include="FollowingPage.xaml.cs">
       <DependentUpon>FollowingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPasswordPopup.xaml.cs">
+      <DependentUpon>ForgotPasswordPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogoutPromptPopup.xaml.cs">
       <DependentUpon>LogoutPromptPopup.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="FollowingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPasswordPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

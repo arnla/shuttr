@@ -19,9 +19,40 @@ namespace shuttr
     /// </summary>
     public partial class ForgotPasswordPopup : Window
     {
-        public ForgotPasswordPopup()
+        private MainWindow main;
+        private bool submitted;
+
+        public ForgotPasswordPopup(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
+            main.ChangeFill();
+            submitted = false;
+        }
+
+        private void close(object sender, RoutedEventArgs e)
+        {
+            main.ChangeFill();
+            this.Close();
+        }
+
+        private void submitButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (submitted == false)
+            {
+                headText.Text = "We sent instructions to the email";
+                subText.Text = "associated with that account";
+                usernameOrEmailBox.Visibility = Visibility.Collapsed;
+                submitButton.Content = "Got it!";
+                submitted = true;
+            }
+            // Else it is the "Got it" button
+            else
+            {
+                main.ChangeFill();
+                this.Close();
+            }
+
         }
     }
 }
