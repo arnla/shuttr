@@ -137,6 +137,7 @@ namespace shuttr
                         commentFeed.Children.Add(newComment);
                         photoAndComments.ScrollToEnd();
                         photo.comments.Add(newComment);
+                        commentBox.Text = "";
                         // Unnecessary line. Same as DiscussionPopup.
                         //parent.photoDict[photo.photoId] = photo;
                     }
@@ -146,7 +147,7 @@ namespace shuttr
                         Comment newComment = new Comment("current user", reply[1], this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
-                        commentBox.Text = "Type a message...";
+                        commentBox.Text = "";
                         replyFlag = 0;
                         commentToReplyTo = null;
                     }

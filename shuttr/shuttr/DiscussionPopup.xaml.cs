@@ -124,6 +124,7 @@ namespace shuttr
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
+                        CommentBox.Text = "";
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
                     }
                     else if (replyFlag == 1)
@@ -132,7 +133,7 @@ namespace shuttr
                         Comment newComment = new Comment("current user", reply[1], this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
-                        CommentBox.Text = "Type a message...";
+                        CommentBox.Text = "";
                         replyFlag = 0;
                         commentToReplyTo = null;
                     }
