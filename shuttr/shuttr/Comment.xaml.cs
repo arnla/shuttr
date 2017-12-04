@@ -23,6 +23,26 @@ namespace shuttr
         private string username;
         private string comment;
         public UserControl parent { get; set; }
+        private bool currentUser = false;
+        public bool CurrentUser
+        {
+            get
+            {
+                return currentUser;
+            }
+            set
+            {
+                currentUser = value;
+                if (currentUser)
+                {
+                    deleteButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    deleteButton.Visibility = Visibility.Hidden;
+                }
+            }
+        }
 
         public Comment()
         {
@@ -36,6 +56,7 @@ namespace shuttr
             this.comment = comment;
             usernameText.Text = username;
             commentBox.Text = comment;
+            CurrentUser = false;
         }
 
         public Comment(string username, string comment, PhotoPopup parent)
@@ -46,6 +67,7 @@ namespace shuttr
             usernameText.Text = username;
             commentBox.Text = comment;
             this.parent = parent;
+            CurrentUser = false;
         }
 
         public Comment(string username, string comment, DiscussionPopup parent)
@@ -56,6 +78,7 @@ namespace shuttr
             usernameText.Text = username;
             commentBox.Text = comment;
             this.parent = parent;
+            CurrentUser = false;
         }
 
         protected void Button_Click(object sender, EventArgs e)
@@ -78,6 +101,15 @@ namespace shuttr
                     castedParent.SetCommentToReplyTo(this);
                 }
             }
+        }
+
+        private void DeleteComment(object sender, RoutedEventArgs e)
+        {
+            username = "deleted";
+            comment = "deleted";
+            commentBox.Text = "deleted";
+            usernameText.Text = "deleted";
+            CurrentUser = false;
         }
     }
 }
