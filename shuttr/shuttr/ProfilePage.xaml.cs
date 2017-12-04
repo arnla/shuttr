@@ -132,6 +132,44 @@ namespace shuttr
             {
                 filterByDropdown.IsOpen = !filterByDropdown.IsOpen;
             }
+            else if (sender.Equals(filterAll))
+            {
+                currentFilterOption.Content = filterAll.Content;
+                filterByDropdown.IsOpen = false;
+                DisplayPosts();
+            }
+            else if (sender.Equals(filterPhotos))
+            {
+                currentFilterOption.Content = filterPhotos.Content;
+                filterByDropdown.IsOpen = false;
+                FilterByPhotos();
+            }
+            else if (sender.Equals(filterDiscussions))
+            {
+                currentFilterOption.Content = filterDiscussions.Content;
+                filterByDropdown.IsOpen = false;
+                FilterByDiscussions();
+            }
+        }
+        public void FilterByPhotos()
+        {
+            userProfileFeed.Children.Clear();
+            foreach (KeyValuePair<int, Photo> photo in displayedUser.userPhotos)
+            {
+                Photo newPhoto = new Photo(photo.Value);
+                userProfileFeed.Children.Add(newPhoto);
+                MakePostClickable(newPhoto);
+            }
+        }
+        public void FilterByDiscussions()
+        {
+            userProfileFeed.Children.Clear();
+            foreach (KeyValuePair<int, Discussion> discussion in displayedUser.userDiscussions)
+            {
+                Discussion newDiscussion = new Discussion(discussion.Value);
+                userProfileFeed.Children.Add(newDiscussion);
+                MakePostClickable(newDiscussion);
+            }
         }
 
         private void FollowClick(object sender, RoutedEventArgs e)
