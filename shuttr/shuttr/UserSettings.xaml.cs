@@ -22,6 +22,9 @@ namespace shuttr
     {
         private MainWindow main;
         private User displayedUser;
+        private string newUserName;
+        private string newPassword;
+        private string newEmail;
 
         public UserSettings(MainWindow parent, User currentUser)
         {
@@ -35,21 +38,72 @@ namespace shuttr
         {
             if (sender.Equals(changeButton))
             {
+                newEmail = newUserName = newPassword = null;
+
                 if (usernameBox.Text.Length != 0)
                 {
-                    displayedUser.UserName = usernameBox.Text.ToString();
+                    newUserName = usernameBox.Text.ToString();
                 }
                 if (passwordBox.Text.Length != 0)
                 {
-                    displayedUser.Password = passwordBox.Text.ToString();
+                    newPassword = passwordBox.Text.ToString();
                 }
                 if (emailBox.Text.Length != 0)
                 {
-                    displayedUser.Email = emailBox.Text.ToString();
+                    newEmail = emailBox.Text.ToString();
+                }
+
+                if ((newEmail != null) || (newUserName != null) || (newPassword != null))
+                {
+                    UserSettingsPrompt prompt = new UserSettingsPrompt(main, this);
+
+                    List<string> changes = new List<string>();
+
+                    if (newEmail != null)
+                    {
+                        changes.Add("email");
+                    }
+                    if (newUserName != null)
+                    {
+                        changes.Add("username");
+                    }
+                    if (newPassword != null)
+                    {
+                        changes.Add("password");
+                    }
+
+                    string message = "Are you sure you want to change your ";
+                    if (changes.Count == 1)
+                    {
+                        message += changes[0];
+                    }
+                    else
+                    {
+                        for (int i = 0; i < changes.Count; i++)
+                        {
+                            if (i == changes.Count - 1)
+                            {
+                                message += " and " + changes[i];
+                            }
+                            else
+                            {
+                                message += " " + changes[i] + ",";
+                            }
+                        }
+                    }
+
+                    prompt.SetMessage(message);
+                    prompt.ShowDialog();
                 }
             }
         }
 
+        public void MakeChanges()
+        {
+            displayedUser.UserName = newUserName;
+            displayedUser.Password = newPassword;
+            displayedUser.Email = newEmail;
+        }
     }
 
 }
