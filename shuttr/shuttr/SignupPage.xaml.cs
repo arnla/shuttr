@@ -17,7 +17,6 @@ namespace shuttr
 {
     public partial class SignupPage : UserControl
     {
-        private bool formComplete = true;
 
         public SignupPage()
         {
@@ -32,6 +31,7 @@ namespace shuttr
 
         public void Button_Click(object sender, EventArgs e)
         {
+            bool formComplete = true;
             if (sender.Equals(signupButton))
             {
                 if (emailBox.Text == "")
@@ -55,12 +55,6 @@ namespace shuttr
                 if (formComplete)
                 {
                     SignupSwitcher.Switch(new FollowingPage());
-                }
-                else
-                {
-                    // This may not make sense on the surface but it is required to reset the value
-                    // for successive attempts
-                    formComplete = true;
                 }
             }
         }

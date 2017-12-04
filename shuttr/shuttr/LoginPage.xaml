@@ -87,7 +87,8 @@
                              Margin="5,5,5,0"
                              VerticalAlignment="Center"
                              Width="548"
-                             FontSize="36"/>
+                             FontSize="36"
+                             PasswordChanged="passwordChanged"/>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
