@@ -22,7 +22,7 @@ namespace shuttr
     {
         private MainWindow parent;
         private int discussionIdCtr = 0;
-        private Dictionary<int, Discussion> discussionDict = new Dictionary<int, Discussion>();
+        public Dictionary<int, Discussion> discussionDict { get; set; } = new Dictionary<int, Discussion>();
 
         public DiscussionPage()
         {
@@ -70,7 +70,7 @@ namespace shuttr
                 discussion.MouseLeftButtonDown += new MouseButtonEventHandler(this.DiscussionClickTest);
         }
 
-        private void DisplayDiscussionPosts()
+        public void DisplayDiscussionPosts()
         {
             discussionFeed.Children.Clear();
             foreach (KeyValuePair<int, Discussion> pair in discussionDict.AsEnumerable().Reverse())

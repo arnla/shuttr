@@ -275,12 +275,15 @@ namespace shuttr
             pic.currentUser = true;
             currPhotosPage.AddPhoto(pic);
             currUser.userPhotos[pic.photoId] = pic;
-            currProfilePage.DisplayPhotos();
+            currProfilePage.DisplayPosts();
         }
 
-        public void AddDiscussion(string username, string title, string description, int numReplies)
+        public void AddDiscussion(Discussion discussion)
         {
-            currDiscussionPage.AddDiscussionPost(new Discussion(currDiscussionPage.GetDiscussionIdCtr(), username, title, description, numReplies));
+            discussion.currUser = true;
+            currDiscussionPage.AddDiscussionPost(discussion);
+            currUser.userDiscussions[discussion.discussionId] = discussion;
+            currProfilePage.DisplayPosts();
         }
 
         public void ChangeFill()

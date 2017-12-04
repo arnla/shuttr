@@ -61,7 +61,7 @@ namespace shuttr
                 }
                 if (isComplete)
                 {
-                    parent.AddDiscussion("User1", AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0);
+                    parent.AddDiscussion(new Discussion(parent.currDiscussionPage.GetDiscussionIdCtr(), parent.currUser.UserName, AddDiscussionTitleBox.Text, AddDiscussionDescriptionBox.Text, 0, true));
                     parent.ChangeFill();
                     this.Visibility = Visibility.Hidden;
                 }

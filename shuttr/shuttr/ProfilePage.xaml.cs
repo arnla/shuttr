@@ -42,7 +42,7 @@ namespace shuttr
             displayedUser = currentUser;
             userName.Content = currentUser.UserName;
             dateJoined.Content = currentUser.DateJoined;
-            DisplayPhotos();
+            DisplayPosts();
             //HardcodedPhotosAndDiscussions();
         }
 
@@ -61,18 +61,6 @@ namespace shuttr
             else
             {
                 followButton.Content = "FOLLOW";
-            }
-        }
-
-        /// <summary>
-        /// Will add all the posts of the current user to the scroll view.
-        /// </summary>
-        private void DisplayUserPosts()
-        {
-            foreach (var post in displayedUser.Posts)
-            {
-                userProfileFeed.Children.Add(post);
-                MakePostClickable(post);
             }
         }
 
@@ -181,7 +169,7 @@ namespace shuttr
             }
         }*/
 
-        public void DisplayPhotos()
+        public void DisplayPosts()
         {
             userProfileFeed.Children.Clear();
             foreach (KeyValuePair<int, Photo> photo in displayedUser.userPhotos)
@@ -189,6 +177,12 @@ namespace shuttr
                 Photo newPhoto = new Photo(photo.Value);
                 userProfileFeed.Children.Add(newPhoto);
                 MakePostClickable(newPhoto);
+            }
+            foreach (KeyValuePair<int, Discussion> discussion in displayedUser.userDiscussions)
+            {
+                Discussion newDiscussion = new Discussion(discussion.Value);
+                userProfileFeed.Children.Add(newDiscussion);
+                MakePostClickable(newDiscussion);
             }
         }
     }

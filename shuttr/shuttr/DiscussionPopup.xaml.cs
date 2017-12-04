@@ -48,12 +48,21 @@ namespace shuttr
             DiscussionTitle.Text = sender.GetTitle();
             NumRepliesButton.Content = sender.GetNumReplies();
             DisplayComments();
+            MessageOrDeleteButton();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
         }
 
-
+        private void MessageOrDeleteButton()
+        {
+            if (discussion.currUser == true)
+            {
+                MessageUserButton.Content = "DELETE";
+                MessageUserButton.Background = Brushes.Red;
+            }
+        }
+        
         public void SetReplyFlag(int flag)
         {
             replyFlag = flag;
@@ -99,9 +108,13 @@ namespace shuttr
                 this.Visibility = Visibility.Hidden;
                 commentsFeed.Children.Clear();
             }
-            else if (sender.Equals(PostCommentButton))
+        }
+
+        protected void ButtonClick(object sender, EventArgs e)
+        {
+            if (main.signedIn)
             {
-                if (main.signedIn)
+                if (sender.Equals(PostCommentButton))
                 {
                     if (replyFlag == 0)
                     {
@@ -120,13 +133,25 @@ namespace shuttr
                         commentToReplyTo = null;
                     }
                 }
-                else if (!main.signedIn)
+                else if (sender.Equals(MessageUserButton))
                 {
-                    LoginPrompt prompt = new LoginPrompt(main);
-                    prompt.SetMessage("You must sign in to discuss with users.");
-                    prompt.ShowDialog();
-                    main.HighlightTab();
+                    // remove from discussions page
+                    main.currDiscussionPage.discussionDict.Remove(discussion.discussionId);
+                    main.currDiscussionPage.DisplayDiscussionPosts();
+                    // remove from user's profile page
+                    main.currUser.userDiscussions.Remove(discussion.discussionId);
+                    main.currProfilePage.DisplayPosts();
+                    // close popup window
+                    this.Visibility = Visibility.Hidden;
+                    main.ChangeFill();
                 }
+            }
+            else if (!main.signedIn)
+            {
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to discuss with users.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
         }
     }

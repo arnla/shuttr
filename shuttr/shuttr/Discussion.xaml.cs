@@ -20,16 +20,17 @@ namespace shuttr
     /// </summary>
     public partial class Discussion : UserControl
     {
-        private int discussionId;
-        private string user;
-        private string title;
-        private string description;
-        private int numReplies;
+        public int discussionId { get; set; }
+        public string user { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public int numReplies { get; set; }
         public int score { get; set; }
-        private List<Comment> comments;
+        public List<Comment> comments { get; set; }
+        public bool currUser { get; set; } = false;
 
         public MainWindow main { get; set; }
-        private bool saved;
+        public bool saved { get; set; }
         public bool Saved
         {
             get
@@ -49,6 +50,20 @@ namespace shuttr
                     saveDiscussion.Content = "Save";
                 }
             }
+        }
+
+        public Discussion(Discussion newDiscussion)
+        {
+            InitializeComponent();
+            discussionId = newDiscussion.discussionId;
+            user = userName.Text = newDiscussion.user;
+            title = discussionTitle.Text = newDiscussion.title;
+            description = newDiscussion.description;
+            numReplies = newDiscussion.numReplies;
+            score = 0;
+            comments = newDiscussion.comments;
+            currUser = true;
+            saved = false;
         }
 
         public Discussion()
@@ -76,6 +91,34 @@ namespace shuttr
             userName.Text = name;
             discussionTitle.Text = title;
             saved = false;
+
+            // comments test
+            comments = new List<Comment>();
+            //comments.Add(new Comment("user", "comment1"));
+            //comments.Add(new Comment("user", "comment2"));
+
+            // If the reply count is 1, show "1 reply" instead of "1 replies"
+            replyCount.Text = numReplies.ToString() + ((numReplies == 1) ? " reply" : " replies");
+        }
+
+        /// Creates a discussion feed item with the default profile picture icon and the specified contents.
+        /// </summary>
+        /// <param name="name">The username of the poster</param>
+        /// <param name="title">The title of the discussion post</param>
+        /// <param name="numReplies">The number of replies the discussion post has</param>
+        public Discussion(int discussionId, string name, string title, string description, int numReplies, bool currUser)
+        {
+            InitializeComponent();
+
+            this.discussionId = discussionId;
+            this.user = name;
+            this.title = title;
+            this.description = description;
+            this.numReplies = numReplies;
+            userName.Text = name;
+            discussionTitle.Text = title;
+            saved = false;
+            currUser = true;
 
             // comments test
             comments = new List<Comment>();

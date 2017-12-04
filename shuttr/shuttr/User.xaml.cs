@@ -21,7 +21,7 @@ namespace shuttr
     public partial class User : UserControl
     {
         public Dictionary<int, Photo> userPhotos { get; set; } = new Dictionary<int, Photo>();
-        public Dictionary<int, Discussion> userDiscussion { get; set; } = new Dictionary<int, Discussion>();
+        public Dictionary<int, Discussion> userDiscussions { get; set; } = new Dictionary<int, Discussion>();
 
         /// <summary>
         /// The user name of this user.
@@ -63,17 +63,6 @@ namespace shuttr
             get { return dateJoined; }
             set { dateJoined = DateJoined; }
         }
-
-        /// <summary>
-        /// A list of posts this user has made.
-        /// Stored as a list of UserControls, allowing storage of both Photo and Discussion posts.
-        /// </summary>
-        private List<UserControl> posts = new List<UserControl>();
-        public List<UserControl> Posts
-        {
-            get { return posts; }
-        }
-
 
         /// <summary>
         /// A new user with no parameters set.
@@ -148,15 +137,6 @@ namespace shuttr
             Uri imageUri = new Uri(imagePath, UriKind.Relative);
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             userPicture.Source = imageBitmap;
-        }
-
-        /// <summary>
-        /// Adds a post to this user's profile.
-        /// </summary>
-        /// <param name="post"> A discussion or photo to add to this user's posts </param>
-        public void AddPost(UserControl post)
-        {
-            posts.Add(post);
         }
     }
 }

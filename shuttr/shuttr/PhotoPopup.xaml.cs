@@ -153,7 +153,7 @@ namespace shuttr
                         main.currPhotosPage.DisplayPhotos();
                         // remove from user's profile page
                         main.currUser.userPhotos.Remove(photo.photoId);
-                        main.currProfilePage.DisplayPhotos();
+                        main.currProfilePage.DisplayPosts();
                         // close popup window
                         this.Visibility = Visibility.Hidden;
                         main.ChangeFill();
