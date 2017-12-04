@@ -167,7 +167,7 @@
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
-                   Text="Username"
+                   Text="Password"
                    Opacity="0.5"
                    FontFamily="Microsoft YaHei"
                    FontSize="36"

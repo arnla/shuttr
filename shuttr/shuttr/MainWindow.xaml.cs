@@ -195,12 +195,13 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
+                currProfilePage = new ProfilePage(this, currUser);
                 contentControl.Content = currProfilePage;
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
             {
-                contentControl.Content = new UserSettings();
+                contentControl.Content = new UserSettings(this, currUser);
                 HighlightTab();
             }
             else if (sender.Equals(logoutButton))

@@ -20,17 +20,33 @@ namespace shuttr
     /// </summary>
     public partial class UserSettings : ContentControl
     {
-        public UserSettings()
+        private MainWindow main;
+        private User displayedUser;
+
+        public UserSettings(MainWindow parent, User currentUser)
         {
             InitializeComponent();
-        }
 
+            displayedUser = currentUser;
+            main = parent;
+        }
 
         public void Button_Click(object sender, EventArgs e)
         {
             if (sender.Equals(changeButton))
             {
-
+                if (usernameBox.Text.Length != 0)
+                {
+                    displayedUser.UserName = usernameBox.Text.ToString();
+                }
+                if (passwordBox.Text.Length != 0)
+                {
+                    displayedUser.Password = passwordBox.Text.ToString();
+                }
+                if (emailBox.Text.Length != 0)
+                {
+                    displayedUser.Email = emailBox.Text.ToString();
+                }
             }
         }
 

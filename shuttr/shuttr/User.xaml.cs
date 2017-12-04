@@ -61,7 +61,14 @@ namespace shuttr
         public DateTime DateJoined
         {
             get { return dateJoined; }
-            set { dateJoined = DateJoined; }
+            set { dateJoined = value; }
+        }
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
         /// <summary>
