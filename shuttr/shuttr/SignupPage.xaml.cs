@@ -17,10 +17,12 @@ namespace shuttr
 {
     public partial class SignupPage : UserControl
     {
+        private MainWindow main;
 
-        public SignupPage()
+        public SignupPage(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
             SignupSwitcher.signupSwitcher = this;
         }
 
@@ -54,7 +56,8 @@ namespace shuttr
                 }
                 if (formComplete)
                 {
-                    SignupSwitcher.Switch(new FollowingPage());
+                    //SignupSwitcher.Switch(new FollowingPage());
+                    main.SignIn();
                 }
             }
         }
