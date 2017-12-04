@@ -77,8 +77,13 @@ namespace shuttr
         {
             if (discussion.currUser == true)
             {
-                MessageUserButton.Content = "DELETE";
-                MessageUserButton.Background = Brushes.Red;
+                MessageUserButton.Visibility = Visibility.Collapsed;
+                DeleteButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageUserButton.Visibility = Visibility.Visible;
+                DeleteButton.Visibility = Visibility.Collapsed;
             }
         }
         
@@ -138,7 +143,7 @@ namespace shuttr
                         commentToReplyTo = null;
                     }
                 }
-                else if (sender.Equals(MessageUserButton))
+                else if (sender.Equals(DeleteButton))
                 {
                     // remove from discussions page
                     main.currDiscussionPage.discussionDict.Remove(discussion.discussionId);

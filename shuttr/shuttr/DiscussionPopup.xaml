@@ -34,7 +34,8 @@
                             </Grid.RowDefinitions>
                             <TextBlock x:Name="Username" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             <Button x:Name="MessageUserButton" Grid.Row="1" Content="MESSAGE" Click="ButtonClick"></Button>
-                        </Grid>
+                            <Button x:Name="DeleteButton" Grid.Row="1" Content="DELETE" Background="Red" Click="ButtonClick"></Button>
+                    </Grid>
                     </Grid>
                     <TextBlock x:Name="DiscussionTitle" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
 
