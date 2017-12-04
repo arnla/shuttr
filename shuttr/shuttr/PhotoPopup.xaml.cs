@@ -135,6 +135,7 @@ namespace shuttr
                         string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
 
                         Comment newComment = new Comment("current user", richText, this);
+                        newComment.CurrentUser = true;
                         commentFeed.Children.Add(newComment);
                         photoAndComments.ScrollToEnd();
                         photo.comments.Add(newComment);
@@ -145,7 +146,9 @@ namespace shuttr
                     {
                         string richText = new TextRange(commentBox.Document.ContentStart, commentBox.Document.ContentEnd).Text;
 
-                        commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", richText, this));
+                        Comment newComment = new Comment("current user", richText, this);
+                        newComment.CurrentUser = true;
+                        commentToReplyTo.repliesFeed.Children.Add(newComment);
                         commentBox.Document.Blocks.Clear();
                         commentBox.Document.Blocks.Add(new Paragraph(new Run("Type a message...")));
                         replyFlag = 0;

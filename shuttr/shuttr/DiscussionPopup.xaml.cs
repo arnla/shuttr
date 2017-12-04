@@ -120,6 +120,7 @@ namespace shuttr
                     if (replyFlag == 0)
                     {
                         Comment newComment = new Comment("current user", CommentBox.Text, this);
+                        newComment.CurrentUser = true;
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
@@ -128,7 +129,9 @@ namespace shuttr
                     else if (replyFlag == 1)
                     {
                         string[] reply = CommentBox.Text.Split('\n');
-                        commentToReplyTo.repliesFeed.Children.Add(new Comment("current user", reply[1], this));
+                        Comment newComment = new Comment("current user", reply[1], this);
+                        newComment.CurrentUser = true;
+                        commentToReplyTo.repliesFeed.Children.Add(newComment);
                         CommentBox.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
