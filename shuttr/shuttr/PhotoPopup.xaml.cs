@@ -170,7 +170,7 @@ namespace shuttr
             }
             else if (!main.signedIn)
             {
-                NoBlurPrompt prompt = new NoBlurPrompt(main);
+                NoBlurPrompt prompt = new NoBlurPrompt(main, this);
                 prompt.SetMessage("You must sign in to discuss with users.");
                 prompt.ShowDialog();
                 main.HighlightTab();

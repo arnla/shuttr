@@ -20,12 +20,14 @@ namespace shuttr
     public partial class NoBlurPrompt : Window
     {
         private MainWindow main;
+        private UserControl parent;
 
-        public NoBlurPrompt(MainWindow main)
+        public NoBlurPrompt(MainWindow main, UserControl parent)
         {
             InitializeComponent();
 
             this.main = main;
+            this.parent = parent;
         }
 
         public void SetMessage(string messageToDisplay)
@@ -56,6 +58,8 @@ namespace shuttr
         private void Confirm(object sender, RoutedEventArgs e)
         {
             main.contentControl.Content = new LoginPage(main);
+            main.ChangeFill(Visibility.Hidden);
+            parent.Visibility = Visibility.Hidden;
             this.Close();
         }
 
