@@ -214,6 +214,7 @@ namespace shuttr
             Image maximizedImage = new Image();
             maximizedImage.Source = tmp.Source;
             maximizedImage.SetValue(Grid.RowProperty, 1);
+            maximizedImage.MouseLeftButtonDown += CloseMaximizedImage;
 
             // Add the close button and image to the grid.
             maximizeGrid.Children.Add(closeMaximize);

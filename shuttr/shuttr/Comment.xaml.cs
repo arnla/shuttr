@@ -90,14 +90,14 @@ namespace shuttr
                     if (parent.GetType() == typeof(DiscussionPopup))
                     {
                         DiscussionPopup castedParent = (DiscussionPopup)parent;
-                        castedParent.CommentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
+                        castedParent.CommentBox.Text = "[Replying to " + username + "'s comment: \"" + comment + "\"]\n";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
                     }
                     else if (parent.GetType() == typeof(PhotoPopup))
                     {
                         PhotoPopup castedParent = (PhotoPopup)parent;
-                        castedParent.commentBox.Text = "Replying to " + username + "'s comment: " + comment + "\n";
+                        castedParent.commentBox.Text = "[Replying to " + username + "'s comment: \"" + comment + "\"]\n";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
                     }
@@ -111,10 +111,12 @@ namespace shuttr
 
         private void DeleteComment(object sender, RoutedEventArgs e)
         {
-            username = "deleted";
-            comment = "deleted";
-            commentBox.Text = "deleted";
-            usernameText.Text = "deleted";
+            username = "[deleted]";
+            comment = "[deleted]";
+            commentBox.Text = "[deleted]";
+            usernameText.Text = "[deleted]";
+            commentBox.Foreground = Brushes.Red;
+            usernameText.Foreground = Brushes.Red;
             CurrentUser = false;
         }
     }
