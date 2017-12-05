@@ -24,6 +24,13 @@ namespace shuttr
             InitializeComponent();
             this.main = main;
             SignupSwitcher.signupSwitcher = this;
+
+            Loaded += SignUpLoaded;
+        }
+
+        private void SignUpLoaded(object sender, RoutedEventArgs e)
+        {
+            emailBox.Focus();
         }
 
         public void Navigate(UserControl nextPage)
@@ -77,6 +84,53 @@ namespace shuttr
         public void LoginClick(object sender, RoutedEventArgs e)
         {
             main.contentControl.Content = new LoginPage(main);
+        }
+
+        public void NextField(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (sender.Equals(emailBox))
+                {
+                    usernameBox.Focus();
+                }
+                else if (sender.Equals(usernameBox))
+                {
+                    passBox.Focus();
+                }
+            }
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                bool formComplete = true;
+
+                if (emailBox.Text == "")
+                {
+                    emailBoxDefault.Foreground = Brushes.Red;
+                    emailBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (passBox.Password == "")
+                {
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
+                    formComplete = false;
+                }
+                if (formComplete)
+                {
+                    //SignupSwitcher.Switch(new FollowingPage());
+                    main.SignIn();
+                }
+            }
         }
     }
 }

@@ -42,20 +42,21 @@
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
+                        FontFamily="Microsoft YaHei"
+                           KeyDown="NextField">
                 </TextBox>
                 <TextBlock x:Name="emailBoxDefault"
-                   IsHitTestVisible="False"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Text="Email"
-                   Opacity="0.5"
-                   FontFamily="Microsoft YaHei"
-                   FontSize="36"
-                   FontStyle="Italic" 
-                   Grid.Row="1"
-                   Height="48" 
-                   Width="Auto">
+                           IsHitTestVisible="False"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="Email"
+                           Opacity="0.5"
+                           FontFamily="Microsoft YaHei"
+                           FontSize="36"
+                           FontStyle="Italic" 
+                           Grid.Row="1"
+                           Height="48" 
+                           Width="Auto">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility"
@@ -89,20 +90,21 @@
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
+                        FontFamily="Microsoft YaHei"
+                           KeyDown="NextField">
                 </TextBox>
                 <TextBlock x:Name="usernameBoxDefault"
-                   IsHitTestVisible="False"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Text="Username"
-                   Opacity="0.5"
-                   FontFamily="Microsoft YaHei"
-                   FontSize="36"
-                   FontStyle="Italic" 
-                   Grid.Row="1"
-                   Height="48" 
-                   Width="Auto">
+                           IsHitTestVisible="False"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Text="Username"
+                           Opacity="0.5"
+                           FontFamily="Microsoft YaHei"
+                           FontSize="36"
+                           FontStyle="Italic" 
+                           Grid.Row="1"
+                           Height="48" 
+                           Width="Auto">
                     <TextBlock.Style>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Visibility"
@@ -135,7 +137,8 @@
                              VerticalAlignment="Center"
                              Width="548"
                              FontSize="36"
-                             PasswordChanged="passwordChanged"/>
+                             PasswordChanged="passwordChanged"
+                             KeyDown="CheckForEnter"/>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
