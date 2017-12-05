@@ -102,8 +102,9 @@ namespace shuttr
             commentsFeed.Children.Clear();
             foreach (Comment c in discussion.GetComments())
             {
-                c.parent = this;
-                commentsFeed.Children.Add(c);
+                Comment copy = new Comment(c);
+                copy.parent = this;
+                commentsFeed.Children.Add(copy);
             }
         }
 

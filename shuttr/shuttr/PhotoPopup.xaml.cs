@@ -172,8 +172,9 @@ namespace shuttr
             commentFeed.Children.Add(embeddedImage(photo));
             foreach (Comment c in photo.comments)
             {
-                c.parent = this;
-                commentFeed.Children.Add(c);
+                Comment copy = new Comment(c);
+                copy.parent = this;
+                commentFeed.Children.Add(copy);
             }
         }
 

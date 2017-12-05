@@ -20,8 +20,8 @@ namespace shuttr
     /// </summary>
     public partial class Comment : UserControl
     {
-        private string username;
-        private string comment;
+        private string username { get; set; }
+        private string comment { get; set; }
         public UserControl parent { get; set; }
         private bool currentUser = false;
         public bool CurrentUser
@@ -47,6 +47,20 @@ namespace shuttr
         public Comment()
         {
             InitializeComponent();
+        }
+
+        public Comment(Comment old)
+        {
+            InitializeComponent();
+            this.username = old.username;
+            this.comment = old.comment;
+            this.parent = old.parent;
+            this.CurrentUser = old.CurrentUser;
+
+            foreach (Comment reply in old.repliesFeed.Children)
+            {
+                this.repliesFeed.Children.Add(new Comment(reply));
+            }
         }
 
         public Comment(string username, string comment)
