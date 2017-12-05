@@ -65,6 +65,8 @@ namespace shuttr
             // Photo = 5 Score, 1 Comment, Discussion = -1 score, 3 comments
             userProfileFeed.Children.Add(photo);
             userProfileFeed.Children.Add(discussion);
+
+            currentFilterOption.Content = filterAll.Content;
         }
 
         private void FollowClick(object sender, RoutedEventArgs e)
