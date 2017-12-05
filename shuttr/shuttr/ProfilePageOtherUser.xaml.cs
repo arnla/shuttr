@@ -35,11 +35,11 @@ namespace shuttr
             // Determine whether this user is being followed.
             if (main.followingSomeone)
             {
-                followButton.Content = "UNFOLLOW";
+                followButton.Content = "Unfollow";
             }
             else
             {
-                followButton.Content = "FOLLOW";
+                followButton.Content = "Follow";
             }
 
             // Create a photo and discussion.
@@ -73,14 +73,14 @@ namespace shuttr
         {
             if (main.signedIn)
             {
-                if ((followButton.Content as string) == "FOLLOW")
+                if ((followButton.Content as string) == "Follow")
                 {
-                    followButton.Content = "UNFOLLOW";
+                    followButton.Content = "Unfollow";
                     main.followingSomeone = true;
                 }
-                else if ((followButton.Content as string) == "UNFOLLOW")
+                else if ((followButton.Content as string) == "Unfollow")
                 {
-                    followButton.Content = "FOLLOW";
+                    followButton.Content = "Follow";
                     main.followingSomeone = false;
                 }
             }
@@ -93,7 +93,7 @@ namespace shuttr
             }
         }
 
-        private void MessageClick(object sender, RoutedEventArgs e)
+        private void DevClick(object sender, RoutedEventArgs e)
         {
             if (main.signedIn)
             {
