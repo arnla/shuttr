@@ -97,16 +97,36 @@ namespace shuttr
         {
             if (main.signedIn)
             {
-                MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
-                main.ChangeFill(Visibility.Visible);
-                prompt.ShowDialog();
+                if (sender.Equals(messageButton))
+                {
+                    MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+                    main.ChangeFill(Visibility.Visible);
+                    prompt.ShowDialog();
+                }
+                else if (sender.Equals(blockButton))
+                {
+                    MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+                    prompt.SetMessage("Blocking is currently under development.");
+                    main.ChangeFill(Visibility.Visible);
+                    prompt.ShowDialog();
+                }
             }
             else
             {
-                LoginPrompt prompt = new LoginPrompt(main);
-                prompt.SetMessage("You must sign in to message other users.\n(This feature is under construction)");
-                prompt.ShowDialog();
-                main.HighlightTab();
+                if (sender.Equals(messageButton))
+                {
+                    LoginPrompt prompt = new LoginPrompt(main);
+                    prompt.SetMessage("You must sign in to message other users.\n(This feature is under development)");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
+                else if (sender.Equals(blockButton))
+                {
+                    LoginPrompt prompt = new LoginPrompt(main);
+                    prompt.SetMessage("You must sign in to block users.\n(This feature is under development)");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
             }
         }
 
