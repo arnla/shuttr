@@ -38,9 +38,12 @@ namespace shuttr
             displayedUser = currentUser;
             userName.Content = currentUser.UserName;
             profilePicture.Source = currentUser.ProfilePicture;
-            //dateJoined.Content = currentUser.DateJoined;
             DisplayPosts();
-            //HardcodedPhotosAndDiscussions();
+
+            if (displayedUser.Biography != null)
+            {
+                biographyText.Text = displayedUser.Biography;
+            }
         }
 
         /// <summary>

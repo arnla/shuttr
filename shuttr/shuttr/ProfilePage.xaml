@@ -93,10 +93,10 @@
                             <DropShadowEffect ShadowDepth="5" Color="White" Opacity="1" BlurRadius="5"/>
                         </TextBlock.Effect>
                     </TextBlock>
-                    <TextBox x:Name="biographyTextBox" Grid.Row="0" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="Black" KeyDown="CheckForEnter"/>
-                    <StackPanel x:Name="updateBioButtons" Orientation="Horizontal" Grid.Row="1" Visibility="Hidden">
-                        <Button x:Name="confirmUpdateBio" Content="Update Bio" Click="UpdateBioClick"/>
-                        <Button x:Name="cancelUpdateBio" Content="Cancel" Click="UpdateBioClick"/>
+                    <TextBox x:Name="biographyTextBox" Grid.Row="0" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="Black" KeyDown="CheckForEnter" TextWrapping="Wrap"/>
+                    <StackPanel x:Name="updateBioButtons" Orientation="Horizontal" Visibility="Hidden" Grid.Row="1" Margin="0,0,15,0" HorizontalAlignment="Center">
+                        <Button x:Name="confirmUpdateBio" Margin="10, 5, 10, 5" Content="Update Bio" Click="UpdateBioClick"/>
+                        <Button x:Name="cancelUpdateBio" Margin="10, 5, 10, 5" Content="Cancel" Click="UpdateBioClick"/>
                     </StackPanel>
                 </Grid>
             </Border>
