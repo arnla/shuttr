@@ -73,5 +73,10 @@ namespace shuttr
                 passwordBoxDefault.Text = "Password";
             }
         }
+
+        public void LoginClick(object sender, RoutedEventArgs e)
+        {
+            main.contentControl.Content = new LoginPage(main);
+        }
     }
 }

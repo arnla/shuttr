@@ -178,5 +178,32 @@
                 </Button.Effect>
             </Button>
         </Border>
+
+        <Border BorderBrush="Black" 
+                    BorderThickness="0" 
+                    HorizontalAlignment="Center" 
+                    Height="Auto" 
+                    VerticalAlignment="Center" 
+                    Width="568" 
+                    Grid.Row="6" >
+            <Button x:Name="backToLoginButton"
+                    Content="Back To Login"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Width="568"
+                    Height="50"
+                    BorderThickness="0,1,1,1"
+                    Background="#F63090C7" 
+                    Foreground="White" 
+                    Click="LoginClick" 
+                    FontFamily="Microsoft YaHei" 
+                    FontSize="34" 
+                    FontWeight="Bold"
+                    Grid.Row="4">
+                <Button.Effect>
+                    <DropShadowEffect Direction="270" ShadowDepth="1"/>
+                </Button.Effect>
+            </Button>
+        </Border>
     </Grid>
 </UserControl>
