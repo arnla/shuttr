@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="200">
-    <Button>
+    <Button x:Name="notificationButton">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>

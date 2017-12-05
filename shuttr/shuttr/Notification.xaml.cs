@@ -31,18 +31,35 @@ namespace shuttr
         /// <param name="read"> Whether or not the notification is read </param>
         /// <param name="message"> The message the notification will contain </param>
         /// <param name="date"> The age of the notification (e.g. 17h) </param>
-        public Notification(bool read, string message, string date)
+        public Notification(bool read, string message, string date, MainWindow main)
         {
             InitializeComponent();
 
             if (!read)
             {
-                readStatus.Fill = new SolidColorBrush(System.Windows.Media.Colors.Transparent);
+                readStatus.Fill = new SolidColorBrush(Colors.Black);
+                notificationContent.FontWeight = FontWeights.Bold;
+                dateReceived.FontWeight = FontWeights.Bold;
+            }
+            if (read)
+            {
+                readStatus.Fill = new SolidColorBrush(Colors.Transparent);
+                notificationContent.FontWeight = FontWeights.Normal;
+                dateReceived.FontWeight = FontWeights.Normal;
             }
 
             notificationContent.Text = message;
 
             dateReceived.Text = date;
+
+            notificationButton.Click += main.NotificationClick;
+        }
+
+        public void Read()
+        {
+            readStatus.Fill = new SolidColorBrush(Colors.Transparent);
+            notificationContent.FontWeight = FontWeights.Normal;
+            dateReceived.FontWeight = FontWeights.Normal;
         }
     }
 }

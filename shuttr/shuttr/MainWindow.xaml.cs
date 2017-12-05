@@ -126,13 +126,34 @@ namespace shuttr
         /// Fills the notification submenu with a hardcoded set of notifications.
         /// Creates new Notification items and adds them to the submenu.
         /// </summary>
+        Notification unreadNotification;
         private void FillNotificationMenu()
         {
-            notificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "17h"));
-            notificationStackPanel.Children.Add(new Notification(false, "User2 replied to your comment", "18h"));
-            notificationStackPanel.Children.Add(new Notification(false, "User3 commented on your photo", "3d"));
-            notificationStackPanel.Children.Add(new Notification(false, "User4 replied to your comment", "4d"));
-            notificationStackPanel.Children.Add(new Notification(false, "User2 commented on your photo", "5d"));
+            unreadNotification = new Notification(false, "Lawrence upvoted your photo", "17h", this);
+            Notification readNotification = new Notification(true, "Lean upvoted your photo", "3d", this);
+
+            notificationStackPanel.Children.Add(unreadNotification);
+            notificationStackPanel.Children.Add(readNotification);
+        }
+        public void NotificationClick(object sender, RoutedEventArgs e)
+        {
+            Button tmp = (Button)sender;
+            Notification temp = (Notification)tmp.Parent;
+            if (temp.notificationContent.Text.ToString().Contains("Lawrence"))
+            {
+                unreadNotification.Read();
+            }
+            notificationsButtonDropdown.IsOpen = false;
+            Photo randomPhoto = new Photo(357, "/Images/trackfield.jpg");
+            randomPhoto.title = "On your marks...";
+            randomPhoto.caption = "I tried a bit of black and white.";
+            randomPhoto.username = "Angela";
+            randomPhoto.score = 2;
+            randomPhoto.displaySideInfo();
+            PhotoPopup popup = new PhotoPopup(this, randomPhoto);
+            popup.SetValue(Grid.RowProperty, 2);
+            popup.SetValue(Grid.ColumnSpanProperty, 3);
+            mainGrid.Children.Add(popup);
         }
 
         /// <summary>

@@ -311,7 +311,6 @@
                    StaysOpen="False">
                 <ScrollViewer MaxHeight="300">
                     <StackPanel x:Name="notificationStackPanel">
-                        <control:Notification/>
                     </StackPanel>
                 </ScrollViewer>
             </Popup>
