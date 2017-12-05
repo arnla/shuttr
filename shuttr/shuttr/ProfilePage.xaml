@@ -78,7 +78,7 @@
                 -->
             </Grid>
 
-            <Border Grid.Row="1" Grid.ColumnSpan="2" Width="300" MouseLeftButtonDown="ChangeBiographyClick">
+            <Border Margin="10,0,0,0" Grid.Row="1" Grid.ColumnSpan="2" Width="300" MouseLeftButtonDown="ChangeBiographyClick">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
