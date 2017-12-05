@@ -31,6 +31,13 @@ namespace shuttr
             this.parent = parent;
         }
 
+        public DeletePrompt(UserControl parent)
+        {
+            InitializeComponent();
+            main = null;
+            this.parent = parent;
+        }
+
         public void SetMessage(string messageToDisplay)
         {
             message.Text = messageToDisplay;
@@ -58,10 +65,19 @@ namespace shuttr
         /// <param name="e"></param>
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            confirmed = true;
-            main.ChangeFill(Visibility.Hidden);
-            parent.Visibility = Visibility.Hidden;
-            this.Close();
+            if (main != null)
+            {
+                confirmed = true;
+                main.ChangeFill(Visibility.Hidden);
+                parent.Visibility = Visibility.Hidden;
+                this.Close();
+            }
+            // For comments deletions
+            else
+            {
+                confirmed = true;
+                this.Close();
+            }
         }
 
         /// <summary>

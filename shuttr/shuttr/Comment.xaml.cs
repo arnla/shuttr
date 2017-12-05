@@ -111,13 +111,19 @@ namespace shuttr
 
         private void DeleteComment(object sender, RoutedEventArgs e)
         {
-            username = "[deleted]";
-            comment = "[deleted]";
-            commentBox.Text = "[deleted]";
-            usernameText.Text = "[deleted]";
-            commentBox.Foreground = Brushes.Red;
-            usernameText.Foreground = Brushes.Red;
-            CurrentUser = false;
+            DeletePrompt prompt = new DeletePrompt(this);
+            prompt.SetMessage("This action cannot be undone, are you sure you want to proceed?");
+            prompt.ShowDialog();
+            if (prompt.confirmed == true)
+            {
+                username = "[deleted]";
+                comment = "[deleted]";
+                commentBox.Text = "[deleted]";
+                usernameText.Text = "[deleted]";
+                commentBox.Foreground = Brushes.Red;
+                usernameText.Foreground = Brushes.Red;
+                CurrentUser = false;
+            }
         }
     }
 }
