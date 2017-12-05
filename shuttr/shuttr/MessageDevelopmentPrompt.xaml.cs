@@ -20,6 +20,7 @@ namespace shuttr
     public partial class MessageDevelopmentPrompt : Window
     {
         UserControl parent;
+        MainWindow main;
 
         public MessageDevelopmentPrompt(ProfilePageOtherUser parent)
         {
@@ -33,6 +34,13 @@ namespace shuttr
             InitializeComponent();
 
             this.parent = parent;
+        }
+
+        public MessageDevelopmentPrompt(MainWindow main)
+        {
+            InitializeComponent();
+
+            this.main = main;
         }
 
         public void SetMessage(string messageToDisplay)
@@ -54,7 +62,11 @@ namespace shuttr
         {
             this.Close();
 
-            if (parent.GetType() == typeof(ProfilePageOtherUser))
+            if (main != null)
+            {
+                main.OnCloseMessagePrompt();
+            }
+            else if (parent.GetType() == typeof(ProfilePageOtherUser))
             {
                 ProfilePageOtherUser castedParent = (ProfilePageOtherUser)parent;
                 castedParent.OnCloseMessagePrompt();
@@ -74,7 +86,12 @@ namespace shuttr
         private void Cancel(object sender, RoutedEventArgs e)
         {
             this.Close();
-            if (parent.GetType() == typeof(ProfilePageOtherUser))
+
+            if (main != null)
+            {
+                main.OnCloseMessagePrompt();
+            }
+            else if (parent.GetType() == typeof(ProfilePageOtherUser))
             {
                 ProfilePageOtherUser castedParent = (ProfilePageOtherUser)parent;
                 castedParent.OnCloseMessagePrompt();
