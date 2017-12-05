@@ -56,6 +56,9 @@ namespace shuttr
             }
             else if (sender.Equals(CancelPostPhotoButton))
             {
+                PostCancelPrompt prompt = new PostCancelPrompt(this);
+                prompt.ShowDialog();
+                /*
                 parent.ChangeFill(Visibility.Hidden);
                 AddedImage.Source = null;
                 AddedImage.Visibility = Visibility.Hidden;
@@ -63,7 +66,7 @@ namespace shuttr
                 BrowseButton.Foreground = new SolidColorBrush(Colors.Black);
                 AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Black);
                 AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Black);
-                this.Visibility = Visibility.Hidden;
+                this.Visibility = Visibility.Hidden;*/
             }
             else if (sender.Equals(ConfirmPostPhotoButton))
             {
@@ -87,6 +90,18 @@ namespace shuttr
                     this.Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        public void Cancel()
+        {
+            parent.ChangeFill(Visibility.Hidden);
+            AddedImage.Source = null;
+            AddedImage.Visibility = Visibility.Hidden;
+            ImageBox.Visibility = Visibility.Visible;
+            BrowseButton.Foreground = new SolidColorBrush(Colors.Black);
+            AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Black);
+            AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Black);
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

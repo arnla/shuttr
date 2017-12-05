@@ -42,8 +42,10 @@ namespace shuttr
         {
             if (sender.Equals(CancelPostDiscussionButton))
             {
-                parent.ChangeFill(Visibility.Hidden);
-                this.Visibility = Visibility.Hidden;
+                PostCancelPrompt prompt = new PostCancelPrompt(this);
+                prompt.ShowDialog();
+                //parent.ChangeFill(Visibility.Hidden);
+                //this.Visibility = Visibility.Hidden;
             }
             else if (sender.Equals(ConfirmPostDiscussionButton))
             {
@@ -66,6 +68,12 @@ namespace shuttr
                     this.Visibility = Visibility.Hidden;
                 }
             }
+        }
+
+        public void Cancel()
+        {
+            parent.ChangeFill(Visibility.Hidden);
+            this.Visibility = Visibility.Hidden;
         }
     }
 }

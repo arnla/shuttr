@@ -92,6 +92,9 @@
     <Compile Include="PhotoPopup.xaml.cs">
       <DependentUpon>PhotoPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PostCancelPrompt.xaml.cs">
+      <DependentUpon>PostCancelPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProfilePageOtherUser.xaml.cs">
       <DependentUpon>ProfilePageOtherUser.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PhotoPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostCancelPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
