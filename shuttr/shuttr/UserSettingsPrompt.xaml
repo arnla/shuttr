@@ -8,6 +8,7 @@
         SizeToContent="WidthAndHeight"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
+        FocusManager.FocusedElement="{Binding ElementName=passwordBox}"
         Title="Shuttr"
         WindowStyle="None"
         d:DesignHeight="150" d:DesignWidth="300">
