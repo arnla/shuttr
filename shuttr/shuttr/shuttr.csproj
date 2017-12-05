@@ -62,6 +62,9 @@
     <Compile Include="Comment.xaml.cs">
       <DependentUpon>Comment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeletePrompt.xaml.cs">
+      <DependentUpon>DeletePrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Discussion.xaml.cs">
       <DependentUpon>Discussion.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
     <Compile Include="UserSettings.xaml.cs">
       <DependentUpon>UserSettings.xaml</DependentUpon>
     </Compile>
+    <Page Include="DeletePrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Discussion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

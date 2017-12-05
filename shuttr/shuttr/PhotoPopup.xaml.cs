@@ -165,6 +165,12 @@ namespace shuttr
                 }
                 else if (sender.Equals(DeleteButton))
                 {
+                    DeletePrompt prompt = new DeletePrompt(main, this);
+                    prompt.SetMessage("This action cannot be undone, are you sure you want to proceed?");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                    if (prompt.confirmed == true)
+                    {
                         // remove from photos page
                         main.currPhotosPage.photoDict.Remove(photo.photoId);
                         main.currPhotosPage.DisplayPhotos();
@@ -174,6 +180,7 @@ namespace shuttr
                         // close popup window
                         this.Visibility = Visibility.Hidden;
                         main.ChangeFill(Visibility.Hidden);
+                    }
                 }
             }
             else if (!main.signedIn)
