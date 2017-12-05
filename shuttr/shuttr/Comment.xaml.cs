@@ -54,6 +54,7 @@ namespace shuttr
             InitializeComponent();
             this.username = old.username;
             this.comment = old.comment;
+            this.commentBox.Text = old.commentBox.Text;
             this.parent = old.parent;
             this.CurrentUser = old.CurrentUser;
 
