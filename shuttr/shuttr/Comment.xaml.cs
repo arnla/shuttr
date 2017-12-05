@@ -22,7 +22,6 @@ namespace shuttr
     {
         private string username;
         private string comment;
-        private bool deleted;
         public UserControl parent { get; set; }
         private bool currentUser = false;
         public bool CurrentUser
@@ -58,7 +57,6 @@ namespace shuttr
             usernameText.Text = username;
             commentBox.Text = comment;
             CurrentUser = false;
-            deleted = false;
         }
 
         public Comment(string username, string comment, PhotoPopup parent)
@@ -70,7 +68,6 @@ namespace shuttr
             commentBox.Text = comment;
             this.parent = parent;
             CurrentUser = false;
-            deleted = false;
         }
 
         public Comment(string username, string comment, DiscussionPopup parent)
@@ -82,7 +79,6 @@ namespace shuttr
             commentBox.Text = comment;
             this.parent = parent;
             CurrentUser = false;
-            deleted = false;
         }
 
         protected void Button_Click(object sender, EventArgs e)
@@ -127,7 +123,6 @@ namespace shuttr
                 commentBox.Foreground = Brushes.Red;
                 usernameText.Foreground = Brushes.Red;
                 CurrentUser = false;
-                deleted = true;
                 replyButton.IsEnabled = false;
             }
         }
