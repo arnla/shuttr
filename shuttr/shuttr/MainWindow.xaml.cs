@@ -126,10 +126,9 @@ namespace shuttr
         /// Fills the notification submenu with a hardcoded set of notifications.
         /// Creates new Notification items and adds them to the submenu.
         /// </summary>
-        Notification unreadNotification;
         private void FillNotificationMenu()
         {
-            unreadNotification = new Notification(false, "Lawrence upvoted your photo", "17h", this);
+            Notification unreadNotification = new Notification(false, "Lawrence upvoted your photo", "17h", this);
             Notification readNotification = new Notification(true, "Lean upvoted your photo", "3d", this);
 
             notificationStackPanel.Children.Add(unreadNotification);
@@ -141,7 +140,7 @@ namespace shuttr
             Notification temp = (Notification)tmp.Parent;
             if (temp.notificationContent.Text.ToString().Contains("Lawrence"))
             {
-                unreadNotification.Read();
+                temp.Read();
             }
             notificationsButtonDropdown.IsOpen = false;
             Photo randomPhoto = new Photo(357, "/Images/trackfield.jpg");
