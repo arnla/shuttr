@@ -29,7 +29,8 @@
 
         <!-- Grid Row 1-->
 
-        <Label Content="To change a field, input new information in boxes below. If not leave blank."
+        <Label x:Name="settingsLabel"
+               Content="To change a field, input new information in boxes below. If not leave blank."
                HorizontalAlignment="Center" 
                Margin="0,0,0,0" 
                VerticalAlignment="Center" 
@@ -153,16 +154,16 @@
                     Width="568" 
                     Grid.Row="4" >
             <Grid>
-                <TextBox x:Name="passwordBox"
+                <PasswordBox x:Name="passwordBox"
                         HorizontalAlignment="Center"
                         Height="61" 
-                        Margin="5,5,5,0" 
-                        TextWrapping="Wrap"  
+                        Margin="5,5,5,0"   
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
-                </TextBox>
+                        FontFamily="Microsoft YaHei"
+                        PasswordChanged="passwordChanged">
+                </PasswordBox>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
@@ -175,19 +176,6 @@
                    Grid.Row="4"
                    Height="48" 
                    Width="Auto">
-                    <TextBlock.Style>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="Visibility"
-                            Value="Collapsed"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=passwordBox}"
-                                     Value="">
-                                    <Setter Property="Visibility"
-                                    Value="Visible"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
                 </TextBlock>
             </Grid>
         </Border>

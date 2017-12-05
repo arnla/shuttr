@@ -44,9 +44,9 @@ namespace shuttr
                 {
                     newUserName = usernameBox.Text.ToString();
                 }
-                if (passwordBox.Text.Length != 0)
+                if (passwordBox.Password.Length != 0)
                 {
-                    newPassword = passwordBox.Text.ToString();
+                    newPassword = passwordBox.Password.ToString();
                 }
                 if (emailBox.Text.Length != 0)
                 {
@@ -72,7 +72,7 @@ namespace shuttr
                         changes.Add("password");
                     }
 
-                    string message = "Are you sure you want to change your ";
+                    string message = "Enter your current password to save your new ";
                     if (changes.Count == 1)
                     {
                         message += changes[0];
@@ -97,12 +97,28 @@ namespace shuttr
                 }
             }
         }
+        public void passwordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(passwordBox.Password))
+            {
+                passwordBoxDefault.Text = "";
+            }
+            else
+            {
+                passwordBoxDefault.Text = "Password";
+            }
+        }
 
         public void MakeChanges()
         {
             displayedUser.UserName = newUserName;
             displayedUser.Password = newPassword;
             displayedUser.Email = newEmail;
+            emailBox.Text = "";
+            usernameBox.Text = "";
+            passwordBoxDefault.Text = "";
+            settingsLabel.Content = "Your changes have been saved";
+            settingsLabel.Foreground = Brushes.Green;
         }
     }
 
