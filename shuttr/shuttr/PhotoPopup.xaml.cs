@@ -213,16 +213,18 @@ namespace shuttr
                         photoAndComments.ScrollToEnd();
                         photo.comments.Add(newComment);
                         commentBox.Text = "";
+                        commentBoxDefault.Text = "Type a comment...";
                         // Unnecessary line. Same as DiscussionPopup.
                         //parent.photoDict[photo.photoId] = photo;
                     }
                     else if (replyFlag == 1)
                     {
-                        string[] reply = commentBox.Text.Split('\n');
-                        Comment newComment = new Comment("current user", reply[1], this);
+                        //string[] reply = commentBox.Text.Split('\n');
+                        Comment newComment = new Comment("current user", commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         commentBox.Text = "";
+                        commentBoxDefault.Text = "Type a comment...";
                         replyFlag = 0;
                         commentToReplyTo = null;
                     }

@@ -104,14 +104,14 @@ namespace shuttr
                     if (parent.GetType() == typeof(DiscussionPopup))
                     {
                         DiscussionPopup castedParent = (DiscussionPopup)parent;
-                        castedParent.CommentBox.Text = "[Replying to " + username + "'s comment: \"" + comment + "\"]\n";
+                        castedParent.CommentBoxDefault.Text = "Replying to " + username + "'s comment: \"" + comment + "\". Type a message...";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
                     }
                     else if (parent.GetType() == typeof(PhotoPopup))
                     {
                         PhotoPopup castedParent = (PhotoPopup)parent;
-                        castedParent.commentBox.Text = "[Replying to " + username + "'s comment: \"" + comment + "\"]\n";
+                        castedParent.commentBoxDefault.Text = "Replying to " + username + "'s comment: \"" + comment + "\". Type a comment...";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
                     }

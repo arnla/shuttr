@@ -132,15 +132,17 @@ namespace shuttr
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
                         CommentBox.Text = "";
+                        CommentBoxDefault.Text = "Type a message...";
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
                     }
                     else if (replyFlag == 1)
                     {
-                        string[] reply = CommentBox.Text.Split('\n');
-                        Comment newComment = new Comment("current user", reply[1], this);
+                        //string[] reply = CommentBox.Text.Split('\n');
+                        Comment newComment = new Comment("current user", CommentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         CommentBox.Text = "";
+                        CommentBoxDefault.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
                     }
