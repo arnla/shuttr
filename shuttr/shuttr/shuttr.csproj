@@ -80,6 +80,9 @@
     <Compile Include="LoginPrompt.xaml.cs">
       <DependentUpon>LoginPrompt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MessageDevelopmentPrompt.xaml.cs">
+      <DependentUpon>MessageDevelopmentPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NoBlurPrompt.xaml.cs">
       <DependentUpon>NoBlurPrompt.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoginPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MessageDevelopmentPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

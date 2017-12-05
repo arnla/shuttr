@@ -69,16 +69,48 @@ namespace shuttr
 
         private void FollowClick(object sender, RoutedEventArgs e)
         {
-            if ((followButton.Content as string) == "FOLLOW")
+            if (main.signedIn)
             {
-                followButton.Content = "UNFOLLOW";
-                main.followingSomeone = true;
+                if ((followButton.Content as string) == "FOLLOW")
+                {
+                    followButton.Content = "UNFOLLOW";
+                    main.followingSomeone = true;
+                }
+                else if ((followButton.Content as string) == "UNFOLLOW")
+                {
+                    followButton.Content = "FOLLOW";
+                    main.followingSomeone = false;
+                }
             }
-            else if ((followButton.Content as string) == "UNFOLLOW")
+            else
             {
-                followButton.Content = "FOLLOW";
-                main.followingSomeone = false;
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to follow other users.");
+                prompt.ShowDialog();
+                main.HighlightTab();
             }
+        }
+
+        private void MessageClick(object sender, RoutedEventArgs e)
+        {
+            if (main.signedIn)
+            {
+                MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+                main.ChangeFill(Visibility.Visible);
+                prompt.ShowDialog();
+            }
+            else
+            {
+                LoginPrompt prompt = new LoginPrompt(main);
+                prompt.SetMessage("You must sign in to message other users.\n(This feature is under construction)");
+                prompt.ShowDialog();
+                main.HighlightTab();
+            }
+        }
+
+        public void OnCloseMessagePrompt()
+        {
+            main.ChangeFill(Visibility.Hidden);
         }
 
         private void ClickPost(object sender, MouseEventArgs e)
