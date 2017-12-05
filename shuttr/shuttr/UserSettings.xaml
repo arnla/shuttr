@@ -129,7 +129,7 @@
                             <Setter Property="Visibility"
                             Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=emailBox}"
+                                <DataTrigger Binding="{Binding Text, ElementName=usernameBox}"
                                      Value="">
                                     <Setter Property="Visibility"
                                     Value="Visible"/>
@@ -180,7 +180,7 @@
                             <Setter Property="Visibility"
                             Value="Collapsed"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Text, ElementName=emailBox}"
+                                <DataTrigger Binding="{Binding Text, ElementName=passwordBox}"
                                      Value="">
                                     <Setter Property="Visibility"
                                     Value="Visible"/>
