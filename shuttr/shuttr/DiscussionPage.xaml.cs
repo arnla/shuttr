@@ -140,7 +140,7 @@ namespace shuttr
 
         public void SortClick(object sender, EventArgs e)
         {
-            if (sender.Equals(sortByMenu))
+            if (sender.Equals(sortByMenu) || sender.Equals(currentSortOption))
             {
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
