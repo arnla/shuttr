@@ -221,5 +221,10 @@ namespace shuttr
                 main.HighlightTab();
             }
         }
+
+        public void OtherUserPage(object sender, RoutedEventArgs e)
+        {
+            this.main.contentControl.Content = new ProfilePageOtherUser(main);
+        }
     }
 }

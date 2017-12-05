@@ -181,6 +181,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 photoFeed.Children.Add(photosToSort[k]);
+                photosToSort[k].main = parent;
             }
         }
         public void SortByNew()
@@ -215,6 +216,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 photoFeed.Children.Add(photosToSort[k]);
+                photosToSort[k].main = parent;
             }
         }
         public void SortByMostUpvoted()
@@ -245,6 +247,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 photoFeed.Children.Add(photosToSort[k]);
+                photosToSort[k].main = parent;
             }
         }
 

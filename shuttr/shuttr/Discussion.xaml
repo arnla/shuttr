@@ -22,11 +22,15 @@
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <Image x:Name="userPicture" Source="Images/Icons/userprofile.png" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10,10,10"/>
+                <Button x:Name="userPictureButton" Background="Transparent" BorderBrush="Transparent" Foreground="Transparent" Click="OtherUserPage">
+                    <Image x:Name="userPicture" Source="Images/Icons/userprofile.png" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,10,10,10"/>
+                </Button>
 
-                <TextBlock x:Name="userName" Grid.Row="1" FontSize="20" FontWeight="Bold" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    User1
-                </TextBlock>
+                <Button x:Name="userNameButton" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" Click="OtherUserPage">
+                    <TextBlock x:Name="userName" Grid.Row="1" FontSize="20" FontWeight="Bold" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        User1
+                    </TextBlock>
+                </Button>
             </Grid>
 
             <TextBlock x:Name="discussionTitle" Grid.Column="1" FontSize="16" FontWeight="ExtraBold" FontFamily="Microsoft YaHei" TextWrapping="Wrap" Margin="10,10,10,10">

@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="shuttr.ProfilePageOtherUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <Style x:Key="sortByOptionStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFCFD6D8"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#F6FBFF">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="sortByRow" Height="Auto"/>
+            <RowDefinition x:Name="contentRow"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="userInformation" Width="Auto"/>
+            <ColumnDefinition x:Name="feed"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="200" Height="200" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
+                <Image x:Name="profilePicture" Source="Images/Icons/userprofile.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+
+            <Grid x:Name="userInfo" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="userName" Grid.Row="0" Grid.ColumnSpan="2" Content="User 1" FontFamily="Microsoft YaHei" FontSize="48" HorizontalContentAlignment="Center"/>
+                <Label Content="Date Joined: " Grid.Row="1" Grid.Column="0"/>
+                <Label x:Name="dateJoined" Grid.Row="1" Grid.Column="1" Content="2017/11/24"/>
+                <Button x:Name="followButton" Content="FOLLOW" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22" Click="FollowClick"/>
+                <Button x:Name="messageButton" Content="MESSAGE" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+            </Grid>
+
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Width="300" TextWrapping="Wrap">
+                Just a guy who likes to post here and there.
+            </TextBlock>
+        </Grid>
+
+        <Border x:Name="sortByContainer"
+                HorizontalAlignment="Center"
+                Width="800"
+                Grid.Row="0"
+                Grid.Column="1">
+            <StackPanel Background="Transparent" Orientation="Horizontal">
+                <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentSortOption" Content="Popular"></Label>
+
+                <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="sortByOptions" Background="AliceBlue">
+                        <Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortNew" Content="New" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostCommented" Content="Most Commented" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+                <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
+            </StackPanel>
+        </Border>
+
+        <!-- Menu items: All, Photos, Discussions-->
+        <Border x:Name="filterByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0" Grid.Column="1">
+            <StackPanel Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center"/>
+
+                <Popup x:Name="filterByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="filterByOptions" Background="AliceBlue">
+                        <Button x:Name="filterAll" Content="Photos + Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterPhotos" Content="Photos" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterDiscussions" Content="Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer HorizontalAlignment="Center"
+                      VerticalAlignment="Stretch"  
+                      Width="800"
+                      Grid.Row="1"
+                      Grid.Column="1">
+            <StackPanel x:Name="userProfileFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Margin" Value="5,10,5,0"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -23,11 +23,6 @@ namespace shuttr
         private MainWindow parent;
         private User displayedUser;
 
-        public ProfilePage()
-        {
-            InitializeComponent();
-        }
-
         /// <summary>
         /// Creates a new profile page for the specified user.
         /// Whenever a new user logs in, this constructor should be called.
@@ -157,6 +152,7 @@ namespace shuttr
             foreach (KeyValuePair<int, Photo> photo in displayedUser.userPhotos)
             {
                 Photo newPhoto = new Photo(photo.Value);
+                newPhoto.main = this.parent;
                 userProfileFeed.Children.Add(newPhoto);
                 MakePostClickable(newPhoto);
             }
@@ -167,6 +163,7 @@ namespace shuttr
             foreach (KeyValuePair<int, Discussion> discussion in displayedUser.userDiscussions)
             {
                 Discussion newDiscussion = new Discussion(discussion.Value);
+                newDiscussion.main = this.parent;
                 userProfileFeed.Children.Add(newDiscussion);
                 MakePostClickable(newDiscussion);
             }
@@ -214,11 +211,13 @@ namespace shuttr
             {
                 Photo newPhoto = new Photo(photo.Value);
                 userProfileFeed.Children.Add(newPhoto);
+                newPhoto.main = this.parent;
                 MakePostClickable(newPhoto);
             }
             foreach (KeyValuePair<int, Discussion> discussion in displayedUser.userDiscussions)
             {
                 Discussion newDiscussion = new Discussion(discussion.Value);
+                newDiscussion.main = this.parent;
                 userProfileFeed.Children.Add(newDiscussion);
                 MakePostClickable(newDiscussion);
             }

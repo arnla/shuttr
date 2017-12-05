@@ -86,6 +86,9 @@
     <Compile Include="PhotoPopup.xaml.cs">
       <DependentUpon>PhotoPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProfilePageOtherUser.xaml.cs">
+      <DependentUpon>ProfilePageOtherUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SearchResultsPage.xaml.cs">
       <DependentUpon>SearchResultsPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PhotoPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProfilePageOtherUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

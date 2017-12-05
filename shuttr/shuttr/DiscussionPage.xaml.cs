@@ -201,6 +201,7 @@ namespace shuttr
             for (int k = discussionsToSort.Length - 1; k >= 0; k--)
             {
                 discussionFeed.Children.Add(discussionsToSort[k]);
+                discussionsToSort[k].main = parent;
             }
         }
         public void SortByNew()
@@ -235,6 +236,7 @@ namespace shuttr
             for (int k = discussionsToSort.Length - 1; k >= 0; k--)
             {
                 discussionFeed.Children.Add(discussionsToSort[k]);
+                discussionsToSort[k].main = parent;
             }
         }
         public void SortByMostUpvoted()
@@ -265,6 +267,7 @@ namespace shuttr
             for (int k = discussionsToSort.Length - 1; k >= 0; k--)
             {
                 discussionFeed.Children.Add(discussionsToSort[k]);
+                discussionsToSort[k].main = parent;
             }
         }
 
