@@ -247,5 +247,74 @@ namespace shuttr
             profilePicture.Opacity = 1;
             changeProfilePicture.Visibility = Visibility.Hidden;
         }
+
+        public void ChangeBiographyClick(object sender, MouseEventArgs e)
+        {
+            // Get the user's current bio
+            string usersCurrentBiography = displayedUser.Biography;
+
+            // If the user's bio is set to something, add its text to the text box.
+            if (usersCurrentBiography == null)
+            {
+                biographyTextBox.Text = "";
+            }
+            else if (usersCurrentBiography.Length != 0)
+            {
+                biographyTextBox.Text = usersCurrentBiography;
+            }
+
+            biographyTextBox.Visibility = Visibility.Visible;
+            updateBioButtons.Visibility = Visibility.Visible;
+            biographyTextBox.Focus();
+        }
+
+        public void HoverBiography(object sender, MouseEventArgs e)
+        {
+            changeBiography.Visibility = Visibility.Visible;
+            blurBio.Visibility = Visibility.Visible;
+            biographyText.Opacity = 0.45;
+        }
+
+        public void LeaveBiography(object sender, MouseEventArgs e)
+        {
+            changeBiography.Visibility = Visibility.Hidden;
+            blurBio.Visibility = Visibility.Hidden;
+            biographyText.Opacity = 1;
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                UpdateBiography();
+            }
+        }
+
+        public void UpdateBioClick(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(confirmUpdateBio))
+            {
+                UpdateBiography();
+            }
+            else if (sender.Equals(cancelUpdateBio))
+            {
+                biographyTextBox.Visibility = Visibility.Hidden;
+                updateBioButtons.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void UpdateBiography()
+        {
+            // Get the text entered by the user.
+            string newBiography = biographyTextBox.Text.ToString();
+
+            // Set the new biography in the user object and his profile page.
+            displayedUser.Biography = newBiography;
+            biographyText.Text = newBiography;
+
+            // Hide the text box and buttons
+            biographyTextBox.Visibility = Visibility.Hidden;
+            updateBioButtons.Visibility = Visibility.Hidden;
+        }
     }
 }

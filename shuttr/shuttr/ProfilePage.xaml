@@ -78,12 +78,28 @@
                 -->
             </Grid>
 
-            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Width="300" TextWrapping="Wrap">
-                Jeffrey is a professional photographer who recently went on a photoshoot in Iceland and wants to showcase the photos that he took.
-                He has 5 photos that he wants to share and have displayed in a specific order. 
-                He wants to label his photos with a short sentence. 
-                He wants his photos to be visible to a lot of people, and wants to see what they think about his photography.
-            </TextBlock>
+            <Border Grid.Row="1" Grid.ColumnSpan="2" Width="300" MouseLeftButtonDown="ChangeBiographyClick">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="biographyText" TextWrapping="Wrap" MouseEnter="HoverBiography" MouseLeave="LeaveBiography" Grid.RowSpan="2">
+                        Click here to add a bio and let users know what you're all about!
+                    </TextBlock>
+                    <Rectangle x:Name="blurBio" Visibility="Hidden" Fill="Gray" Opacity="0.1" MouseEnter="HoverBiography" MouseLeave="LeaveBiography"/>
+                    <TextBlock x:Name="changeBiography" Grid.RowSpan="2" Visibility="Hidden" Text="Edit" TextAlignment="Center" FontFamily="Mictosoft YaHei" FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="Black" MouseEnter="HoverBiography" MouseLeave="LeaveBiography">
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="White" Opacity="1" BlurRadius="5"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                    <TextBox x:Name="biographyTextBox" Grid.Row="0" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="Black" KeyDown="CheckForEnter"/>
+                    <StackPanel x:Name="updateBioButtons" Orientation="Horizontal" Grid.Row="1" Visibility="Hidden">
+                        <Button x:Name="confirmUpdateBio" Content="Update Bio" Click="UpdateBioClick"/>
+                        <Button x:Name="cancelUpdateBio" Content="Cancel" Click="UpdateBioClick"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
 
         <Border x:Name="sortByContainer"
