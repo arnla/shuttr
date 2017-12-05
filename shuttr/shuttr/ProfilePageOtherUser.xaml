@@ -81,7 +81,7 @@
                 Grid.Column="1">
             <StackPanel Background="Transparent" Orientation="Horizontal">
                 <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
-                <Label x:Name="currentSortOption" Content="Popular"></Label>
+                <Label x:Name="currentSortOption" Content="Popular" MouseLeftButtonDown="SortClick"></Label>
 
                 <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
                     <StackPanel x:Name="sortByOptions" Background="AliceBlue">
@@ -99,7 +99,7 @@
         <Border x:Name="filterByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0" Grid.Column="1">
             <StackPanel Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
-                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center"/>
+                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center" MouseLeftButtonDown="FilterClick"/>
 
                 <Popup x:Name="filterByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
                     <StackPanel x:Name="filterByOptions" Background="AliceBlue">

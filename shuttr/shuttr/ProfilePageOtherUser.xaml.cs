@@ -135,7 +135,7 @@ namespace shuttr
 
         public void SortClick(object sender, RoutedEventArgs e)
         {
-            if (sender.Equals(sortByMenu))
+            if (sender.Equals(sortByMenu) || sender.Equals(currentSortOption))
             {
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
@@ -231,7 +231,7 @@ namespace shuttr
 
         private void FilterClick(object sender, RoutedEventArgs e)
         {
-            if (sender.Equals(filterByMenu))
+            if (sender.Equals(filterByMenu) || sender.Equals(currentFilterOption))
             {
                 filterByDropdown.IsOpen = !filterByDropdown.IsOpen;
             }
