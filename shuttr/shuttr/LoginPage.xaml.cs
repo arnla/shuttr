@@ -27,6 +27,13 @@ namespace shuttr
             InitializeComponent();
             LoginSwitcher.loginSwitcher = this;
             this.main = main;
+
+            Loaded += LoginLoaded;
+        }
+
+        private void LoginLoaded(object sender, RoutedEventArgs e)
+        {
+            usernameBox.Focus();
         }
 
         public void Navigate(UserControl nextPage)
@@ -84,5 +91,41 @@ namespace shuttr
 
         public void Text_Changed(object sender, EventArgs e)
         { }
+
+        public void NextField(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                passBox.Focus();
+            }
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                bool formComplete = true;
+
+                if (passBox.Password == "")
+                {
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
+                    formComplete = false;
+                    passBox.Focus();
+                }
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                    usernameBox.Focus();
+                }
+                if (formComplete)
+                {
+                    //SignupSwitcher.Switch(new FollowingPage());
+                    main.SignIn();
+                }
+            }
+        }
     }
 }

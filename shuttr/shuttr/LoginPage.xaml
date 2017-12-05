@@ -42,7 +42,8 @@
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
+                        FontFamily="Microsoft YaHei"
+                         KeyDown="NextField">
                 </TextBox>
                 <TextBlock x:Name="usernameBoxDefault"
                    IsHitTestVisible="False"
@@ -88,7 +89,8 @@
                              VerticalAlignment="Center"
                              Width="548"
                              FontSize="36"
-                             PasswordChanged="passwordChanged"/>
+                             PasswordChanged="passwordChanged"
+                             KeyDown="CheckForEnter"/>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Center"
