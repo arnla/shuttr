@@ -24,8 +24,7 @@
             <TextBlock x:Name="message" Text="Enter your current password to save these changes" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" Foreground="White" FontStyle="Oblique" FontFamily="Microsoft YaHei" Grid.Row="1" Height="Auto" Width="Auto" TextWrapping="Wrap"/>
             <PasswordBox x:Name="passwordBox"
                          Grid.Row="2"
-                         MaxWidth="250"
-                         Margin="0,5,0,0"/>
+                         MaxWidth="250"/>
             <StackPanel x:Name="buttons" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">

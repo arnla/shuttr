@@ -103,6 +103,11 @@ namespace shuttr
             displayedUser.UserName = newUserName;
             displayedUser.Password = newPassword;
             displayedUser.Email = newEmail;
+            emailBox.Text = "";
+            usernameBox.Text = "";
+            passwordBox.Text = "";
+            settingsLabel.Content = "Your changes have been saved";
+            settingsLabel.Foreground = Brushes.Green;
         }
     }
 

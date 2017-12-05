@@ -29,7 +29,8 @@
 
         <!-- Grid Row 1-->
 
-        <Label Content="To change a field, input new information in boxes below. If not leave blank."
+        <Label x:Name="settingsLabel"
+               Content="To change a field, input new information in boxes below. If not leave blank."
                HorizontalAlignment="Center" 
                Margin="0,0,0,0" 
                VerticalAlignment="Center" 
