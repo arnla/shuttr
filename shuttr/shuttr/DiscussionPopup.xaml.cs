@@ -99,6 +99,7 @@ namespace shuttr
 
         private void DisplayComments()
         {
+            commentsFeed.Children.Clear();
             foreach (Comment c in discussion.GetComments())
             {
                 c.parent = this;

@@ -101,6 +101,12 @@ namespace shuttr
 
         private void DisplayComments()
         {
+            commentFeed.Children.Clear();
+
+            Image embedImage = new Image();
+            embedImage.Source = photo.imageSource;
+            embedImage.MouseLeftButtonDown += Maximize;
+            commentFeed.Children.Add(embedImage);
             foreach (Comment c in photo.comments)
             {
                 c.parent = this;
