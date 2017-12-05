@@ -24,7 +24,7 @@ namespace shuttr
         public PhotosPage currPhotosPage { get; } = new PhotosPage();
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
         public FollowingPage currFollowingPage { get; set; }
-        public MessagesPage currMessagesPage { get; } = new MessagesPage();
+        public MessagesPage currMessagesPage { get; }
         public User currUser { get; set; } = new User("Emilio", "password", DateTime.Today);
         public SavedPage currSavedPage { get; }
         public ProfilePage currProfilePage { get; set; }
@@ -47,6 +47,8 @@ namespace shuttr
 
             currFollowingPage = new FollowingPage(this, followingSomeone);
             currSavedPage = new SavedPage(this);
+
+            currMessagesPage = new MessagesPage(this);
 
             SignOut();
         }
@@ -161,7 +163,21 @@ namespace shuttr
         /// </summary>
         private void FillMessageNotificationMenu()
         {
-            messagesStackPanel.Children.Add(new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM"));
+            MessageNotification newMessage = new MessageNotification(false, "User 2", "What lens do you use for your night sky photography?", "3:01 PM");
+            messagesStackPanel.Children.Add(newMessage);
+
+            newMessage.containerButton.Click += MessageNotificationClick;
+            message1.containerButton.Click += MessageNotificationClick;
+        }
+        public void MessageNotificationClick(object sender, RoutedEventArgs e)
+        {
+            MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+            ChangeFill(Visibility.Visible);
+            prompt.ShowDialog();
+        }
+        public void OnCloseMessagePrompt()
+        {
+            ChangeFill(Visibility.Hidden);
         }
 
         protected void Button_Click(Object sender, EventArgs e)
@@ -244,14 +260,10 @@ namespace shuttr
                     SignOut();
                 }
             }
-            else if (sender.Equals(message1))
-            {
-                contentControl.Content = new MessagingPage();
-                HighlightTab();
-            }
             else if (sender.Equals(seeAllMessagesButton))
             {
                 contentControl.Content = currMessagesPage;
+                messagesButtonDropdown.IsOpen = false;
                 HighlightTab();
             }
             else if (sender.Equals(postPhotoButton))

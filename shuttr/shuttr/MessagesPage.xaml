@@ -18,7 +18,7 @@
                         <Setter Property="Margin" Value="5,10,5,0"/>
                     </Style>
                 </StackPanel.Resources>
-                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
+                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto" MouseLeftButtonDown="MessageClick" Background="Transparent">
                     <Grid ShowGridLines="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -47,7 +47,7 @@
                         <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="Images/Icons/userprofile.png" Margin="10,10,10,10"></Image>
                     </Grid>
                 </Border>
-                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto">
+                <Border BorderBrush="Gray" Opacity="50" BorderThickness="2" Height="Auto" MouseLeftButtonDown="MessageClick" Background="Transparent">
                     <Grid ShowGridLines="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>
@@ -78,8 +78,5 @@
                 </Border>
             </StackPanel>
         </ScrollViewer>
-
-        <Rectangle Name="popUpPageFill" Fill="Transparent" Opacity="0.85"></Rectangle>
-
     </Grid>
 </UserControl>
