@@ -39,7 +39,7 @@
                 Grid.Row="0">
             <StackPanel Background="Transparent" Orientation="Horizontal">
                 <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
-                <Label x:Name="currentSortOption" Content="Popular"></Label>
+                <Label x:Name="currentSortOption" Content="Popular" MouseLeftButtonDown="SortClick"></Label>
 
                 <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
                     <StackPanel x:Name="sortByOptions" Background="AliceBlue">
