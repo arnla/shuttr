@@ -72,7 +72,7 @@ namespace shuttr
                         changes.Add("password");
                     }
 
-                    string message = "Are you sure you want to change your ";
+                    string message = "Enter your current password to save your new ";
                     if (changes.Count == 1)
                     {
                         message += changes[0];

@@ -15,12 +15,17 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
             <Button x:Name="ClosePromptButton" Content="X" Width="50" FontWeight="Bold" Background="Red" Foreground="White" HorizontalAlignment="Right" Grid.Row="0" Click="Close"/>
-            <TextBlock x:Name="message" Text="Are you sure you want to make these changes?" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="White" FontStyle="Oblique" FontFamily="Microsoft YaHei" Grid.Row="1" Height="Auto" Width="Auto" TextWrapping="Wrap"/>
-            <StackPanel x:Name="buttons" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Height="Auto" Width="Auto">
+            <TextBlock x:Name="message" Text="Enter your current password to save these changes" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontSize="16" Foreground="White" FontStyle="Oblique" FontFamily="Microsoft YaHei" Grid.Row="1" Height="Auto" Width="Auto" TextWrapping="Wrap"/>
+            <PasswordBox x:Name="passwordBox"
+                         Grid.Row="2"
+                         MaxWidth="250"
+                         Margin="0,5,0,0"/>
+            <StackPanel x:Name="buttons" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="MaxWidth" Value="300"/>
