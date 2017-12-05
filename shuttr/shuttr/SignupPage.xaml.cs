@@ -43,23 +43,26 @@ namespace shuttr
             bool formComplete = true;
             if (sender.Equals(signupButton))
             {
-                if (emailBox.Text == "")
+                if (passBox.Password == "")
                 {
-                    emailBoxDefault.Foreground = Brushes.Red;
-                    emailBoxDefault.Opacity = 1;
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
                     formComplete = false;
+                    passBox.Focus();
                 }
                 if (usernameBox.Text == "")
                 {
                     usernameBoxDefault.Foreground = Brushes.Red;
                     usernameBoxDefault.Opacity = 1;
                     formComplete = false;
+                    usernameBox.Focus();
                 }
-                if (passBox.Password == "")
+                if (emailBox.Text == "")
                 {
-                    passwordBoxDefault.Foreground = Brushes.Red;
-                    passwordBoxDefault.Opacity = 1;
+                    emailBoxDefault.Foreground = Brushes.Red;
+                    emailBoxDefault.Opacity = 1;
                     formComplete = false;
+                    emailBox.Focus();
                 }
                 if (formComplete)
                 {
@@ -107,23 +110,26 @@ namespace shuttr
             {
                 bool formComplete = true;
 
-                if (emailBox.Text == "")
+                if (passBox.Password == "")
                 {
-                    emailBoxDefault.Foreground = Brushes.Red;
-                    emailBoxDefault.Opacity = 1;
+                    passwordBoxDefault.Foreground = Brushes.Red;
+                    passwordBoxDefault.Opacity = 1;
                     formComplete = false;
+                    passBox.Focus();
                 }
                 if (usernameBox.Text == "")
                 {
                     usernameBoxDefault.Foreground = Brushes.Red;
                     usernameBoxDefault.Opacity = 1;
                     formComplete = false;
+                    usernameBox.Focus();
                 }
-                if (passBox.Password == "")
+                if (emailBox.Text == "")
                 {
-                    passwordBoxDefault.Foreground = Brushes.Red;
-                    passwordBoxDefault.Opacity = 1;
+                    emailBoxDefault.Foreground = Brushes.Red;
+                    emailBoxDefault.Opacity = 1;
                     formComplete = false;
+                    emailBox.Focus();
                 }
                 if (formComplete)
                 {
