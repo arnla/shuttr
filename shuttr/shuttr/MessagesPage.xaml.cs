@@ -20,9 +20,24 @@ namespace shuttr
     /// </summary>
     public partial class MessagesPage : UserControl
     {
-        public MessagesPage()
+        MainWindow main;
+
+        public MessagesPage(MainWindow main)
         {
             InitializeComponent();
+            this.main = main;
+        }
+
+        public void MessageClick(object sender, RoutedEventArgs e)
+        {
+            MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+            main.ChangeFill(Visibility.Visible);
+            prompt.ShowDialog();
+        }
+
+        public void OnCloseMessagePrompt()
+        {
+            main.ChangeFill(Visibility.Hidden);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace shuttr
         public PhotosPage currPhotosPage { get; } = new PhotosPage();
         public DiscussionPage currDiscussionPage { get; } = new DiscussionPage();
         public FollowingPage currFollowingPage { get; set; }
-        public MessagesPage currMessagesPage { get; } = new MessagesPage();
+        public MessagesPage currMessagesPage { get; }
         public User currUser { get; set; } = new User("Emilio", "password", DateTime.Today);
         public SavedPage currSavedPage { get; }
         public ProfilePage currProfilePage { get; set; }
@@ -47,6 +47,8 @@ namespace shuttr
 
             currFollowingPage = new FollowingPage(this, followingSomeone);
             currSavedPage = new SavedPage(this);
+
+            currMessagesPage = new MessagesPage(this);
 
             SignOut();
         }
