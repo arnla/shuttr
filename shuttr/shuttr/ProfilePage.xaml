@@ -63,10 +63,12 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label x:Name="userName" Grid.Row="0" Grid.ColumnSpan="2" Content="User 1" FontFamily="Microsoft YaHei" FontSize="48" HorizontalContentAlignment="Center"/>
+                <!--
                 <Label Content="Date Joined: " Grid.Row="1" Grid.Column="0"/>
                 <Label x:Name="dateJoined" Grid.Row="1" Grid.Column="1" Content="2017/11/24"/>
                 <Button x:Name="followButton" Content="FOLLOW" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22" Click="FollowClick"/>
                 <Button x:Name="messageButton" Content="MESSAGE" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200" Height="38" FontFamily="Microsoft YaHei" FontSize="22"/>
+                -->
             </Grid>
 
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2" Width="300" TextWrapping="Wrap">

@@ -36,7 +36,7 @@ namespace shuttr
             parent = main;
             displayedUser = currentUser;
             userName.Content = currentUser.UserName;
-            dateJoined.Content = currentUser.DateJoined;
+            //dateJoined.Content = currentUser.DateJoined;
             DisplayPosts();
             //HardcodedPhotosAndDiscussions();
         }
@@ -51,11 +51,11 @@ namespace shuttr
             parent = main;
             if (parent.followingSomeone)
             {
-                followButton.Content = "UNFOLLOW";
+                //followButton.Content = "UNFOLLOW";
             }
             else
             {
-                followButton.Content = "FOLLOW";
+                //followButton.Content = "FOLLOW";
             }
         }
 
@@ -171,6 +171,7 @@ namespace shuttr
 
         private void FollowClick(object sender, RoutedEventArgs e)
         {
+            /*
             if ((followButton.Content as string) == "FOLLOW")
             {
                 followButton.Content = "UNFOLLOW";
@@ -180,7 +181,7 @@ namespace shuttr
             {
                 followButton.Content = "FOLLOW";
                 parent.followingSomeone = false;
-            }
+            }*/
         }
 
         /*private void HardcodedPhotosAndDiscussions()
