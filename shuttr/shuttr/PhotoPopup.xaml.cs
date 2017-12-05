@@ -45,10 +45,7 @@ namespace shuttr
             this.photo = sender;
 
             // Need to create a new photo, otherwise it will throw an exception because one object can't be the child of 2 elements
-            Image embedImage = new Image();
-            embedImage.Source = sender.imageSource;
-            embedImage.MouseLeftButtonDown += Maximize;
-            commentFeed.Children.Add(embedImage);
+            commentFeed.Children.Add(embeddedImage(sender));
 
             Username.Text = sender.username;
             title.Text = sender.title;
@@ -82,10 +79,7 @@ namespace shuttr
             this.photo = sender;
 
             // Need to create a new photo, otherwise it will throw an exception because one object can't be the child of 2 elements
-            Image embedImage = new Image();
-            embedImage.Source = sender.imageSource;
-            embedImage.MouseLeftButtonDown += Maximize;
-            commentFeed.Children.Add(embedImage);
+            commentFeed.Children.Add(embeddedImage(sender));
 
             Username.Text = sender.username;
             title.Text = sender.title;
@@ -99,14 +93,82 @@ namespace shuttr
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
+        /// <summary>
+        /// The Image in the photo popup - hover text is complex to implement with this particular set up
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <returns></returns>
+        private Border embeddedImage(Photo sender)
+        {
+            Border imageBorder = new Border();
+            imageBorder.Margin = new Thickness(500, 0, 500, 0);
+            imageBorder.BorderThickness = new Thickness(0);
+            imageBorder.HorizontalAlignment = HorizontalAlignment.Center;
+            imageBorder.VerticalAlignment = VerticalAlignment.Center;
+            //imageBorder.MouseEnter += hoverPhoto;
+            //imageBorder.MouseLeave += hoverOffPhoto;
+
+            Grid imageGrid = new Grid();
+            imageGrid.Height = Double.NaN;
+            imageGrid.Width = Double.NaN;
+            imageGrid.HorizontalAlignment = HorizontalAlignment.Center;
+            imageGrid.VerticalAlignment = VerticalAlignment.Center;
+            imageGrid.MouseEnter += hoverPhoto;
+            imageGrid.MouseLeave += hoverOffPhoto;
+
+            Image embedImage = new Image();
+            embedImage.Source = sender.imageSource;
+            embedImage.MouseLeftButtonDown += Maximize;
+            //embedImage.MouseEnter += hoverPhoto;
+            //embedImage.MouseLeave += hoverOffPhoto;
+
+            TextBlock clickMessage = new TextBlock();
+            clickMessage.Text = "Click to Expand";
+            clickMessage.Foreground = Brushes.AliceBlue;
+            clickMessage.FontSize = 30;
+            clickMessage.FontFamily = new FontFamily("Microsoft YaHei");
+            clickMessage.HorizontalAlignment = HorizontalAlignment.Center;
+            clickMessage.VerticalAlignment = VerticalAlignment.Top;
+
+            // Add the close textblock and image to the grid.
+            imageGrid.Children.Add(embedImage);
+            imageGrid.Children.Add(clickMessage);
+
+            // Add the grid to the border.
+            imageBorder.Child = imageGrid;
+
+            return imageBorder;
+        }
+
+        private void hoverPhoto(object sender, MouseEventArgs e)
+        {
+            Grid tmp = (Grid)sender;
+            tmp.Opacity = 0.45;
+        }
+
+        private void hoverOffPhoto(object sender, MouseEventArgs e)
+        {
+            Grid tmp = (Grid)sender;
+            tmp.Opacity = 1;
+        }
+
+        private void hoverText(object sender, MouseEventArgs e)
+        {
+            TextBlock tmp = (TextBlock)sender;
+            tmp.Visibility = Visibility.Visible;
+            
+        }
+
+        private void hoverOffText(object sender, MouseEventArgs e)
+        {
+            TextBlock tmp = (TextBlock)sender;
+            tmp.Visibility = Visibility.Hidden;
+        }
+
         private void DisplayComments()
         {
             commentFeed.Children.Clear();
-
-            Image embedImage = new Image();
-            embedImage.Source = photo.imageSource;
-            embedImage.MouseLeftButtonDown += Maximize;
-            commentFeed.Children.Add(embedImage);
+            commentFeed.Children.Add(embeddedImage(photo));
             foreach (Comment c in photo.comments)
             {
                 c.parent = this;
