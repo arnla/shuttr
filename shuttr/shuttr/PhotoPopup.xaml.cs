@@ -101,7 +101,8 @@ namespace shuttr
         private Border embeddedImage(Photo sender)
         {
             Border imageBorder = new Border();
-            imageBorder.Margin = new Thickness(500, 0, 500, 0);
+            //imageBorder.Margin = new Thickness(500, 0, 500, 0);
+            imageBorder.MaxWidth = 300;
             imageBorder.BorderThickness = new Thickness(0);
             imageBorder.HorizontalAlignment = HorizontalAlignment.Center;
             imageBorder.VerticalAlignment = VerticalAlignment.Center;
