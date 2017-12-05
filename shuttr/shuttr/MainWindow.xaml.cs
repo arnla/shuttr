@@ -215,12 +215,14 @@ namespace shuttr
             }
             else if (sender.Equals(profileButton))
             {
+                accountButtonDropdown.IsOpen = false;
                 currProfilePage = new ProfilePage(this, currUser);
                 contentControl.Content = currProfilePage;
                 HighlightTab();
             }
             else if (sender.Equals(userSettingButton))
             {
+                accountButtonDropdown.IsOpen = false;
                 contentControl.Content = new UserSettings(this, currUser);
                 HighlightTab();
             }
@@ -232,11 +234,13 @@ namespace shuttr
                 //HighlightTab();
                 if (!signedIn)
                 {
+                    accountButtonDropdown.IsOpen = false;
                     contentControl.Content = new LoginPage(this);
                     HighlightTab();
                 }
                 else if (signedIn)
                 {
+                    accountButtonDropdown.IsOpen = false;
                     SignOut();
                 }
             }
