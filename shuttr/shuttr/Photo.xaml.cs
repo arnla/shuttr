@@ -292,5 +292,11 @@ namespace shuttr
             imageCaption.Visibility = Visibility.Hidden;
             imageTitle.Visibility = Visibility.Hidden;
         }
+
+        public void OtherUserPage(object sender, RoutedEventArgs e)
+        {
+            this.main.contentControl.Content = new ProfilePageOtherUser(main);
+            this.main.HighlightTab();
+        }
     }
 }

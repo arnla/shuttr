@@ -225,6 +225,7 @@ namespace shuttr
         public void OtherUserPage(object sender, RoutedEventArgs e)
         {
             this.main.contentControl.Content = new ProfilePageOtherUser(main);
+            this.main.HighlightTab();
         }
     }
 }
