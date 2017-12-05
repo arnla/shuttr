@@ -47,8 +47,15 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Border Width="200" Height="200" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">
-                <Image x:Name="profilePicture" Source="Images/Icons/userprofile.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Border Width="200" Height="200" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" MouseLeftButtonDown="ProfilePictureClick">
+                <Grid>
+                    <Image x:Name="profilePicture" Source="Images/Icons/userprofile.png" VerticalAlignment="Center" HorizontalAlignment="Center" MouseEnter="HoverProfilePicture" MouseLeave="LeaveProfilePicture"/>
+                    <TextBlock x:Name="changeProfilePicture" Visibility="Hidden" Text="Change Profile Picture" TextAlignment="Center" FontFamily="Mictosoft YaHei" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" MouseEnter="HoverProfilePicture" MouseLeave="LeaveProfilePicture">
+                        <TextBlock.Effect>
+                            <DropShadowEffect ShadowDepth="5" Color="White" Opacity="1" BlurRadius="5"/>
+                        </TextBlock.Effect>
+                    </TextBlock>
+                </Grid>
             </Border>
 
             <Grid x:Name="userInfo" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,7 @@ namespace shuttr
             parent = main;
             displayedUser = currentUser;
             userName.Content = currentUser.UserName;
+            profilePicture.Source = currentUser.ProfilePicture;
             //dateJoined.Content = currentUser.DateJoined;
             DisplayPosts();
             //HardcodedPhotosAndDiscussions();
@@ -222,6 +224,28 @@ namespace shuttr
                 userProfileFeed.Children.Add(newDiscussion);
                 MakePostClickable(newDiscussion);
             }
+        }
+
+        public void ProfilePictureClick(object sender, MouseEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            var result = dialog.ShowDialog();
+            if (result == false)
+                return;
+            displayedUser.SetProfilePicture(new BitmapImage(new Uri(dialog.FileName)));
+            profilePicture.Source = new BitmapImage(new Uri(dialog.FileName));
+        }
+
+        public void HoverProfilePicture(object sender, MouseEventArgs e)
+        {
+            profilePicture.Opacity = 0.45;
+            changeProfilePicture.Visibility = Visibility.Visible;
+        }
+
+        public void LeaveProfilePicture(object sender, MouseEventArgs e)
+        {
+            profilePicture.Opacity = 1;
+            changeProfilePicture.Visibility = Visibility.Hidden;
         }
     }
 }

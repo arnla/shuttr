@@ -71,6 +71,11 @@ namespace shuttr
             set { email = value; }
         }
 
+        public ImageSource ProfilePicture
+        {
+            get { return userPicture.Source; }
+        }
+
         /// <summary>
         /// A new user with no parameters set.
         /// </summary>
