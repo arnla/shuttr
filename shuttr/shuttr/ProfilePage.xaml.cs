@@ -227,6 +227,28 @@ namespace shuttr
                 userProfileFeed.Children.Add(newDiscussion);
                 MakePostClickable(newDiscussion);
             }
+
+            if ((displayedUser.userDiscussions.Count == 0) && (displayedUser.userPhotos.Count == 0))
+            {
+                Border border = new Border();
+                border.BorderBrush = Brushes.Gray;
+                border.BorderThickness = new Thickness(2);
+                border.Opacity = 50;
+                border.Width = 750;
+                border.Margin = new Thickness(10);
+                TextBlock text = new TextBlock();
+                text.Text = "There are no posts here. \nPost some discussions and photos, and they will show on your profile!";
+                text.FontFamily = new FontFamily("Microsoft YaHei");
+                text.FontSize = 26;
+                text.TextAlignment = TextAlignment.Center;
+                text.HorizontalAlignment = HorizontalAlignment.Center;
+                text.VerticalAlignment = VerticalAlignment.Center;
+                text.TextWrapping = TextWrapping.Wrap;
+
+                border.Child = text;
+
+                userProfileFeed.Children.Add(border);
+            }
         }
 
         public void ProfilePictureClick(object sender, MouseEventArgs e)
