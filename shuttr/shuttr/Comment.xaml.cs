@@ -55,6 +55,7 @@ namespace shuttr
         public Comment(Comment old)
         {
             InitializeComponent();
+            this.usernameText = old.usernameText;
             this.username = old.username;
             this.comment = old.comment;
             this.commentBox.Text = old.commentBox.Text;

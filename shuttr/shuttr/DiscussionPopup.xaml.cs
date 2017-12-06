@@ -25,6 +25,7 @@ namespace shuttr
         public Discussion discussion;
         int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
         Comment commentToReplyTo = null;
+        private bool editable;
 
         public DiscussionPopup()
         {
@@ -51,6 +52,7 @@ namespace shuttr
             DisplayComments();
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
+            editable = false;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -72,6 +74,7 @@ namespace shuttr
             DisplayComments();
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
+            editable = false;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -183,6 +186,31 @@ namespace shuttr
                         main.ChangeFill(Visibility.Hidden);
                     }
                 }
+                else if (sender.Equals(EditButton))
+                {
+                    if (editable == false)
+                    {
+                        EditButton.Content = "EDIT: ON";
+                        EditButton.Background = Brushes.Yellow;
+
+                        editable = true;
+                       
+                        descriptionTextBox.Text = DiscussionDescription.Text;
+                        DiscussionDescription.Visibility = Visibility.Hidden;
+                        descriptionTextBox.Visibility = Visibility.Visible;
+                        Keyboard.Focus(descriptionTextBox);
+                        descriptionTextBox.CaretIndex = descriptionTextBox.Text.Length;
+
+                    }
+                    else
+                    {
+                        EditButton.Content = "EDIT: OFF";
+                        EditButton.Background = Brushes.LightGray;
+                        DiscussionDescription.Visibility = Visibility.Visible;
+                        editable = false;
+                        updateDescription();
+                    }
+                }
                 else if (sender.Equals(saveButton))
                 {
                     if (!discussion.saved)
@@ -237,6 +265,30 @@ namespace shuttr
                     main.HighlightTab();
                 }
             }
+        }
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                EditButton.Content = "EDIT: OFF";
+                EditButton.Background = Brushes.LightGray;
+                DiscussionDescription.Visibility = Visibility.Visible;
+                editable = false;
+
+                updateDescription();
+            }
+        }
+
+        private void updateDescription()
+        {
+            // Get the text entered by the user.
+            string newDescription = descriptionTextBox.Text.ToString();
+
+            DiscussionDescription.Text = newDescription;
+
+
+            // Hide the text box and buttons
+            descriptionTextBox.Visibility = Visibility.Hidden;
         }
     }
 }
