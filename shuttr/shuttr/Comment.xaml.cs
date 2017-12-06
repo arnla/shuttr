@@ -59,15 +59,6 @@ namespace shuttr
             this.parent = old.parent;
             this.CurrentUser = old.CurrentUser;
 
-            if (deleted == true)
-            {
-                commentBox.Text = "[deleted]";
-                usernameText.Text = "[deleted]";
-                commentBox.Foreground = Brushes.Red;
-                usernameText.Foreground = Brushes.Red;
-                replyButton.IsEnabled = false;
-            }
-
 
             foreach (Comment reply in old.repliesFeed.Children)
             {
@@ -83,15 +74,6 @@ namespace shuttr
             usernameText.Text = username;
             commentBox.Text = comment;
             CurrentUser = false;
-
-            if (deleted == true)
-            {
-                commentBox.Text = "[deleted]";
-                usernameText.Text = "[deleted]";
-                commentBox.Foreground = Brushes.Red;
-                usernameText.Foreground = Brushes.Red;
-                replyButton.IsEnabled = false;
-            }
         }
 
         public Comment(string username, string comment, PhotoPopup parent)
@@ -103,15 +85,6 @@ namespace shuttr
             commentBox.Text = comment;
             this.parent = parent;
             CurrentUser = false;
-
-            if (deleted == true)
-            {
-                commentBox.Text = "[deleted]";
-                usernameText.Text = "[deleted]";
-                commentBox.Foreground = Brushes.Red;
-                usernameText.Foreground = Brushes.Red;
-                replyButton.IsEnabled = false;
-            }
         }
 
         public Comment(string username, string comment, DiscussionPopup parent)
@@ -123,15 +96,6 @@ namespace shuttr
             commentBox.Text = comment;
             this.parent = parent;
             CurrentUser = false;
-
-            if (deleted == true)
-            {
-                commentBox.Text = "[deleted]";
-                usernameText.Text = "[deleted]";
-                commentBox.Foreground = Brushes.Red;
-                usernameText.Foreground = Brushes.Red;
-                replyButton.IsEnabled = false;
-            }
         }
 
         protected void Button_Click(object sender, EventArgs e)
@@ -169,35 +133,15 @@ namespace shuttr
             prompt.ShowDialog();
             if (prompt.confirmed == true)
             {
-
-                if (parent.GetType() == typeof(DiscussionPopup))
-                {
-                    DiscussionPopup castedParent = (DiscussionPopup)parent;
-                    username = "[deleted]";
-                    comment = "[deleted]";
-                    commentBox.Text = "[deleted]";
-                    usernameText.Text = "[deleted]";
-                    commentBox.Foreground = Brushes.Red;
-                    usernameText.Foreground = Brushes.Red;
-                    replyButton.IsEnabled = false;
-                    CurrentUser = false;
-                    deleted = true;
-
-                }
-                else if (parent.GetType() == typeof(PhotoPopup))
-                {
-                    PhotoPopup castedParent = (PhotoPopup)parent;
-                    username = "[deleted]";
-                    comment = "[deleted]";
-                    commentBox.Text = "[deleted]";
-                    usernameText.Text = "[deleted]";
-                    commentBox.Foreground = Brushes.Red;
-                    usernameText.Foreground = Brushes.Red;
-                    replyButton.IsEnabled = false;
-                    CurrentUser = false;
-                    deleted = true;
-
-                }
+                this.username = "[deleted]";
+                this.comment = "[deleted]";
+                this.commentBox.Text = "[deleted]";
+                this.usernameText.Text = "[deleted]";
+                this.commentBox.Foreground = Brushes.Red;
+                this.usernameText.Foreground = Brushes.Red;
+                this.replyButton.IsEnabled = false;
+                this.CurrentUser = false;
+                this.deleted = true;
             }
         }
     }
