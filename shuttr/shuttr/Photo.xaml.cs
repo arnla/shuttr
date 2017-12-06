@@ -374,5 +374,10 @@ namespace shuttr
             savePopup.IsOpen = false;
             captureClicks.Visibility = Visibility.Hidden;
         }
+
+        private void HideRectangle(object sender, EventArgs e)
+        {
+            captureClicks.Visibility = Visibility.Hidden;
+        }
     }
 }

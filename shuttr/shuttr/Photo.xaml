@@ -148,7 +148,7 @@
         </StackPanel>
     </Border>
 
-        <Button x:Name="captureClicks" Background="Transparent" BorderBrush="Transparent" Click="CloseDownloadPopup" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button x:Name="captureClicks" Background="Transparent" BorderBrush="Transparent" Click="CloseDownloadPopup" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MouseRightButtonDown="SavePhoto">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Background" Value="Green"/>
@@ -169,7 +169,7 @@
                 </Style>
             </Button.Style>
         </Button>
-        <Popup x:Name="savePopup" StaysOpen="False" Placement="MousePoint">
+        <Popup x:Name="savePopup" StaysOpen="False" Placement="MousePoint" Closed="HideRectangle">
             <Button x:Name="saveConfirm" Background="AliceBlue" Content="Download" Height="30" Click="DownloadPhoto">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
