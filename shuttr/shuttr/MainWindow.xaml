@@ -221,7 +221,7 @@
                             Background="AliceBlue">
                     <Button x:Name="postPhotoButton"
                             Content="New Photo"
-                            Height="20"
+                            Height="50"
                             Click="Button_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -246,7 +246,7 @@
                     <Button x:Name="postDiscussionButton"
                             Content="New Discussion"
                             HorizontalContentAlignment="Left"
-                            Height="20"
+                            Height="50"
                             Click="Button_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}">
