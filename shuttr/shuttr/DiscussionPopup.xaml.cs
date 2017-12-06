@@ -155,6 +155,7 @@ namespace shuttr
                         string repliesString = discussion.numReplies.ToString();
                         repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
                         NumRepliesButton.Content = repliesString;
+                        discussion.replyCount.Text = repliesString;
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
@@ -173,6 +174,7 @@ namespace shuttr
                         string repliesString = discussion.numReplies.ToString();
                         repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
                         NumRepliesButton.Content = repliesString;
+                        discussion.replyCount.Text = repliesString;
                     }
                 }
                 else if (sender.Equals(DeleteButton))
