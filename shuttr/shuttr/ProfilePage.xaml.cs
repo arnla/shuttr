@@ -158,6 +158,7 @@ namespace shuttr
             {
                 Photo newPhoto = new Photo(photo.Value);
                 newPhoto.main = this.parent;
+                newPhoto.sidePhotoInfo.Visibility = Visibility.Collapsed;
                 userProfileFeed.Children.Add(newPhoto);
                 MakePostClickable(newPhoto);
             }

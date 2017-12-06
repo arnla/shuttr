@@ -138,6 +138,7 @@ namespace shuttr
             clickMessage.HorizontalAlignment = HorizontalAlignment.Center;
             clickMessage.VerticalAlignment = VerticalAlignment.Top;
             clickMessage.MouseRightButtonDown += SavePhoto;
+            clickMessage.MouseLeftButtonDown += MaximizeText;
 
             // Add the close textblock and image to the grid.
             imageGrid.Children.Add(embedImage);
@@ -407,6 +408,61 @@ namespace shuttr
             // The image to show
             Image maximizedImage = new Image();
             maximizedImage.Source = tmp.Source;
+            maximizedImage.SetValue(Grid.RowProperty, 1);
+            maximizedImage.MouseLeftButtonDown += CloseMaximizedImage;
+
+            // Add the close button and image to the grid.
+            maximizeGrid.Children.Add(closeMaximize);
+            maximizeGrid.Children.Add(maximizedImage);
+
+            // Add the grid to the border.
+            imageBorder.Child = maximizeGrid;
+
+            // Blur this popup.
+            window.BorderThickness = new Thickness(0);
+            fillPopup.Visibility = Visibility.Visible;
+            mainGrid.ShowGridLines = false;
+
+            // Add the maximized image to the main grid.
+            main.mainGrid.Children.Add(imageBorder);
+        }
+
+        private void MaximizeText(object sender, RoutedEventArgs e)
+        {
+            // Border with a maximum width and height of 0.85%
+            imageBorder = new Border();
+            imageBorder.SetValue(Grid.RowSpanProperty, 3);
+            imageBorder.SetValue(Grid.ColumnSpanProperty, 3);
+            imageBorder.HorizontalAlignment = HorizontalAlignment.Center;
+            imageBorder.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
+            imageBorder.MaxWidth = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
+
+            // Grid that will hold a close button and the image.
+            Grid maximizeGrid = new Grid();
+            RowDefinition closeRow = new RowDefinition();
+            closeRow.Height = GridLength.Auto;
+            RowDefinition imageRow = new RowDefinition();
+            maximizeGrid.RowDefinitions.Add(closeRow);
+            maximizeGrid.RowDefinitions.Add(imageRow);
+            ColumnDefinition column = new ColumnDefinition();
+            column.Width = GridLength.Auto;
+            maximizeGrid.ColumnDefinitions.Add(column);
+            maximizeGrid.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#F6FBFF"));
+
+            // Close button
+            Button closeMaximize = new Button();
+            closeMaximize.Content = "X";
+            closeMaximize.Width = 50;
+            closeMaximize.FontWeight = FontWeights.Bold;
+            closeMaximize.Background = new SolidColorBrush(Colors.Red);
+            closeMaximize.Foreground = new SolidColorBrush(Colors.White);
+            closeMaximize.HorizontalAlignment = HorizontalAlignment.Right;
+            closeMaximize.SetValue(Grid.RowProperty, 0);
+            closeMaximize.Click += CloseMaximizedImage;
+
+            // The image to show
+            Image maximizedImage = new Image();
+            maximizedImage.Source = photo.imageSource;
             maximizedImage.SetValue(Grid.RowProperty, 1);
             maximizedImage.MouseLeftButtonDown += CloseMaximizedImage;
 

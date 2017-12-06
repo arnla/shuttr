@@ -50,6 +50,7 @@ namespace shuttr
             photo.commentCount = 1;
             photo.comments.Add(new Comment("Emilio", "I see that hotel in so many miami nightlife pictures. Has some cool lighting"));
             photo.displaySideInfo();
+            photo.sidePhotoInfo.Visibility = Visibility.Collapsed;
             photo.main = this.main;
             photo.MouseLeftButtonDown += ClickPost;
 
