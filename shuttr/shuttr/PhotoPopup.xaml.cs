@@ -34,6 +34,12 @@ namespace shuttr
             editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
+            Loaded += photoLoaded;
+        }
+
+        private void photoLoaded(object sender, RoutedEventArgs e)
+        {
+            commentBox.Focus();
         }
 
         public PhotoPopup(MainWindow main, UserControl parent, Photo sender)
@@ -58,6 +64,7 @@ namespace shuttr
 
             DisplayComments();
 
+            Loaded += photoLoaded;
             editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -94,6 +101,7 @@ namespace shuttr
 
             DisplayComments();
 
+            Loaded += photoLoaded;
             editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;

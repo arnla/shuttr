@@ -30,6 +30,7 @@ namespace shuttr
         public DiscussionPopup()
         {
             InitializeComponent();
+            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -53,9 +54,15 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
+            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
+        }
+
+        private void discussionLoaded(object sender, RoutedEventArgs e)
+        {
+            CommentBox.Focus();
         }
 
         public DiscussionPopup(MainWindow main, Discussion sender)
@@ -75,6 +82,7 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
+            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
