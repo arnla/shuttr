@@ -85,7 +85,7 @@ namespace shuttr
             border.Width = 780;
             border.Margin = new Thickness(10);
             TextBlock text = new TextBlock();
-            text.Text = "There are no posts here. \nFollow some users, and their posts will appear on this page!";
+            text.Text = "This is your home page when you log in.\nFollow some users, and their posts will appear on this page!";
             text.FontFamily = new FontFamily("Microsoft YaHei");
             text.FontSize = 26;
             text.TextAlignment = TextAlignment.Center;
