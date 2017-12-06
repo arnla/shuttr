@@ -29,7 +29,7 @@
                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">drag a photo here</TextBlock>
                 </StackPanel>
             </Border>
-            <Image Name="AddedImage" Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10"></Image>
+            <Image Name="AddedImage" Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10" MouseLeftButtonDown="rebrowse"></Image>
             <Border Grid.Row="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
