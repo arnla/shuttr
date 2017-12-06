@@ -44,10 +44,10 @@
 
                 <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
                     <StackPanel x:Name="sortByOptions" Background="AliceBlue">
-                        <Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostCommented" Content="Most Commented" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <!--<Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>-->
                         <Button x:Name="sortNew" Content="New" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
-                        <!--<Button x:Name="sortMostCommented" Content="Most Commented" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
-                        <Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/> -->
+                        <!--<Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/> -->
                     </StackPanel>
                 </Popup>
                 <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->

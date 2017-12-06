@@ -206,7 +206,7 @@ namespace shuttr
             else if (sender.Equals(discussionsTab))
             {
                 contentControl.Content = currDiscussionPage;
-                currDiscussionPage.SortByPopular();
+                currDiscussionPage.SortByMostCommented();
                 HighlightTab();
             }
             else if (sender.Equals(savedTab))

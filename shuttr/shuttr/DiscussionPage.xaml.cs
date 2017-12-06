@@ -144,12 +144,20 @@ namespace shuttr
             {
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
             }
+            else if (sender.Equals(sortMostCommented))
+            {
+                currentSortOption.Content = "Most Commented";
+                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
+                SortByMostCommented();
+            }
+            /*
             else if (sender.Equals(sortPopular))
             {
                 currentSortOption.Content = "Popular";
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
                 SortByPopular();
             }
+            */
             else if (sender.Equals(sortNew))
             {
                 currentSortOption.Content = "New";
@@ -157,12 +165,6 @@ namespace shuttr
                 SortByNew();
             }
             /*
-            else if (sender.Equals(sortMostCommented))
-            {
-                currentSortOption.Content = "Most Commented";
-                sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
-                SortByMostCommented();
-            }
             else if (sender.Equals(sortMostUpvoted))
             {
                 currentSortOption.Content = "Most Upvoted";
