@@ -28,6 +28,13 @@ namespace shuttr
             this.main = main;
             main.ChangeFill(Visibility.Visible);
             submitted = false;
+
+            Loaded += PromptLoaded;
+        }
+
+        private void PromptLoaded(object sender, RoutedEventArgs e)
+        {
+            usernameOrEmailBox.Focus();
         }
 
         private void close(object sender, RoutedEventArgs e)
@@ -61,6 +68,36 @@ namespace shuttr
                 this.Close();
             }
 
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (submitted == false)
+                {
+                    if (usernameOrEmailBox.Text == "")
+                    {
+                        usernameOrEmailBoxDefault.Foreground = Brushes.Red;
+                        usernameOrEmailBoxDefault.Opacity = 1;
+                        usernameOrEmailBox.Focus();
+                    }
+                    else
+                    {
+                        headText.Text = "We sent instructions to the email";
+                        subText.Text = "associated with that account";
+                        usernameOrEmailBox.Visibility = Visibility.Collapsed;
+                        submitButton.Content = "Got it!";
+                        submitted = true;
+                    }
+                }
+                // Else it is the "Got it" button
+                else
+                {
+                    main.ChangeFill(Visibility.Hidden);
+                    this.Close();
+                }
+            }
         }
     }
 }
