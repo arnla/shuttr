@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,18 @@ namespace shuttr
         private double ageDays { get; set; }
         private double ageHours { get; set; }
         public List<Comment> comments { get; set; } = new List<Comment>();
+        private bool isPrivate = true;
+        public bool IsPrivate
+        {
+            get
+            {
+                return isPrivate;
+            }
+            set
+            {
+                isPrivate = value;
+            }
+        }
 
         public MainWindow main { get; set; }
 
@@ -121,6 +134,7 @@ namespace shuttr
             sideScore.Text = score.ToString();
             saved = false;
             currentUser = true;
+            this.IsPrivate = photo.IsPrivate;
         }
 
         /// <summary>
@@ -297,6 +311,27 @@ namespace shuttr
         {
             this.main.contentControl.Content = new ProfilePageOtherUser(main);
             this.main.HighlightTab();
+        }
+
+        public void SavePhoto(object sender, RoutedEventArgs e)
+        {
+            if (isPrivate)
+            {
+                captureClicks.Visibility = Visibility.Visible;
+                savePopup.IsOpen = true;
+            }
+        }
+
+        public void DownloadPhoto(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "";
+        }
+
+        public void CloseDownloadPopup(object sender, RoutedEventArgs e)
+        {
+            savePopup.IsOpen = false;
+            captureClicks.Visibility = Visibility.Hidden;
         }
     }
 }
