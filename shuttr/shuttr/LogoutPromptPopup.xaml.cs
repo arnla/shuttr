@@ -48,8 +48,9 @@ namespace shuttr
         /// <param name="e"></param>
         private void confirmLogout(object sender, RoutedEventArgs e)
         {
-            main.contentControl.Content = new LoginPage(main);
+            //main.contentControl.Content = new LoginPage(main);
             main.ChangeFill(Visibility.Hidden);
+            main.SignOut();
             this.Close();
         }
 

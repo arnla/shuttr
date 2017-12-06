@@ -258,7 +258,8 @@ namespace shuttr
                 else if (signedIn)
                 {
                     accountButtonDropdown.IsOpen = false;
-                    SignOut();
+                    LogoutPromptPopup popup = new LogoutPromptPopup(this);
+                    popup.ShowDialog();
                 }
             }
             else if (sender.Equals(seeAllMessagesButton))
