@@ -20,7 +20,7 @@
 
             <Grid x:Name="photoInfo" Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition MaxHeight="60"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition MaxHeight="70"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -42,10 +42,9 @@
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="Username" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                         <Button x:Name="MessageUserButton" Grid.Row="1" Content="MESSAGE" Height="17" Margin="0,0.2,0,-0.4" VerticalAlignment="Top" Click="ButtonClick"></Button>
-                        <StackPanel Grid.Row="1"
-                                    Orientation="Horizontal">
+                        <StackPanel Grid.Row="1">
                             <Button x:Name="DeleteButton" Content="DELETE" Height="17" Background="Red" Margin="0,0.2,0,-0.4" VerticalAlignment="Top" Click="ButtonClick"></Button>
-                            <Button x:Name="EditButton" Content="EDIT: OFF" Height="17" VerticalAlignment="Top" Click="ButtonClick"></Button>
+                            <Button x:Name="EditButton" Content="EDIT: OFF" Height="17" VerticalAlignment="Top" Click="ButtonClick" Visibility="Hidden"></Button>
                         </StackPanel>
                     </Grid>
                 </Grid>

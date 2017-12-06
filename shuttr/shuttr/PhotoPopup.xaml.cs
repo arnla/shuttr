@@ -184,11 +184,13 @@ namespace shuttr
             {
                 MessageUserButton.Visibility = Visibility.Collapsed;
                 DeleteButton.Visibility = Visibility.Visible;
+                EditButton.Visibility = Visibility.Visible;
             }
             else
             {
                 MessageUserButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Collapsed;
+                EditButton.Visibility = Visibility.Collapsed;
             }
         }
 
