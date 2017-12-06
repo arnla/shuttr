@@ -46,7 +46,8 @@ namespace shuttr
 
             Username.Text = sender.GetUser();
             DiscussionTitle.Text = sender.GetTitle();
-            NumRepliesButton.Content = sender.GetNumReplies();
+            DiscussionDescription.Text = sender.GetDescription();
+            NumRepliesButton.Content = sender.GetNumReplies() + " replies";
             DisplayComments();
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
@@ -66,7 +67,8 @@ namespace shuttr
 
             Username.Text = sender.GetUser();
             DiscussionTitle.Text = sender.GetTitle();
-            NumRepliesButton.Content = sender.GetNumReplies();
+            DiscussionDescription.Text = sender.GetDescription();
+            NumRepliesButton.Content = sender.GetNumReplies() + " replies";
             DisplayComments();
             MessageOrDeleteButton();
             SaveOrUnsaveButton();

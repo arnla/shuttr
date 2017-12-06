@@ -10,7 +10,7 @@
             <Grid x:Name="mainGrid" ShowGridLines="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
                     <RowDefinition Height="5*"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
@@ -19,7 +19,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="10*"/>
-                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1.5*"/>
                     </Grid.ColumnDefinitions>
                     <Grid x:Name="UserInfo" Grid.Column="0" Margin="5,5,5,5">
                         <Grid.ColumnDefinitions>
@@ -27,22 +27,27 @@
                             <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Image x:Name="UserProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
-                        <Grid x:Name="UsernameMessage" Grid.Column="1" Margin="5,5,5,5">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="1*"/>
-                                <RowDefinition Height="1*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock x:Name="Username" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                            <Button x:Name="MessageUserButton" Grid.Row="1" Content="MESSAGE" Click="ButtonClick"></Button>
-                            <Button x:Name="DeleteButton" Grid.Row="1" Content="DELETE" Background="Red" Click="ButtonClick"></Button>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock x:Name="Username" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <Button x:Name="MessageUserButton" Content="MESSAGE" Height="20" Click="ButtonClick"></Button>
+                            <Button x:Name="DeleteButton" Content="DELETE" Background="Red" Click="ButtonClick"></Button>
+                        </StackPanel>
                     </Grid>
+                    <Grid Grid.Column="1" ShowGridLines="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="DiscussionTitle" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+                        <ScrollViewer Grid.Row="1">
+                            <TextBlock x:Name="DiscussionDescription" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                        </ScrollViewer>
                     </Grid>
-                    <TextBlock x:Name="DiscussionTitle" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                <StackPanel Grid.Column="2" Margin="5,5,5,5">
-                    <Label x:Name="NumRepliesButton" Margin="5,5,5,5" Height="Auto" Width="Auto" HorizontalAlignment="Center"/>
-                    <Button x:Name="saveButton" Height="20" Width="50" Click="ButtonClick"/>
-                </StackPanel>
-            </Grid>
+                    <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Label x:Name="NumRepliesButton" Height="Auto" Width="Auto" HorizontalAlignment="Center"/>
+                        <Button x:Name="saveButton" Height="20" Width="50" Click="ButtonClick"/>
+                    </StackPanel>
+                </Grid>
                 <ScrollViewer x:Name="ScrollViewComments" Grid.Row="2">
 
                     <StackPanel x:Name="commentsFeed">
