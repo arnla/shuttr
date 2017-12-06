@@ -271,7 +271,7 @@ namespace shuttr
 
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago ";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageHours.ToString() + "h ago\t";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;
@@ -283,7 +283,7 @@ namespace shuttr
             {
                 // Display the image stats
                 imageStats.Visibility = Visibility.Visible;
-                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago ";
+                imageStats.Text = score.ToString() + " points  " + commentCount.ToString() + " comments  " + ageDays.ToString() + "d ago\t";
 
                 // Display the caption and title
                 imageCaption.Visibility = Visibility.Visible;

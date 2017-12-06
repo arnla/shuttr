@@ -34,6 +34,7 @@ namespace shuttr
             newPhoto.score = 42;
             newPhoto.displaySideInfo();
             newPhoto.IsPrivate = false;
+            newPhoto.main = this.parent;
             photoDict.Add(100, newPhoto);
 
             newPhoto = new Photo(101, "/Images/tokyo.jpg");
@@ -43,6 +44,7 @@ namespace shuttr
             newPhoto.score = 64;
             newPhoto.displaySideInfo();
             newPhoto.IsPrivate = false;
+            newPhoto.main = this.parent;
             photoDict.Add(101, newPhoto);
 
             newPhoto = new Photo(999, "Images/miami.jpg");
