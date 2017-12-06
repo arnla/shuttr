@@ -29,6 +29,13 @@ namespace shuttr
             this.main = main;
             this.parent = parent;
             main.ChangeFill(Visibility.Visible);
+
+            Loaded += PromptLoaded;
+        }
+
+        private void PromptLoaded(object sender, RoutedEventArgs e)
+        {
+            passwordBox.Focus();
         }
 
         public void SetMessage(string messageToDisplay)
@@ -74,6 +81,16 @@ namespace shuttr
         {
             main.ChangeFill(Visibility.Hidden);
             this.Close();
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                parent.MakeChanges();
+                main.ChangeFill(Visibility.Hidden);
+                this.Close();
+            }
         }
     }
 }
