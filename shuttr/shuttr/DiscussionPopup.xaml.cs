@@ -49,6 +49,7 @@ namespace shuttr
             NumRepliesButton.Content = sender.GetNumReplies();
             DisplayComments();
             MessageOrDeleteButton();
+            SaveOrUnsaveButton();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
@@ -68,9 +69,22 @@ namespace shuttr
             NumRepliesButton.Content = sender.GetNumReplies();
             DisplayComments();
             MessageOrDeleteButton();
+            SaveOrUnsaveButton();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+        }
+
+        private void SaveOrUnsaveButton()
+        {
+            if (discussion.saved)
+            {
+                saveButton.Content = "Unsave";
+            }
+            else if (!discussion.saved)
+            {
+                saveButton.Content = "Save";
+            }
         }
 
         private void MessageOrDeleteButton()
@@ -164,6 +178,37 @@ namespace shuttr
                         // close popup window
                         this.Visibility = Visibility.Hidden;
                         main.ChangeFill(Visibility.Hidden);
+                    }
+                }
+                else if (sender.Equals(saveButton))
+                {
+                    if (!discussion.saved)
+                    {
+                        // Create a new instance with the same attributes
+                        Discussion copyOfDiscussion = new Discussion(discussion.discussionId, discussion.user, discussion.title, discussion.description, discussion.numReplies);
+                        copyOfDiscussion.score = discussion.score;
+                        copyOfDiscussion.main = discussion.main;
+                        copyOfDiscussion.comments = discussion.comments;
+
+                        // Set the saved flag of the new Discussion to true
+                        copyOfDiscussion.Saved = true;
+                        //  Pass it to SavedPage.AddPost()
+                        main.currSavedPage.AddPost(copyOfDiscussion);
+
+                        // Set the Saved button content of this discussion to Unsave
+                        // Set the saved flag of this dicussion to true
+                        discussion.saved = true;
+                        discussion.saveDiscussion.Content = "Unsave";
+                        saveButton.Content = "Unsave";
+                    }
+                    else if (discussion.saved)
+                    {
+                        discussion.saved = false;
+
+                        main.currSavedPage.RemovePost(discussion);
+                        main.currDiscussionPage.SetDiscussionUnsaved(discussion);
+                        discussion.saveDiscussion.Content = "Save";
+                        saveButton.Content = "Save";
                     }
                 }
             }

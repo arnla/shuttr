@@ -51,8 +51,9 @@ namespace shuttr
             Username.Text = sender.username;
             title.Text = sender.title;
             description.Text = sender.caption;
-            NumRepliesButton.Content = sender.commentCount;
+            NumRepliesButton.Content = sender.commentCount + " replies";
             MessageOrDeleteButton();
+            SaveOrUnsaveButton();
 
             DisplayComments();
 
@@ -87,6 +88,7 @@ namespace shuttr
             description.Text = sender.caption;
             NumRepliesButton.Content = sender.comments.Count();
             MessageOrDeleteButton();
+            SaveOrUnsaveButton();
 
             DisplayComments();
 
@@ -181,6 +183,18 @@ namespace shuttr
             }
         }
 
+        private void SaveOrUnsaveButton()
+        {
+            if (photo.Saved)
+            {
+                saveButton.Content = "Unsave";
+            }
+            else if (!photo.Saved)
+            {
+                saveButton.Content = "Save";
+            }
+        }
+
         private void MessageOrDeleteButton()
         {
             if (photo.currentUser == true)
@@ -256,6 +270,43 @@ namespace shuttr
                 else if (sender.Equals(EditButton))
                 {
 
+                }
+                else if (sender.Equals(saveButton))
+                {
+                    if (!photo.Saved)
+                    {
+                        // Create a new instance with the same attributes
+                        Photo copyOfPhoto = new Photo(photo.photoId, photo.imageName.Source);
+                        copyOfPhoto.title = photo.title;
+                        copyOfPhoto.caption = photo.caption;
+                        copyOfPhoto.username = photo.username;
+                        copyOfPhoto.ageDays = photo.ageDays;
+                        copyOfPhoto.ageHours = photo.ageHours;
+                        copyOfPhoto.time = photo.time;
+                        copyOfPhoto.score = photo.score;
+                        copyOfPhoto.main = photo.main;
+                        copyOfPhoto.displaySideInfo();
+                        copyOfPhoto.comments = photo.comments;
+                        copyOfPhoto.commentCount = photo.commentCount;
+                        copyOfPhoto.upvoted = photo.upvoted;
+
+                        // Set the saved flag of the new Discussion to true
+                        copyOfPhoto.Saved = true;
+                        //  Pass it to SavedPage.AddPost()
+                        main.currSavedPage.AddPost(copyOfPhoto);
+
+                        // Set the Saved button content of this discussion to Unsave
+                        // Set the saved flag of this dicussion to true
+                        photo.Saved = true;
+                        saveButton.Content = "Unsave";
+                    }
+                    else if (photo.Saved)
+                    {
+                        photo.Saved = false;
+                        main.currSavedPage.RemovePost(photo);
+                        main.currPhotosPage.SetPhotoUnsaved(photo);
+                        saveButton.Content = "Save";
+                    }
                 }
             }
             else if (!main.signedIn)

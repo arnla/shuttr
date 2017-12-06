@@ -49,11 +49,12 @@
                     </Grid>
                 </Grid>
 
-                <TextBlock x:Name="title" Grid.Column="1" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock x:Name="title" Grid.Column="1" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
 
-                <Label x:Name="NumRepliesButton" Grid.Column="2" Margin="5" Height="Auto" Width="Auto"/>
+                <Label x:Name="NumRepliesButton" Grid.Column="2" Margin="5" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                <TextBlock x:Name="description" Grid.Row="1" Grid.ColumnSpan="3" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                <TextBlock x:Name="description" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                <Button x:Name="saveButton" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Click="ButtonClick" VerticalAlignment="Top" Height="20" Width="50"/>
             </Grid>
 
             <ScrollViewer x:Name="photoAndComments" Grid.Row="2" Margin="5">
