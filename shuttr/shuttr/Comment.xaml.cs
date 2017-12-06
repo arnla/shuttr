@@ -113,6 +113,7 @@ namespace shuttr
                         castedParent.CommentBoxDefault.Text = "Replying to " + username + "'s comment: \"" + comment + "\". Type a message...";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
+                        castedParent.CommentBox.Focus();
                     }
                     else if (parent.GetType() == typeof(PhotoPopup))
                     {
@@ -120,6 +121,7 @@ namespace shuttr
                         castedParent.commentBoxDefault.Text = "Replying to " + username + "'s comment: \"" + comment + "\". Type a comment...";
                         castedParent.SetReplyFlag(1);
                         castedParent.SetCommentToReplyTo(this);
+                        castedParent.commentBox.Focus();
                     }
                 }
             }
