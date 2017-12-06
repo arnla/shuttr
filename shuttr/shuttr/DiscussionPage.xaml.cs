@@ -156,6 +156,7 @@ namespace shuttr
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
                 SortByNew();
             }
+            /*
             else if (sender.Equals(sortMostCommented))
             {
                 currentSortOption.Content = "Most Commented";
@@ -168,6 +169,7 @@ namespace shuttr
                 sortByDropdown.IsOpen = !sortByDropdown.IsOpen;
                 SortByMostUpvoted();
             }
+            */
         }
 
         public void SortByPopular()

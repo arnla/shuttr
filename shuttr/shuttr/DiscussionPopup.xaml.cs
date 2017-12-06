@@ -30,7 +30,6 @@ namespace shuttr
         public DiscussionPopup()
         {
             InitializeComponent();
-            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -54,15 +53,9 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
-            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
-        }
-
-        private void discussionLoaded(object sender, RoutedEventArgs e)
-        {
-            CommentBox.Focus();
         }
 
         public DiscussionPopup(MainWindow main, Discussion sender)
@@ -82,7 +75,6 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
-            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -159,11 +151,6 @@ namespace shuttr
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
-                        discussion.numReplies++;
-                        string repliesString = discussion.numReplies.ToString();
-                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
-                        NumRepliesButton.Content = repliesString;
-                        discussion.replyCount.Text = repliesString;
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
@@ -178,11 +165,6 @@ namespace shuttr
                         CommentBoxDefault.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
-                        discussion.numReplies++;
-                        string repliesString = discussion.numReplies.ToString();
-                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
-                        NumRepliesButton.Content = repliesString;
-                        discussion.replyCount.Text = repliesString;
                     }
                 }
                 else if (sender.Equals(DeleteButton))
