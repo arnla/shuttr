@@ -315,7 +315,7 @@ namespace shuttr
 
         public void SavePhoto(object sender, RoutedEventArgs e)
         {
-            if (isPrivate)
+            if (!isPrivate)
             {
                 captureClicks.Visibility = Visibility.Visible;
                 savePopup.IsOpen = true;
@@ -324,8 +324,49 @@ namespace shuttr
 
         public void DownloadPhoto(object sender, RoutedEventArgs e)
         {
+            // Display the save file dialog
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "";
+            saveFileDialog.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+            saveFileDialog.Title = "Download " + title;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = title;
+
+            // Save the file
+            if ((bool)saveFileDialog.ShowDialog())
+            {
+                // File stream to save image.
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
+
+                // Saves the image in the proper format.
+                switch (saveFileDialog.FilterIndex)
+                {
+                    case 1:
+                        BitmapEncoder encoderJpg = new JpegBitmapEncoder();
+                        encoderJpg.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderJpg.Save(fs);
+                        break;
+                    case 2:
+                        BitmapEncoder encoderBmp = new BmpBitmapEncoder();
+                        encoderBmp.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderBmp.Save(fs);
+                        break;
+                    case 3:
+                        BitmapEncoder encoderGif = new GifBitmapEncoder();
+                        encoderGif.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderGif.Save(fs);
+                        break;
+                    case 4:
+                        BitmapEncoder encoderPng = new PngBitmapEncoder();
+                        encoderPng.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderPng.Save(fs);
+                        break;
+                }
+
+                fs.Close();
+            }
+
+            savePopup.IsOpen = false;
+            captureClicks.Visibility = Visibility.Hidden;
         }
 
         public void CloseDownloadPopup(object sender, RoutedEventArgs e)

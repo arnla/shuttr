@@ -33,6 +33,7 @@ namespace shuttr
             newPhoto.username = "Angela";
             newPhoto.score = 42;
             newPhoto.displaySideInfo();
+            newPhoto.IsPrivate = false;
             photoDict.Add(100, newPhoto);
 
             newPhoto = new Photo(101, "/Images/tokyo.jpg");
@@ -41,6 +42,7 @@ namespace shuttr
             newPhoto.username = "Emilio";
             newPhoto.score = 64;
             newPhoto.displaySideInfo();
+            newPhoto.IsPrivate = false;
             photoDict.Add(101, newPhoto);
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
