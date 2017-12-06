@@ -9,7 +9,7 @@
     <UserControl.Resources>
         <Style x:Key="sortByOptionStyle" TargetType="Button">
             <Setter Property="Background" Value="#FFCFD6D8"/>
-            <Setter Property="Height" Value="20"/>
+            <Setter Property="Height" Value="30"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -83,7 +83,7 @@
                 <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
                 <Label x:Name="currentSortOption" Content="Popular" MouseLeftButtonDown="SortClick"></Label>
 
-                <Popup x:Name="sortByDropdown" Placement="Right" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
+                <Popup x:Name="sortByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
                     <StackPanel x:Name="sortByOptions" Background="AliceBlue">
                         <Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
                         <Button x:Name="sortNew" Content="New" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
@@ -101,7 +101,7 @@
                 <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
                 <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center" MouseLeftButtonDown="FilterClick"/>
 
-                <Popup x:Name="filterByDropdown" Placement="Right" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
+                <Popup x:Name="filterByDropdown" Placement="Left" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
                     <StackPanel x:Name="filterByOptions" Background="AliceBlue">
                         <Button x:Name="filterAll" Content="Photos + Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
                         <Button x:Name="filterPhotos" Content="Photos" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
