@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -120,6 +121,7 @@ namespace shuttr
             Image embedImage = new Image();
             embedImage.Source = sender.imageSource;
             embedImage.MouseLeftButtonDown += Maximize;
+            embedImage.MouseRightButtonDown += SavePhoto;
             //embedImage.MouseEnter += hoverPhoto;
             //embedImage.MouseLeave += hoverOffPhoto;
 
@@ -130,6 +132,7 @@ namespace shuttr
             clickMessage.FontFamily = new FontFamily("Microsoft YaHei");
             clickMessage.HorizontalAlignment = HorizontalAlignment.Center;
             clickMessage.VerticalAlignment = VerticalAlignment.Top;
+            clickMessage.MouseRightButtonDown += SavePhoto;
 
             // Add the close textblock and image to the grid.
             imageGrid.Children.Add(embedImage);
@@ -328,6 +331,68 @@ namespace shuttr
             fillPopup.Visibility = Visibility.Hidden;
             mainGrid.ShowGridLines = true;
             imageBorder.Visibility = Visibility.Collapsed;
+        }
+
+        public void SavePhoto(object sender, RoutedEventArgs e)
+        {
+            if (!photo.IsPrivate)
+            {
+                //captureClicks.Visibility = Visibility.Visible;
+                savePopup.IsOpen = true;
+            }
+        }
+
+        public void DownloadPhoto(object sender, RoutedEventArgs e)
+        {
+            // Display the save file dialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+            saveFileDialog.Title = "Download " + title;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = photo.title;
+
+            // Save the file
+            if ((bool)saveFileDialog.ShowDialog())
+            {
+                // File stream to save image.
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
+
+                // Saves the image in the proper format.
+                switch (saveFileDialog.FilterIndex)
+                {
+                    case 1:
+                        BitmapEncoder encoderJpg = new JpegBitmapEncoder();
+                        encoderJpg.Frames.Add(BitmapFrame.Create(photo.imageName.Source as BitmapImage));
+                        encoderJpg.Save(fs);
+                        break;
+                    case 2:
+                        BitmapEncoder encoderBmp = new BmpBitmapEncoder();
+                        encoderBmp.Frames.Add(BitmapFrame.Create(photo.imageName.Source as BitmapImage));
+                        encoderBmp.Save(fs);
+                        break;
+                    case 3:
+                        BitmapEncoder encoderGif = new GifBitmapEncoder();
+                        encoderGif.Frames.Add(BitmapFrame.Create(photo.imageName.Source as BitmapImage));
+                        encoderGif.Save(fs);
+                        break;
+                    case 4:
+                        BitmapEncoder encoderPng = new PngBitmapEncoder();
+                        encoderPng.Frames.Add(BitmapFrame.Create(photo.imageName.Source as BitmapImage));
+                        encoderPng.Save(fs);
+                        break;
+                }
+
+                fs.Close();
+            }
+
+            savePopup.IsOpen = false;
+            //captureClicks.Visibility = Visibility.Hidden;
+        }
+
+        public void CloseDownloadPopup(object sender, RoutedEventArgs e)
+        {
+            savePopup.IsOpen = false;
+            //captureClicks.Visibility = Visibility.Hidden;
         }
     }
 }

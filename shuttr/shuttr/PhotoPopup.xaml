@@ -103,6 +103,30 @@
             </Grid>
 
             <Rectangle x:Name="fillPopup" Grid.RowSpan="4" Fill="Black" Opacity="0.85" Visibility="Hidden"/>
+
+            <Popup x:Name="savePopup" StaysOpen="False" Placement="MousePoint">
+                <Button x:Name="saveConfirm" Background="AliceBlue" Content="Download" Height="30" Click="DownloadPhoto">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#FFCFD6D8"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Popup>
         </Grid>
     </Border>
 </UserControl>

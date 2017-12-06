@@ -134,7 +134,7 @@ namespace shuttr
             sideScore.Text = score.ToString();
             saved = false;
             currentUser = true;
-            this.IsPrivate = photo.IsPrivate;
+            this.isPrivate = photo.IsPrivate;
         }
 
         /// <summary>
