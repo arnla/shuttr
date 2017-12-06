@@ -260,6 +260,7 @@ namespace shuttr
             foreach (KeyValuePair<int, Photo> photo in displayedUser.userPhotos)
             {
                 Photo newPhoto = new Photo(photo.Value);
+                newPhoto.sidePhotoInfo.Visibility = Visibility.Collapsed;
                 userProfileFeed.Children.Add(newPhoto);
                 newPhoto.main = this.parent;
                 MakePostClickable(newPhoto);
