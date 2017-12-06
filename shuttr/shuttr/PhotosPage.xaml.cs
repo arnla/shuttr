@@ -47,7 +47,18 @@ namespace shuttr
             newPhoto.main = this.parent;
             photoDict.Add(101, newPhoto);
 
-            newPhoto = new Photo(999, "Images/miami.jpg");
+            newPhoto = new Photo(102, "Images/Mountains.jpg");
+            newPhoto.username = "Lean";
+            newPhoto.title = "Rate my photo";
+            newPhoto.score = 5;
+            newPhoto.displaySideInfo();
+            newPhoto.commentCount = 1;
+            newPhoto.comments.Add(new Comment("Emilio", "Cool photo. Where was this?"));
+            newPhoto.IsPrivate = false;
+            newPhoto.main = this.parent;
+            photoDict.Add(102, newPhoto);
+
+            newPhoto = new Photo(103, "Images/miami.jpg");
             newPhoto.username = "Lawrence";
             newPhoto.title = "From my trip in miami";
             newPhoto.score = 5;
@@ -56,7 +67,7 @@ namespace shuttr
             newPhoto.IsPrivate = false;
             newPhoto.displaySideInfo();
             newPhoto.main = this.parent;
-            photoDict.Add(999, newPhoto);
+            photoDict.Add(103, newPhoto);
 
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
