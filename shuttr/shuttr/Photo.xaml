@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:shuttr"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="800">
+    <Grid>
     <Border>
         <StackPanel x:Name="photoWithUser"
                     Orientation="Horizontal"
@@ -81,6 +82,7 @@
                    MouseLeftButtonDown="ClickPhoto" 
                    MouseEnter="HoverPhoto" 
                    MouseLeave="MouseLeave"
+                   MouseRightButtonDown="SavePhoto"
                    />
                 <TextBlock x:Name="imageStats"
                        Text=""
@@ -91,7 +93,8 @@
                        VerticalAlignment="Bottom" 
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
-                       MouseLeave="MouseLeave">
+                       MouseLeave="MouseLeave"
+                           MouseRightButtonDown="SavePhoto">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="5"
                                           Color="White"
@@ -112,7 +115,8 @@
                        VerticalAlignment="Center" 
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
-                       MouseLeave="MouseLeave">
+                       MouseLeave="MouseLeave"
+                               MouseRightButtonDown="SavePhoto">
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="5"
                                           Color="White"
@@ -130,7 +134,8 @@
                        VerticalAlignment="Center" 
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
-                       MouseLeave="MouseLeave">
+                       MouseLeave="MouseLeave"
+                               MouseRightButtonDown="SavePhoto">
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="5"
                                           Color="White"
@@ -142,4 +147,50 @@
             </Grid>
         </StackPanel>
     </Border>
+
+        <Button x:Name="captureClicks" Background="Transparent" BorderBrush="Transparent" Click="CloseDownloadPopup" Visibility="Hidden" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Green"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="DarkGoldenrod"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Popup x:Name="savePopup" StaysOpen="False" Placement="MousePoint">
+            <Button x:Name="saveConfirm" Background="AliceBlue" Content="Download" Height="30" Click="DownloadPhoto">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#FFCFD6D8"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Popup>
+    </Grid>
 </UserControl>

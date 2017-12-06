@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,6 +57,18 @@ namespace shuttr
         private double ageDays { get; set; }
         private double ageHours { get; set; }
         public List<Comment> comments { get; set; } = new List<Comment>();
+        private bool isPrivate = true;
+        public bool IsPrivate
+        {
+            get
+            {
+                return isPrivate;
+            }
+            set
+            {
+                isPrivate = value;
+            }
+        }
 
         public MainWindow main { get; set; }
 
@@ -121,6 +134,7 @@ namespace shuttr
             sideScore.Text = score.ToString();
             saved = false;
             currentUser = true;
+            this.IsPrivate = photo.IsPrivate;
         }
 
         /// <summary>
@@ -297,6 +311,68 @@ namespace shuttr
         {
             this.main.contentControl.Content = new ProfilePageOtherUser(main);
             this.main.HighlightTab();
+        }
+
+        public void SavePhoto(object sender, RoutedEventArgs e)
+        {
+            if (!isPrivate)
+            {
+                captureClicks.Visibility = Visibility.Visible;
+                savePopup.IsOpen = true;
+            }
+        }
+
+        public void DownloadPhoto(object sender, RoutedEventArgs e)
+        {
+            // Display the save file dialog
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Jpeg Image|*.jpg|Bitmap Image|*.bmp|Gif Image|*.gif|Png Image|*.png";
+            saveFileDialog.Title = "Download " + title;
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = title;
+
+            // Save the file
+            if ((bool)saveFileDialog.ShowDialog())
+            {
+                // File stream to save image.
+                System.IO.FileStream fs = (System.IO.FileStream)saveFileDialog.OpenFile();
+
+                // Saves the image in the proper format.
+                switch (saveFileDialog.FilterIndex)
+                {
+                    case 1:
+                        BitmapEncoder encoderJpg = new JpegBitmapEncoder();
+                        encoderJpg.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderJpg.Save(fs);
+                        break;
+                    case 2:
+                        BitmapEncoder encoderBmp = new BmpBitmapEncoder();
+                        encoderBmp.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderBmp.Save(fs);
+                        break;
+                    case 3:
+                        BitmapEncoder encoderGif = new GifBitmapEncoder();
+                        encoderGif.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderGif.Save(fs);
+                        break;
+                    case 4:
+                        BitmapEncoder encoderPng = new PngBitmapEncoder();
+                        encoderPng.Frames.Add(BitmapFrame.Create(imageName.Source as BitmapImage));
+                        encoderPng.Save(fs);
+                        break;
+                }
+
+                fs.Close();
+            }
+
+            savePopup.IsOpen = false;
+            captureClicks.Visibility = Visibility.Hidden;
+        }
+
+        public void CloseDownloadPopup(object sender, RoutedEventArgs e)
+        {
+            savePopup.IsOpen = false;
+            captureClicks.Visibility = Visibility.Hidden;
         }
     }
 }
