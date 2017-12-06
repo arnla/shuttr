@@ -101,6 +101,9 @@
     <Compile Include="SearchResultsPage.xaml.cs">
       <DependentUpon>SearchResultsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SearchResultsPageEmpty.xaml.cs">
+      <DependentUpon>SearchResultsPageEmpty.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignupPage.xaml.cs">
       <DependentUpon>SignupPage.xaml</DependentUpon>
     </Compile>
@@ -180,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchResultsPageEmpty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

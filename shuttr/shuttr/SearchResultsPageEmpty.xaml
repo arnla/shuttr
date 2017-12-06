@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="shuttr.SearchResultsPageEmpty"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:shuttr"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <Style x:Key="sortByOptionStyle" TargetType="Button">
+            <Setter Property="Background" Value="#FFCFD6D8"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#F6FBFF">
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="header" Height="Auto"/>
+            <RowDefinition x:Name="contentRow"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Background="Transparent">
+            <Label Content="Viewing Search Results For: " FontSize="20"/>
+            <Label x:Name="search" Content="mountains" FontSize="20" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Menu items: Popular, New, Most Commented, Most Upvoted-->
+        <Border x:Name="sortByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0">
+            <StackPanel Background="Transparent" Orientation="Horizontal">
+                <Button x:Name="sortByMenu" Content="Sort By:" Click="SortClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentSortOption" Content="Popular" VerticalAlignment="Center" MouseLeftButtonDown="SortClick"></Label>
+
+                <Popup x:Name="sortByDropdown" Placement="Right" PlacementTarget="{Binding ElementName=sortByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="sortByOptions" Background="AliceBlue">
+                        <Button x:Name="sortPopular" Content="Popular" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortNew" Content="New" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostCommented" Content="Most Commented" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="sortMostUpvoted" Content="Most Upvoted" Click="SortClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+            </StackPanel>
+        </Border>
+
+        <!-- Menu items: All, Photos, Discussions-->
+        <Border x:Name="filterByContainer" HorizontalAlignment="Center" Width="800" Grid.Row="0">
+            <StackPanel Background="Transparent" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="filterByMenu" Content="Filter By:" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"></Button>
+                <Label x:Name="currentFilterOption" Content="Photos + Discussions" VerticalAlignment="Center" MouseLeftButtonDown="FilterClick"/>
+
+                <Popup x:Name="filterByDropdown" Placement="Right" PlacementTarget="{Binding ElementName=filterByMenu}" StaysOpen="False">
+                    <StackPanel x:Name="filterByOptions" Background="AliceBlue">
+                        <Button x:Name="filterAll" Content="Photos + Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterPhotos" Content="Photos" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                        <Button x:Name="filterDiscussions" Content="Discussions" Click="FilterClick" Style="{StaticResource sortByOptionStyle}"/>
+                    </StackPanel>
+                </Popup>
+            </StackPanel>
+        </Border>
+
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2">
+            <StackPanel x:Name="resultsFeed">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type local:Photo}">
+                        <Setter Property="Margin" Value="0,10,70,0"/>
+                        <Setter Property="MaxWidth" Value="850"/>
+                    </Style>
+                    <Style TargetType="{x:Type local:Discussion}">
+                        <Setter Property="Margin" Value="0,10,0,0"/>
+                        <Setter Property="MaxWidth" Value="780"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Border x:Name="emptyMessage" BorderBrush="Gray" BorderThickness="2" Opacity="50" Width="780" HorizontalAlignment="Center">
+                    <TextBlock FontFamily="Microsoft YaHei" FontSize="26" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
+                        This search didn't return any results. <LineBreak/>This is your chance to be first!
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

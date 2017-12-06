@@ -423,7 +423,17 @@ namespace shuttr
         {
             if (e.Key == Key.Enter)
             {
-                contentControl.Content = new SearchResultsPage(this);
+                string mountains = "mountains";
+                string Mountains = "Mountains";
+                if (mountains.StartsWith(searchBox.Text.ToString()) || Mountains.StartsWith(searchBox.Text.ToString()))
+                {
+                    contentControl.Content = new SearchResultsPage(this);
+                }
+                else
+                {
+                    contentControl.Content = new SearchResultsPageEmpty(this, searchBox.Text.ToString());
+                }
+
                 searchResultsPopup.IsOpen = false;
                 HighlightTab();
             }
@@ -437,7 +447,7 @@ namespace shuttr
 
                     searchResultsPopup.IsOpen = true;
 
-                    AddSearchResult("m");
+                    AddSearchResult(text + e.Key.ToString().ToLower());
                     AddSearchResult("moe");
                     AddSearchResult("mouse");
                     AddSearchResult("mickey mouse");
@@ -450,7 +460,7 @@ namespace shuttr
 
                     searchResultsPopup.IsOpen = true;
 
-                    AddSearchResult("mo");
+                    AddSearchResult(text + e.Key.ToString().ToLower());
                     AddSearchResult("moe");
                     AddSearchResult("mouse");
                     AddSearchResult("mickey mouse");
@@ -463,7 +473,7 @@ namespace shuttr
 
                     searchResultsPopup.IsOpen = true;
 
-                    AddSearchResult("mou");
+                    AddSearchResult(text + e.Key.ToString().ToLower());
                     AddSearchResult("mouse");
                     AddSearchResult("mickey mouse");
                     AddSearchResult("mountains");
@@ -475,7 +485,7 @@ namespace shuttr
 
                     searchResultsPopup.IsOpen = true;
 
-                    AddSearchResult("moun");
+                    AddSearchResult(text + e.Key.ToString().ToLower());
                     AddSearchResult("mountains");
                     AddSearchResult("mountain biking");
                     AddSearchResult("mount royal university");
