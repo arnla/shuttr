@@ -43,7 +43,7 @@ namespace shuttr
             }
 
             // Create a photo and discussion.
-            photo = new Photo(999, "Images/miami.jpg");
+            photo = new Photo(103, "Images/miami.jpg");
             photo.username = "Lawrence";
             photo.title = "From my trip in miami";
             photo.score = 5;
@@ -54,7 +54,7 @@ namespace shuttr
             photo.main = this.main;
             photo.MouseLeftButtonDown += ClickPost;
 
-            discussion = new Discussion(999, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
+            discussion = new Discussion(100, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
             discussion.score = -1;
             Comment commentWithReply = new Comment("Angela", "I'll be honest, all I need at this point is my Google Pixel.");
             commentWithReply.repliesFeed.Children.Add(new Comment("Lawrence", "This is exactly what I mean, why should I pay $2000 for a stand alone camer?"));
