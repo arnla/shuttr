@@ -31,7 +31,8 @@
                             <TextBlock x:Name="Username" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             <Button x:Name="MessageUserButton" Content="MESSAGE" Height="20" Click="ButtonClick"></Button>
                             <Button x:Name="DeleteButton" Content="DELETE" Background="Red" Click="ButtonClick"></Button>
-                        </StackPanel>
+                            <Button x:Name="EditButton" Content="EDIT" Click="ButtonClick"/>
+                    </StackPanel>
                     </Grid>
                     <Grid Grid.Column="1" ShowGridLines="True">
                         <Grid.RowDefinitions>
@@ -39,10 +40,13 @@
                             <RowDefinition Height="3*"/>
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="DiscussionTitle" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
-                        <ScrollViewer Grid.Row="1">
-                            <TextBlock x:Name="DiscussionDescription" Grid.Row="1" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
-                        </ScrollViewer>
-                    </Grid>
+                    <ScrollViewer Grid.Row="1">
+                        <Grid>
+                            <TextBlock x:Name="DiscussionDescription" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                            <TextBox x:Name="descriptionTextBox" Visibility="Hidden" HorizontalAlignment="Stretch" KeyDown="CheckForEnter" VerticalAlignment="Stretch" Foreground="Black" TextWrapping="Wrap"/>
+                        </Grid>
+                    </ScrollViewer>
+                </Grid>
                     <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Label x:Name="NumRepliesButton" Height="Auto" Width="Auto" HorizontalAlignment="Center"/>
                         <Button x:Name="saveButton" Height="20" Width="50" Click="ButtonClick"/>
