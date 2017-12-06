@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.Timers;
 
 namespace shuttr
 {
@@ -313,6 +314,8 @@ namespace shuttr
             currPhotosPage.AddPhoto(pic);
             currUser.userPhotos[pic.photoId] = pic;
             currProfilePage.DisplayPosts();
+
+            ShowPostCreated();
         }
 
         public void AddDiscussion(Discussion discussion)
@@ -321,6 +324,41 @@ namespace shuttr
             currDiscussionPage.AddDiscussionPost(discussion);
             currUser.userDiscussions[discussion.discussionId] = discussion;
             currProfilePage.DisplayPosts();
+
+            ShowPostCreated();
+        }
+
+        /// <summary>
+        /// Shows a message on the top right letting the user know that their post was created.
+        /// </summary>
+        public void ShowPostCreated()
+        {
+            // Make the message of a post created visible.
+            postAcceptedBorder.Visibility = Visibility.Visible;
+
+            // Start a timer that will make the message invisible after a set time (5 seconds, 5000 ms).
+            Timer countDownToHidePostCreateMessage = new Timer(5000);
+            countDownToHidePostCreateMessage.Elapsed += HidePostCreated;
+            countDownToHidePostCreateMessage.Enabled = true;
+        }
+        /// <summary>
+        /// Hides the message created previously. Cancels the timer that called it.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void HidePostCreated(object sender, ElapsedEventArgs e)
+        {
+            // Hide the post created message.
+            this.Dispatcher.Invoke(() =>
+            {
+                postAcceptedBorder.Visibility = Visibility.Hidden;
+            });
+
+            if (sender.GetType() == typeof(Timer))
+            {
+                Timer timer = (Timer)sender;
+                timer.Stop();
+            }
         }
 
         public void ChangeFill(Visibility visibility)

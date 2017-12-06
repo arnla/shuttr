@@ -584,5 +584,9 @@
                        Fill="Black" 
                        Opacity="0.85"
                        Visibility="Hidden"></Rectangle>
+
+        <Border x:Name="postAcceptedBorder" Grid.Row="2" Grid.Column="3" BorderBrush="Gray" Opacity="0.5" BorderThickness="2" Width="210" Height="60" Margin="50, 30" HorizontalAlignment="Right" VerticalAlignment="Top" Visibility="Hidden">
+            <TextBlock x:Name="postAcceptedMessage" Text="Your post has been successfully created." FontFamily="Microsoft YaHei" FontSize="20" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"/>
+        </Border>
     </Grid>
 </Window>
