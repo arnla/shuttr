@@ -58,7 +58,8 @@
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
+                        FontFamily="Microsoft YaHei"
+                         KeyDown="CheckForEnter">
                 </TextBox>
                 <TextBlock x:Name="emailBoxDefault"
                    IsHitTestVisible="False"
@@ -111,7 +112,8 @@
                         VerticalAlignment="Center" 
                         Width="548"
                         FontSize="36"
-                        FontFamily="Microsoft YaHei">
+                        FontFamily="Microsoft YaHei"
+                         KeyDown="CheckForEnter">
                 </TextBox>
                 <TextBlock x:Name="usernameBoxDefault"
                    IsHitTestVisible="False"
@@ -162,7 +164,8 @@
                         Width="548"
                         FontSize="36"
                         FontFamily="Microsoft YaHei"
-                        PasswordChanged="passwordChanged">
+                        PasswordChanged="passwordChanged"
+                         KeyDown="CheckForEnter">
                 </PasswordBox>
                 <TextBlock x:Name="passwordBoxDefault"
                    IsHitTestVisible="False"

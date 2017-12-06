@@ -32,6 +32,13 @@ namespace shuttr
 
             displayedUser = currentUser;
             main = parent;
+
+            Loaded += SettingsLoaded;
+        }
+
+        private void SettingsLoaded(object sender, RoutedEventArgs e)
+        {
+            emailBox.Focus();
         }
 
         public void Button_Click(object sender, EventArgs e)
@@ -119,6 +126,70 @@ namespace shuttr
             passwordBox.Password = "";
             settingsLabel.Content = "Your changes have been saved";
             settingsLabel.Foreground = Brushes.Green;
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                newEmail = newUserName = newPassword = null;
+
+                if (usernameBox.Text.Length != 0)
+                {
+                    newUserName = usernameBox.Text.ToString();
+                }
+                if (passwordBox.Password.Length != 0)
+                {
+                    newPassword = passwordBox.Password.ToString();
+                }
+                if (emailBox.Text.Length != 0)
+                {
+                    newEmail = emailBox.Text.ToString();
+                }
+
+                if ((newEmail != null) || (newUserName != null) || (newPassword != null))
+                {
+                    UserSettingsPrompt prompt = new UserSettingsPrompt(main, this);
+
+                    List<string> changes = new List<string>();
+
+                    if (newEmail != null)
+                    {
+                        changes.Add("email");
+                    }
+                    if (newUserName != null)
+                    {
+                        changes.Add("username");
+                    }
+                    if (newPassword != null)
+                    {
+                        changes.Add("password");
+                    }
+
+                    string message = "Enter your current password to save your new ";
+                    if (changes.Count == 1)
+                    {
+                        message += changes[0];
+                    }
+                    else
+                    {
+                        for (int i = 0; i < changes.Count; i++)
+                        {
+                            if (i == changes.Count - 1)
+                            {
+                                message += " and " + changes[i];
+                            }
+                            else
+                            {
+                                message += " " + changes[i] + ",";
+                            }
+                        }
+                    }
+
+                    prompt.SetMessage(message);
+                    prompt.ShowDialog();
+                }
+            }
         }
     }
 
