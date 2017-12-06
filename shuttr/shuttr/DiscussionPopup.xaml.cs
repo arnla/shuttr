@@ -22,7 +22,7 @@ namespace shuttr
     {
         MainWindow main;
         DiscussionPage parent;
-        Discussion discussion;
+        public Discussion discussion;
         int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
         Comment commentToReplyTo = null;
 
