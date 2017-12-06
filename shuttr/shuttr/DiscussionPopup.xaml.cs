@@ -151,6 +151,10 @@ namespace shuttr
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
+                        discussion.numReplies++;
+                        string repliesString = discussion.numReplies.ToString();
+                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
@@ -165,6 +169,10 @@ namespace shuttr
                         CommentBoxDefault.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
+                        discussion.numReplies++;
+                        string repliesString = discussion.numReplies.ToString();
+                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
                     }
                 }
                 else if (sender.Equals(DeleteButton))

@@ -61,6 +61,7 @@ namespace shuttr
             discussion.GetComments().Add(commentWithReply);
             discussion.GetComments().Add(new Comment("Anonymoose", "Point and shoots barely have a purpose now, but DSLRs and professional gear are still relevant. For any regular user, a phone is fine. But think about the professionals who need the features of a DSLR. Manual focus and switching lenses is a big deal, let alone the massive boost in quality. They let you be more creative, as opposed to shooting a picture the same way every time."));
             discussion.main = this.main;
+            discussion.numReplies = 3;
             discussion.MouseLeftButtonDown += ClickPost;
 
             // Photo = 5 Score, 1 Comment, Discussion = -1 score, 3 comments

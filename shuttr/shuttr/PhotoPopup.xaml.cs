@@ -240,6 +240,10 @@ namespace shuttr
                         commentBoxDefault.Text = "Type a comment...";
                         // Unnecessary line. Same as DiscussionPopup.
                         //parent.photoDict[photo.photoId] = photo;
+                        photo.commentCount++;
+                        string repliesString = photo.commentCount.ToString();
+                        repliesString += (photo.commentCount != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
                     }
                     else if (replyFlag == 1)
                     {
@@ -251,6 +255,9 @@ namespace shuttr
                         commentBoxDefault.Text = "Type a comment...";
                         replyFlag = 0;
                         commentToReplyTo = null;
+                        photo.commentCount++;
+                        string repliesString = photo.commentCount.ToString();
+                        repliesString += (photo.commentCount != 1) ? " replies" : " reply";
                     }
                 }
                 else if (sender.Equals(DeleteButton))
