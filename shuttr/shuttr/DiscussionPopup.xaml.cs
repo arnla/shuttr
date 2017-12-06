@@ -214,6 +214,11 @@ namespace shuttr
                         saveButton.Content = "Save";
                     }
                 }
+                else if (sender.Equals(MessageUserButton))
+                {
+                    MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+                    prompt.ShowDialog();
+                }
             }
             else if (!main.signedIn)
             {

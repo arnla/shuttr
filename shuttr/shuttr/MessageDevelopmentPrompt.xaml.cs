@@ -36,6 +36,20 @@ namespace shuttr
             this.parent = parent;
         }
 
+        public MessageDevelopmentPrompt(DiscussionPopup parent)
+        {
+            InitializeComponent();
+
+            this.parent = parent;
+        }
+
+        public MessageDevelopmentPrompt(PhotoPopup parent)
+        {
+            InitializeComponent();
+
+            this.parent = parent;
+        }
+
         public MessageDevelopmentPrompt(MainWindow main)
         {
             InitializeComponent();
@@ -100,6 +114,10 @@ namespace shuttr
             {
                 MessagesPage castedParent = (MessagesPage)parent;
                 castedParent.OnCloseMessagePrompt();
+            }
+            else if ((parent.GetType() == typeof(PhotoPopup)) || (parent.GetType() == typeof(DiscussionPopup)))
+            {
+                // Do nothing.
             }
         }
     }
