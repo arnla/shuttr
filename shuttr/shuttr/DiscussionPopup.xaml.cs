@@ -30,8 +30,8 @@ namespace shuttr
         {
             InitializeComponent();
 
-            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
         }
 
         public DiscussionPopup(MainWindow main, DiscussionPage parent, Discussion sender)
@@ -52,8 +52,8 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
 
-            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
         }
 
         public DiscussionPopup(MainWindow main, Discussion sender)
@@ -73,8 +73,8 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
 
-            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.6;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.6;
+            window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
         }
 
         private void SaveOrUnsaveButton()
