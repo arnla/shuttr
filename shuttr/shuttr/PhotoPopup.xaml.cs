@@ -205,6 +205,7 @@ namespace shuttr
                 MessageUserButton.Visibility = Visibility.Collapsed;
                 DeleteButton.Visibility = Visibility.Visible;
                 EditButton.Visibility = Visibility.Visible;
+                saveButton.Visibility = Visibility.Collapsed;
             }
             else
             {
