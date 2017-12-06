@@ -31,7 +31,7 @@ namespace shuttr
             InitializeComponent();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
         public DiscussionPopup(MainWindow main, DiscussionPage parent, Discussion sender)
@@ -53,7 +53,7 @@ namespace shuttr
             SaveOrUnsaveButton();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
         public DiscussionPopup(MainWindow main, Discussion sender)
@@ -74,7 +74,7 @@ namespace shuttr
             SaveOrUnsaveButton();
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
-            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.85;
+            window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
 
         private void SaveOrUnsaveButton()
