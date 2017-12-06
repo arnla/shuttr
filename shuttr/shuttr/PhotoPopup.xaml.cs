@@ -350,7 +350,7 @@ namespace shuttr
             {
                 EditButton.Content = "EDIT: OFF";
                 EditButton.Background = Brushes.LightGray;
-
+                description.Visibility = Visibility.Visible;
                 editable = false;
 
                 updateCaption();
