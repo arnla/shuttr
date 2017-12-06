@@ -214,13 +214,28 @@ namespace shuttr
                         saveButton.Content = "Save";
                     }
                 }
+                else if (sender.Equals(MessageUserButton))
+                {
+                    MessageDevelopmentPrompt prompt = new MessageDevelopmentPrompt(this);
+                    prompt.ShowDialog();
+                }
             }
             else if (!main.signedIn)
             {
-                NoBlurPrompt prompt = new NoBlurPrompt(main, this);
-                prompt.SetMessage("You must sign in to discuss with users.");
-                prompt.ShowDialog();
-                main.HighlightTab();
+                if (sender.Equals(saveButton))
+                {
+                    NoBlurPrompt prompt = new NoBlurPrompt(main, this);
+                    prompt.SetMessage("You must sign in to save posts.");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
+                else
+                {
+                    NoBlurPrompt prompt = new NoBlurPrompt(main, this);
+                    prompt.SetMessage("You must sign in to discuss with users.");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
             }
         }
     }
