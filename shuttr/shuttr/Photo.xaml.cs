@@ -54,8 +54,8 @@ namespace shuttr
         public string caption { get; set; }
         public string time { get; set; }
         //private DateTime date;
-        private double ageDays { get; set; }
-        private double ageHours { get; set; }
+        public double ageDays { get; set; }
+        public double ageHours { get; set; }
         public List<Comment> comments { get; set; } = new List<Comment>();
         private bool isPrivate = true;
         public bool IsPrivate
