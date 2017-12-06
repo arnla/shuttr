@@ -26,11 +26,12 @@ namespace shuttr
         private Photo photo;
         int replyFlag = 0; // 1 = reply to comment, 0 = reply to thread
         Comment commentToReplyTo = null;
+        private bool editable;
 
         public PhotoPopup()
         {
             InitializeComponent();
-
+            editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
@@ -57,6 +58,7 @@ namespace shuttr
 
             DisplayComments();
 
+            editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
@@ -92,6 +94,7 @@ namespace shuttr
 
             DisplayComments();
 
+            editable = false;
             window.MaxHeight = System.Windows.SystemParameters.PrimaryScreenHeight * 0.85;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
         }
@@ -269,7 +272,28 @@ namespace shuttr
                 }
                 else if (sender.Equals(EditButton))
                 {
+                    if (editable == false)
+                    {
+                        EditButton.Content = "EDIT: ON";
+                        EditButton.Background = Brushes.Yellow;
 
+                        editable = true;
+
+                        captionTextBox.Text = description.Text;
+                        description.Visibility = Visibility.Hidden;
+                        captionTextBox.Visibility = Visibility.Visible;
+                        Keyboard.Focus(captionTextBox);
+                        captionTextBox.CaretIndex = captionTextBox.Text.Length;
+                        
+                    }
+                    else
+                    {
+                        EditButton.Content = "EDIT: OFF";
+                        EditButton.Background = Brushes.LightGray;
+                        description.Visibility = Visibility.Visible;
+                        editable = false;
+                        updateCaption();
+                    }
                 }
                 else if (sender.Equals(saveButton))
                 {
@@ -316,6 +340,31 @@ namespace shuttr
                 prompt.ShowDialog();
                 main.HighlightTab();
             }
+        }
+
+        public void CheckForEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                EditButton.Content = "EDIT: OFF";
+                EditButton.Background = Brushes.LightGray;
+
+                editable = false;
+
+                updateCaption();
+            }
+        }
+
+        public void updateCaption()
+        {
+            // Get the text entered by the user.
+            string newCaption = captionTextBox.Text.ToString();
+
+            description.Text = newCaption;
+            
+
+            // Hide the text box and buttons
+            captionTextBox.Visibility = Visibility.Hidden;
         }
 
         private Border imageBorder;
