@@ -42,7 +42,11 @@
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="Username" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                         <Button x:Name="MessageUserButton" Grid.Row="1" Content="MESSAGE" Height="17" Margin="0,0.2,0,-0.4" VerticalAlignment="Top" Click="ButtonClick"></Button>
-                        <Button x:Name="DeleteButton" Grid.Row="1" Content="DELETE" Height="17" Background="Red" Margin="0,0.2,0,-0.4" VerticalAlignment="Top" Click="ButtonClick"></Button>
+                        <StackPanel Grid.Row="1"
+                                    Orientation="Horizontal">
+                            <Button x:Name="DeleteButton" Content="DELETE" Height="17" Background="Red" Margin="0,0.2,0,-0.4" VerticalAlignment="Top" Click="ButtonClick"></Button>
+                            <Button x:Name="EditButton" Content="EDIT: OFF" Height="17" VerticalAlignment="Top" Click="ButtonClick"></Button>
+                        </StackPanel>
                     </Grid>
                 </Grid>
 

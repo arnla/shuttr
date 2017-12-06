@@ -248,6 +248,10 @@ namespace shuttr
                         main.ChangeFill(Visibility.Hidden);
                     }
                 }
+                else if (sender.Equals(EditButton))
+                {
+
+                }
             }
             else if (!main.signedIn)
             {

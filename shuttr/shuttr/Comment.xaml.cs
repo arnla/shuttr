@@ -154,11 +154,13 @@ namespace shuttr
             {
                 commentBox.IsReadOnly = false;
                 editButton.Content = "EDIT: ON";
+                editButton.Background = Brushes.Yellow;
             }
             else
             {
                 commentBox.IsReadOnly = true;
                 editButton.Content = "EDIT: OFF";
+                editButton.Background = Brushes.LightGray;
             }
         }
     }
