@@ -44,6 +44,18 @@ namespace shuttr
             newPhoto.displaySideInfo();
             newPhoto.IsPrivate = false;
             photoDict.Add(101, newPhoto);
+
+            newPhoto = new Photo(999, "Images/miami.jpg");
+            newPhoto.username = "Lawrence";
+            newPhoto.title = "From my trip in miami";
+            newPhoto.score = 5;
+            newPhoto.commentCount = 1;
+            newPhoto.comments.Add(new Comment("Emilio", "I see that hotel in so many miami nightlife pictures. Has some cool lighting"));
+            newPhoto.IsPrivate = false;
+            newPhoto.displaySideInfo();
+            newPhoto.main = this.parent;
+            photoDict.Add(999, newPhoto);
+
             DisplayPhotos();
             //imageContentControl.Content = new PhotosPage();
         }
