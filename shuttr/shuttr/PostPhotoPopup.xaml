@@ -27,7 +27,7 @@
                     <Button Name="BrowseButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="BROWSE" Click="Button_Click"></Button>
                 </StackPanel>
             </Border>
-            <Image Name="AddedImage" Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10"></Image>
+            <Image Name="AddedImage" Visibility="Hidden" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,10" MouseLeftButtonDown="rebrowse"></Image>
             <Border Grid.Row="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"

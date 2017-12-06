@@ -99,6 +99,7 @@ namespace shuttr
             }
         }
 
+
         public void Cancel()
         {
             parent.ChangeFill(Visibility.Hidden);
@@ -109,6 +110,17 @@ namespace shuttr
             AddPhotoTitleDefault.Foreground = new SolidColorBrush(Colors.Black);
             AddPhotoCaptionDefault.Foreground = new SolidColorBrush(Colors.Black);
             this.Visibility = Visibility.Hidden;
+        }
+
+        private void rebrowse(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            var result = dialog.ShowDialog();
+            if (result == false)
+                return;
+            ImageBox.Visibility = Visibility.Hidden;
+            AddedImage.Source = new BitmapImage(new Uri(dialog.FileName));
+            AddedImage.Visibility = Visibility.Visible;
         }
     }
 }
