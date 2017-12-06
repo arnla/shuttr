@@ -279,7 +279,7 @@
                     Height="34"
                     Background="Transparent"
                     Foreground="White"
-                    Click="Button_Click" >
+                    Click="Button_Click">
                 <StackPanel>
                     <Image Source="/Images/Icons/notification.png" Opacity="0.65"/>
                 </StackPanel>
@@ -323,7 +323,8 @@
                     Height="34"
                     Background="Transparent"
                     Foreground="White"
-                    Click="Button_Click">
+                    Click="Button_Click"
+                    Opacity="0.5">
                 <StackPanel>
                     <Image Source="/Images/Icons/messages.png" Opacity="0.7"/>
                 </StackPanel>
@@ -415,7 +416,9 @@
                             Background="AliceBlue">
                 <Button x:Name="profileButton"
                             Content="Your Profile Page"
-                            Height="20"
+                            Height="50"
+                        FontSize="16"
+                        BorderThickness="1"
                         Click="Button_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
@@ -440,7 +443,9 @@
 
                 <Button x:Name="userSettingButton"
                             Content="User Settings"
-                            Height="20"
+                            Height="50"
+                        FontSize="16"
+                        BorderThickness="1"
                         Click="Button_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
@@ -465,7 +470,9 @@
                 <Button x:Name="logoutButton"
                             Content="Logout"
                             HorizontalContentAlignment="Left"
-                            Height="20"
+                            Height="50"
+                        FontSize="16"
+                        BorderThickness="1"
                         Click="Button_Click">
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
