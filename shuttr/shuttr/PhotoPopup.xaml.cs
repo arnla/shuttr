@@ -337,10 +337,20 @@ namespace shuttr
             }
             else if (!main.signedIn)
             {
-                NoBlurPrompt prompt = new NoBlurPrompt(main, this);
-                prompt.SetMessage("You must sign in to discuss with users.");
-                prompt.ShowDialog();
-                main.HighlightTab();
+                if (sender.Equals(saveButton))
+                {
+                    NoBlurPrompt prompt = new NoBlurPrompt(main, this);
+                    prompt.SetMessage("You must sign in to save posts.");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
+                else
+                {
+                    NoBlurPrompt prompt = new NoBlurPrompt(main, this);
+                    prompt.SetMessage("You must sign in to discuss with users.");
+                    prompt.ShowDialog();
+                    main.HighlightTab();
+                }
             }
         }
 
