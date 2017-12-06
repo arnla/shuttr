@@ -155,6 +155,7 @@ namespace shuttr
                 commentBox.IsReadOnly = false;
                 editButton.Content = "EDIT: ON";
                 editButton.Background = Brushes.Yellow;
+                commentBox.Focus();
             }
             else
             {
