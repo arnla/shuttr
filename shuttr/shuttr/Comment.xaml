@@ -22,7 +22,13 @@
                 <TextBlock x:Name="usernameText" HorizontalAlignment="Center" Margin="5,5,5,5"></TextBlock>
             </StackPanel>
             <TextBox x:Name="commentBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Height="Auto" Width="Auto" IsReadOnly="True"></TextBox>
-            <Button x:Name="deleteButton" Content="DELETE" Grid.Column="1" Width="50" Height="17" Background="Red" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="2" Click="DeleteComment"/>
+            <StackPanel Grid.Column="1"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <Button x:Name="deleteButton" Content="DELETE" Width="50" Height="17" Background="Red" Margin="2" Click="DeleteComment"/>
+                <Button x:Name="editButton" Content="EDIT: OFF" Width="60" Height="17" Click="EditComment"/>
+            </StackPanel>
             <Button x:Name="replyButton" Grid.Column="2" Grid.Row="0" Height="Auto" Width="Auto" Content="Reply" Click="Button_Click"></Button>
             <StackPanel x:Name="repliesFeed" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
                 <StackPanel.Resources>

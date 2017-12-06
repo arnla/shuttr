@@ -37,10 +37,12 @@ namespace shuttr
                 if (currentUser)
                 {
                     deleteButton.Visibility = Visibility.Visible;
+                    editButton.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     deleteButton.Visibility = Visibility.Hidden;
+                    editButton.Visibility = Visibility.Hidden;
                 }
             }
         }
@@ -142,6 +144,21 @@ namespace shuttr
                 this.replyButton.IsEnabled = false;
                 this.CurrentUser = false;
                 this.deleted = true;
+                
+            }
+        }
+
+        private void EditComment(object sender, RoutedEventArgs e)
+        {
+            if (commentBox.IsReadOnly == true)
+            {
+                commentBox.IsReadOnly = false;
+                editButton.Content = "EDIT: ON";
+            }
+            else
+            {
+                commentBox.IsReadOnly = true;
+                editButton.Content = "EDIT: OFF";
             }
         }
     }
