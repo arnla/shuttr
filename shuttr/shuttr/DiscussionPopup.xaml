@@ -96,7 +96,7 @@
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
-                <Button x:Name="PostCommentButton" Grid.Column="2" Margin="5,5,5,5" Content="Send" Height="Auto" Width="Auto" Click="ButtonClick"></Button>
+                <Button x:Name="PostCommentButton" Grid.Column="2" Margin="7,5,3,5" Content="Reply" Height="Auto" Width="Auto" Click="ButtonClick"></Button>
                 </Grid>
             </Grid>
         </Border>

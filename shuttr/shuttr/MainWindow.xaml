@@ -146,7 +146,7 @@
                  FontSize="14" KeyDown="SearchSuggestions" />
         <TextBlock x:Name="searchBoxDefault"
                    IsHitTestVisible="False"
-                   Text="Search photos, discussions, people..."
+                   Text="Search photos and discussions"
                    Width="340"
                    Opacity="0.5"
                    VerticalAlignment="Center"

@@ -103,7 +103,7 @@
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
-                <Button x:Name="postCommentButton" Grid.Column="2" Margin="5" Content="Send" Height="40" Width="Auto" Click="ButtonClick"></Button>
+                <Button x:Name="postCommentButton" Grid.Column="2" Margin="5" Content="Reply" Height="40" Width="Auto" Click="ButtonClick"></Button>
             </Grid>
 
             <Rectangle x:Name="fillPopup" Grid.RowSpan="4" Fill="Black" Opacity="0.85" Visibility="Hidden"/>
