@@ -236,7 +236,34 @@ namespace shuttr
         }
         public void SortByNew()
         {
-            DisplayDiscussionPosts();
+            // Get the array of all the children in the page.
+            Discussion[] discussionsToSort = new Discussion[discussionFeed.Children.Count];
+            discussionFeed.Children.CopyTo(discussionsToSort, 0);
+
+            discussionFeed.Children.Clear();
+            foreach (KeyValuePair<int, Discussion> pair in discussionDict.AsEnumerable().Reverse())
+            {
+                Discussion discussionToAdd = new Discussion(discussionsToSort[SearchFor(pair.Value.GetDiscussionId(), discussionsToSort)]);
+                discussionToAdd.main = this.parent;
+                discussionFeed.Children.Add(discussionToAdd);
+                MakeDiscussionClickable(discussionToAdd);
+                /*
+                Discussion discussionToAdd = new Discussion(pair.Value);
+                discussionToAdd.main = this.parent;
+                discussionFeed.Children.Add(discussionToAdd);
+                MakeDiscussionClickable(discussionToAdd);*/
+            }
+        }
+        private int SearchFor(int id, Discussion[] discussionList)
+        {
+            int i = 0;
+            foreach(Discussion discussion in discussionList)
+            {
+                if (discussion.GetDiscussionId() == id)
+                    return i;
+                i++;
+            }
+            return (-1);
         }
         public void SortByMostCommented()
         {
