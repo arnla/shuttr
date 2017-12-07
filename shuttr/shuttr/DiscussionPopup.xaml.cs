@@ -53,6 +53,7 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
+            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
@@ -75,9 +76,14 @@ namespace shuttr
             MessageOrDeleteButton();
             SaveOrUnsaveButton();
             editable = false;
+            Loaded += discussionLoaded;
 
             window.Height = System.Windows.SystemParameters.PrimaryScreenHeight * 0.80;
             window.Width = System.Windows.SystemParameters.PrimaryScreenWidth * 0.7;
+        }
+        private void discussionLoaded(object sender, RoutedEventArgs e)
+        {
+            CommentBox.Focus();
         }
 
         private void SaveOrUnsaveButton()
@@ -146,25 +152,27 @@ namespace shuttr
                 {
                     if (replyFlag == 0)
                     {
-                        Comment newComment = new Comment("current user", CommentBox.Text, this);
+                        Comment newComment = new Comment("Emilio", CommentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
                         discussion.GetComments().Add(newComment);
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
+                        CommentBox.Focus();
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
                     }
                     else if (replyFlag == 1)
                     {
                         //string[] reply = CommentBox.Text.Split('\n');
-                        Comment newComment = new Comment("current user", CommentBox.Text, this);
+                        Comment newComment = new Comment("Emilio", CommentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
+                        CommentBox.Focus();
                     }
                 }
                 else if (sender.Equals(DeleteButton))

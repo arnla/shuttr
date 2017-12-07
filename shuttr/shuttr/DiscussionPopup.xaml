@@ -28,7 +28,7 @@
                         </Grid.ColumnDefinitions>
                         <Image x:Name="UserProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
                         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock x:Name="Username" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock x:Name="Username" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
                             <Button x:Name="MessageUserButton" Content="MESSAGE" Height="20" Click="ButtonClick"></Button>
                             <Button x:Name="DeleteButton" Content="DELETE" Background="Red" Click="ButtonClick"></Button>
                             <Button x:Name="EditButton" Content="EDIT" Click="ButtonClick" Margin="0,5,0,0"/>
@@ -69,7 +69,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Image x:Name="CommentersProfilePicture" Grid.Column="0" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
-                    <TextBox x:Name="CommentBox" Grid.Column="1" TextWrapping="Wrap" Margin="5,5,5,5" Height="Auto" Width="Auto"></TextBox>
+                    <TextBox x:Name="CommentBox" Grid.Column="1" FontSize="24 " TextWrapping="Wrap" Margin="5,5,5,5" Height="Auto" Width="Auto"></TextBox>
                 <TextBlock x:Name="CommentBoxDefault"
                    IsHitTestVisible="False"
                    VerticalAlignment="Top"
@@ -79,6 +79,7 @@
                    FontStyle="Italic" 
                    Grid.Column="1"
                    Margin="5"
+                   FontSize="24"
                    Height="Auto" 
                    Width="Auto">
                     <TextBlock.Style>

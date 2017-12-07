@@ -40,7 +40,7 @@ namespace shuttr
             newPhoto = new Photo(101, "/Images/tokyo.jpg");
             newPhoto.title = "I miss this place";
             newPhoto.caption = "Message me if you want to talk about Tokyo (:";
-            newPhoto.username = "Emilio";
+            newPhoto.username = "Ehud";
             newPhoto.score = 64;
             newPhoto.displaySideInfo();
             newPhoto.IsPrivate = false;

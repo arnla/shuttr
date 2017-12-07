@@ -21,7 +21,7 @@
                 <Image x:Name="userProfilePicture" Source="Images/Icons/userprofile.png" Margin="5,5,5,5"></Image>
                 <TextBlock x:Name="usernameText" HorizontalAlignment="Center" Margin="5,5,5,5"></TextBlock>
             </StackPanel>
-            <TextBox x:Name="commentBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" Height="Auto" Width="Auto" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="commentBox" Grid.Column="1" Grid.Row="0" TextWrapping="Wrap" FontSize="24" Height="Auto" Width="Auto" IsReadOnly="True"></TextBox>
             <StackPanel Grid.Column="1"
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Left"

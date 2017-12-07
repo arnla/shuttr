@@ -239,7 +239,7 @@ namespace shuttr
                 {
                     if (replyFlag == 0)
                     {
-                        Comment newComment = new Comment("current user", commentBox.Text, this);
+                        Comment newComment = new Comment("Emilio", commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentFeed.Children.Add(newComment);
                         photoAndComments.ScrollToEnd();
@@ -252,11 +252,12 @@ namespace shuttr
                         string repliesString = photo.commentCount.ToString();
                         repliesString += (photo.commentCount != 1) ? " replies" : " reply";
                         NumRepliesButton.Content = repliesString;
+                        commentBox.Focus();
                     }
                     else if (replyFlag == 1)
                     {
                         //string[] reply = commentBox.Text.Split('\n');
-                        Comment newComment = new Comment("current user", commentBox.Text, this);
+                        Comment newComment = new Comment("Emilio", commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         commentBox.Text = "";
@@ -266,6 +267,7 @@ namespace shuttr
                         photo.commentCount++;
                         string repliesString = photo.commentCount.ToString();
                         repliesString += (photo.commentCount != 1) ? " replies" : " reply";
+                        commentBox.Focus();
                     }
                 }
                 else if (sender.Equals(DeleteButton))
