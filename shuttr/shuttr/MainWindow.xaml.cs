@@ -322,6 +322,7 @@ namespace shuttr
             pic.caption = description;
             // Assumes demo only yields one signed in user, i.e. all newly posted photos are under the one and only user
             pic.currentUser = true;
+            pic.username = pic.sideUserName.Text = "Emilio";
             currPhotosPage.AddPhoto(pic);
             currUser.userPhotos[pic.photoId] = pic;
             currProfilePage.DisplayPosts();

@@ -220,6 +220,7 @@ namespace shuttr
                     copyOfPhoto.comments = this.comments;
                     copyOfPhoto.commentCount = this.commentCount;
                     copyOfPhoto.upvoted = this.upvoted;
+                    copyOfPhoto.IsPrivate = this.IsPrivate;
 
                     // Set the saved flag of the new Discussion to true
                     copyOfPhoto.Saved = true;
