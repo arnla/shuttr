@@ -111,12 +111,12 @@
                        FontFamily="Microsoft YaHei"
                        HorizontalAlignment="Center"
                        FontSize="36" 
-                       TextWrapping="WrapWithOverflow"
+                       TextWrapping="Wrap"
                        VerticalAlignment="Center" 
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
                        MouseLeave="MouseLeave"
-                               MouseRightButtonDown="SavePhoto">
+                               MouseRightButtonDown="SavePhoto" MaxWidth="600">
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="5"
                                           Color="White"
@@ -130,12 +130,12 @@
                        FontFamily="Microsoft YaHei"
                        HorizontalAlignment="Center"
                        FontSize="20"
-                       TextWrapping="WrapWithOverflow"
+                       TextWrapping="Wrap"
                        VerticalAlignment="Center" 
                        Foreground="Black"
                        MouseEnter="HoverPhoto" 
                        MouseLeave="MouseLeave"
-                               MouseRightButtonDown="SavePhoto">
+                               MouseRightButtonDown="SavePhoto" MaxWidth="550">
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="5"
                                           Color="White"
