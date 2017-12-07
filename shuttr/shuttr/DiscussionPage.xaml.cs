@@ -158,7 +158,7 @@ namespace shuttr
         private void DiscussionClickTest(object sender, MouseButtonEventArgs e)
         {
             Discussion tmp = (Discussion)sender;
-            DiscussionPopup discussionPopup = new DiscussionPopup(parent, this, discussionDict[tmp.GetDiscussionId()]);
+            DiscussionPopup discussionPopup = new DiscussionPopup(parent, this, tmp);
             discussionPopup.SetValue(Grid.RowProperty, 2);
             discussionPopup.SetValue(Grid.ColumnSpanProperty, 3);
             parent.mainGrid.Children.Add(discussionPopup);

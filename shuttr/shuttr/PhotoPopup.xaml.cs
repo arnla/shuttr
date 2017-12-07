@@ -267,6 +267,7 @@ namespace shuttr
                         photo.commentCount++;
                         string repliesString = photo.commentCount.ToString();
                         repliesString += (photo.commentCount != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
                         commentBox.Focus();
                     }
                 }

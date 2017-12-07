@@ -64,7 +64,8 @@ namespace shuttr
             comments = newDiscussion.comments;
             currUser = newDiscussion.currUser;
             main = newDiscussion.main;
-            saved = newDiscussion.saved;
+            Saved = newDiscussion.saved;
+            replyCount.Text = numReplies.ToString() + ((numReplies != 1) ? " replies" : " reply");
         }
 
         public Discussion()

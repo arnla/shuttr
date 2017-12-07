@@ -105,11 +105,13 @@ namespace shuttr
                 MessageUserButton.Visibility = Visibility.Collapsed;
                 DeleteButton.Visibility = Visibility.Visible;
                 saveButton.Visibility = Visibility.Collapsed;
+                EditButton.Visibility = Visibility.Visible;
             }
             else
             {
                 MessageUserButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Collapsed;
+                EditButton.Visibility = Visibility.Collapsed;
             }
         }
         
@@ -159,6 +161,11 @@ namespace shuttr
                         discussion.GetComments().Add(newComment);
                         CommentBox.Text = "";
                         CommentBoxDefault.Text = "Type a message...";
+                        discussion.numReplies++;
+                        string repliesString = discussion.numReplies.ToString();
+                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
+                        discussion.replyCount.Text = repliesString;
                         CommentBox.Focus();
                         //parent.GetDiscussionDict()[discussion.GetDiscussionId()] = discussion;
                     }
@@ -172,6 +179,11 @@ namespace shuttr
                         CommentBoxDefault.Text = "Type a message...";
                         replyFlag = 0;
                         commentToReplyTo = null;
+                        discussion.numReplies++;
+                        string repliesString = discussion.numReplies.ToString();
+                        repliesString += (discussion.numReplies != 1) ? " replies" : " reply";
+                        NumRepliesButton.Content = repliesString;
+                        discussion.replyCount.Text = repliesString;
                         CommentBox.Focus();
                     }
                 }
