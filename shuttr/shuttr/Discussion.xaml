@@ -27,7 +27,7 @@
                 </Button>
 
                 <Button x:Name="userNameButton" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" Click="OtherUserPage">
-                    <TextBlock x:Name="userName" Grid.Row="1" FontSize="20" FontWeight="Bold" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock x:Name="userName" Grid.Row="1" FontSize="16" FontWeight="Bold" Foreground="#F63090C7" FontFamily="Microsoft YaHei" VerticalAlignment="Center" HorizontalAlignment="Center">
                         User1
                     </TextBlock>
                 </Button>
