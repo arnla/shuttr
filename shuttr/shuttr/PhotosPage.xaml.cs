@@ -97,6 +97,7 @@ namespace shuttr
                 if (parent == null)
                 {
                     Photo photoToAdd = new Photo(pair.Value);
+                    photoToAdd.main = this.parent;
                     photoFeed.Children.Add(photoToAdd);
                     MakePhotoClickable(photoToAdd);
                 }
@@ -209,6 +210,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 Photo photoToAdd = new Photo(photosToSort[k]);
+                photoToAdd.main = this.parent;
                 photoFeed.Children.Add(photoToAdd);
                 MakePhotoClickable(photoToAdd);
             }
@@ -245,6 +247,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 Photo photoToAdd = new Photo(photosToSort[k]);
+                photoToAdd.main = this.parent;
                 photoFeed.Children.Add(photoToAdd);
                 MakePhotoClickable(photoToAdd);
             }
@@ -277,6 +280,7 @@ namespace shuttr
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
                 Photo photoToAdd = new Photo(photosToSort[k]);
+                photoToAdd.main = this.parent;
                 photoFeed.Children.Add(photoToAdd);
                 MakePhotoClickable(photoToAdd);
             }

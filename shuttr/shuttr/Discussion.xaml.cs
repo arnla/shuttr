@@ -60,10 +60,11 @@ namespace shuttr
             title = discussionTitle.Text = newDiscussion.title;
             description = newDiscussion.description;
             numReplies = newDiscussion.numReplies;
-            score = 0;
+            score = newDiscussion.score;
             comments = newDiscussion.comments;
-            currUser = true;
-            saved = false;
+            currUser = newDiscussion.currUser;
+            main = newDiscussion.main;
+            saved = newDiscussion.saved;
         }
 
         public Discussion()

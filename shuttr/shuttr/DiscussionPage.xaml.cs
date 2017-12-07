@@ -102,8 +102,10 @@ namespace shuttr
                 var parent = VisualTreeHelper.GetParent(pair.Value);
                 if (parent == null)
                 {
-                    discussionFeed.Children.Add(pair.Value);
-                    MakeDiscussionClickable(pair.Value);
+                    Discussion discussionToAdd = new Discussion(pair.Value);
+                    discussionToAdd.main = this.parent;
+                    discussionFeed.Children.Add(discussionToAdd);
+                    MakeDiscussionClickable(discussionToAdd);
                 }
             }
             SetParentOfEachDiscussion();
@@ -263,8 +265,10 @@ namespace shuttr
             // Add the sorted list of children (backwards | highest popularity at top)
             for (int k = discussionsToSort.Length - 1; k >= 0; k--)
             {
-                discussionFeed.Children.Add(discussionsToSort[k]);
-                discussionsToSort[k].main = parent;
+                Discussion discussionToAdd = new Discussion(discussionsToSort[k]);
+                discussionToAdd.main = this.parent;
+                discussionFeed.Children.Add(discussionToAdd);
+                MakeDiscussionClickable(discussionToAdd);
             }
         }
         public void SortByMostUpvoted()
