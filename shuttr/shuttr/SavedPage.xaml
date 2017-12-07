@@ -24,7 +24,7 @@
 
         <Border x:Name="emptyMessage" BorderBrush="Gray" BorderThickness="2" Opacity="50" Width="780" Margin="0,10,17,0" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock FontFamily="Microsoft YaHei" FontSize="26" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">
-                        There are no posts here. <LineBreak/>Save some posts, and they will be stored here for later!
+                        There are no posts here. <LineBreak/>Save some posts, and they will be stored here for later!<LineBreak/>(Click the save button on a photo or discussion)
             </TextBlock>
         </Border>
     </Grid>
