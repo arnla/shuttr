@@ -49,7 +49,7 @@ namespace shuttr
 
             newPhoto = new Photo(102, "Images/Mountains.jpg");
             newPhoto.username = "Lean";
-            newPhoto.title = "Rate my photo";
+            newPhoto.title = "Rate my mountains photo";
             newPhoto.score = 5;
             newPhoto.displaySideInfo();
             newPhoto.commentCount = 1;
