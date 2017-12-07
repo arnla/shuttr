@@ -40,7 +40,7 @@ namespace shuttr
 
         private void InitializePosts()
         {
-            photo = new Photo(999, "Images/Mountains.jpg");
+            photo = new Photo(102, "Images/Mountains.jpg");
             photo.username = "Lean";
             photo.title = "Rate my photo";
             photo.score = 5;

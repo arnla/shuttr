@@ -180,6 +180,16 @@ namespace shuttr
         {
             ChangeFill(Visibility.Hidden);
         }
+        public void HelpClick(object sender, RoutedEventArgs e)
+        {
+            HelpPromptPopup prompt = new HelpPromptPopup(this);
+            ChangeFill(Visibility.Visible);
+            prompt.ShowDialog();
+        }
+        public void OnCloseHelpPrompt()
+        {
+            ChangeFill(Visibility.Hidden);
+        }
 
         protected void Button_Click(Object sender, EventArgs e)
         {

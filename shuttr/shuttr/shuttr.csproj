@@ -77,6 +77,9 @@
     <Compile Include="ForgotPasswordPopup.xaml.cs">
       <DependentUpon>ForgotPasswordPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HelpPromptPopup.xaml.cs">
+      <DependentUpon>HelpPromptPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LogoutPromptPopup.xaml.cs">
       <DependentUpon>LogoutPromptPopup.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ForgotPasswordPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelpPromptPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
