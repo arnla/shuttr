@@ -138,7 +138,7 @@ namespace shuttr
             commentCount = photo.commentCount;
             upvoted = photo.upvoted;
             sideScore.Text = score.ToString();
-            saved = photo.saved;
+            Saved = photo.saved;
             currentUser = photo.currentUser;
             main = photo.main;
             isPrivate = photo.IsPrivate;
