@@ -305,7 +305,7 @@ namespace shuttr
             string newDescription = descriptionTextBox.Text.ToString();
 
             DiscussionDescription.Text = newDescription;
-
+            discussion.description = newDescription;
 
             // Hide the text box and buttons
             descriptionTextBox.Visibility = Visibility.Hidden;

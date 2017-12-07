@@ -396,7 +396,7 @@ namespace shuttr
             string newCaption = captionTextBox.Text.ToString();
 
             description.Text = newCaption;
-            
+            photo.caption = newCaption;
 
             // Hide the text box and buttons
             captionTextBox.Visibility = Visibility.Hidden;
