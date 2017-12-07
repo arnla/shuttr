@@ -28,7 +28,7 @@
                     <Image Source="Images/Icons/userprofile.png" MaxWidth="60"/>
                 </Button>
                 <Button x:Name="userNameButton" Grid.Row="1" Background="Transparent" BorderBrush="Transparent" Click="OtherUserPage">
-                    <TextBlock x:Name="sideUserName" FontFamily="Microsoft YaHei" FontSize="16" Foreground="#F63090C7" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                    <TextBlock x:Name="sideUserName" FontFamily="Microsoft YaHei" FontSize="12" Foreground="#F63090C7" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
                 </Button>
                 <Button x:Name="upVoteButton"
                         HorizontalAlignment="Center"
