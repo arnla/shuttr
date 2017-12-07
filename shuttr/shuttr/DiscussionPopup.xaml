@@ -39,11 +39,11 @@
                             <RowDefinition Height="1*"/>
                             <RowDefinition Height="3*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock x:Name="DiscussionTitle" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"></TextBlock>
+                        <TextBlock x:Name="DiscussionTitle" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold"></TextBlock>
                     <ScrollViewer Grid.Row="1">
                         <Grid>
-                            <TextBlock x:Name="DiscussionDescription" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
-                            <TextBox x:Name="descriptionTextBox" Visibility="Hidden" HorizontalAlignment="Stretch" KeyDown="CheckForEnter" VerticalAlignment="Stretch" Foreground="Black" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="DiscussionDescription" FontSize="20" Margin="5,5,5,5" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+                            <TextBox x:Name="descriptionTextBox" FontSize="20" Visibility="Hidden" HorizontalAlignment="Stretch" KeyDown="CheckForEnter" VerticalAlignment="Stretch" Foreground="Black" TextWrapping="Wrap"/>
                         </Grid>
                     </ScrollViewer>
                 </Grid>
