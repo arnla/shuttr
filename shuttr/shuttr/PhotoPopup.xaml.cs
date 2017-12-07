@@ -239,7 +239,7 @@ namespace shuttr
                 {
                     if (replyFlag == 0)
                     {
-                        Comment newComment = new Comment("Emilio", commentBox.Text, this);
+                        Comment newComment = new Comment(main.currUser.UserName, commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentFeed.Children.Add(newComment);
                         photoAndComments.ScrollToEnd();
@@ -257,7 +257,7 @@ namespace shuttr
                     else if (replyFlag == 1)
                     {
                         //string[] reply = commentBox.Text.Split('\n');
-                        Comment newComment = new Comment("Emilio", commentBox.Text, this);
+                        Comment newComment = new Comment(main.currUser.UserName, commentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         commentBox.Text = "";

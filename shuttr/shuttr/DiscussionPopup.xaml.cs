@@ -154,7 +154,7 @@ namespace shuttr
                 {
                     if (replyFlag == 0)
                     {
-                        Comment newComment = new Comment("Emilio", CommentBox.Text, this);
+                        Comment newComment = new Comment(main.currUser.UserName, CommentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentsFeed.Children.Add(newComment);
                         ScrollViewComments.ScrollToEnd();
@@ -172,7 +172,7 @@ namespace shuttr
                     else if (replyFlag == 1)
                     {
                         //string[] reply = CommentBox.Text.Split('\n');
-                        Comment newComment = new Comment("Emilio", CommentBox.Text, this);
+                        Comment newComment = new Comment(main.currUser.UserName, CommentBox.Text, this);
                         newComment.CurrentUser = true;
                         commentToReplyTo.repliesFeed.Children.Add(newComment);
                         CommentBox.Text = "";
