@@ -126,7 +126,7 @@ namespace shuttr
             imageName.Source = imageSource = photo.imageName.Source;
 
             originalPoster = photo.originalPoster;
-            username = photo.username;
+            username = sideUserName.Text = photo.username;
             photoId = photo.photoId;
             title = photo.title;
             caption = photo.caption;
