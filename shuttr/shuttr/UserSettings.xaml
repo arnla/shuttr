@@ -29,14 +29,16 @@
 
         <!-- Grid Row 1-->
 
-        <Label x:Name="settingsLabel"
-               Content="To change a field, input new information in boxes below. If not leave blank."
+        <TextBlock x:Name="settingsLabel"
                HorizontalAlignment="Center" 
                Margin="0,0,0,0" 
                VerticalAlignment="Center" 
-               FontSize="42"
+               FontSize="36"
+                   TextAlignment="Center"
                Grid.Row="1"
-               FontFamily="Microsoft YaHei"/>
+               FontFamily="Microsoft YaHei">
+            To change your email, username, or password, add new information in the boxes below.<LineBreak/>If you do not want to change some, leave them blank.
+        </TextBlock>
 
 
         <!-- Grid Row 2-->

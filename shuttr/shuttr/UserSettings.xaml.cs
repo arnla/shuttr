@@ -124,7 +124,7 @@ namespace shuttr
             emailBox.Text = "";
             usernameBox.Text = "";
             passwordBox.Password = "";
-            settingsLabel.Content = "Your changes have been saved";
+            settingsLabel.Text = "Your changes have been saved";
             settingsLabel.Foreground = Brushes.Green;
         }
 
