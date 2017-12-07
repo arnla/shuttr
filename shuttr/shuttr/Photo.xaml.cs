@@ -125,16 +125,23 @@ namespace shuttr
             InitializeComponent();
             imageName.Source = imageSource = photo.imageName.Source;
 
+            originalPoster = photo.originalPoster;
+            username = photo.username;
+            photoId = photo.photoId;
             title = photo.title;
             caption = photo.caption;
+            ageDays = photo.ageDays;
+            ageHours = photo.ageHours;
+            comments = photo.comments;
             time = DateTime.Now.ToString("hh:mm");
-            score = 0;
-            commentCount = 0;
-            upvoted = false;
+            score = photo.score;
+            commentCount = photo.commentCount;
+            upvoted = photo.upvoted;
             sideScore.Text = score.ToString();
-            saved = false;
-            currentUser = true;
-            this.isPrivate = photo.IsPrivate;
+            saved = photo.saved;
+            currentUser = photo.currentUser;
+            main = photo.main;
+            isPrivate = photo.IsPrivate;
         }
 
         /// <summary>

@@ -96,8 +96,9 @@ namespace shuttr
                 var parent = VisualTreeHelper.GetParent(pair.Value);
                 if (parent == null)
                 {
-                    photoFeed.Children.Add(pair.Value);
-                    MakePhotoClickable(pair.Value);
+                    Photo photoToAdd = new Photo(pair.Value);
+                    photoFeed.Children.Add(photoToAdd);
+                    MakePhotoClickable(photoToAdd);
                 }
             }
 
@@ -201,14 +202,15 @@ namespace shuttr
                 }
                 i++;
             }
-            
+
             // Clear the children.
             photoFeed.Children.Clear();
             // Add the sorted list of children (backwards | highest popularity at top)
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
-                photoFeed.Children.Add(photosToSort[k]);
-                photosToSort[k].main = parent;
+                Photo photoToAdd = new Photo(photosToSort[k]);
+                photoFeed.Children.Add(photoToAdd);
+                MakePhotoClickable(photoToAdd);
             }
         }
         public void SortByNew()
@@ -242,8 +244,9 @@ namespace shuttr
             // Add the sorted list of children (backwards | highest popularity at top)
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
-                photoFeed.Children.Add(photosToSort[k]);
-                photosToSort[k].main = parent;
+                Photo photoToAdd = new Photo(photosToSort[k]);
+                photoFeed.Children.Add(photoToAdd);
+                MakePhotoClickable(photoToAdd);
             }
         }
         public void SortByMostUpvoted()
@@ -273,8 +276,9 @@ namespace shuttr
             // Add the sorted list of children (backwards | highest popularity at top)
             for (int k = photosToSort.Length - 1; k >= 0; k--)
             {
-                photoFeed.Children.Add(photosToSort[k]);
-                photosToSort[k].main = parent;
+                Photo photoToAdd = new Photo(photosToSort[k]);
+                photoFeed.Children.Add(photoToAdd);
+                MakePhotoClickable(photoToAdd);
             }
         }
 

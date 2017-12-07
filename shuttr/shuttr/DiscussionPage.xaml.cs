@@ -57,12 +57,36 @@ namespace shuttr
 
         public void HardcodedInitialDiscussion()
         {
+
+            Discussion discussion = new Discussion(100, "Lawrence", "Is there even a point to stand alone cameras?", "Google keeps mentioning how amazing the Pixel 2 camera is with its machine learning stuffs, and in general phone cameras are super convenient. Is there even a point to them anymore?", 3);
+            Comment commentWithReply = new Comment("Angela", "I'll be honest, all I need at this point is my Google Pixel.");
+            commentWithReply.repliesFeed.Children.Add(new Comment("Lawrence", "This is exactly what I mean, why should I pay $2000 for a stand alone camer?"));
+            discussion.GetComments().Add(commentWithReply);
+            discussion.GetComments().Add(new Comment("Anonymoose", "Point and shoots barely have a purpose now, but DSLRs and professional gear are still relevant. For any regular user, a phone is fine. But think about the professionals who need the features of a DSLR. Manual focus and switching lenses is a big deal, let alone the massive boost in quality. They let you be more creative, as opposed to shooting a picture the same way every time."));
+            discussion.main = this.parent;
+            discussion.numReplies = 3;
+            discussionDict.Add(100, discussion);
+
+            discussion = new Discussion(101, "Lean", "Pixel 2 Portrait Mode", "Isn't it crazy that these images are created through machine learning?", 2);
+            discussion.GetComments().Add(new Comment("Lawrence", "It's insane that our phone camera technology can do that nowadays!"));
+            discussion.GetComments().Add(new Comment("Emilio", "My moto g does the job just fine."));
+            discussion.main = this.parent;
+            discussionDict.Add(101, discussion);
+
+            discussion = new Discussion(102, "Emilio", "Good places to take mountain pictures in Alberta?", "I'm visiting Alberta this summer, and was wondering what the best places to take mountain pictures are. Ideally they would be near the Banff area.", 2);
+            discussion.score = 1;
+            discussion.GetComments().Add(new Comment("Lawrence", "Lake Louise looks spectacular during the summer! Just go early to avoid the crowds."));
+            discussion.GetComments().Add(new Comment("Anonymoose", "Basically anywhere near the rockies. Alberta is pretty amazing like that."));
+            discussion.numReplies = 2;
+            discussion.main = this.parent;
+            discussionDict.Add(102, discussion);
+            /*
             discussionDict.Add(100, new Discussion(100, "User2", "Looking to shoot film, what do I need to know?", "description", 24));
             discussionDict.Add(101, new Discussion(101, "User3", "You all take beautiful photographs. Can I do the same with just an iPhone?", "description", 23));
             discussionDict.Add(102, new Discussion(102, "User4", "Do you understand your histograms?", "description", 9));
             discussionDict.Add(103, new Discussion(103, "User5", "Anyone excited for the new capture clip v3?", "description", 0));
             discussionDict.Add(104, new Discussion(104, "User6", "Who else is excited for snow photography???", "description", 29));
-            discussionDict.Add(105, new Discussion(105, "User7", "Advice needed on having one of my pictures enlarged to 9ft tall.", "description", 42));
+            discussionDict.Add(105, new Discussion(105, "User7", "Advice needed on having one of my pictures enlarged to 9ft tall.", "description", 42));*/
         }
 
         private void MakeDiscussionClickable(Discussion discussion)
