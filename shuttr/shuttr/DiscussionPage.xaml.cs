@@ -267,6 +267,8 @@ namespace shuttr
         }
         public void SortByMostCommented()
         {
+            currentSortOption.Content = "Most Commented";
+
             // Get the array of all the children in the page.
             Discussion[] discussionsToSort = new Discussion[discussionFeed.Children.Count];
             discussionFeed.Children.CopyTo(discussionsToSort, 0);
