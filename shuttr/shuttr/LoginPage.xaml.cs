@@ -46,17 +46,19 @@ namespace shuttr
             bool formComplete = true;
             if (sender.Equals(loginButton))
             {
-                if (usernameBox.Text == "")
-                {
-                    usernameBoxDefault.Foreground = Brushes.Red;
-                    usernameBoxDefault.Opacity = 1;
-                    formComplete = false;
-                }
                 if (passBox.Password == "")
                 {
                     passwordBoxDefault.Foreground = Brushes.Red;
                     passwordBoxDefault.Opacity = 1;
                     formComplete = false;
+                    passBox.Focus();
+                }
+                if (usernameBox.Text == "")
+                {
+                    usernameBoxDefault.Foreground = Brushes.Red;
+                    usernameBoxDefault.Opacity = 1;
+                    formComplete = false;
+                    usernameBox.Focus();
                 }
                 if (formComplete)
                 {
