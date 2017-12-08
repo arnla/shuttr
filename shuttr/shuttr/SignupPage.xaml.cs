@@ -67,6 +67,7 @@ namespace shuttr
                 if (formComplete)
                 {
                     //SignupSwitcher.Switch(new FollowingPage());
+                    main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
                     main.SignIn();
                 }
             }
@@ -134,6 +135,7 @@ namespace shuttr
                 if (formComplete)
                 {
                     //SignupSwitcher.Switch(new FollowingPage());
+                    main.currUser = new User(usernameBox.Text, passBox.Password.ToString(), DateTime.Today);
                     main.SignIn();
                 }
             }
