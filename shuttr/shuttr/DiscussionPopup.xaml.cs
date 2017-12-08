@@ -210,7 +210,7 @@ namespace shuttr
                 {
                     if (editable == false)
                     {
-                        EditButton.Content = "EDIT: ON";
+                        EditButton.Content = "Save Changes";
                         EditButton.Background = Brushes.Yellow;
 
                         editable = true;
@@ -224,7 +224,7 @@ namespace shuttr
                     }
                     else
                     {
-                        EditButton.Content = "EDIT: OFF";
+                        EditButton.Content = "EDIT";
                         EditButton.Background = Brushes.LightGray;
                         DiscussionDescription.Visibility = Visibility.Visible;
                         editable = false;
@@ -290,7 +290,7 @@ namespace shuttr
         {
             if (e.Key == Key.Enter)
             {
-                EditButton.Content = "EDIT: OFF";
+                EditButton.Content = "EDIT";
                 EditButton.Background = Brushes.LightGray;
                 DiscussionDescription.Visibility = Visibility.Visible;
                 editable = false;
