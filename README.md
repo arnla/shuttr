@@ -24,7 +24,7 @@ Photography social network concept for CPSC 481
 - Log Out
 
 ## 1. Quick Start
-You can start the program by running the .exe file provided on this USB drive. If the .exe does not work, you can load the shuttr solution found in the source code folder into Visual Studio and run it from there.
+You can load the shuttr solution found in the source code folder into Visual Studio and run it from there. Once this has been done, it is possible to use the .exe in the bin/Debug folder.
 
 ## 2. Photos
 To get to the Photos page, click on the 'Photos' button in the top bar. On this page, users can browse through all the photos posted to Shuttr. They can hover the mouse over the photo in order to see more information about it, like the title, caption, when it was posted, the number of comments, etc. Once a photo is clicked, a popup window will open where users can see the post. This popup will include all the information about the photo as well as the comments. The user can also maximize the photo to view it more closely by clicking on the photo inside the popup. If a user is logged in, he/she will be able to leave comments and reply to comments. They will also be able to save the photo, or leave upvotes. Downloading the photo is also possible, and is discussed in point 13 of this README.
