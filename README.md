@@ -2,26 +2,26 @@
 Photography social network concept for CPSC 481
 
 ## Authors
-Angela Ranola
-Emilio Alvarez
-Lawrence Nguyen
-Lean Miguel
+- Angela Ranola
+- Emilio Alvarez
+- Lawrence Nguyen
+- Lean Miguel
 
 ## Cases/Functions Implemented
-Photos
-Discussions
-User Login/Sign Up 
-Following
-Commenting
-Posting
-Save
-Searching
-User Profile Picture and Biography Updating
-Post Sorting and Filtering
-Notifications
-Photo Downloading
-User Settings
-Log Out
+- Photos
+- Discussions
+- User Login/Sign Up 
+- Following
+- Commenting
+- Posting
+- Save
+- Searching
+- User Profile Picture and Biography Updating
+- Post Sorting and Filtering
+- Notifications
+- Photo Downloading
+- User Settings
+- Log Out
 
 ## 1. Quick Start
 You can start the program by running the .exe file provided on this USB drive. If the .exe does not work, you can load the shuttr solution found in the source code folder into Visual Studio and run it from there.
